@@ -1,0 +1,37 @@
+.linksSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  grid-gap: 10rem;
+  padding: 5rem 0;
+}
+
+.linksArticle {
+  background-color: rgba($primary-color, 0.7);
+  overflow: hidden;
+  text-align: center;
+  padding: 3rem;
+  position: relative;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: rgba($primary-color, 0.65);
+  }
+
+  &Icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 4rem;
+    transform: rotate(90deg);
+    color: $background;
+  }
+  &Title {
+    margin-bottom: 3rem;
+  }
+  &Description {
+    line-height: 3rem;
+  }
+  &Link {
+    margin: 1rem 0;
+  }
+}

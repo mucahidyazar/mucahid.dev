@@ -1,0 +1,13 @@
+$background: #202020;
+$foreground: #b3b9c5;
+$accent: #303030;
+$dark-border: darken($background, 3%);
+
+.dark {
+  background-color: $accent;
+  color: $foreground;
+
+  .header {
+    background-color: $background;
+  }
+}

@@ -1,0 +1,45 @@
+.articleArticleYearCategory {
+  border-bottom: 1px solid darken($background, 40);
+  padding: 1rem 0;
+}
+
+.articleArticle {
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin: 3rem 0;
+
+  &:hover {
+    cursor: pointer;
+
+    .articleArticleTitle {
+      color: $primary-color;
+    }
+  }
+
+  &Title {
+    transition: all 0.3s;
+  }
+
+  &Bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .articleArticleDate {
+      color: darken($background, 40);
+    }
+
+    .articleArticleButtons {
+      display: flex;
+      align-items: center;
+    }
+
+    .articleArticleButton {
+      padding: 0.5rem 1rem;
+      color: darken($background, 70);
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.homeArticle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20rem 0;
+  padding: 5rem 2rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+
+  .homeArticlePost {
+    width: 70%;
+    padding-left: 5rem;
+    text-align: center;
+
+    p {
+      line-height: 3rem;
+    }
+
+    span {
+      float: right;
+      color: $secondary-color;
+      padding: 2rem 0;
+    }
+  }
+
+  .homeArticleImage {
+    width: 30%;
+    height: 100%;
+  }
+}

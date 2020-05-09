@@ -1,0 +1,33 @@
+.contactSection {
+  padding: 5rem 0;
+}
+
+.contactSectionTitle {
+  text-align: center;
+}
+
+.contactArticle {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem 0;
+  height: 40rem;
+}
+
+.contactArticleLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s;
+  width: 25%;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.contactArticleIcon {
+  font-size: 3rem;
+}

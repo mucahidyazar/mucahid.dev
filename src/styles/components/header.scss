@@ -1,0 +1,216 @@
+.header {
+  background-color: $background;
+  position: relative;
+  padding: 3rem 0;
+
+  .switchToggle {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+  }
+
+  &Menu {
+    width: 27rem;
+    height: 27rem;
+    margin: auto;
+    position: relative;
+    z-index: 5;
+
+    &Item {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+
+      &:hover::after {
+        display: block;
+        width: 10rem;
+        height: 2rem;
+        color: $font-color;
+        font-size: $p2;
+        text-align: center;
+        transform: translateX(-25%);
+      }
+
+      &:not(:last-child):hover {
+        background-color: darken($background, $amount: 18);
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+
+    &Item1 {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+
+      &:hover::after {
+        content: "Home";
+      }
+    }
+
+    &Item2 {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      &:hover::after {
+        content: "About";
+      }
+    }
+
+    &Item3 {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+
+      &:hover::after {
+        content: "Articles";
+      }
+    }
+
+    &Item4 {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      &:hover::after {
+        content: "Portfolio";
+      }
+    }
+
+    &Item5 {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+
+      &:hover::after {
+        content: "Equipments";
+      }
+    }
+
+    &Item6 {
+      position: absolute;
+      top: 90%;
+      left: 10%;
+      transform: translateY(-100%);
+
+      &:hover::after {
+        content: "Links";
+      }
+    }
+
+    &Item7 {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+
+      &:hover::after {
+        content: "Settings";
+      }
+    }
+
+    &Item8 {
+      position: absolute;
+      top: 90%;
+      right: 10%;
+      transform: translateY(-100%);
+
+      &:hover::after {
+        content: "Contact";
+      }
+    }
+
+    &Item9 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 13rem;
+      height: 13rem;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0 0 2rem rgba(0, 0, 0, 1);
+    }
+  }
+
+  //ICONS
+  .brandIcon {
+    position: absolute;
+    width: 10%;
+    opacity: 0.3;
+
+    &:hover {
+      opacity: 0.5;
+      transition: all 0.3s;
+    }
+  }
+
+  .typescriptIcon {
+    top: 10%;
+    left: 5%;
+    transform: rotate(45deg);
+  }
+
+  .cssIcon {
+    top: 15%;
+    left: 25%;
+    transform: rotate(30deg);
+  }
+
+  .htmlIcon {
+    top: 45%;
+    left: 13%;
+    transform: rotate(-45deg);
+  }
+
+  .jsIcon {
+    top: 60%;
+    left: 65%;
+    transform: rotate(-40deg);
+  }
+
+  .nextjsIcon {
+    top: 32%;
+    left: 88%;
+    transform: rotate(45deg);
+  }
+
+  .reactIcon {
+    top: 15%;
+    left: 74%;
+    transform: rotate(45deg);
+  }
+
+  .graphqlIcon {
+    top: 58%;
+    left: 80%;
+    transform: rotate(45deg);
+  }
+
+  .visualStudioCodeIcon {
+    top: 60%;
+    left: 50%;
+  }
+
+  .reduxIcon {
+    top: 60%;
+    left: 30%;
+    transform: rotate(45deg);
+  }
+
+  .nodejsIcon {
+    top: 55%;
+    left: 2%;
+    transform: rotate(75deg);
+  }
+
+  .apolloIcon {
+    top: 10%;
+    left: 58%;
+    transform: rotate(45deg);
+  }
+}

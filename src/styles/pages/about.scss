@@ -1,0 +1,39 @@
+.articleAbout {
+  display: flex;
+  padding: 3rem 0;
+
+  h3 {
+    min-width: 30%;
+  }
+  p {
+    line-height: 3rem;
+  }
+}
+
+.articleAboutTechnologiesBody {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.aboutTechnology {
+  padding: 2rem;
+  text-align: center;
+
+  &:hover {
+    background-color: darken($background, 15);
+  }
+
+  &Image {
+    height: 10rem;
+  }
+  &Language {
+    font-size: $p4;
+  }
+  &Situtation {
+    font-size: $p3;
+    font-weight: bold;
+  }
+  &Experience {
+    font-size: $p3;
+  }
+}
