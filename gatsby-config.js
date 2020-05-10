@@ -11,41 +11,6 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `about`,
-        path: `${__dirname}/contents/images/about`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `articles`,
-        path: `${__dirname}/contents/images/articles`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `contact`,
-        path: `${__dirname}/contents/images/contact`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `equipments`,
-        path: `${__dirname}/contents/images/equipments`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `icons`,
-        path: `${__dirname}/contents/images/icons`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `illustrators`,
         path: `${__dirname}/contents/images/illustrators`,
       },
@@ -53,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `links`,
-        path: `${__dirname}/contents/images/links`,
+        name: `posts`,
+        path: `${__dirname}/contents/posts`,
       },
     },
     {
@@ -62,34 +27,6 @@ module.exports = {
       options: {
         name: `myown`,
         path: `${__dirname}/contents/images/myown`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `portfolio`,
-        path: `${__dirname}/contents/images/portfolio`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `quotes`,
-        path: `${__dirname}/contents/images/quotes`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `random`,
-        path: `${__dirname}/contents/images/random`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/contents/posts`,
       },
     },
     `gatsby-transformer-sharp`,
