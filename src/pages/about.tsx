@@ -83,7 +83,12 @@ const AboutPage = (props: PageProps) => (
           {technologies.map((technology, index) => {
             const Logo = technology.image
             return (
-              <a className="aboutTechnology" href="/" key={index}>
+              <a
+                className="aboutTechnology"
+                href="/"
+                key={index}
+                target="_blank"
+              >
                 <Logo
                   className="aboutTechnologyImage"
                   style={{ width: "100%" }}

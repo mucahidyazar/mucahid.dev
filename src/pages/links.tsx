@@ -22,6 +22,7 @@ const SecondPage = (props: PageProps) => (
               style={{ display: "block" }}
               key={linkIndex}
               href={link}
+              target="_blank"
             >
               {link}
             </a>

@@ -45,6 +45,7 @@ const SecondPage = (props: PageProps) => {
                   <a
                     href={node.frontmatter.link}
                     className="articleArticleButton"
+                    target="_blank"
                   >
                     <FaMedium /> <span>Read on Medium</span>
                   </a>

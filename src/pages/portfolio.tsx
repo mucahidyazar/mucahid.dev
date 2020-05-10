@@ -41,7 +41,12 @@ const SecondPage = (props: PageProps) => {
       <SEO title="Page two" />
       <section className="portfolioSection">
         {data.projects.nodes.map((node, index) => (
-          <a key={index} className="portfolioLink" href={node.link}>
+          <a
+            key={index}
+            className="portfolioLink"
+            href={node.link}
+            target="_blank"
+          >
             <Img style={{ height: "30vh" }} fluid={node.image.fluid} />
             <div className="portfolioBottom">
               <h2 className="portfolioTitle">{node.name}</h2>

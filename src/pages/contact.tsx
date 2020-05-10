@@ -18,7 +18,12 @@ const SecondPage = (props: PageProps) => (
         {Social.map((soc, index) => {
           const Icon = soc.icon
           return (
-            <a key={index} className="contactArticleLink" href={soc.link}>
+            <a
+              key={index}
+              className="contactArticleLink"
+              href={soc.link}
+              target="_blank"
+            >
               <Icon className="contactArticleIcon" />
               <p>{soc.name}</p>
             </a>
