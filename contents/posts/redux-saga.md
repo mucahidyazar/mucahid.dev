@@ -2,7 +2,7 @@
 title: "Making async reasonable with redux saga"
 date: "2019-04-04"
 layout: post
-link: ""
+link: "https://medium.com"
 draft: false
 tags:
   - JavaScript

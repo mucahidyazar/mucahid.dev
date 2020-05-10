@@ -3,6 +3,7 @@ $foreground: #b3b9c5;
 $accent: #303030;
 $dark-border: darken($background, 3%);
 $primary-color: #5183f5;
+$yellow: #fed356;
 
 .dark {
   background-color: $background;
@@ -36,6 +37,18 @@ $primary-color: #5183f5;
   .aboutTechnology {
     &:hover {
       background-color: lighten($background, 10);
+    }
+  }
+  .articleAboutExperiences {
+    .aboutExperience {
+      &Company {
+        color: $primary-color;
+      }
+      &Timer {
+        &Span {
+          color: $yellow;
+        }
+      }
     }
   }
 

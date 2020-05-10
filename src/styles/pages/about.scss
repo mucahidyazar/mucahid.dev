@@ -10,7 +10,7 @@
   }
 }
 
-@include small-breakpoint {
+@include medium-breakpoint {
   .articleAbout {
     flex-direction: column;
     margin-bottom: 3rem;
@@ -21,6 +21,48 @@
     }
     p {
       line-height: 3rem;
+    }
+  }
+}
+
+.articleAboutExperiences {
+  .aboutExperience {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &ImageContainer {
+      width: 30%;
+
+      .aboutExperienceImage {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &Body {
+      width: 70%;
+      padding: 2rem;
+    }
+
+    &Position {
+      font-size: $h3;
+    }
+    &Company {
+      color: $secondary-color;
+    }
+    &Experience {
+      font-size: $p3;
+    }
+    &Description {
+      font-size: $p3;
+    }
+    &Timer {
+      font-size: $p2;
+      text-align: right;
+      color: darken($background, 50);
+      &Span {
+        color: $primary-color;
+      }
     }
   }
 }
