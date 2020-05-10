@@ -1,6 +1,6 @@
 .articleAbout {
   display: flex;
-  padding: 5rem 0;
+  margin-bottom: 5rem;
 
   h3 {
     min-width: 30%;
@@ -10,9 +10,24 @@
   }
 }
 
+@include small-breakpoint {
+  .articleAbout {
+    flex-direction: column;
+    margin-bottom: 3rem;
+
+    h3 {
+      text-align: center;
+      padding: 1rem 0;
+    }
+    p {
+      line-height: 3rem;
+    }
+  }
+}
+
 .articleAboutTechnologiesBody {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
 }
 
 .aboutTechnology {

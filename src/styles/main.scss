@@ -4,6 +4,7 @@
 
 // Configuration
 @import "base/variables";
+@import "base/mixins";
 
 // Typography
 @import "base/typography.scss";
@@ -15,6 +16,7 @@
 @import "pages/about.scss";
 @import "pages/articles.scss";
 @import "pages/contact.scss";
+@import "pages/equipments.scss";
 @import "pages/home.scss";
 @import "pages/links.scss";
 @import "pages/portfolio.scss";

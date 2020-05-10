@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(true)
 
   return (
     <div className={`container ${darkMode ? "dark" : ""}`}>

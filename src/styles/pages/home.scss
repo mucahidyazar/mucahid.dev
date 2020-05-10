@@ -7,24 +7,40 @@
   padding: 5rem 2rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
 
+  .homeArticleImage {
+    width: 30%;
+    height: 100%;
+  }
+
   .homeArticlePost {
     width: 70%;
-    padding-left: 5rem;
+    padding: 0 5rem;
     text-align: center;
 
     p {
       line-height: 3rem;
+      margin-bottom: 2rem;
     }
 
     span {
-      float: right;
       color: $secondary-color;
-      padding: 2rem 0;
     }
   }
+}
 
-  .homeArticleImage {
-    width: 30%;
-    height: 100%;
+@include medium-breakpoint {
+  .homeArticle {
+    flex-direction: column;
+    padding: 2rem;
+
+    .homeArticleImage {
+      width: 40%;
+      margin: 3rem 0;
+    }
+
+    .homeArticlePost {
+      width: 90%;
+      padding: 0;
+    }
   }
 }

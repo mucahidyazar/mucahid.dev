@@ -10,8 +10,6 @@ import EquipmentCategory from "../components/EquipmentCategory"
 const SecondPage = (props: PageProps) => {
   const data = useStaticQuery(GET_EQUIPMENTS)
 
-  console.log(data)
-
   return (
     <Layout>
       <SEO title="Page two" />

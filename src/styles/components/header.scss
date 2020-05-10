@@ -3,7 +3,7 @@
   position: relative;
   padding: 3rem 0;
 
-  .headerMode {
+  &Mode {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,12 +25,6 @@
         transform: scale(1.2);
       }
     }
-  }
-
-  .switchToggle {
-    position: absolute;
-    top: 10%;
-    right: 5%;
   }
 
   &Menu {
@@ -200,6 +194,12 @@
         cursor: pointer;
         transform: scale(1.2);
       }
+    }
+  }
+
+  @include small-breakpoint {
+    .networkSvg {
+      flex-direction: column;
     }
   }
 

@@ -28,3 +28,21 @@
   width: 3rem;
   height: 3rem;
 }
+
+@include large-breakpoint {
+  .contactArticleLink {
+    width: 50%;
+  }
+}
+
+@include medium-breakpoint {
+  .contactArticleLink {
+    width: 50%;
+  }
+}
+
+@include small-breakpoint {
+  .contactArticleLink {
+    width: 100%;
+  }
+}

@@ -64,20 +64,20 @@
     margin: auto;
     list-style: none;
 
-    &:first-child {
-      border-top-left-radius: 0.5rem;
-      border-bottom-left-radius: 0.5rem;
-    }
-    &:last-child {
-      border-top-right-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
-    }
-
     &Item {
       padding: 0.6rem 2rem;
       background-color: darken($background, 19);
       font-size: 2.4rem;
       transition: all 0.2s;
+
+      &:first-child {
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+      &:last-child {
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
 
       &:hover {
         transform: scale(1.2);

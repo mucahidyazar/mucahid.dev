@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import Switch from "react-switch"
+import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import {
   FcIdea,
   FcNoIdea,
@@ -42,16 +42,23 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
 
   return (
     <header className="header">
-      <div
-        className="headerMode"
-        onClick={() => setDarkMode(prevState => !prevState)}
-      >
-        {darkMode ? (
-          <FcIdea className="headerModeIcon" />
-        ) : (
-          <FcNoIdea className="headerModeIcon" />
+      <ThemeToggler>
+        {({ theme, toggleTheme }) => (
+          <div
+            className="headerMode"
+            onClick={() => {
+              setDarkMode(prevState => !prevState)
+              toggleTheme(!darkMode ? "dark" : "light")
+            }}
+          >
+            {darkMode ? (
+              <FcIdea className="headerModeIcon" />
+            ) : (
+              <FcNoIdea className="headerModeIcon" />
+            )}
+          </div>
         )}
-      </div>
+      </ThemeToggler>
       <div className="headerMenu">
         <div className="headerMenuItem headerMenuItem1">
           <Link to="/">
@@ -119,7 +126,7 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
         const Image = tech.image
 
         return (
-          <div className={`brandIcon ${spesificIcon(index)}`}>
+          <div key={index} className={`brandIcon ${spesificIcon(index)}`}>
             <Image style={{ width: "100%", height: "100%" }} />
           </div>
         )
