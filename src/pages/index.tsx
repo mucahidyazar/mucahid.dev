@@ -1,6 +1,17 @@
 import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import {
+  FcGraduationCap,
+  FcSelfServiceKiosk,
+  FcFilmReel,
+  FcLike,
+  FcReddit,
+  FcHeadset,
+  FcFlashOn,
+  FcSteam,
+  FcKindle,
+} from "react-icons/fc"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
@@ -51,7 +62,56 @@ const IndexPage = () => {
           </div>
         </article>
 
+        <article className="homeArticle">
+          <div className="homeArticlePost">
+            <p>
+              <FcGraduationCap /> <span>Maltepe University</span>
+            </p>
+            <p>
+              <FcSelfServiceKiosk />
+              <span>Works full time as a frontend developer</span>
+            </p>
+            <p>
+              <FcFilmReel /> <span>Addicted of sci-fi movies/series</span>
+            </p>
+            <p>
+              <FcLike /> <span>Fan of the Lord of the Rings and Star Wars</span>
+            </p>
+            <p>
+              <FcReddit /> <span>Follower of the reddit and stackoverflow</span>
+            </p>
+            <p>
+              <span>
+                <FcHeadset /> AC
+                <FcFlashOn />
+                DC
+              </span>
+            </p>
+            <p></p>
+            <p>
+              <FcSteam />
+              <span>Hardcore Gamer</span>
+            </p>
+            <p>
+              <FcKindle />
+              <span>Lover of the fantastic novels</span>
+            </p>
+          </div>
+          <Img
+            className="homeArticleImage"
+            fluid={
+              illustratorsData.placeholderImage.nodes[8].childImageSharp.fluid
+            }
+          />
+        </article>
+
         <article className="homeArticle homeArticle1">
+          <Img
+            className="homeArticleImage"
+            fluid={
+              illustratorsData.placeholderImage.nodes[16].childImageSharp.fluid
+            }
+          />
           <div className="homeArticlePost">
             <p>
               This is my first Blog. This design is my own design. Of course I
@@ -69,12 +129,6 @@ const IndexPage = () => {
             </p>
             <span>10.05.2020</span>
           </div>
-          <Img
-            className="homeArticleImage"
-            fluid={
-              illustratorsData.placeholderImage.nodes[16].childImageSharp.fluid
-            }
-          />
         </article>
       </section>
     </Layout>

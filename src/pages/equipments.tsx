@@ -16,13 +16,13 @@ const SecondPage = (props: PageProps) => {
       <section>
         <h4 className="equipmentsHeader">EQUIPMENTS</h4>
         <p className="equipmentsDescription">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt
-          deleniti, quae iste dolore, ut debitis voluptate voluptatum commodi
-          velit optio nesciunt suscipit quas, soluta repellendus? Voluptates
-          ullam delectus recusandae consectetur asperiores ipsum alias unde
-          magnam aperiam possimus aliquid maiores reiciendis facilis doloribus
-          necessitatibus inventore, voluptatum temporibus et, incidunt numquam?
-          Ullam?
+          I think this section will be the section that you will be interest and
+          look. I exhibit some of the materials of my life. And exactly some of
+          them are my real love. :P I upgrade time to time my hardwares. And If
+          I give you 3 advise about equipments
+          <p>"Buy a good chair"</p>
+          <p>"Buy a good computer"</p>
+          <p>"Work widescreen, its mean buy a good and two monitors"</p>
         </p>
         <EquipmentCategory title="COMPUTER" data={data.computer.nodes} />
         <EquipmentCategory title="DESK" data={data.desk.nodes} />

@@ -5,11 +5,13 @@ import { FcIdea, FcNoIdea } from "react-icons/fc"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
+import Announcement from "../components/Announcement"
 
 const SecondPage = (props: PageProps) => (
   <Layout>
     <SEO title="Page two" />
     <section className="settingsSection">
+      <Announcement />
       <h2 className="settingsSectionHeader">Settings</h2>
       <article className="settingsArticle">
         <div className="darkMode">

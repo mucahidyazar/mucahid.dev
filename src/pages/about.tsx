@@ -1,17 +1,6 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
 import { PageProps } from "gatsby"
-import {
-  FcGraduationCap,
-  FcSelfServiceKiosk,
-  FcFilmReel,
-  FcLike,
-  FcReddit,
-  FcHeadset,
-  FcFlashOn,
-  FcSteam,
-  FcKindle,
-} from "react-icons/fc"
 import moment from "moment"
 
 import Layout from "../components/Layout"
@@ -28,18 +17,14 @@ const AboutPage = (props: PageProps) => (
         <div className="articleAboutBody">
           <p>
             I am Mucahid from Turkey. I'm a programmer and I specialize in
-            front-end development. I live in Istanbul and I am 28 years old. I
-            want to talk about some myself. I studied Work and Health Safety and
-            graduated from Maltepe University. And I began coding 1.5 years ago
-            when I was on the half of the second year on my university. I have
-            been studying all day new technologies, libraries and frameworks
-            almost for 1.5 year. I am aware of my age and the situation that I
-            began coding too late. But I know those are not obstacles for me and
-            therefore I have been trying to study harder more. In the
-            circumstances I got my first job about 3 months ago. Now I work for
-            GRANOBRA as Frontend Developer.
+            front-end development. I began coding 2 years ago. I have been
+            improving myself for 2 years as Full Stack Developer. I work all of
+            the technologies that are on the Technologies section. And I used
+            most of them on this Blog page. If I say 3 senteces for you about
+            myself, those would be, "I like Javascript and his magic tricks.",
+            "And React is my most powerful weapon." "I still need to learn lots
+            of things so I should stop here and go to study to improve myself."
           </p>
-          <span>08.05.2020</span>
         </div>
       </article>
 
@@ -114,42 +99,6 @@ const AboutPage = (props: PageProps) => (
               </a>
             )
           })}
-        </div>
-      </article>
-
-      <article className="articleAbout">
-        <h3>Mucahid</h3>
-        <div className="articleAboutIcons">
-          <p>
-            <FcGraduationCap /> <span>Maltepe University</span>
-          </p>
-          <p>
-            <FcSelfServiceKiosk />
-            <span>Works full time as a frontend developer</span>
-          </p>
-          <p>
-            <FcFilmReel /> <span>Addicted of sci-fi movies/series</span>
-          </p>
-          <p>
-            <FcLike /> <span>Fan of the Lord of the Rings and Star Wars</span>
-          </p>
-          <p>
-            <FcReddit /> <span>Follower of the reddit and stackoverflow</span>
-          </p>
-          <p>
-            <FcHeadset /> AC
-            <FcFlashOn />
-            DC
-          </p>
-          <p></p>
-          <p>
-            <FcSteam />
-            <span>Hardcore Gamer</span>
-          </p>
-          <p>
-            <FcKindle />
-            <span>Lover of the fantastic novels</span>
-          </p>
         </div>
       </article>
     </section>

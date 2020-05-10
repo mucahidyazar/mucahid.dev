@@ -92,4 +92,13 @@ $yellow: #fed356;
   .portfolioLink {
     border: 1px solid $foreground;
   }
+
+  //ANNOUNCMENT
+  .announcement {
+    &Button {
+      span {
+        color: lighten($background, 30);
+      }
+    }
+  }
 }
