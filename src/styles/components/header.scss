@@ -3,6 +3,30 @@
   position: relative;
   padding: 3rem 0;
 
+  .headerMode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem;
+    background-color: darken($background, 20);
+    border-radius: 0.5rem;
+
+    &Icon {
+      font-size: 3rem;
+      transition: all 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+    }
+  }
+
   .switchToggle {
     position: absolute;
     top: 10%;
@@ -135,6 +159,11 @@
       overflow: hidden;
       border-radius: 50%;
       box-shadow: 0 0 2rem rgba(0, 0, 0, 1);
+
+      &:hover {
+        width: 15rem;
+        height: 15rem;
+      }
     }
   }
 
@@ -144,7 +173,6 @@
     position: absolute;
     top: 2rem;
     left: 2rem;
-    padding: 0.5rem;
     background-color: darken($background, 20);
     border-radius: 0.5rem;
     transition: all 0.3s;
@@ -157,9 +185,9 @@
     }
 
     &IconContainer {
-      width: 4rem;
-      height: 4rem;
-      padding: 0.5rem;
+      width: 5rem;
+      height: 5rem;
+      padding: 1rem;
       z-index: 1;
     }
 

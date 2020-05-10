@@ -3,6 +3,8 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Switch from "react-switch"
 import {
+  FcIdea,
+  FcNoIdea,
   FcHome,
   FcAbout,
   FcReading,
@@ -40,11 +42,15 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
 
   return (
     <header className="header">
-      <div className="switchToggle">
-        <Switch
-          onChange={() => setDarkMode(prevState => !prevState)}
-          checked={darkMode}
-        />
+      <div
+        className="headerMode"
+        onClick={() => setDarkMode(prevState => !prevState)}
+      >
+        {darkMode ? (
+          <FcIdea className="headerModeIcon" />
+        ) : (
+          <FcNoIdea className="headerModeIcon" />
+        )}
       </div>
       <div className="headerMenu">
         <div className="headerMenuItem headerMenuItem1">
