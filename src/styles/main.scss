@@ -20,9 +20,12 @@
 @import "pages/portfolio.scss";
 
 // Components
+@import "components/buttons.scss"; //MainComponent
 @import "components/equipmentCategory.scss";
+@import "components/footer.scss";
 @import "components/header.scss";
 @import "components/layout.scss";
+//@import "components/new-moon.scss";
 // @import 'components/scaffolding';
 // @import 'components/helpers';
 // @import 'components/buttons';
@@ -31,6 +34,9 @@
 // @import 'components/navigation';
 // @import 'components/layout';
 // @import 'components/new-moon';
+
+//Templates
+@import "templates/article-template.scss";
 
 // Themes
 @import "themes/dark";

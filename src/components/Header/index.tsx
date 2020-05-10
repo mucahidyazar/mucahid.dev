@@ -12,6 +12,9 @@ import {
   FcSettings,
   FcCustomerSupport,
 } from "react-icons/fc"
+import { Social } from "../../../contents/data/social"
+import NetworkSvg from "../../../contents/svg/random/network.svg"
+import { technologies } from "../../../contents/data/technologies"
 
 // Home - About - Blogs/Articles - Portfolios/Projects - Alintilar - Linkler - Workstation - Contact
 //Olabilir => Gallery - SikSorulanSorular
@@ -25,17 +28,6 @@ interface HeaderProps {
 const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
   const iconData = useStaticQuery(graphql`
     query {
-      placeholderImage: allFile(
-        filter: { sourceInstanceName: { eq: "icons" } }
-      ) {
-        nodes {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
       file(name: { eq: "profile" }) {
         childImageSharp {
           fluid {
@@ -99,43 +91,70 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
           <Img fluid={iconData.file.childImageSharp.fluid} />
         </div>
       </div>
-      <div className="brandIcon typescriptIcon">
-        <Img fluid={iconData.placeholderImage.nodes[0].childImageSharp.fluid} />
+      <div className="networkSvg">
+        <div className="networkSvgIconContainer">
+          <NetworkSvg className="networkSvgIcon" />
+        </div>
+        {Social.map((soc, index) => {
+          const Icon = soc.icon
+          return (
+            <a
+              href={soc.link}
+              target="_blank"
+              key={index}
+              className="networkSvgIconContainer"
+            >
+              <Icon className="networkSvgIcon" />
+            </a>
+          )
+        })}
       </div>
-      <div className="brandIcon cssIcon">
-        <Img fluid={iconData.placeholderImage.nodes[1].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon htmlIcon">
-        <Img fluid={iconData.placeholderImage.nodes[2].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon jsIcon">
-        <Img fluid={iconData.placeholderImage.nodes[3].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon nextjsIcon">
-        <Img fluid={iconData.placeholderImage.nodes[4].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon reactIcon">
-        <Img fluid={iconData.placeholderImage.nodes[5].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon graphqlIcon">
-        <Img fluid={iconData.placeholderImage.nodes[6].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon visualStudioCodeIcon">
-        <Img fluid={iconData.placeholderImage.nodes[7].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon reduxIcon">
-        <Img fluid={iconData.placeholderImage.nodes[8].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon nodejsIcon">
-        <Img fluid={iconData.placeholderImage.nodes[9].childImageSharp.fluid} />
-      </div>
-      <div className="brandIcon apolloIcon">
-        <Img
-          fluid={iconData.placeholderImage.nodes[10].childImageSharp.fluid}
-        />
-      </div>
+      {technologies.map((tech, index) => {
+        const Image = tech.image
+
+        return (
+          <div className={`brandIcon ${spesificIcon(index)}`}>
+            <Image style={{ width: "100%", height: "100%" }} />
+          </div>
+        )
+      })}
     </header>
   )
+}
+
+const spesificIcon = value => {
+  switch (value) {
+    case 0:
+      return "apolloIcon"
+    case 1:
+      return "cssIcon"
+    case 2:
+      return "gatsbyjsIcon"
+    case 3:
+      return "graphqlIcon"
+    case 4:
+      return "htmlIcon"
+    case 5:
+      return "jsIcon"
+    case 6:
+      return "nextjsIcon"
+    case 7:
+      return "nodejsIcon"
+    case 8:
+      return "reactIcon"
+    case 9:
+      return "reduxIcon"
+    case 10:
+      return "sassIcon"
+    case 11:
+      return "typescriptIcon"
+    case 12:
+      return "visualStudioCodeIcon"
+    case 13:
+      return "visualStudioCodeIcon"
+    default:
+      return 0
+  }
 }
 
 export default Header

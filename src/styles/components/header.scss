@@ -20,6 +20,7 @@
       width: 4rem;
       height: 4rem;
       border-radius: 50%;
+      transition: all 0.2s;
 
       &:hover::after {
         display: block;
@@ -137,10 +138,48 @@
     }
   }
 
+  .networkSvg {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    padding: 0.5rem;
+    background-color: darken($background, 20);
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+
+    & .networkSvgIconContainer:not(:first-child) {
+      display: none;
+    }
+    &:hover .networkSvgIconContainer:not(:first-child) {
+      display: block;
+    }
+
+    &IconContainer {
+      width: 4rem;
+      height: 4rem;
+      padding: 0.5rem;
+      z-index: 1;
+    }
+
+    &Icon {
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+    }
+  }
+
   //ICONS
   .brandIcon {
     position: absolute;
-    width: 10%;
+    width: 10rem;
+    height: 10rem;
     opacity: 0.3;
 
     &:hover {
@@ -149,9 +188,9 @@
     }
   }
 
-  .typescriptIcon {
+  .apolloIcon {
     top: 10%;
-    left: 5%;
+    left: 58%;
     transform: rotate(45deg);
   }
 
@@ -159,6 +198,18 @@
     top: 15%;
     left: 25%;
     transform: rotate(30deg);
+  }
+
+  .gatsbyjsIcon {
+    top: 7%;
+    left: 35%;
+    transform: rotate(30deg);
+  }
+
+  .graphqlIcon {
+    top: 58%;
+    left: 80%;
+    transform: rotate(45deg);
   }
 
   .htmlIcon {
@@ -179,21 +230,16 @@
     transform: rotate(45deg);
   }
 
+  .nodejsIcon {
+    top: 55%;
+    left: 2%;
+    transform: rotate(75deg);
+  }
+
   .reactIcon {
     top: 15%;
     left: 74%;
     transform: rotate(45deg);
-  }
-
-  .graphqlIcon {
-    top: 58%;
-    left: 80%;
-    transform: rotate(45deg);
-  }
-
-  .visualStudioCodeIcon {
-    top: 60%;
-    left: 50%;
   }
 
   .reduxIcon {
@@ -202,15 +248,20 @@
     transform: rotate(45deg);
   }
 
-  .nodejsIcon {
-    top: 55%;
-    left: 2%;
-    transform: rotate(75deg);
+  .sassIcon {
+    top: 25%;
+    left: 65%;
+    transform: rotate(90deg);
   }
 
-  .apolloIcon {
+  .typescriptIcon {
     top: 10%;
-    left: 58%;
+    left: 5%;
     transform: rotate(45deg);
+  }
+
+  .visualStudioCodeIcon {
+    top: 60%;
+    left: 50%;
   }
 }

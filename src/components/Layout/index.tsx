@@ -19,13 +19,13 @@ const Layout = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false)
 
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <div className={`container ${darkMode ? "dark" : ""}`}>
       <Header
         siteTitle={data.site.siteMetadata.title}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
-      <main className="layout">{children}</main>
+      <main className="content">{children}</main>
       <Footer />
     </div>
   )

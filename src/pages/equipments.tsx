@@ -16,12 +16,8 @@ const SecondPage = (props: PageProps) => {
     <Layout>
       <SEO title="Page two" />
       <section>
-        <h4
-          style={{ textAlign: "center", padding: "2rem 0", marginTop: "5rem" }}
-        >
-          EQUIPMENTS
-        </h4>
-        <p style={{ lineHeight: 2, padding: "0 15rem", textAlign: "center" }}>
+        <h4 className="equipmentsHeader">EQUIPMENTS</h4>
+        <p className="equipmentsDescription">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt
           deleniti, quae iste dolore, ut debitis voluptate voluptatum commodi
           velit optio nesciunt suscipit quas, soluta repellendus? Voluptates

@@ -1,17 +1,25 @@
 //SVG FILES
-import Css3Svg from "../../contents/svg/css3.svg"
-import GatsbyJSSvg from "../../contents/svg/gatsby.svg"
-import GraphQLSvg from "../../contents/svg/graphql.svg"
-import HTML5Svg from "../../contents/svg/html5.svg"
-import JavascriptSvg from "../../contents/svg/javascript.svg"
-import NextJsSvg from "../../contents/svg/nextjs.svg"
-import NodeJsSvg from "../../contents/svg/nodejs.svg"
-import ReactSvg from "../../contents/svg/reactjs.svg"
-import SassSvg from "../../contents/svg/sass.svg"
-import TypescriptSvg from "../../contents/svg/typescript.svg"
-import VsCodeSvg from "../../contents/svg/vscode.svg"
+import ApolloSvg from "../../contents/svg/languages/apollo.svg"
+import Css3Svg from "../../contents/svg/languages/css3.svg"
+import GatsbyJSSvg from "../../contents/svg/languages/gatsby.svg"
+import GraphQLSvg from "../../contents/svg/languages/graphql.svg"
+import HTML5Svg from "../../contents/svg/languages/html5.svg"
+import JavascriptSvg from "../../contents/svg/languages/javascript.svg"
+import NextJsSvg from "../../contents/svg/languages/nextjs.svg"
+import NodeJsSvg from "../../contents/svg/languages/nodejs.svg"
+import ReactSvg from "../../contents/svg/languages/reactjs.svg"
+import ReduxSvg from "../../contents/svg/languages/redux.svg"
+import SassSvg from "../../contents/svg/languages/sass.svg"
+import TypescriptSvg from "../../contents/svg/languages/typescript.svg"
+import VsCodeSvg from "../../contents/svg/languages/vscode.svg"
 
 export const technologies = [
+  {
+    language: "Apollo",
+    situtation: "Experienced",
+    experience: 1,
+    image: ApolloSvg,
+  },
   {
     language: "CSS3",
     situtation: "Experienced",
@@ -59,6 +67,12 @@ export const technologies = [
     situtation: "Experienced",
     experience: 1,
     image: ReactSvg,
+  },
+  {
+    language: "Redux",
+    situtation: "Experienced",
+    experience: 1,
+    image: ReduxSvg,
   },
   {
     language: "Sass",
