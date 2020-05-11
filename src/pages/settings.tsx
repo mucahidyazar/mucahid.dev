@@ -1,6 +1,6 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
-import { PageProps, Link } from "gatsby"
+import { PageProps } from "gatsby"
 import { FcIdea, FcNoIdea } from "react-icons/fc"
 
 import Layout from "../components/Layout"

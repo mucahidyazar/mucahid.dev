@@ -1,4 +1,10 @@
-export const notes = [
+interface noteInterface {
+  title: string
+  description: string
+  links: string[]
+}
+
+export const notes: noteInterface[] = [
   {
     title: "The Blogs that I follow",
     description:

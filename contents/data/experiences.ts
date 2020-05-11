@@ -2,7 +2,18 @@
 import GranobraSvg from "../../contents/svg/experiences/granobra.svg"
 import BiletsepetiSvg from "../../contents/svg/experiences/biletspeti.svg"
 
-export const experiences = [
+interface experienceInterface {
+  company: string
+  description: string
+  position: string
+  situtation: string
+  from: string
+  to: string
+  website: string
+  image: SVGElement
+}
+
+export const experiences: experienceInterface[] = [
   {
     company: "GRANOBRA",
     description:

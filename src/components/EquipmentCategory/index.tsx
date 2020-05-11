@@ -1,6 +1,20 @@
 import React, { useState } from "react"
 
-const EquipmentCategory = ({ title, data }) => {
+interface EquipmentCategoryProps {
+  title: string
+  data: {
+    link: string
+    image: {
+      fluid: {
+        src: string
+      }
+    }
+    name: string
+    type: string
+  }[]
+}
+
+const EquipmentCategory = ({ title, data }: EquipmentCategoryProps) => {
   const [active, setActive] = useState(true)
 
   return (

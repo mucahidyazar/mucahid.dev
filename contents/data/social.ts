@@ -8,7 +8,13 @@ import SteamSvg from "../../contents/svg/social/steam.svg"
 import TwitterSvg from "../../contents/svg/social/twitter.svg"
 import YoutubeSvg from "../../contents/svg/social/youtube.svg"
 
-export const Social = [
+interface socialInterface {
+  name: string
+  link: string
+  icon: SVGElement
+}
+
+export const Social: socialInterface[] = [
   {
     name: "Dev.to",
     link: "https://dev.to/mucahidyazar",

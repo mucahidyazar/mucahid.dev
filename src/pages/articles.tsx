@@ -7,8 +7,25 @@ import { FcLike } from "react-icons/fc"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 
+interface dataInterface {
+  allMarkdownRemark: {
+    nodes: {
+      html: HTMLElement
+      fields: {
+        slug: string
+      }
+      excerpt: string
+      frontmatter: {
+        title: string
+        date(formatString: "MMMM Do YYYY"): Date
+        link: string
+      }
+    }
+  }
+}
+
 const SecondPage = (props: PageProps) => {
-  const data = useStaticQuery(graphql`
+  const data: dataInterface = useStaticQuery(graphql`
     {
       allMarkdownRemark {
         nodes {

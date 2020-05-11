@@ -1,12 +1,20 @@
-import React, { useState } from "react"
+import React, { useState, ReactComponentElement } from "react"
 import "../../styles/main.scss"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "../Header"
 import Footer from "../Footer"
 import "../../styles/themes/dark.scss"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+type siteType = {
+  site: {
+    siteMetadata: {
+      title: string
+    }
+  }
+}
+
+const Layout = ({ children }: HTMLElement) => {
+  const data: siteType = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {

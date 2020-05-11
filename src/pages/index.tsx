@@ -1,6 +1,6 @@
 import React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby"
+import Img, { GatsbyImageProps } from "gatsby-image"
 import {
   FcGraduationCap,
   FcSelfServiceKiosk,
@@ -16,17 +16,39 @@ import {
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 
+type imageType = {
+  imageOne: {
+    childImageSharp: GatsbyImageProps
+  }
+  imageTwo: {
+    childImageSharp: GatsbyImageProps
+  }
+  imageThree: {
+    childImageSharp: GatsbyImageProps
+  }
+}
+
 const IndexPage = () => {
-  const illustratorsData = useStaticQuery(graphql`
+  const data: imageType = useStaticQuery(graphql`
     query {
-      placeholderImage: allFile(
-        filter: { sourceInstanceName: { eq: "illustrators" } }
-      ) {
-        nodes {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+      imageOne: file(name: { eq: "astronaut11" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      imageTwo: file(name: { eq: "astronaut18" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      imageThree: file(name: { eq: "astronaut19" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -40,9 +62,7 @@ const IndexPage = () => {
         <article className="homeArticle homeArticle1">
           <Img
             className="homeArticleImage"
-            fluid={
-              illustratorsData.placeholderImage.nodes[9].childImageSharp.fluid
-            }
+            fluid={data.imageOne.childImageSharp.fluid}
           />
           <div className="homeArticlePost">
             <p>
@@ -99,18 +119,14 @@ const IndexPage = () => {
           </div>
           <Img
             className="homeArticleImage"
-            fluid={
-              illustratorsData.placeholderImage.nodes[8].childImageSharp.fluid
-            }
+            fluid={data.imageTwo.childImageSharp.fluid}
           />
         </article>
 
         <article className="homeArticle homeArticle1">
           <Img
             className="homeArticleImage"
-            fluid={
-              illustratorsData.placeholderImage.nodes[16].childImageSharp.fluid
-            }
+            fluid={data.imageThree.childImageSharp.fluid}
           />
           <div className="homeArticlePost">
             <p>

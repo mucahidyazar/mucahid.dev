@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import Img, { GatsbyImageProps } from "gatsby-image"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import {
   FcIdea,
@@ -27,8 +27,12 @@ interface HeaderProps {
   setDarkMode: any
 }
 
+type profilePhotoType = {
+  file: { childImageSharp: GatsbyImageProps }
+}
+
 const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
-  const iconData = useStaticQuery(graphql`
+  const iconData: profilePhotoType = useStaticQuery(graphql`
     query {
       file(name: { eq: "profile" }) {
         childImageSharp {
@@ -40,6 +44,15 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
     }
   `)
 
+  useEffect(() => {
+    const darkModeValue = localStorage.getItem("theme")
+    if (darkModeValue === "dark") {
+      setDarkMode(true)
+    } else {
+      setDarkMode(false)
+    }
+  }, [])
+
   return (
     <header className="header">
       <ThemeToggler>
@@ -48,7 +61,8 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
             className="headerMode"
             onClick={() => {
               setDarkMode(prevState => !prevState)
-              toggleTheme(!darkMode ? "dark" : "light")
+              console.log(darkMode)
+              toggleTheme(darkMode ? "light" : "dark")
             }}
           >
             {darkMode ? (

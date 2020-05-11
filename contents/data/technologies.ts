@@ -13,7 +13,14 @@ import SassSvg from "../../contents/svg/languages/sass.svg"
 import TypescriptSvg from "../../contents/svg/languages/typescript.svg"
 import VsCodeSvg from "../../contents/svg/languages/vscode.svg"
 
-export const technologies = [
+interface technologyInterface {
+  language: string
+  situtation: string
+  experience: number
+  image: SVGElement
+}
+
+export const technologies: technologyInterface[] = [
   {
     language: "Apollo",
     situtation: "Experienced",

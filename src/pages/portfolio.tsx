@@ -1,13 +1,45 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
-import { PageProps, Link, graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { PageProps, graphql, useStaticQuery } from "gatsby"
+import Img, { GatsbyImageProps } from "gatsby-image"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 
+const GET_PHOTO = graphql`
+  {
+    projects: allContentfulProjects {
+      nodes {
+        name
+        description
+        link
+        technologies
+        image {
+          fluid {
+            ...GatsbyContentfulFluid
+          }
+        }
+      }
+    }
+  }
+`
+
+type photoTypes = {
+  projects: {
+    nodes: {
+      name: string
+      description: string
+      link: string
+      technologies: string[]
+      image: {
+        fluid: GatsbyImageProps
+      }
+    }
+  }
+}
+
 const SecondPage = (props: PageProps) => {
-  const data = useStaticQuery(GET_PHOTO)
+  const data: photoTypes = useStaticQuery(GET_PHOTO)
 
   const technologyClassHandler = value => {
     switch (value) {
@@ -73,23 +105,5 @@ const SecondPage = (props: PageProps) => {
     </Layout>
   )
 }
-
-const GET_PHOTO = graphql`
-  {
-    projects: allContentfulProjects {
-      nodes {
-        name
-        description
-        link
-        technologies
-        image {
-          fluid {
-            ...GatsbyContentfulFluid
-          }
-        }
-      }
-    }
-  }
-`
 
 export default SecondPage

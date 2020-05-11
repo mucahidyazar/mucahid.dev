@@ -1,7 +1,6 @@
 // Gatsby supports TypeScript natively!
 import React from "react"
-import { PageProps, Link, graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { PageProps, graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
