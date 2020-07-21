@@ -1,3 +1,4 @@
+import CodepenSvg from "../../contents/svg/social/codepen.svg"
 import DevToSvg from "../../contents/svg/social/devto.svg"
 import GithubSvg from "../../contents/svg/social/github.svg"
 import InstagramSvg from "../../contents/svg/social/instagram.svg"
@@ -19,6 +20,11 @@ export const Social: socialInterface[] = [
     name: "Dev.to",
     link: "https://dev.to/mucahidyazar",
     icon: DevToSvg,
+  },
+  {
+    name: "Codepen",
+    link: "https://codepen.io/mucahidyazar",
+    icon: CodepenSvg,
   },
   {
     name: "Github",
