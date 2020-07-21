@@ -216,17 +216,29 @@ const SecondPage = (props: PageProps) => {
               <p>+</p>
             </label>
             <div className="filterItemBody">
-              <div onClick={() => handlerPlatform("medium")}>
+              <div>
                 <label htmlFor="medium">Medium</label>
-                <input id="medium" type="checkbox" />
+                <input
+                  id="medium"
+                  type="checkbox"
+                  onChange={() => handlerPlatform("medium")}
+                />
               </div>
-              <div onClick={() => handlerPlatform("devto")}>
+              <div>
                 <label htmlFor="devto">Dev.to</label>
-                <input id="devto" type="checkbox" />
+                <input
+                  id="devto"
+                  type="checkbox"
+                  onChange={() => handlerPlatform("devto")}
+                />
               </div>
-              <div onClick={() => handlerPlatform("blog")}>
+              <div>
                 <label htmlFor="blog">Blog</label>
-                <input id="blog" type="checkbox" />
+                <input
+                  id="blog"
+                  type="checkbox"
+                  onChange={() => handlerPlatform("blog")}
+                />
               </div>
             </div>
           </div>
@@ -241,53 +253,101 @@ const SecondPage = (props: PageProps) => {
               <p>+</p>
             </label>
             <div className="filterItemBody">
-              <div onClick={() => handlerTags("react")}>
+              <div>
                 <label htmlFor="react">React</label>
-                <input id="react" type="checkbox" />
+                <input
+                  id="react"
+                  type="checkbox"
+                  onChange={() => handlerTags("react")}
+                />
               </div>
-              <div onClick={() => handlerTags("redux")}>
+              <div>
                 <label htmlFor="redux">Redux</label>
-                <input id="redux" type="checkbox" />
+                <input
+                  id="redux"
+                  type="checkbox"
+                  onChange={() => handlerTags("redux")}
+                />
               </div>
-              <div onClick={() => handlerTags("nodejs")}>
+              <div>
                 <label htmlFor="nodejs">NodeJS</label>
-                <input id="nodejs" type="checkbox" />
+                <input
+                  id="nodejs"
+                  type="checkbox"
+                  onChange={() => handlerTags("nodejs")}
+                />
               </div>
-              <div onClick={() => handlerTags("typescript")}>
+              <div>
                 <label htmlFor="typescript">Typescript</label>
-                <input id="typescript" type="checkbox" />
+                <input
+                  id="typescript"
+                  type="checkbox"
+                  onChange={() => handlerTags("typescript")}
+                />
               </div>
-              <div onClick={() => handlerTags("html")}>
+              <div>
                 <label htmlFor="html">Html</label>
-                <input id="html" type="checkbox" />
+                <input
+                  id="html"
+                  type="checkbox"
+                  onChange={() => handlerTags("html")}
+                />
               </div>
-              <div onClick={() => handlerTags("css")}>
+              <div>
                 <label htmlFor="css">Css</label>
-                <input id="css" type="checkbox" />
+                <input
+                  id="css"
+                  type="checkbox"
+                  onChange={() => handlerTags("css")}
+                />
               </div>
-              <div onClick={() => handlerTags("gatsbyjs")}>
+              <div>
                 <label htmlFor="gatsbyjs">Gatsby</label>
-                <input id="gatsbyjs" type="checkbox" />
+                <input
+                  id="gatsbyjs"
+                  type="checkbox"
+                  onChange={() => handlerTags("gatsbyjs")}
+                />
               </div>
-              <div onClick={() => handlerTags("vscode")}>
+              <div>
                 <label htmlFor="vscode">VS Code</label>
-                <input id="vscode" type="checkbox" />
+                <input
+                  id="vscode"
+                  type="checkbox"
+                  onChange={() => handlerTags("vscode")}
+                />
               </div>
-              <div onClick={() => handlerTags("sass")}>
+              <div>
                 <label htmlFor="sass">Sass</label>
-                <input id="sass" type="checkbox" />
+                <input
+                  id="sass"
+                  type="checkbox"
+                  onChange={() => handlerTags("sass")}
+                />
               </div>
-              <div onClick={() => handlerTags("javascript")}>
+              <div>
                 <label htmlFor="javascript">Javascript</label>
-                <input id="javascript" type="checkbox" />
+                <input
+                  id="javascript"
+                  type="checkbox"
+                  onChange={() => handlerTags("javascript")}
+                />
               </div>
-              <div onClick={() => handlerTags("graphql")}>
+              <div>
                 <label htmlFor="graphql">GraphQL</label>
-                <input id="graphql" type="checkbox" />
+                <input
+                  id="graphql"
+                  type="checkbox"
+                  onChange={() => handlerTags("graphql")}
+                />
               </div>
-              <div onClick={() => handlerTags("nextjs")}>
+              <div>
                 <label htmlFor="nextjs">NextJS</label>
-                <input id="nextjs" type="checkbox" />
+                <input
+                  id="nextjs"
+                  type="checkbox"
+                  onChange={() => handlerTags("nextjs")}
+                />
               </div>
             </div>
           </div>
@@ -298,17 +358,29 @@ const SecondPage = (props: PageProps) => {
               <p>+</p>
             </label>
             <div className="filterItemBody">
-              <div onClick={() => handlerYear("2020")}>
+              <div>
                 <label htmlFor="2020Checkbox">2020</label>
-                <input type="checkbox" id="2020Checkbox" />
+                <input
+                  type="checkbox"
+                  id="2020Checkbox"
+                  onChange={() => handlerYear("2020")}
+                />
               </div>
-              <div onClick={() => handlerYear("2019")}>
+              <div>
                 <label htmlFor="2019Checkbox">2019</label>
-                <input type="checkbox" id="2019Checkbox" />
+                <input
+                  type="checkbox"
+                  id="2019Checkbox"
+                  onChange={() => handlerYear("2019")}
+                />
               </div>
-              <div onClick={() => handlerYear("2018")}>
+              <div>
                 <label htmlFor="2018Checkbox">2018</label>
-                <input type="checkbox" id="2018Checkbox" />
+                <input
+                  type="checkbox"
+                  id="2018Checkbox"
+                  onChange={() => handlerYear("2018")}
+                />
               </div>
             </div>
           </div>
