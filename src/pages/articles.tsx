@@ -170,9 +170,9 @@ const SecondPage = (props: PageProps) => {
                         key={index2}
                         style={{
                           backgroundColor: handlerTechColor(tag.toLowerCase()),
-                          color:
-                            handlerTechColor(tag.toLowerCase()) === "#000000" &&
-                            "#fff",
+                          color: "#fff",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
                         }}
                       >
                         {tag}
