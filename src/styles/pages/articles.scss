@@ -1,3 +1,16 @@
+.articles {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &Container {
+    width: 75%;
+  }
+  &Filter {
+    width: 20%;
+  }
+}
+
 .articleArticleYearCategory {
   border-bottom: 1px solid darken($background, 40);
   padding: 1rem 0;
@@ -23,9 +36,23 @@
     transition: all 0.3s;
   }
 
+  &Tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px 0;
+
+    &Item {
+      padding: 3px 15px;
+      font-size: 10px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+  }
+
   &Description {
     font-size: $p3;
-    padding: 1rem;
+    margin: 10px;
   }
 
   &Bottom {
@@ -69,5 +96,47 @@
         font-size: 3rem;
       }
     }
+  }
+}
+
+.filterItem {
+  margin-bottom: 20px;
+
+  &Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  &Input {
+    display: none;
+  }
+
+  &Body {
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+  }
+
+  #platform:checked ~ &Body {
+    height: 70px;
+  }
+  #technologies:checked ~ &Body {
+    height: 300px;
+  }
+  #year:checked ~ &Body {
+    height: 70px;
   }
 }

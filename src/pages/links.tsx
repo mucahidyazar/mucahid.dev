@@ -9,7 +9,7 @@ import { notes } from "../../contents/data/notes"
 
 const SecondPage = (props: PageProps) => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="Links" />
     <section className="linksSection">
       {notes.map((note, index) => (
         <article key={index} className="linksArticle">

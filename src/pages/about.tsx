@@ -10,7 +10,7 @@ import { experiences } from "../../contents/data/experiences"
 
 const AboutPage = (props: PageProps) => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="About" />
     <section>
       <article className="articleAbout">
         <h3>About Me</h3>

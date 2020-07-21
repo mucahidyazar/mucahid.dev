@@ -2,44 +2,60 @@
 import React from "react"
 import { PageProps, graphql, useStaticQuery } from "gatsby"
 import Img, { GatsbyImageProps } from "gatsby-image"
+import { portfolioData } from "../../contents/data/portfolio"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 
-const GET_PHOTO = graphql`
-  {
-    projects: allContentfulProjects {
-      nodes {
-        name
-        description
-        link
-        technologies
-        image {
-          fluid {
-            ...GatsbyContentfulFluid
-          }
-        }
-      }
-    }
+type imageType = {
+  project0001: {
+    childImageSharp: GatsbyImageProps
   }
-`
-
-type photoTypes = {
-  projects: {
-    nodes: {
-      name: string
-      description: string
-      link: string
-      technologies: string[]
-      image: {
-        fluid: GatsbyImageProps
-      }
-    }
+  project0002: {
+    childImageSharp: GatsbyImageProps
+  }
+  project0003: {
+    childImageSharp: GatsbyImageProps
+  }
+  project0004: {
+    childImageSharp: GatsbyImageProps
   }
 }
 
 const SecondPage = (props: PageProps) => {
-  const data: photoTypes = useStaticQuery(GET_PHOTO)
+  const data: imageType = useStaticQuery(graphql`
+    {
+      project0001: file(name: { eq: "project0001" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      project0002: file(name: { eq: "project0002" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      project0003: file(name: { eq: "project0003" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      project0004: file(name: { eq: "project0004" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  console.log(data)
 
   const technologyClassHandler = value => {
     switch (value) {
@@ -52,7 +68,7 @@ const SecondPage = (props: PageProps) => {
       case "html5":
         return "#E34E26"
       case "javascript":
-        return "#EDEDED"
+        return "#FBD601"
       case "nextjs":
         return "#000000"
       case "nodejs":
@@ -70,20 +86,23 @@ const SecondPage = (props: PageProps) => {
 
   return (
     <Layout>
-      <SEO title="Page two" />
+      <SEO title="Portfolio" />
       <section className="portfolioSection">
-        {data.projects.nodes.map((node, index) => (
+        {portfolioData.map((project, index) => (
           <a
             key={index}
             className="portfolioLink"
-            href={node.link}
+            href={project.link}
             target="_blank"
           >
-            <Img style={{ height: "30vh" }} fluid={node.image.fluid} />
+            <Img
+              style={{ height: "30vh" }}
+              fluid={data[project.image].childImageSharp.fluid}
+            />
             <div className="portfolioBottom">
-              <h2 className="portfolioTitle">{node.name}</h2>
-              <p className="portfolioDescription">{node.description}</p>
-              {node.technologies.map((technology, technologyIndex) => {
+              <h2 className="portfolioTitle">{project.name}</h2>
+              <p className="portfolioDescription">{project.description}</p>
+              {project.technologies.map((technology, technologyIndex) => {
                 return (
                   <span
                     className={`portfolioTechnology`}

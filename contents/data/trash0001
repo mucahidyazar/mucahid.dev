@@ -1,0 +1,320 @@
+// Gatsby supports TypeScript natively!
+import React, { useState, useEffect } from "react"
+import { PageProps, Link, graphql, useStaticQuery } from "gatsby"
+import { FaMedium } from "react-icons/fa"
+import { FcLike } from "react-icons/fc"
+
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
+
+interface dataInterface {
+  allMarkdownRemark: {
+    nodes: {
+      html: HTMLElement
+      fields: {
+        slug: string
+      }
+      excerpt: string
+      frontmatter: {
+        title: string
+        date(formatString: "MMMM Do YYYY"): Date
+        link: string
+      }
+    }
+  }
+}
+
+const SecondPage = (props: PageProps) => {
+  const [articles, setArticles] = useState([])
+  const [platformFilters, setPlatformFilters] = useState([])
+  const [tagsFilters, setTagsFilters] = useState([])
+  const [yearsFilters, setYearsFilters] = useState([])
+  const [filteredArticles, setFilteredArticles] = useState([])
+
+  const data: dataInterface = useStaticQuery(graphql`
+    {
+      allMarkdownRemark {
+        nodes {
+          html
+          fields {
+            slug
+          }
+          excerpt
+          frontmatter {
+            title
+            date(formatString: "MMMM Do YYYY")
+            link
+            tags
+            platforms
+          }
+        }
+      }
+    }
+  `)
+
+  useEffect(() => {
+    if (data.allMarkdownRemark.nodes.length) {
+      setArticles(data.allMarkdownRemark.nodes)
+    }
+  }, [data])
+
+  const handlerTechColor = value => {
+    switch (value) {
+      case "css3":
+        return "#1572B6"
+      case "gastbyjs":
+        return "#744C9E"
+      case "graphql":
+        return "#D54599"
+      case "html5":
+        return "#E34E26"
+      case "javascript":
+        return "#FBD601"
+      case "nextjs":
+        return "#000000"
+      case "nodejs":
+        return "#8CC84B"
+      case "react":
+        return "#00D8FF"
+      case "sass":
+        return "#CF649A"
+      case "typescript":
+        return "#1976D2"
+      default:
+        return "#000000"
+    }
+  }
+
+  const handlerPlatform = value => {
+    const filterDatas = [...platformFilters]
+    const valueIndex = filterDatas.findIndex(data => data === value)
+
+    if (filterDatas.includes(value)) {
+      filterDatas.splice(valueIndex, 1)
+      setPlatformFilters(filterDatas)
+    } else {
+      filterDatas.push(value)
+      setPlatformFilters(filterDatas)
+    }
+  }
+
+  const handlerTechnology = value => {
+    const filterDatas = [...tagsFilters]
+    const valueIndex = filterDatas.findIndex(data => data === value)
+
+    if (filterDatas.includes(value)) {
+      filterDatas.splice(valueIndex, 1)
+      setTagsFilters(filterDatas)
+    } else {
+      filterDatas.push(value)
+      setTagsFilters(filterDatas)
+    }
+  }
+
+  const handlerYear = value => {
+    const filterDatas = [...yearsFilters]
+    const valueIndex = filterDatas.findIndex(data => data === value)
+
+    if (filterDatas.includes(value)) {
+      filterDatas.splice(valueIndex, 1)
+      setYearsFilters(filterDatas)
+    } else {
+      filterDatas.push(value)
+      setYearsFilters(filterDatas)
+    }
+  }
+
+  useEffect(() => {
+    setFilteredArticles(
+      articles.filter(article => {
+        return article.frontmatter.platforms.some(platform =>
+          platformFilters.includes(platform)
+        )
+      })
+    )
+  }, [platformFilters])
+
+  useEffect(() => {
+    setFilteredArticles(
+      articles.filter(article => {
+        return article.frontmatter.tags.some(tag => tagsFilters.includes(tag))
+      })
+    )
+  }, [tagsFilters])
+
+  useEffect(() => {
+    console.log(filteredArticles)
+  }, [filteredArticles])
+
+  return (
+    <Layout>
+      <SEO title="Reading..." />
+      <section className="articles">
+        <div className="articlesContainer">
+          <h2 className="articleArticleYearCategory">2020</h2>
+          {(filteredArticles.length ? filteredArticles : articles).map(
+            (node, index) => {
+              return (
+                <article key={index} className="articleArticle">
+                  <h3 className="articleArticleTitle">
+                    {node.frontmatter.title}
+                  </h3>
+                  <div className="articleArticleTags">
+                    {node.frontmatter.tags.map((tag, index) => {
+                      return (
+                        <div
+                          className="articleArticleTagsItem"
+                          style={{
+                            backgroundColor: handlerTechColor(
+                              tag.toLowerCase()
+                            ),
+                            color:
+                              handlerTechColor(tag.toLowerCase()) ===
+                                "#000000" && "#fff",
+                          }}
+                        >
+                          {tag}
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <p className="articleArticleDescription">{node.excerpt}</p>
+                  <div className="articleArticleBottom">
+                    <span className="articleArticleDate">
+                      {node.frontmatter.date}
+                    </span>
+                    <div className="articleArticleButtons">
+                      {node.frontmatter.link !== "" && (
+                        <a
+                          href={node.frontmatter.link}
+                          className="articleArticleButton"
+                          target="_blank"
+                        >
+                          <FaMedium /> <span>Read on Medium</span>
+                        </a>
+                      )}
+                      <Link
+                        to={`/article/${node.fields.slug}`}
+                        className="articleArticleButton"
+                      >
+                        <FcLike />
+                        <span>Read on here</span>
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              )
+            }
+          )}
+        </div>
+        <div className="articlesFilter">
+          <div className="filterItem">
+            <input type="checkbox" id="platform" className="filterItemInput" />
+            <label htmlFor="platform" className="filterItemHeader">
+              <p>Platform</p>
+              <p>+</p>
+            </label>
+            <div className="filterItemBody">
+              <div onClick={() => handlerPlatform("medium")}>
+                <p>Medium</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={() => handlerPlatform("devto")}>
+                <p>Dev.to</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={() => handlerPlatform("blog")}>
+                <p>Blog</p>
+                <input type="checkbox" />
+              </div>
+            </div>
+          </div>
+          <div className="filterItem">
+            <input
+              type="checkbox"
+              id="technologies"
+              className="filterItemInput"
+            />
+            <label htmlFor="technologies" className="filterItemHeader">
+              <p>Technologies</p>
+              <p>+</p>
+            </label>
+            <div className="filterItemBody">
+              <div onClick={handlerTechnology}>
+                <p>React</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>Redux</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>NodeJS</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>Typescript</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>Html</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>Css</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>Gatsby</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>VS Code</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>Sass</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>Javascript</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>GraphQL</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerTechnology}>
+                <p>NextJS</p>
+                <input type="checkbox" />
+              </div>
+            </div>
+          </div>
+          <div className="filterItem">
+            <input type="checkbox" id="year" className="filterItemInput" />
+            <label htmlFor="year" className="filterItemHeader">
+              <p>Year</p>
+              <p>+</p>
+            </label>
+            <div className="filterItemBody">
+              <div onClick={handlerYear}>
+                <p>2020</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerYear}>
+                <p>2019</p>
+                <input type="checkbox" />
+              </div>
+              <div onClick={handlerYear}>
+                <p>2018</p>
+                <input type="checkbox" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  )
+}
+
+export default SecondPage

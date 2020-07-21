@@ -33,6 +33,11 @@ $yellow: #fed356;
     }
   }
 
+  .article {
+    background-color: lighten($background, $amount: 5);
+    box-shadow: 0px 10px 20px rgba($yellow, 0.2);
+  }
+
   //ABOUTPAGE
   .aboutTechnology {
     &:hover {

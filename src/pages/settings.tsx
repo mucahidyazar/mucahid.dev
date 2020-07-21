@@ -9,7 +9,7 @@ import Announcement from "../components/Announcement"
 
 const SecondPage = (props: PageProps) => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="Settings" />
     <section className="settingsSection">
       <Announcement />
       <h2 className="settingsSectionHeader">Settings</h2>

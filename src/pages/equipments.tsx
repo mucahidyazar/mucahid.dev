@@ -11,7 +11,7 @@ const SecondPage = (props: PageProps) => {
 
   return (
     <Layout>
-      <SEO title="Page two" />
+      <SEO title="Equipments" />
       <section>
         <h4 className="equipmentsHeader">EQUIPMENTS</h4>
         <p className="equipmentsDescription">

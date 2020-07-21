@@ -25,7 +25,7 @@ const ArticleTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
+      <div className="article" dangerouslySetInnerHTML={{ __html: html }}></div>
     </Layout>
   )
 }

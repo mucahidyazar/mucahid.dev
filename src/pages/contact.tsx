@@ -9,7 +9,7 @@ import { Social } from "../../contents/data/social"
 
 const SecondPage = (props: PageProps) => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="Contact" />
     <section className="contactSection">
       <h3 className="contactSectionTitle">
         I'd <FaHeart /> to help!
