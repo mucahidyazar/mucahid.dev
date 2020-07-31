@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { PageProps, Link, graphql, useStaticQuery } from "gatsby"
 import { FaMedium } from "react-icons/fa"
-import { FcLike } from "react-icons/fc"
+import { FcLike, FcFilledFilter } from "react-icons/fc"
 
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
@@ -126,6 +126,17 @@ const SecondPage = (props: PageProps) => {
     }
   }
 
+  const handleSearchInput = e => {
+    const filterDatas = [...articles]
+    setFilteredArticles(
+      filterDatas.filter(data =>
+        data.frontmatter.title
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase())
+      )
+    )
+  }
+
   useEffect(() => {
     const filterConcat = [
       ...filters.platforms,
@@ -142,18 +153,32 @@ const SecondPage = (props: PageProps) => {
         return articleConcat.some(ar => filterConcat.includes(ar))
       })
     )
-    console.log(filters)
   }, [filters])
 
   return (
     <Layout>
       <SEO title="Reading..." />
+      <input type="checkbox" id="filterCheckbox" />
+      <div className="artclesHeader">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search"
+          onChange={handleSearchInput}
+        />
+        <div>
+          <label htmlFor="filterCheckbox" className="filterLabel">
+            <FcFilledFilter size={30} />
+          </label>
+        </div>
+      </div>
       <section className="articles">
         <div className="articlesContainer">
           <h2 className="articleArticleYearCategory">2020</h2>
           {(filters.platforms.length ||
           filters.tags.length ||
-          filters.years.length
+          filters.years.length ||
+          filteredArticles.length
             ? filteredArticles
             : articles
           ).map((node, index) => {

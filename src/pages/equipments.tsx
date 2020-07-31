@@ -14,7 +14,7 @@ const SecondPage = (props: PageProps) => {
       <SEO title="Equipments" />
       <section>
         <h4 className="equipmentsHeader">EQUIPMENTS</h4>
-        <p className="equipmentsDescription">
+        <div className="equipmentsDescription">
           I think this section will be the section that you will be interest and
           look. I exhibit some of the materials of my life. And exactly some of
           them are my real love. :P I upgrade time to time my hardwares. And If
@@ -22,7 +22,7 @@ const SecondPage = (props: PageProps) => {
           <p>"Buy a good chair"</p>
           <p>"Buy a good computer"</p>
           <p>"Work widescreen, its mean buy a good and two monitors"</p>
-        </p>
+        </div>
         <EquipmentCategory title="COMPUTER" data={data.computer.nodes} />
         <EquipmentCategory title="DESK" data={data.desk.nodes} />
         <EquipmentCategory title="PERSONAL" data={data.personal.nodes} />

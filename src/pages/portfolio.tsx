@@ -160,12 +160,7 @@ const SecondPage = (props: PageProps) => {
       <SEO title="Portfolio" />
       <section className="portfolioSection">
         {portfolioData.map((project, index) => (
-          <a
-            key={index}
-            className="portfolioLink"
-            href={project.url}
-            target="_blank"
-          >
+          <div key={index} className="portfolioLink" target="_blank">
             <Img
               style={{ height: "30vh" }}
               fluid={data[project.image].childImageSharp.fluid}
@@ -197,7 +192,7 @@ const SecondPage = (props: PageProps) => {
                 <GithubSvg />
               </a>
             </div>
-          </a>
+          </div>
         ))}
       </section>
     </Layout>

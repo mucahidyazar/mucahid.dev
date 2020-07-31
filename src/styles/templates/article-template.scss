@@ -50,3 +50,52 @@ $primary-800: #59698d;
     margin-bottom: 50px;
   }
 }
+
+@include small-breakpoint {
+  .article {
+    padding: 10px;
+    border-radius: 10px;
+
+    p {
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0 0 15px;
+      color: $primary-600;
+    }
+
+    h2 {
+      margin: 40px 0 10px;
+      color: $primary-400;
+    }
+
+    h3 {
+      margin: 40px 0 5px;
+      color: $primary-700;
+    }
+
+    h4 {
+      margin: 10px 0 0px;
+      color: $primary-200;
+    }
+
+    h5 {
+      margin: 40px 0 0px;
+      color: $primary-100;
+    }
+
+    ul {
+      transform: translateX(40px);
+      margin-bottom: 10px;
+    }
+
+    pre {
+      margin-bottom: 30px;
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 12px;
+    }
+  }
+}

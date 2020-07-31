@@ -55,7 +55,7 @@ const AboutPage = (props: PageProps) => (
                     {experience.from} -{" "}
                     {experience.to !== ""
                       ? experience.to
-                      : moment(Date.now()).format("L")}
+                      : moment().format("L")}
                   </p>
                   <p className="aboutExperienceDescription">
                     {experience.description}
@@ -63,7 +63,10 @@ const AboutPage = (props: PageProps) => (
                   <p className="aboutExperienceTimer">
                     Working for{" "}
                     <span className="aboutExperienceTimerSpan">
-                      {moment(experience.from).startOf("hour").fromNow()}
+                      {console.log()}
+                      {moment(experience.from.split("/").join(""), "DDMMYYYY")
+                        .startOf("hour")
+                        .fromNow()}
                     </span>
                   </p>
                 </div>
