@@ -32,6 +32,18 @@ $yellow: #fed356;
       }
     }
   }
+  @media (max-width: 620px) {
+    .header {
+      &Menu {
+        &Item {
+          background-color: darken($background, 75);
+        }
+      }
+    }
+    .headerMobileMenu .headerMenuItem {
+      background-color: darken($background, 75);
+    }
+  }
 
   .article {
     background-color: lighten($background, $amount: 5);

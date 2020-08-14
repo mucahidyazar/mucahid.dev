@@ -53,6 +53,8 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
     }
   }, [])
 
+  const activePage = window.location.pathname.split("/")
+
   return (
     <header className="header">
       <ThemeToggler>
@@ -74,48 +76,171 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
         )}
       </ThemeToggler>
       <div className="headerMenu">
-        <div className="headerMenuItem headerMenuItem1">
+        <div
+          className={
+            "headerMenuItem headerMenuItem1" +
+            " " +
+            (activePage[1] === "" ? "mobileActivePage" : "")
+          }
+        >
           <Link to="/">
             <FcHome style={{ width: `100%`, height: `100%` }} />
           </Link>
         </div>
-        <div className="headerMenuItem headerMenuItem2">
+        <div
+          className={
+            "headerMenuItem headerMenuItem2" +
+            " " +
+            (activePage[1] === "about" ? "mobileActivePage" : "")
+          }
+        >
           <Link to="/about">
             <FcAbout style={{ width: `100%`, height: `100%` }} />
           </Link>
         </div>
-        <div className="headerMenuItem headerMenuItem3">
+        <div
+          className={
+            "headerMenuItem headerMenuItem3" +
+            " " +
+            (activePage[1] === "articles" ? "mobileActivePage" : "")
+          }
+        >
           <Link to="/articles">
             <FcReading style={{ width: `100%`, height: `100%` }} />
           </Link>
         </div>
-        <div className="headerMenuItem headerMenuItem4">
+        <div
+          className={
+            "headerMenuItem headerMenuItem4" +
+            " " +
+            (activePage[1] === "portfolio" ? "mobileActivePage" : "")
+          }
+        >
           <Link to="/portfolio">
             <FcFolder style={{ width: `100%`, height: `100%` }} />
           </Link>
         </div>
-        <div className="headerMenuItem headerMenuItem5">
+        <div
+          className={
+            "headerMenuItem headerMenuItem5" +
+            " " +
+            (activePage[1] === "equipments" ? "mobileActivePage" : "")
+          }
+        >
           <Link to="/equipments">
             <FcBusiness style={{ width: `100%`, height: `100%` }} />
           </Link>
         </div>
-        <div className="headerMenuItem headerMenuItem6">
+        <div
+          className={
+            "headerMenuItem headerMenuItem6" +
+            " " +
+            (activePage[1] === "links" ? "mobileActivePage" : "")
+          }
+        >
           <Link to="/links">
             <FcLink style={{ width: `100%`, height: `100%` }} />
           </Link>
         </div>
-        <div className="headerMenuItem headerMenuItem7">
+        <div
+          className={
+            "headerMenuItem headerMenuItem7" +
+            " " +
+            (activePage[1] === "settings" ? "mobileActivePage" : "")
+          }
+        >
           <Link to="/settings">
             <FcSettings style={{ width: `100%`, height: `100%` }} />
           </Link>
         </div>
-        <div className="headerMenuItem headerMenuItem8">
+        <div
+          className={
+            "headerMenuItem headerMenuItem8" +
+            " " +
+            (activePage[1] === "contact" ? "mobileActivePage" : "")
+          }
+        >
           <Link to="/contact">
             <FcCustomerSupport style={{ width: `100%`, height: `100%` }} />
           </Link>
         </div>
-        <div className="headerMenuItem headerMenuItem9">
-          <Img fluid={iconData.file.childImageSharp.fluid} />
+        <div
+          className={
+            "headerMenuItem headerMenuItem9" +
+            " " +
+            (activePage[1] === "about" ? "mobileActivePage" : "")
+          }
+        >
+          <Link to="/about">
+            <Img fluid={iconData.file.childImageSharp.fluid} />
+          </Link>
+        </div>
+        <div className="headerMenuItem headerMenuItem10">
+          <input
+            type="checkbox"
+            id="headerMobileMenuInput"
+            name="headerMobileMenuInput"
+          />
+          <label
+            className="headerMobileMenuIcons"
+            htmlFor="headerMobileMenuInput"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <div className="headerMobileMenu">
+            <div
+              className={
+                "headerMenuItem headerMenuItem6" +
+                " " +
+                (activePage[1] === "links" ? "mobileActivePage" : "")
+              }
+            >
+              <Link to="/links">
+                <FcLink style={{ width: `100%`, height: `100%` }} />
+              </Link>
+            </div>
+            <div
+              className={
+                "headerMenuItem headerMenuItem2" +
+                " " +
+                (activePage[1] === "about" ? "mobileActivePage" : "")
+              }
+            >
+              <Link to="/about">
+                <FcAbout style={{ width: `100%`, height: `100%` }} />
+              </Link>
+            </div>
+            <div
+              className={
+                "headerMenuItem headerMenuItem7" +
+                " " +
+                (activePage[1] === "settings" ? "mobileActivePage" : "")
+              }
+            >
+              <Link to="/settings">
+                <FcSettings style={{ width: `100%`, height: `100%` }} />
+              </Link>
+            </div>
+            <div
+              className={
+                "headerMenuItem headerMenuItem8" +
+                " " +
+                (activePage[1] === "contact" ? "mobileActivePage" : "")
+              }
+            >
+              <Link to="/contact">
+                <FcCustomerSupport style={{ width: `100%`, height: `100%` }} />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       <div className="networkSvg">
