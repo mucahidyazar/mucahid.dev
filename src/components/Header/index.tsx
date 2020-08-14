@@ -53,7 +53,7 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
     }
   }, [])
 
-  const activePage = document.location.pathname.split("/")
+  const activePage = location.pathname.split("/")
 
   return (
     <header className="header">
