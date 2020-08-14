@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import Img, { GatsbyImageProps } from "gatsby-image"
+import { globalHistory as history } from "@reach/router"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import {
   FcIdea,
@@ -53,7 +54,7 @@ const Header = ({ siteTitle, darkMode, setDarkMode }: HeaderProps) => {
     }
   }, [])
 
-  const activePage = location.pathname.split("/")
+  const activePage = history.location.pathname.split("/")
 
   return (
     <header className="header">
