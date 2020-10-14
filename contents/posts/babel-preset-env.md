@@ -16,11 +16,11 @@ tags:
 
 Bildigimiz gibi express rest api kurarken const ile bir degiskene require ile import islemlerini yapiyoruz. Example:
 
-````js
-const express = require('express');
-…
+```js
+const express = require("express")
+```
 
-Fakat babel ile yukleyecegimiz bir kac modul ve ayarla burada import u kullanarak asagidaki gibi import islemlerimizi gerceklestirebiliriz
+Fakat babel ile yukleyecegimiz bir kac modul ve ayarla asagidaki gibi import islemlerimizi gerceklestirebiliriz
 
 ## Installation
 
@@ -30,4 +30,4 @@ Yukaridaki modulleri kurduktan sonra root dizinine .babelrc adinda bir dosya olu
 
 ```js
 { "presets": ["@babel/preset-env"] }
-````
+```
