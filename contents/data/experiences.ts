@@ -50,7 +50,7 @@ export const experiences: experienceInterface[] = [
     image: MaxithingsSvg,
   },
   {
-    company: "Maxithings",
+    company: "Getir",
     description: "Getir firmasında web developer olarak çalışmaya başladım.",
     position: "Frontend Developer",
     situtation: "Working",
