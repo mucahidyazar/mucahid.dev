@@ -17,26 +17,14 @@ interface experienceInterface {
 
 export const experiences: experienceInterface[] = [
   {
-    company: "GRANOBRA",
-    description:
-      "GRANOBRA şirketinde fullstack developer olarak çalıştım. 1 Full Time proje, 2 side uygulama üzerinde çalıştım.",
-    position: "Full Stack Developer",
-    situtation: "Worked",
-    from: "01/03/2020",
-    to: "01/09/2020",
-    website: "https://granobra.com",
-    image: GranobraSvg,
-  },
-  {
-    company: "BiletSepeti.com",
-    description:
-      "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
+    company: "Getir",
+    description: "Getir firmasında web developer olarak çalışmaya başladım.",
     position: "Frontend Developer",
-    situtation: "Worked",
-    from: "01/03/2020",
-    to: "01/09/2020",
-    website: "https://www.biletsepeti.com",
-    image: BiletsepetiSvg,
+    situtation: "Working",
+    from: "11/02/2021",
+    to: "",
+    website: "https://getir.com/",
+    image: GetirSvg,
   },
   {
     company: "Maxithings",
@@ -50,13 +38,25 @@ export const experiences: experienceInterface[] = [
     image: MaxithingsSvg,
   },
   {
-    company: "Getir",
-    description: "Getir firmasında web developer olarak çalışmaya başladım.",
+    company: "BiletSepeti.com",
+    description:
+      "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
     position: "Frontend Developer",
-    situtation: "Working",
-    from: "11/02/2021",
-    to: "",
-    website: "https://getir.com/",
-    image: GetirSvg,
+    situtation: "Worked",
+    from: "01/03/2020",
+    to: "01/09/2020",
+    website: "https://www.biletsepeti.com",
+    image: BiletsepetiSvg,
+  },
+  {
+    company: "GRANOBRA",
+    description:
+      "GRANOBRA şirketinde fullstack developer olarak çalıştım. 1 Full Time proje, 2 side uygulama üzerinde çalıştım.",
+    position: "Full Stack Developer",
+    situtation: "Worked",
+    from: "01/03/2020",
+    to: "01/09/2020",
+    website: "https://granobra.com",
+    image: GranobraSvg,
   },
 ]
