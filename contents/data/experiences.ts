@@ -21,7 +21,7 @@ export const experiences: experienceInterface[] = [
     description:
       "GRANOBRA şirketinde fullstack developer olarak çalıştım. 1 Full Time proje, 2 side uygulama üzerinde çalıştım.",
     position: "Full Stack Developer",
-    situtation: "Done",
+    situtation: "Worked",
     from: "01/03/2020",
     to: "01/09/2020",
     website: "https://granobra.com",
@@ -32,7 +32,7 @@ export const experiences: experienceInterface[] = [
     description:
       "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
     position: "Frontend Developer",
-    situtation: "Done",
+    situtation: "Worked",
     from: "01/03/2020",
     to: "01/09/2020",
     website: "https://www.biletsepeti.com",
@@ -43,7 +43,7 @@ export const experiences: experienceInterface[] = [
     description:
       "Maxithings firmasında 3 aylık bir çalışma sürecim oldu. Bu süreçte 1 proje üzerinde tam zamanlı olarak çalıştım. Frontend tarafı tamamen benim tarafımdan yapılmış olan iyifiyat.com e-ticaret sitesini geliştirdim.",
     position: "Frontend Developer",
-    situtation: "Done",
+    situtation: "Worked",
     from: "15/10/2020",
     to: "05/02/2021",
     website: "https://maxithings.com/",

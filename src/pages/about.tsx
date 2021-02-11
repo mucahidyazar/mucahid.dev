@@ -61,7 +61,7 @@ const AboutPage = (props: PageProps) => (
                     {experience.description}
                   </p>
                   <p className="aboutExperienceTimer">
-                    Working for{" "}
+                    {experience.situtation} for{" "}
                     <span className="aboutExperienceTimerSpan">
                       {console.log()}
                       {moment(experience.from.split("/").join(""), "DDMMYYYY")
