@@ -28,8 +28,8 @@ const Introduction: NextComponentType = () => {
       <S.IntroductionPhoto>
         <Image
           src="/images/introduction-image-1.jpg"
-          width="100%"
-          height="100%"
+          width="680"
+          height="800"
           alt="Introduction Image"
         />
       </S.IntroductionPhoto>
