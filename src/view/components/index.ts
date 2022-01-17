@@ -1,4 +1,5 @@
-export * from './Loader'
-export * from './Services'
+export * from './AboutWelcome'
+export * from './SectionSlider'
+export * from './SectionHeader'
 export * from './Introduction'
 export * from './Welcome'

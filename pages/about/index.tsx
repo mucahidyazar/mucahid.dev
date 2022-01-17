@@ -1,12 +1,12 @@
 import React from 'react'
 import type {NextPage} from 'next'
 import {MainLayout} from '@/layout/index'
-import {HomeContainer} from '@/containers/index'
+import {AboutContainer} from '@/containers/index'
 
 const Home: NextPage = () => {
   return (
     <MainLayout>
-      <HomeContainer />
+      <AboutContainer />
     </MainLayout>
   )
 }

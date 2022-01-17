@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const WelcomeContainer = styled.div`
   display: flex;
   color: var(--color-white);
-  margin-bottom: 10rem;
 `
 
 const WelcomeContent = styled.div`

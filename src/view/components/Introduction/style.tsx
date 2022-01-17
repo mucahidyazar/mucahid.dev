@@ -1,10 +1,19 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
+import {BreakpointSize} from '@/constants/index'
+import {Title} from '@/ui/index'
 
 const IntroductionContainer = styled.div`
   display: flex;
   justify-content: space-between;
   color: var(--color-white);
-  max-height: 800px;
+  backdrop-filter: blur(20px);
+  transform: perspective(500px);
+  transform-style: preserve-3d;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `
 
 const IntroductionContent = styled.div`
@@ -12,24 +21,26 @@ const IntroductionContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    width: 100%;
+  }
+
+  ${({rightContent}) =>
+    rightContent &&
+    css`
+      order: 2;
+    `}
 `
 
-const IntroductionContentTitle = styled.h4`
-  font-weight: 500;
-  line-height: var(--line-height-xl);
-`
+const IntroductionContentTitle = styled(Title)``
 
 const IntroductionContentDescription = styled.p`
   line-height: var(--line-height-xl);
-  font-size: var(--font-size-s);
 `
 
 const IntroductionContentItem = styled.div`
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
   &:nth-child(even) ${IntroductionContentTitle} {
     text-align: right;
   }
@@ -37,11 +48,21 @@ const IntroductionContentItem = styled.div`
   &:nth-child(even) ${IntroductionContentDescription} {
     text-align: right;
   }
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    &:first-child {
+      margin-bottom: 20px;
+    }
+  }
 `
 
 const IntroductionPhoto = styled.div`
   width: 45%;
   max-height: 100%;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    width: 100%;
+  }
 `
 
 export {
