@@ -1,14 +1,14 @@
 import React from 'react'
 import type {NextPage} from 'next'
 import {MainLayout} from '@/layout/index'
-import {AboutContainer} from '@/containers/index'
+import {ArticlesContainer} from '@/containers/index'
 
-const About: NextPage = () => {
+const Articles: NextPage = () => {
   return (
     <MainLayout>
-      <AboutContainer />
+      <ArticlesContainer />
     </MainLayout>
   )
 }
 
-export default About
+export default Articles
