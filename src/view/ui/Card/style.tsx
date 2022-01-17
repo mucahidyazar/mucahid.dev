@@ -3,7 +3,7 @@ import {BreakpointSize} from '@/constants/index'
 import {Title, Subtitle} from '../Typography'
 
 const Card = styled.div`
-  display: flex !important;
+  display: flex;
   gap: 60px;
 
   ${({type}) =>

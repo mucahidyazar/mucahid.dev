@@ -50,7 +50,7 @@ const Card = ({data, type}: ICard) => {
 Card.propTypes = {
   data: PropTypes.shape({
     image: PropTypes.string,
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     subtitles: PropTypes.arrayOf(PropTypes.string),
     tags: PropTypes.arrayOf(PropTypes.string),
     text: PropTypes.string,

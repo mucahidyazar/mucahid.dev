@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import type {NextComponentType} from 'next'
 import {Window} from '@/layout/index'
 import {
@@ -35,6 +36,7 @@ const ArticlesContainer: NextComponentType = () => {
       category: 'React',
       tags: ['React', 'Hooks'],
       image: 'https://picsum.photos/id/1/200/300',
+      slug: 'how-to-use-react-hooks-1',
     },
     {
       id: '2',
@@ -45,6 +47,7 @@ const ArticlesContainer: NextComponentType = () => {
       category: 'React',
       tags: ['React', 'Hooks'],
       image: 'https://picsum.photos/id/2/200/300',
+      slug: 'how-to-use-react-hooks-2',
     },
     {
       id: '3',
@@ -55,6 +58,7 @@ const ArticlesContainer: NextComponentType = () => {
       category: 'React',
       tags: ['React', 'Hooks'],
       image: 'https://picsum.photos/id/3/200/300',
+      slug: 'how-to-use-react-hooks-3',
     },
     {
       id: '4',
@@ -65,6 +69,7 @@ const ArticlesContainer: NextComponentType = () => {
       category: 'React',
       tags: ['React', 'Hooks'],
       image: 'https://picsum.photos/id/4/200/300',
+      slug: 'how-to-use-react-hooks-4',
     },
     {
       id: '5',
@@ -75,6 +80,7 @@ const ArticlesContainer: NextComponentType = () => {
       category: 'React',
       tags: ['React', 'Hooks'],
       image: 'https://picsum.photos/id/5/200/300',
+      slug: 'how-to-use-react-hooks-5',
     },
     {
       id: '6',
@@ -85,6 +91,7 @@ const ArticlesContainer: NextComponentType = () => {
       category: 'React',
       tags: ['React', 'Hooks'],
       image: 'https://picsum.photos/id/6/200/300',
+      slug: 'how-to-use-react-hooks-6',
     },
     {
       id: '7',
@@ -95,6 +102,7 @@ const ArticlesContainer: NextComponentType = () => {
       category: 'React',
       tags: ['React', 'Hooks'],
       image: 'https://picsum.photos/id/7/200/300',
+      slug: 'how-to-use-react-hooks-7',
     },
   ]
 
@@ -131,14 +139,15 @@ const ArticlesContainer: NextComponentType = () => {
         {mockData.map((item, index) => {
           if (index < 6) {
             return (
-              <PostCard
-                key={item.id}
-                title={item.title}
-                subtitle={item.description}
-                date={item.date}
-                tags={item.tags}
-                imageUrl={item.image}
-              />
+              <Link key={item.id} href={`/article/${item.slug}`} passHref>
+                <PostCard
+                  title={item.title}
+                  subtitle={item.description}
+                  date={item.date}
+                  tags={item.tags}
+                  imageUrl={item.image}
+                />
+              </Link>
             )
           }
         })}
