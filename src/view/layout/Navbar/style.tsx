@@ -15,7 +15,26 @@ const NavbarBrand = styled.div`
   font-size: var(--font-size-2xl);
   font-weight: 700;
 `
-const NavbarMenu = styled.ul`
+const NavbarMenuItem = styled.li`
+  padding: 0 12px;
+  position: relative;
+  font-size: var(--font-size);
+
+  @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
+    width: 200px;
+    padding: 12px 32px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgba(62, 76, 103, 0.6);
+    }
+  }
+`
+interface INavbarMenu {
+  isOpen: boolean
+}
+const NavbarMenu = styled.ul<INavbarMenu>`
   list-style-type: none;
   display: flex;
 
@@ -29,38 +48,24 @@ const NavbarMenu = styled.ul`
     background-color: rgba(62, 76, 103, 0.5);
     border-radius: 2px;
   }
-`
-const NavbarMenuItem = styled.li`
-  padding: 0 12px;
-  position: relative;
-  font-size: var(--font-size);
 
-  ${({isOpen}) =>
-    !isOpen &&
-    css`
-      &:hover {
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -8px;
-          left: 10%;
-          width: calc(100% - 20%);
-          height: 2px;
-          background-color: var(--color-white);
-          transition: all 0.3s ease-in-out;
+  ${NavbarMenuItem} {
+    ${({isOpen}) =>
+      !isOpen &&
+      css`
+        &:hover {
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 10%;
+            width: calc(100% - 20%);
+            height: 2px;
+            background-color: var(--color-white);
+            transition: all 0.3s ease-in-out;
+          }
         }
-      }
-    `}
-
-  @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
-    width: 200px;
-    padding: 12px 32px;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      background-color: rgba(62, 76, 103, 0.6);
-    }
+      `}
   }
 `
 const NavbarLogoGradientBorder = styled.div`

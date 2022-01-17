@@ -55,4 +55,8 @@ const Footer: NextComponentType = () => {
   )
 }
 
+Footer.propTypes = {}
+
+Footer.defaultProps = {}
+
 export default Footer

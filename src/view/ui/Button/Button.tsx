@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Image from 'next/image'
 
 import * as S from './style'
 
-const Button = ({children, imagePath, text, ...titleProps}) => {
+interface IButton {
+  children: React.ReactNode
+}
+
+const Button = ({children, ...titleProps}: IButton) => {
   return (
     <S.Button data-testid="button" {...titleProps}>
       {children}
@@ -13,12 +16,10 @@ const Button = ({children, imagePath, text, ...titleProps}) => {
 }
 
 Button.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
 }
 
-Button.defaultProps = {
-  children: null,
-}
+Button.defaultProps = {}
 
 Button.S = S
 

@@ -5,7 +5,15 @@ import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-const PostCard = ({imageUrl, title, subtitle, date}) => {
+interface IPostCard {
+  imageUrl: string
+  title: string
+  subtitle: string
+  date: string
+  tags: string[]
+}
+
+const PostCard = ({imageUrl, title, subtitle, date, tags}: IPostCard) => {
   return (
     <S.Card>
       <S.CardImage>
@@ -29,7 +37,13 @@ const PostCard = ({imageUrl, title, subtitle, date}) => {
   )
 }
 
-PostCard.propTypes = {}
+PostCard.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+}
 
 PostCard.defaultProps = {}
 

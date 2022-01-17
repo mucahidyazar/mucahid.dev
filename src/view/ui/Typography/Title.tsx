@@ -3,8 +3,14 @@ import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-const Title = ({children, level, ...titleProps}) => {
-  const TitleItem = S[`Title${level}`]
+interface ITitle {
+  children: React.ReactNode
+  level: number | string
+}
+
+const Title = ({children, level, ...titleProps}: ITitle) => {
+  const Titles: any = S
+  const TitleItem = Titles[`Title${level}`]
 
   return (
     <TitleItem data-testid="title" {...titleProps}>

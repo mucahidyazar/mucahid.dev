@@ -7,7 +7,6 @@ const Title1 = styled.h1`
 
 const Title2 = styled.h2`
   color: var(--color-white);
-
   font-size: var(--font-size-4xl);
 `
 

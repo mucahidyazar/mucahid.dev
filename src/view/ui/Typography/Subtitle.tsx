@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-const Subtitle = ({children, ...titleProps}) => {
+interface ISubtitle {
+  children: React.ReactNode
+}
+
+const Subtitle = ({children, ...titleProps}: ISubtitle) => {
   return (
     <S.Subtitle data-testid="subtitle" {...titleProps}>
       {children}

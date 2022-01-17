@@ -1,6 +1,9 @@
 import styled, {css} from 'styled-components'
 
-const Window = styled.div`
+interface IWindow {
+  multi?: boolean
+}
+const Window = styled.div<IWindow>`
   display: flex;
   align-items: center;
   justify-content: center;

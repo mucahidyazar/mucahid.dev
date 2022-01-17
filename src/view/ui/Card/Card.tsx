@@ -5,7 +5,21 @@ import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-const Card = ({data, type}) => {
+type TData = {
+  image?: string
+  name: string
+  subtitles?: string[]
+  tags?: string[]
+  text?: string
+  date?: string
+}
+
+interface ICard {
+  data: TData
+  type: number
+}
+
+const Card = ({data, type}: ICard) => {
   return (
     <S.Card type={type}>
       {data?.image && (
@@ -33,7 +47,16 @@ const Card = ({data, type}) => {
   )
 }
 
-Card.propTypes = {}
+Card.propTypes = {
+  data: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    subtitles: PropTypes.arrayOf(PropTypes.string),
+    tags: PropTypes.arrayOf(PropTypes.string),
+    text: PropTypes.string,
+    date: PropTypes.string,
+  }).isRequired,
+}
 
 Card.defaultProps = {}
 

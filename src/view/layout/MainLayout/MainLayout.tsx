@@ -1,10 +1,15 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import type {NextComponentType} from 'next'
 import Head from 'next/head'
 import {Navbar, Footer} from '@/layout/index'
 import * as S from './style'
 
-const MainLayout: NextComponentType = ({children}) => {
+interface IMainLayout {
+  children: React.ReactNode
+}
+
+const MainLayout: NextComponentType<IMainLayout> = ({children}) => {
   return (
     <S.MainLayout>
       <Head>
@@ -18,5 +23,11 @@ const MainLayout: NextComponentType = ({children}) => {
     </S.MainLayout>
   )
 }
+
+MainLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+MainLayout.defaultProps = {}
 
 export default MainLayout

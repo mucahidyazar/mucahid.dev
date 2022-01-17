@@ -3,13 +3,21 @@ import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-const Textarea = ({children, level, ...titleProps}) => {
+interface ITextarea {
+  children: React.ReactNode
+}
+
+const Textarea = ({children, ...titleProps}: ITextarea) => {
   return <S.Textarea data-testid="textarea" {...titleProps} />
 }
 
-Textarea.propTypes = {}
+Textarea.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+}
 
-Textarea.defaultProps = {}
+Textarea.defaultProps = {
+  children: null,
+}
 
 Textarea.S = S
 
