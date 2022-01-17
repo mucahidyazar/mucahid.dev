@@ -16,7 +16,10 @@ const IntroductionContainer = styled.div`
   }
 `
 
-const IntroductionContent = styled.div`
+interface IntroductionContent {
+  rightContent?: boolean
+}
+const IntroductionContent = styled.div<IntroductionContent>`
   width: 45%;
   display: flex;
   flex-direction: column;

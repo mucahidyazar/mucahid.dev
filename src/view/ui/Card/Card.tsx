@@ -56,9 +56,12 @@ Card.propTypes = {
     text: PropTypes.string,
     date: PropTypes.string,
   }).isRequired,
+  type: PropTypes.number,
 }
 
-Card.defaultProps = {}
+Card.defaultProps = {
+  type: null,
+}
 
 Card.S = S
 

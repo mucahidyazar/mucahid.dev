@@ -1,19 +1,41 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
-import type {NextComponentType} from 'next'
 import {Title, Subtitle} from '@/ui/index'
 import * as S from './style'
 
-const SectionHeader: NextComponentType = ({title, subtitle, link, ...rest}) => {
+interface ISectionHeader {
+  title: string
+  subtitle?: string
+  link?: string
+}
+
+const SectionHeader: React.FC<ISectionHeader> = ({
+  title,
+  subtitle,
+  link,
+  ...rest
+}) => {
   return (
     <S.SectionHeader {...rest}>
       <S.SectionHeaderTop>
         <Title level={5}>{title}</Title>
         {link && <Link href="">See All</Link>}
       </S.SectionHeaderTop>
-      <Subtitle>{subtitle}</Subtitle>
+      {subtitle && <Subtitle>{subtitle}</Subtitle>}
     </S.SectionHeader>
   )
+}
+
+SectionHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+  link: PropTypes.string,
+}
+
+SectionHeader.defaultProps = {
+  subtitle: '',
+  link: '',
 }
 
 export default SectionHeader

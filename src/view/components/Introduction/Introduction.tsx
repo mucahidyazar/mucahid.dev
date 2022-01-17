@@ -1,9 +1,14 @@
 import React from 'react'
-import type {NextComponentType} from 'next'
+import PropTypes from 'prop-types'
 import Image from 'next/image'
 import * as S from './style'
 
-const Introduction: NextComponentType = ({rightContent}) => {
+interface IIntroduction {
+  children: React.ReactNode
+  rightContent?: boolean
+}
+
+const Introduction: React.FC<IIntroduction> = ({rightContent}) => {
   return (
     <S.IntroductionContainer>
       <S.IntroductionContent rightContent={rightContent}>
@@ -39,6 +44,14 @@ const Introduction: NextComponentType = ({rightContent}) => {
       </S.IntroductionPhoto>
     </S.IntroductionContainer>
   )
+}
+
+Introduction.propTypes = {
+  rightContent: PropTypes.bool,
+}
+
+Introduction.defaultProps = {
+  rightContent: false,
 }
 
 export default Introduction

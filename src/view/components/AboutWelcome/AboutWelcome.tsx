@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
 import * as S from './style'
@@ -59,5 +60,9 @@ const AboutWelcome: NextComponentType = () => {
     </S.AboutWelcomeContainer>
   )
 }
+
+AboutWelcome.propTypes = {}
+
+AboutWelcome.defaultProps = {}
 
 export default AboutWelcome

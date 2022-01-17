@@ -5,6 +5,8 @@ import * as S from './style'
 
 interface IButton {
   children: React.ReactNode
+  outline?: boolean
+  priamry?: boolean
 }
 
 const Button = ({children, ...titleProps}: IButton) => {
@@ -17,9 +19,14 @@ const Button = ({children, ...titleProps}: IButton) => {
 
 Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
+  outline: PropTypes.bool,
+  priamry: PropTypes.bool,
 }
 
-Button.defaultProps = {}
+Button.defaultProps = {
+  outline: false,
+  priamry: false,
+}
 
 Button.S = S
 

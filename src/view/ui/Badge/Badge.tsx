@@ -8,6 +8,9 @@ interface IBadge {
   children?: React.ReactNode
   imagePath?: string
   text?: string
+  cool?: boolean
+  isActive?: boolean
+  onClick?: () => void
 }
 
 const Badge = ({children, imagePath, text, ...titleProps}: IBadge) => {
@@ -23,12 +26,18 @@ Badge.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   imagePath: PropTypes.string,
   text: PropTypes.string,
+  cool: PropTypes.bool,
+  isActive: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 
 Badge.defaultProps = {
   children: null,
   imagePath: null,
   text: null,
+  cool: false,
+  isActive: false,
+  onClick: null,
 }
 
 Badge.S = S
