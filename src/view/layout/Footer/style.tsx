@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
+import {Button, Input} from '@/ui/index'
 
 const Footer = styled.footer`
   display: flex;
@@ -27,7 +28,20 @@ const FooterInfoSubtitle = styled.div`
   font-size: var(--font-size-s);
 `
 
-const FooterInfoDescription = styled.div``
+const FooterInfoDescription = styled.div`
+  margin-bottom: 1rem;
+`
+
+const FooterSubscribe = styled.div``
+const FooterSubscribeInput = styled(Input)`
+  margin-bottom: 0.5rem;
+`
+const FooterSubscribeButton = styled(Button)`
+  width: 100%;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-weight: 600;
+`
 
 const FooterInfo = styled.div`
   width: 360px;
@@ -96,6 +110,9 @@ export {
   FooterInfoTitle,
   FooterInfoSubtitle,
   FooterInfoDescription,
+  FooterSubscribe,
+  FooterSubscribeInput,
+  FooterSubscribeButton,
   FooterMenu,
   FooterMenuGroup,
   FooterMenuHeader,

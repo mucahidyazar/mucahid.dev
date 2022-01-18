@@ -5,6 +5,7 @@ import {
   SectionHeader,
   Welcome,
   SectionSlider,
+  SubscribeBanner,
 } from '@/components/index'
 import {Window} from '@/layout/index'
 import {Card, PostCard, Input, Textarea, Button, ProjectCard} from '@/ui/index'
@@ -92,6 +93,7 @@ const HomeContainer: NextComponentType = () => {
           <SectionSlider data={mockData} hasBadge hasArrow />
         </S.SummarySection>
       </Window>
+      <SubscribeBanner />
     </>
   )
 }

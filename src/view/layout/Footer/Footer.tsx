@@ -16,6 +16,10 @@ const Footer: NextComponentType = () => {
           And I love design and coding. My point is being a good full stack
           developer by Javascript. So let's study more.
         </S.FooterInfoDescription>
+        <S.FooterSubscribe>
+          <S.FooterSubscribeInput placeholder="your@email.com" />
+          <S.FooterSubscribeButton>Subscribe</S.FooterSubscribeButton>
+        </S.FooterSubscribe>
       </S.FooterInfo>
 
       <S.FooterMenu>

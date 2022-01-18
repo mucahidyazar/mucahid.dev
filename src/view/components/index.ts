@@ -1,5 +1,6 @@
 export * from './AboutWelcome'
 export * from './SectionSlider'
 export * from './SectionHeader'
+export * from './SubscribeBanner'
 export * from './Introduction'
 export * from './Welcome'
