@@ -32,7 +32,11 @@ const FooterInfoDescription = styled.div`
   margin-bottom: 1rem;
 `
 
-const FooterSubscribe = styled.div``
+const FooterSubscribe = styled.div`
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    width: 100%;
+  }
+`
 const FooterSubscribeInput = styled(Input)`
   margin-bottom: 0.5rem;
 `
