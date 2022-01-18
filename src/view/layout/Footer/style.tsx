@@ -10,14 +10,9 @@ const Footer = styled.footer`
   @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
     flex-direction: column;
   }
-`
 
-const FooterInfo = styled.div`
-  width: 360px;
-
-  @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
-    width: 100%;
-    margin-bottom: 100px;
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin: 5rem 0;
   }
 `
 
@@ -34,15 +29,26 @@ const FooterInfoSubtitle = styled.div`
 
 const FooterInfoDescription = styled.div``
 
-const FooterMenu = styled.div`
-  width: 362px;
-  display: flex;
-  justify-content: space-between;
+const FooterInfo = styled.div`
+  width: 360px;
 
   @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
     width: 100%;
+    margin-bottom: 100px;
+  }
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ${FooterInfoDescription} {
+      text-align: center;
+    }
   }
 `
+
 const FooterMenuGroup = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,7 +58,7 @@ const FooterMenuHeader = styled.div`
   font-weight: 700;
   margin-bottom: 40px;
 `
-const FooterMenuItem = styled.a`
+const FooterMenuItem = styled.p`
   cursor: pointer;
 
   &:hover {
@@ -63,6 +69,24 @@ const FooterMenuItem = styled.a`
 
   &:not(:last-child) {
     margin-bottom: 12px;
+  }
+`
+
+const FooterMenu = styled.div`
+  width: 362px;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
+    width: 100%;
+  }
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    justify-content: space-evenly;
+
+    ${FooterMenuItem} {
+      text-align: center;
+    }
   }
 `
 

@@ -4,7 +4,6 @@ import Image from 'next/image'
 import * as S from './style'
 
 interface IIntroduction {
-  children: React.ReactNode
   rightContent?: boolean
 }
 
@@ -13,7 +12,7 @@ const Introduction: React.FC<IIntroduction> = ({rightContent}) => {
     <S.IntroductionContainer>
       <S.IntroductionContent rightContent={rightContent}>
         <S.IntroductionContentItem>
-          <S.IntroductionContentTitle level={4}>
+          <S.IntroductionContentTitle level={6}>
             Self Taughing
           </S.IntroductionContentTitle>
           <S.IntroductionContentDescription>
@@ -23,7 +22,7 @@ const Introduction: React.FC<IIntroduction> = ({rightContent}) => {
           </S.IntroductionContentDescription>
         </S.IntroductionContentItem>
         <S.IntroductionContentItem>
-          <S.IntroductionContentTitle level={4}>
+          <S.IntroductionContentTitle level={6}>
             Self Taughing
           </S.IntroductionContentTitle>
           <S.IntroductionContentDescription>
@@ -37,9 +36,9 @@ const Introduction: React.FC<IIntroduction> = ({rightContent}) => {
       <S.IntroductionPhoto>
         <Image
           src="/images/introduction-image-1.jpg"
-          width={1020}
-          height={1200}
           alt="Introduction Image"
+          layout="fill"
+          objectFit="cover"
         />
       </S.IntroductionPhoto>
     </S.IntroductionContainer>

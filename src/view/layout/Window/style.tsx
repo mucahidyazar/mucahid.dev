@@ -1,4 +1,5 @@
 import styled, {css} from 'styled-components'
+import {BreakpointSize} from '@/constants/index'
 
 interface IWindow {
   multi?: boolean
@@ -11,8 +12,8 @@ const Window = styled.div<IWindow>`
   width: 100%;
 
   &:first-child {
-    //220 / 16 = 13.5rem
-    height: calc(100vh - 13.5rem);
+    //100 / 16 = 6.25
+    height: calc(100vh - 6.25rem);
   }
 
   ${({multi}) =>

@@ -48,7 +48,14 @@ const CardContent = styled.div`
     margin-bottom: 8px;
   }
 `
-const CardContentText = styled.div``
+const CardContentText = styled.div`
+  display: -webkit-box;
+  /* -webkit-line-clamp: 3; */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: 100;
+  font-size: var(--font-size-s);
+`
 const CardContentTags = styled.div`
   display: flex;
   align-items: center;

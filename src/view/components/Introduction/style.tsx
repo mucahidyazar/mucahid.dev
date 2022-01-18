@@ -28,6 +28,7 @@ const IntroductionContent = styled.div<IntroductionContent>`
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     width: 100%;
+    order: 2;
   }
 
   ${({rightContent}) =>
@@ -37,10 +38,13 @@ const IntroductionContent = styled.div<IntroductionContent>`
     `}
 `
 
-const IntroductionContentTitle = styled(Title)``
+const IntroductionContentTitle = styled(Title)`
+  font-weight: 500;
+`
 
 const IntroductionContentDescription = styled.p`
   line-height: var(--line-height-xl);
+  font-weight: 100;
 `
 
 const IntroductionContentItem = styled.div`
@@ -61,10 +65,12 @@ const IntroductionContentItem = styled.div`
 
 const IntroductionPhoto = styled.div`
   width: 45%;
-  max-height: 100%;
+  height: 600px;
+  position: relative;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     width: 100%;
+    height: 200px;
   }
 `
 

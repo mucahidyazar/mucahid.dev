@@ -12,6 +12,10 @@ const SectionsContainer = styled.div`
   justify-content: space-between;
   padding: 15rem 0;
 
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    padding: 5rem 0;
+  }
+
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;
   }
@@ -54,6 +58,9 @@ const SectionsContainer = styled.div`
         }
       }
     }
+  }
+  ${Card.S.CardContentText} {
+    -webkit-line-clamp: 2;
   }
 `
 

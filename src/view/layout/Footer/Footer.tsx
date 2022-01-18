@@ -21,33 +21,33 @@ const Footer: NextComponentType = () => {
       <S.FooterMenu>
         <S.FooterMenuGroup>
           <S.FooterMenuHeader>Contacts</S.FooterMenuHeader>
-          <S.FooterMenuItem href="">Email ME</S.FooterMenuItem>
-          <S.FooterMenuItem href="">Instagram</S.FooterMenuItem>
-          <S.FooterMenuItem href="">Github</S.FooterMenuItem>
-          <S.FooterMenuItem href="">Linkedin</S.FooterMenuItem>
+          <S.FooterMenuItem href="/">Email ME</S.FooterMenuItem>
+          <S.FooterMenuItem href="/">Instagram</S.FooterMenuItem>
+          <S.FooterMenuItem href="/">Github</S.FooterMenuItem>
+          <S.FooterMenuItem href="/">Linkedin</S.FooterMenuItem>
         </S.FooterMenuGroup>
         <S.FooterMenuGroup>
           <S.FooterMenuHeader>Sitemap</S.FooterMenuHeader>
           <S.FooterMenuItem>
-            <Link href="">Home</Link>
+            <Link href="/">Home</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
-            <Link href="">About</Link>
+            <Link href="/">About</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
-            <Link href="">Articles</Link>
+            <Link href="/">Articles</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
-            <Link href="">Media</Link>
+            <Link href="/">Media</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
-            <Link href="">Contact</Link>
+            <Link href="/">Contact</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
-            <Link href="">Link</Link>
+            <Link href="/">Link</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
-            <Link href="">Projects</Link>
+            <Link href="/">Projects</Link>
           </S.FooterMenuItem>
         </S.FooterMenuGroup>
       </S.FooterMenu>

@@ -6,13 +6,23 @@ const Header = styled.div``
 const ShareBy = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+
+  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+    align-self: flex-end;
+  }
 `
 const BottomHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+
+  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 `
 const ArticleImage = styled.div``
 const ArticleTags = styled.div`
@@ -33,7 +43,11 @@ const Divider = styled.div`
     rgba(255, 255, 255, 0.4) 51.56%,
     rgba(255, 255, 255, 0.1) 100%
   );
-  margin: 100px 0;
+  margin: 5rem 0;
+
+  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+    margin: 2rem 0;
+  }
 `
 const Comments = styled.div`
   ${Card.S.Card} {

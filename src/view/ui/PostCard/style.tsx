@@ -4,10 +4,12 @@ import {Title, Subtitle} from '../Typography'
 import {Tag} from '../Tag'
 
 const Card = styled.div`
-  max-width: 420px;
+  width: 100%;
 `
 const CardImage = styled.div`
   position: relative;
+  width: 100%;
+  min-height: 540px;
 `
 const CardCopyIcon = styled.div`
   position: absolute;

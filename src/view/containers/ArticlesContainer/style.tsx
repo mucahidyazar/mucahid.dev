@@ -17,7 +17,7 @@ const FiltersTags = styled.div`
 const ArticlesSection = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  grid-gap: 1rem;
+  grid-gap: 5rem;
   margin-bottom: 2rem;
 `
 

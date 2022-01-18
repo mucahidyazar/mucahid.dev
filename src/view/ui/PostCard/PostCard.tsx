@@ -17,7 +17,7 @@ const PostCard = ({imageUrl, title, subtitle, date, tags}: IPostCard) => {
   return (
     <S.Card>
       <S.CardImage>
-        <Image src={imageUrl} width={420} height={540} alt="" />
+        <Image src={imageUrl} layout="fill" objectFit="cover" alt="" />
         <S.CardCopyIcon>
           <Image src="/svgs/copy.svg" width={20} height={20} alt="" />
         </S.CardCopyIcon>

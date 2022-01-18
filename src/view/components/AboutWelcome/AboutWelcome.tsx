@@ -12,9 +12,9 @@ const AboutWelcome: NextComponentType = () => {
         <S.AboutWelcomeImage>
           <Image
             src="/images/introduction-image-1.jpg"
-            width={440}
-            height={440}
-            alt=""
+            layout="fill"
+            objectFit="cover"
+            alt="Profile Photo"
           />
         </S.AboutWelcomeImage>
         <S.AboutWelcomeSocials>

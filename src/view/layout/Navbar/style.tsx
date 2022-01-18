@@ -9,6 +9,10 @@ const Navbar = styled.nav`
   padding: 80px 0;
   position: relative;
   cursor: pointer;
+
+  @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
+    padding: 20px 0;
+  }
 `
 
 const NavbarBrand = styled.div`

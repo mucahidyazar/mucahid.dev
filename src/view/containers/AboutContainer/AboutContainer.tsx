@@ -68,37 +68,35 @@ const AboutContainer: NextComponentType = () => {
       <Window>
         <AboutWelcome />
       </Window>
-      <Window multi>
-        <S.ExperiencesSection>
-          <SectionHeader
-            title="Experiences"
-            subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-          />
-          <SectionSlider data={mockData} hasBadge hasArrow />
-        </S.ExperiencesSection>
-        <S.TechnologiesSection>
-          <SectionHeader
-            title="Technologies"
-            subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-          />
-          <S.TechnologiesTags>
-            {[
-              'Css',
-              'Html',
-              'Javascript',
-              'React',
-              'Next.js',
-              'Redux',
-              'Sass',
-              'TypeScript',
-            ].map(item => (
-              <Badge key={item} cool>
-                {item}
-              </Badge>
-            ))}
-          </S.TechnologiesTags>
-        </S.TechnologiesSection>
-      </Window>
+      <S.ExperiencesSection>
+        <SectionHeader
+          title="Experiences"
+          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
+        />
+        <SectionSlider data={mockData} hasBadge hasArrow />
+      </S.ExperiencesSection>
+      <S.TechnologiesSection>
+        <SectionHeader
+          title="Technologies"
+          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
+        />
+        <S.TechnologiesTags>
+          {[
+            'Css',
+            'Html',
+            'Javascript',
+            'React',
+            'Next.js',
+            'Redux',
+            'Sass',
+            'TypeScript',
+          ].map(item => (
+            <Badge key={item} cool>
+              {item}
+            </Badge>
+          ))}
+        </S.TechnologiesTags>
+      </S.TechnologiesSection>
 
       <S.QuotesSection>
         <SectionHeader

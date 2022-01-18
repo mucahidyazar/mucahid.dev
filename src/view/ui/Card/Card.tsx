@@ -29,19 +29,21 @@ const Card = ({data, type}: ICard) => {
       )}
 
       <S.CardContent>
-        <S.CardContentTitle level={4}>{data?.name}</S.CardContentTitle>
+        <S.CardContentTitle level={6}>{data?.name}</S.CardContentTitle>
         {data?.subtitles?.map(subtitle => (
           <S.CardContentSubtitle key={data?.id + subtitle}>
             {subtitle}
           </S.CardContentSubtitle>
         ))}
-        <S.CardContentTags>
-          {data?.tags?.map(tag => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </S.CardContentTags>
+        {data?.tags && (
+          <S.CardContentTags>
+            {data.tags.map(tag => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </S.CardContentTags>
+        )}
         <S.CardContentText>{data?.text}</S.CardContentText>
-        <S.CardContentDate>{data?.date}</S.CardContentDate>
+        {data?.date && <S.CardContentDate>{data.date}</S.CardContentDate>}
       </S.CardContent>
     </S.Card>
   )

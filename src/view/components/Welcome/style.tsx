@@ -1,9 +1,5 @@
 import styled from 'styled-components'
-
-const WelcomeContainer = styled.div`
-  display: flex;
-  color: var(--color-white);
-`
+import {BreakpointSize} from '@/constants/index'
 
 const WelcomeContent = styled.div`
   width: 800px;
@@ -21,6 +17,23 @@ const WelcomeContentDescription = styled.div`
 `
 
 const WelcomeIllustration = styled.div``
+
+const WelcomeContainer = styled.div`
+  display: flex;
+  color: var(--color-white);
+  width: 100%;
+  margin-bottom: 220px;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+    ${WelcomeIllustration} {
+      display: none;
+    }
+  }
+`
 
 export {
   WelcomeContainer,
