@@ -93,7 +93,6 @@ const HomeContainer: NextComponentType = () => {
           <SectionSlider data={mockData} hasBadge hasArrow />
         </S.SummarySection>
       </Window>
-      <SubscribeBanner />
     </>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import type {NextComponentType} from 'next'
 import Head from 'next/head'
+import {SubscribeBanner} from '@/components/index'
 import {Navbar, Footer} from '@/layout/index'
 import * as S from './style'
 
@@ -19,6 +20,7 @@ const MainLayout: NextComponentType<IMainLayout> = ({children}) => {
       </Head>
       <Navbar />
       <S.MainLayoutContent>{children}</S.MainLayoutContent>
+      <SubscribeBanner />
       <Footer />
     </S.MainLayout>
   )
