@@ -7,19 +7,33 @@ const Button = styled.button`
   border: none;
   outline: none;
   border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(62, 76, 103, 0.8);
+  }
 
   ${({primary}) =>
     primary &&
     css`
       background-color: rgba(58, 92, 223, 0.5);
+
+      &:hover {
+        background-color: rgba(58, 92, 223, 0.8);
+      }
     `}
 
   ${({outline}) =>
     outline &&
     css`
-      padding: 10px 16px;
+      padding: 9px 16px;
       background-color: transparent;
       border: 2px solid var(--color-white);
+
+      &:hover {
+        background-color: var(--color-white);
+        color: var(--color-black);
+      }
     `}
 `
 

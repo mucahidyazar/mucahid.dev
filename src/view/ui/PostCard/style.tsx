@@ -5,11 +5,13 @@ import {Tag} from '../Tag'
 
 const Card = styled.div`
   width: 100%;
+  cursor: pointer;
 `
 const CardImage = styled.div`
   position: relative;
   width: 100%;
   min-height: 540px;
+  margin-bottom: 0.5rem;
 `
 const CardCopyIcon = styled.div`
   position: absolute;
@@ -45,9 +47,18 @@ const Tags = styled.div`
 `
 
 const CardContent = styled.div``
-const CardContentTitle = styled(Title)``
+const CardContentTitle = styled(Title)`
+  &:hover {
+    text-decoration: underline;
+    color: var(--color-pastel1);
+  }
+`
 const CardContentSubtitle = styled(Subtitle)`
   margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `
 const CardContentDate = styled(Subtitle)`
   font-weight: 600;

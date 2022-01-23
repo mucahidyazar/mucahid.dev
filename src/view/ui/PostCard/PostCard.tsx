@@ -1,6 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import {Tag} from '@/ui/index'
+import {stripText} from '@/utilities/index'
 import PropTypes from 'prop-types'
 
 import * as S from './style'
@@ -10,27 +12,45 @@ interface IPostCard {
   title: string
   subtitle: string
   date: string
+  link: string
   tags: string[]
 }
 
-const PostCard = ({imageUrl, title, subtitle, date, tags}: IPostCard) => {
+const PostCard = ({imageUrl, title, subtitle, date, tags, link}: IPostCard) => {
+  const handleCopyLink = () => {
+    navigator.clipboard.writeText(imageUrl)
+  }
   return (
     <S.Card>
       <S.CardImage>
-        <Image src={imageUrl} layout="fill" objectFit="cover" alt="" />
-        <S.CardCopyIcon>
+        <Image
+          src={imageUrl}
+          layout="fill"
+          objectFit="cover"
+          alt="Article Image"
+          unoptimized={true}
+        />
+        <S.CardCopyIcon onClick={handleCopyLink}>
           <Image src="/svgs/copy.svg" width={20} height={20} alt="" />
         </S.CardCopyIcon>
         <S.Tags>
-          {['Tag 1', 'Tag 2', 'Tag 3', 'Tag 1', 'Tag 2', 'Tag 3'].map(tag => (
+          {tags.map(tag => (
             <Tag key={tag}>{tag}</Tag>
           ))}
         </S.Tags>
       </S.CardImage>
 
       <S.CardContent>
-        <S.CardContentTitle level={5}>{title}</S.CardContentTitle>
-        <S.CardContentSubtitle>{subtitle}</S.CardContentSubtitle>
+        <Link
+          href={`/article/${link.replace(
+            'https://mucahidyazar.medium.com/',
+            '',
+          )}`}
+          passHref
+        >
+          <S.CardContentTitle level={5}>{title}</S.CardContentTitle>
+        </Link>
+        <S.CardContentSubtitle>{stripText(subtitle)}</S.CardContentSubtitle>
         <S.CardContentDate>{date}</S.CardContentDate>
       </S.CardContent>
     </S.Card>

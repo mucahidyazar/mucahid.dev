@@ -6,7 +6,7 @@ const BadgeContainer = styled.div`
   display: flex;
   gap: 20px;
   margin-bottom: 40px;
-  overflow-x: scroll;
+  overflow-x: auto;
 `
 
 const SectionSliderContainer = styled.div``

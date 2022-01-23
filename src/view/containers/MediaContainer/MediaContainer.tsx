@@ -19,17 +19,11 @@ import {
   Badge,
 } from '@/ui/index'
 import * as S from './style'
+import {useSelector} from 'react-redux'
+import {makeInstagramSelector} from '@/store/articles/selectors'
 
 const MediaContainer: NextComponentType = () => {
-  // 6 potrait photos array
-  const mockData = [
-    'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-  ]
+  const instagramPhotos = useSelector(makeInstagramSelector)
 
   // a computer hardware mock data
   const computerMockData = [
@@ -174,7 +168,7 @@ const MediaContainer: NextComponentType = () => {
             link="/"
           />
           <S.InstagramContainer>
-            {mockData.map(item => (
+            {instagramPhotos.splice(0, 6).map(item => (
               <S.InstagramImage key={item}>
                 <Image
                   src={item}
@@ -196,6 +190,7 @@ const MediaContainer: NextComponentType = () => {
         </S.SectionTwoContainer>
       </S.SectionsContainer>
 
+      {/* TODO: Links ve Mediadaki bu Badge bloklarini bir component yap  */}
       <SectionHeader
         title="Equipments"
         subtitle="Let me show you what summary of my website is :) Click which you want or just wait."

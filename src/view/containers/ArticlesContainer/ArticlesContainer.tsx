@@ -1,5 +1,4 @@
-import React from 'react'
-import Link from 'next/link'
+import React, {useEffect} from 'react'
 import type {NextComponentType} from 'next'
 import {Window} from '@/layout/index'
 import {
@@ -19,92 +18,11 @@ import {
   ProjectCard,
 } from '@/ui/index'
 import * as S from './style'
+import {useSelector} from 'react-redux'
+import {makeArticlesSelector} from '@/store/articles/selectors'
 
 const ArticlesContainer: NextComponentType = () => {
-  // generate mock articles data which variable name is mockData
-  // mock data is an array of objects
-  // each object is an article
-  // each article has a id(string), title, a description, a date, a category, tags and a image
-  // and mockData has 10 articles
-  const mockData = [
-    {
-      id: '1',
-      title: 'How to use React Hooks',
-      description:
-        'React Hooks is a new feature in React 16.8. It lets you use state and other React features without writing a class.',
-      date: '2020-05-01',
-      category: 'React',
-      tags: ['React', 'Hooks'],
-      image: 'https://picsum.photos/id/1/200/300',
-      slug: 'how-to-use-react-hooks-1',
-    },
-    {
-      id: '2',
-      title: 'How to use React Hooks',
-      description:
-        'React Hooks is a new feature in React 16.8. It lets you use state and other React features without writing a class.',
-      date: '2020-05-01',
-      category: 'React',
-      tags: ['React', 'Hooks'],
-      image: 'https://picsum.photos/id/2/200/300',
-      slug: 'how-to-use-react-hooks-2',
-    },
-    {
-      id: '3',
-      title: 'How to use React Hooks',
-      description:
-        'React Hooks is a new feature in React 16.8. It lets you use state and other React features without writing a class.',
-      date: '2020-05-01',
-      category: 'React',
-      tags: ['React', 'Hooks'],
-      image: 'https://picsum.photos/id/3/200/300',
-      slug: 'how-to-use-react-hooks-3',
-    },
-    {
-      id: '4',
-      title: 'How to use React Hooks',
-      description:
-        'React Hooks is a new feature in React 16.8. It lets you use state and other React features without writing a class.',
-      date: '2020-05-01',
-      category: 'React',
-      tags: ['React', 'Hooks'],
-      image: 'https://picsum.photos/id/4/200/300',
-      slug: 'how-to-use-react-hooks-4',
-    },
-    {
-      id: '5',
-      title: 'How to use React Hooks',
-      description:
-        'React Hooks is a new feature in React 16.8. It lets you use state and other React features without writing a class.',
-      date: '2020-05-01',
-      category: 'React',
-      tags: ['React', 'Hooks'],
-      image: 'https://picsum.photos/id/5/200/300',
-      slug: 'how-to-use-react-hooks-5',
-    },
-    {
-      id: '6',
-      title: 'How to use React Hooks',
-      description:
-        'React Hooks is a new feature in React 16.8. It lets you use state and other React features without writing a class.',
-      date: '2020-05-01',
-      category: 'React',
-      tags: ['React', 'Hooks'],
-      image: 'https://picsum.photos/id/6/200/300',
-      slug: 'how-to-use-react-hooks-6',
-    },
-    {
-      id: '7',
-      title: 'How to use React Hooks',
-      description:
-        'React Hooks is a new feature in React 16.8. It lets you use state and other React features without writing a class.',
-      date: '2020-05-01',
-      category: 'React',
-      tags: ['React', 'Hooks'],
-      image: 'https://picsum.photos/id/7/200/300',
-      slug: 'how-to-use-react-hooks-7',
-    },
-  ]
+  const articles = useSelector(makeArticlesSelector)
 
   return (
     <>
@@ -136,18 +54,18 @@ const ArticlesContainer: NextComponentType = () => {
       </S.FiltersSection>
 
       <S.ArticlesSection>
-        {mockData.map((item, index) => {
+        {articles.map((article, index) => {
           if (index < 6) {
             return (
-              <Link key={item.id} href={`/article/${item.slug}`} passHref>
-                <PostCard
-                  title={item.title}
-                  subtitle={item.description}
-                  date={item.date}
-                  tags={item.tags}
-                  imageUrl={item.image}
-                />
-              </Link>
+              <PostCard
+                key={article.guid}
+                title={article.title}
+                subtitle={article.description}
+                date={article.pubDate}
+                tags={article.categories}
+                link={article.link}
+                imageUrl={article.thumbnail}
+              />
             )
           }
         })}

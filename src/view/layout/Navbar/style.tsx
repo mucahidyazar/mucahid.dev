@@ -99,25 +99,6 @@ const NavbarLogoGradientBorder = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: gradient-border-animation 5s ease-in-out infinite;
-
-  @keyframes gradient-border-animation {
-    0% {
-      background: linear-gradient(225deg, #f9f871 25%, #00af90 25%);
-    }
-    25% {
-      background: linear-gradient(225deg, #00af90 35%, #f9f871 35%);
-    }
-    50% {
-      background: linear-gradient(225deg, #f9f871 50%, #00af90 50%);
-    }
-    75% {
-      background: linear-gradient(225deg, #00af90 35%, #f9f871 35%);
-    }
-    100% {
-      background: linear-gradient(225deg, #f9f871 25%, #00af90 25%);
-    }
-  }
 `
 const NavbarLogo = styled.div`
   width: 52px;

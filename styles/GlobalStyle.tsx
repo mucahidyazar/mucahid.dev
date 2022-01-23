@@ -10,16 +10,16 @@ const GlobalStyle = createGlobalStyle`
     --color-gray-transparent: rgba(149, 161, 193, 0.5);
     --color-pastel1: #6BCDF7;
     --color-pastel2: #8F88F2;
-    --color-pastel2: #9BDB9D;
-    --color-pastel2: #C574A0;
-    --color-pastel2: #2F3039;
-    --color-pastel2: #CBD743;
-    --color-pastel1: #67943F;
-    --color-pastel2: #FA7519;
-    --color-pastel2: #406E4C;
-    --color-pastel2: #4C4BD5;
-    --color-pastel2: #DFDAD9;
-    --color-pastel2: #D38A69;
+    --color-pastel3: #9BDB9D;
+    --color-pastel4: #C574A0;
+    --color-pastel5: #2F3039;
+    --color-pastel6: #CBD743;
+    --color-pastel7: #67943F;
+    --color-pastel8: #FA7519;
+    --color-pastel9: #406E4C;
+    --color-pastel10: #4C4BD5;
+    --color-pastel11: #DFDAD9;
+    --color-pastel12: #D38A69;
 
     // MAJOR THIRD SCALE RATIOS
     --line-height: 125%;
@@ -52,14 +52,13 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     width: 100%;
+    height: 100%;
     font-size: 16px;
     color: var(--color-white);
   }
 
   body {
     font-family: 'Rubik', sans-serif;
-    width: 100%;
-    height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0f0e13;
@@ -77,10 +76,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-  #__next {
-    width: 100%;
-    height: 100%;
-  }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: normal;

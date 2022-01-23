@@ -9,8 +9,17 @@ import {
   SubscribeBanner,
 } from '@/components/index'
 import {Window} from '@/layout/index'
-import {Card, PostCard, Input, Textarea, Button, ProjectCard} from '@/ui/index'
+import {
+  Card,
+  Icon,
+  PostCard,
+  Input,
+  Textarea,
+  Button,
+  ProjectCard,
+} from '@/ui/index'
 import * as S from './style'
+import {socialMedias} from '@/data'
 
 const ContactContainer: NextComponentType = () => {
   const mockData = [
@@ -58,38 +67,11 @@ const ContactContainer: NextComponentType = () => {
         <Welcome />
       </Window>
       <S.ConnectionsContainer>
-        <S.ConnectionIcon>
-          <Image
-            src="/svgs/codepen-icon.svg"
-            alt="codepen-icon"
-            width={40}
-            height={40}
-          />
-        </S.ConnectionIcon>
-        <S.ConnectionIcon>
-          <Image
-            src="/svgs/codepen-icon.svg"
-            alt="codepen-icon"
-            width={40}
-            height={40}
-          />
-        </S.ConnectionIcon>
-        <S.ConnectionIcon>
-          <Image
-            src="/svgs/codepen-icon.svg"
-            alt="codepen-icon"
-            width={40}
-            height={40}
-          />
-        </S.ConnectionIcon>
-        <S.ConnectionIcon>
-          <Image
-            src="/svgs/codepen-icon.svg"
-            alt="codepen-icon"
-            width={40}
-            height={40}
-          />
-        </S.ConnectionIcon>
+        {socialMedias.map(({id, name, icon, url, color}) => (
+          <S.ConnectionIcon key={id} backgroundColor={color}>
+            <Icon name={icon} size={24} />
+          </S.ConnectionIcon>
+        ))}
       </S.ConnectionsContainer>
       <S.ConnectMetamaskButtonContainer>
         <S.ConnectMetamaskButton>

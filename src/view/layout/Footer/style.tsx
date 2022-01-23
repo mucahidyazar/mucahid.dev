@@ -5,7 +5,8 @@ import {Button, Input} from '@/ui/index'
 const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
-  margin: 200px 0;
+  margin-top: 15rem;
+  padding-bottom: 15rem;
   color: var(--color-white);
 
   @media (max-width: ${BreakpointSize.TABLET.MIN}px) {

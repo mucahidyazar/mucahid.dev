@@ -94,9 +94,11 @@ const ConnectionIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #4c4bd5;
+  background-color: ${({backgroundColor}) => backgroundColor};
   border-radius: 4px;
-  border: 1px solid var(--color-white);
+
+  &:hover {
+  }
 `
 
 const ConnectMetamaskButtonContainer = styled.div`
@@ -136,17 +138,6 @@ const BoardItem = styled.div`
   height: 200px;
   background-color: var(--color-white);
 `
-
-{
-  /* <S.ContactFormContainer>
-<S.ContactForm>
-  <S.ContactFormInput placeholder="Type" />
-  <S.ContactFormInput placeholder="0.00000 ether" />
-  <S.ContactFormTextarea placeholder="Message" />
-  <S.ContactFormButton>Send</S.ContactFormButton>
-</S.ContactForm>
-</S.ContactFormContainer> */
-}
 
 const ContactFormContainer = styled.div`
   display: flex;

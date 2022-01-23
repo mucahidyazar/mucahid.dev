@@ -4,12 +4,16 @@ import React, {FC} from 'react'
 import {AppProps} from 'next/app'
 import {wrapper} from '../src/store'
 import {GlobalStyle} from 'styles'
+import {PageLoading} from '@/components/index'
 
-const WrappedApp: FC<AppProps> = ({Component, pageProps}) => (
-  <>
-    <Component {...pageProps} />
-    <GlobalStyle />
-  </>
-)
+const WrappedApp: FC<AppProps> = ({Component, pageProps}) => {
+  return (
+    <>
+      <Component {...pageProps} />
+      <GlobalStyle />
+      <PageLoading />
+    </>
+  )
+}
 
 export default wrapper.withRedux(WrappedApp)

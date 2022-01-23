@@ -20,6 +20,7 @@
       "@/containers/*": ["src/view/containers/*"],
       "@/constants/*": ["src/constants/*"],
       "@/layout/*": ["src/view/layout/*"],
+      "@/data": ["src/data/index.ts"],
       "@/store/*": ["src/store/*"],
       "@/ui/*": ["src/view/ui/*"],
       "@/utilities/*": ["src/utilities/*"]
