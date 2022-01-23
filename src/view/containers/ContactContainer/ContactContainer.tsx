@@ -68,7 +68,12 @@ const ContactContainer: NextComponentType = () => {
       </Window>
       <S.ConnectionsContainer>
         {socialMedias.map(({id, name, icon, url, color}) => (
-          <S.ConnectionIcon key={id} backgroundColor={color}>
+          <S.ConnectionIcon
+            key={id}
+            backgroundColor={color}
+            href={url}
+            target="_blank"
+          >
             <Icon name={icon} size={24} />
           </S.ConnectionIcon>
         ))}

@@ -8,6 +8,7 @@ const Input = styled.input`
   outline: none;
   padding: 12px 20px;
   border-radius: 0.25rem;
+  color: var(--color-white);
 
   &::placeholder {
     color: var(--color-white);
@@ -31,6 +32,7 @@ const Textarea = styled.textarea`
   outline: none;
   padding: 12px 20px;
   border-radius: 0.25rem;
+  color: var(--color-white);
 
   &::placeholder {
     color: var(--color-white);

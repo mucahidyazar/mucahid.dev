@@ -88,7 +88,7 @@ const ConnectionsContainer = styled.div`
   gap: 1rem;
   margin-bottom: 5rem;
 `
-const ConnectionIcon = styled.div`
+const ConnectionIcon = styled.a`
   width: 80px;
   height: 80px;
   display: flex;
@@ -96,16 +96,24 @@ const ConnectionIcon = styled.div`
   justify-content: center;
   background-color: ${({backgroundColor}) => backgroundColor};
   border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
+    filter: brightness(85%);
   }
 `
 
 const ConnectMetamaskButtonContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;\
+  justify-content: center;
   margin: 5rem 0;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(85%);
+  }
 `
 
 const ConnectMetamaskButton = styled(Button)`

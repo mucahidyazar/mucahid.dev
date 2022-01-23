@@ -36,10 +36,17 @@ const Wrapper = styled.div`
   ${({format}) => format !== IconSize.NONE && IconSizeStyles[format]};
 `
 
+const Path = styled.path``
+
 const Icon = styled.svg`
   fill: currentColor;
   width: ${({size}) => `${size}px`};
   height: ${({size}) => `${size}px`};
+
+  ${Path} {
+    width: ${({size}) => `${size}px`};
+    height: ${({size}) => `${size}px`};
+  }
 
   ${({spinning}) =>
     spinning &&
@@ -56,7 +63,5 @@ const Icon = styled.svg`
       }
     `}
 `
-
-const Path = styled.path``
 
 export {Icon, Path, Wrapper}
