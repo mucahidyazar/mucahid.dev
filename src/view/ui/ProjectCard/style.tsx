@@ -50,7 +50,10 @@ import {Tag} from '../Tag'
 
 const ProjectCard = styled.div``
 const ProjectCardImage = styled.div`
+  position: relative;
   margin-bottom: 0.5rem;
+  width: 1440px;
+  height: 440px;
 `
 const ProjectCardContent = styled.div`
   display: flex;

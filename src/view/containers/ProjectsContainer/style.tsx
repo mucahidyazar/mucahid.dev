@@ -4,15 +4,6 @@ const SummarySection = styled.div`
   max-width: 100%;
 `
 
-const ProjectCardsSection = styled.div`
-  margin: 15rem 0;
-`
-const ProjectCards = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-`
-
 const ExperiencesSection = styled.div`
   margin: 15rem 0;
 `
@@ -27,11 +18,4 @@ const WorkshopsList = styled.div`
   margin-bottom: 2rem;
 `
 
-export {
-  SummarySection,
-  ProjectCardsSection,
-  ProjectCards,
-  ExperiencesSection,
-  WorkshopsSection,
-  WorkshopsList,
-}
+export {SummarySection, ExperiencesSection, WorkshopsSection, WorkshopsList}

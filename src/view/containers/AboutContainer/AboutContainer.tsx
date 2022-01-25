@@ -18,7 +18,7 @@ import {
   ProjectCard,
 } from '@/ui/index'
 import * as S from './style'
-import {companies} from '@/data'
+import {companies, projects} from '@/data'
 
 const AboutContainer: NextComponentType = () => {
   const quotesMockData = [
@@ -50,6 +50,7 @@ const AboutContainer: NextComponentType = () => {
         />
         <SectionSlider data={companies} hasBadge hasArrow />
       </S.ExperiencesSection>
+
       <S.TechnologiesSection>
         <SectionHeader
           title="Technologies"
@@ -72,6 +73,19 @@ const AboutContainer: NextComponentType = () => {
           ))}
         </S.TechnologiesTags>
       </S.TechnologiesSection>
+
+      <S.ProjectCardsSection>
+        <SectionHeader
+          title="Projects"
+          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
+          link="https://www.google.com"
+        />
+        <S.ProjectCards>
+          {projects.map(project => (
+            <ProjectCard key={project.id} {...project} />
+          ))}
+        </S.ProjectCards>
+      </S.ProjectCardsSection>
 
       <S.QuotesSection>
         <SectionHeader

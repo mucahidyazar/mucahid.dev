@@ -5,51 +5,56 @@ import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-const ProjectCard = ({imageUrl, title, subtitle, date}) => {
+interface IProjectCardProps {
+  name: string
+  url: string
+  image: string
+  technologies: string[]
+  description: string
+}
+
+const ProjectCard: React.FC<IProjectCardProps> = ({
+  name,
+  url,
+  image,
+  technologies,
+  description,
+}) => {
   return (
     <S.ProjectCard>
       <S.ProjectCardImage>
         <Image
-          src="/images/introduction-image-1.jpg"
-          width={1440}
-          height={440}
-          alt=""
+          src={image}
+          layout="fill"
+          alt="name"
+          objectFit="cover"
+          objectPosition="center top"
         />
       </S.ProjectCardImage>
       <S.ProjectCardContent>
         <S.ProjectCardLeft>
           <S.ProjectCardItem>
             <S.ProjectCardLabel>Project Name</S.ProjectCardLabel>
-            <S.ProjectCardText>Getir</S.ProjectCardText>
+            <S.ProjectCardText>{name}</S.ProjectCardText>
           </S.ProjectCardItem>
           <S.ProjectCardItem>
             <S.ProjectCardLabel>Technologies</S.ProjectCardLabel>
             <S.ProjectCardTags>
-              <Tag>React</Tag>
-              <Tag>NextJS</Tag>
-              <Tag>TypeScript</Tag>
+              {technologies?.map(technology => (
+                <Tag key={technology}>{technology}</Tag>
+              ))}
             </S.ProjectCardTags>
           </S.ProjectCardItem>
           <S.ProjectCardItem>
             <S.ProjectCardLabel>URL</S.ProjectCardLabel>
-            <S.ProjectCardText>www.getir.com</S.ProjectCardText>
+            <S.ProjectCardText>{url}</S.ProjectCardText>
           </S.ProjectCardItem>
         </S.ProjectCardLeft>
 
         <S.ProjectCardRight>
           <S.ProjectCardItem>
             <S.ProjectCardLabel>Description</S.ProjectCardLabel>
-            <S.ProjectCardText>
-              How are you doin you having fun and like my website. I wanted to
-              welcome you. How are you doing? Hopving fuaving fun and like my
-              website. I wanted to welcome you. How are you doing? u having fun
-              and like my website. I wanted to welcome you.How are you doin you
-              having fun and like my website. I wanted to welcome you. How are
-              you doing? Hopving fuaving fun and like my website. I wanted to
-              welcome you. How are you doing? u having fun and like my website.
-              I wanted to welcome you.How are you doin you having fun and like
-              my website.
-            </S.ProjectCardText>
+            <S.ProjectCardText>{description}</S.ProjectCardText>
           </S.ProjectCardItem>
         </S.ProjectCardRight>
       </S.ProjectCardContent>
@@ -57,10 +62,16 @@ const ProjectCard = ({imageUrl, title, subtitle, date}) => {
   )
 }
 
-ProjectCard.propTypes = {}
+ProjectCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  technologies: PropTypes.arrayOf(PropTypes.string),
+  description: PropTypes.string.isRequired,
+}
 
-ProjectCard.defaultProps = {}
-
-ProjectCard.S = S
+ProjectCard.defaultProps = {
+  technologies: [],
+}
 
 export default ProjectCard

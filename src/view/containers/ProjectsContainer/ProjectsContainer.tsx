@@ -37,18 +37,6 @@ const ProjectsContainer: NextComponentType = () => {
       </Window>
 
       <Sections SectionOne={SectionOne} SectionTwo={SectionTwo} />
-      <S.ProjectCardsSection>
-        <SectionHeader
-          title="Repositories"
-          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-          link="https://www.google.com"
-        />
-        <S.ProjectCards>
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-        </S.ProjectCards>
-      </S.ProjectCardsSection>
 
       <S.ExperiencesSection>
         <SectionHeader
