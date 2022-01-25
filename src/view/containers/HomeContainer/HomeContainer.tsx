@@ -54,7 +54,11 @@ const HomeContainer: NextComponentType = () => {
   return (
     <>
       <Window>
-        <Welcome />
+        <Welcome
+          illustration="message"
+          title="Hi, I'm Mucahid"
+          description="I'm a full-stack developer, and I'm a fan of the web."
+        />
       </Window>
       <Window>
         <Introduction rightContent />

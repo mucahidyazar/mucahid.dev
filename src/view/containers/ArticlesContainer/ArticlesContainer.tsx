@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import type {NextComponentType} from 'next'
 import {Window} from '@/layout/index'
 import {
@@ -22,12 +22,17 @@ import {useSelector} from 'react-redux'
 import {makeArticlesSelector} from '@/store/articles/selectors'
 
 const ArticlesContainer: NextComponentType = () => {
+  const [pagination, setPagination] = useState(6)
   const articles = useSelector(makeArticlesSelector)
 
   return (
     <>
       <Window>
-        <Welcome />
+        <Welcome
+          title="Improve yourself by practicing"
+          description="Let me show you what summary of my website is :) Click which you want or just wait."
+          illustration="notebook"
+        />
       </Window>
       <S.FiltersSection>
         <S.FilterByLabel>Search article by topic</S.FilterByLabel>
@@ -55,7 +60,7 @@ const ArticlesContainer: NextComponentType = () => {
 
       <S.ArticlesSection>
         {articles.map((article, index) => {
-          if (index < 6) {
+          if (index < pagination) {
             return (
               <PostCard
                 key={article.guid}
@@ -63,14 +68,21 @@ const ArticlesContainer: NextComponentType = () => {
                 subtitle={article.description}
                 date={article.pubDate}
                 tags={article.categories}
-                link={article.link}
+                link={`/article/${article.link.replace(
+                  'https://mucahidyazar.medium.com/',
+                  '',
+                )}`}
                 imageUrl={article.thumbnail}
               />
             )
           }
         })}
       </S.ArticlesSection>
-      <Button outline>Load more</Button>
+      {pagination < articles.length && (
+        <Button outline onClick={() => setPagination(prev => prev + 6)}>
+          Load more
+        </Button>
+      )}
       {/* <S.QuotesSection>
         <SectionHeader
           title="Quotes"

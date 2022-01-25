@@ -1,14 +1,18 @@
-import {mainTypes} from './action'
+import * as types from './types'
+import produce from 'immer'
+import {Status} from '@/constants/index'
 
-const mainInitialState = {
+const INITIAL_STATE = {
   isLoadingVisible: false,
+  activeRoute: '/',
 }
 
-export function reducer(state = mainInitialState, action) {
+export const reducer = produce((draft, action) => {
   switch (action.type) {
-    // case mainTypes.TICK:
-    //   return state
+    case types.SET_ACTIVE_ROUTE:
+      draft.activeRoute = action.route
+      break
     default:
-      return state
+      break
   }
-}
+}, INITIAL_STATE)

@@ -4,24 +4,27 @@ import Image from 'next/image'
 import type {NextComponentType} from 'next'
 import * as S from './style'
 
-const Welcome: NextComponentType = () => {
+interface IWelcomeProps {
+  title: string
+  description: string
+  illustration: string
+}
+
+const Welcome: React.FC<IWelcomeProps> = ({
+  title,
+  description,
+  illustration,
+}) => {
   return (
     <S.WelcomeContainer>
       <S.WelcomeContent>
-        <S.WelcomeContentTitle>Hi there!</S.WelcomeContentTitle>
-        <S.WelcomeContentDescription>
-          How are you doing? Hope you having fun and like my website. I wanted
-          to welcome you. How are you doing? Hope you having fun and like my
-          website. I wanted to welcome you. How are you doing? Hope you having
-          fun and like my website. I wanted to welcome you. How are you doing?
-          Hope you having fun and like my website. I wanted to welcome you.
-        </S.WelcomeContentDescription>
+        <S.WelcomeContentTitle>{title}</S.WelcomeContentTitle>
+        <S.WelcomeContentDescription>{description}</S.WelcomeContentDescription>
       </S.WelcomeContent>
       <S.WelcomeIllustration>
         <Image
-          src="/images/home-illustration.png"
-          width={600}
-          height={600}
+          src={`/illustrations/${illustration}.png`}
+          layout="fill"
           alt="Home Illustration"
         />
       </S.WelcomeIllustration>
@@ -29,7 +32,11 @@ const Welcome: NextComponentType = () => {
   )
 }
 
-Welcome.propTypes = {}
+Welcome.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  illustration: PropTypes.string.isRequired,
+}
 
 Welcome.defaultProps = {}
 

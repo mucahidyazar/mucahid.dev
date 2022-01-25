@@ -25,6 +25,11 @@ const INITIAL_STATE = {
     data: [],
     error: null,
   },
+  starreds: {
+    status: null,
+    data: [],
+    error: null,
+  },
 }
 
 export const reducer = produce((draft, action) => {
@@ -73,6 +78,17 @@ export const reducer = produce((draft, action) => {
     case types.GET_INSTAGRAM_FAILED:
       draft.instagram.status = Status.ERROR
       draft.instagram.error = action.error
+      break
+    case types.GET_STARREDS_REQUEST:
+      draft.starreds.status = Status.LOADING
+      break
+    case types.GET_STARREDS_SUCCESS:
+      draft.starreds.status = Status.OK
+      draft.starreds.data = action.data
+      break
+    case types.GET_STARREDS_FAILED:
+      draft.starreds.status = Status.ERROR
+      draft.starreds.error = action.error
       break
     default:
       break

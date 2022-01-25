@@ -1,10 +1,12 @@
 import styled, {css} from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
 import {Title, Subtitle} from '../Typography'
+import {Button} from '../Button'
 
 const Card = styled.div`
   display: flex;
   gap: 60px;
+  width: 100%;
 
   ${({type}) =>
     type === 2 &&
@@ -38,11 +40,20 @@ const CardImage = styled.div`
     }
   }
 `
-const CardContentTitle = styled(Title)``
+const CardContentTitle = styled.a`
+  color: var(--color-white);
+  font-size: var(--font-size-l);
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
 const CardContentSubtitle = styled(Subtitle)``
 const CardContent = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow: hidden;
 
   ${CardContentSubtitle} {
     margin-bottom: 8px;
@@ -61,6 +72,7 @@ const CardContentTags = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 `
 const CardContentDate = styled(Subtitle)`
   font-weight: 600;

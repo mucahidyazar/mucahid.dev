@@ -8,6 +8,11 @@ export const hideLoading = () => ({
   type: types.HIDE_LOADING,
 })
 
+export const setActiveRoute = route => ({
+  type: types.SET_ACTIVE_ROUTE,
+  route,
+})
+
 // export const serverRenderClock = isServer => dispatch => {
 //   return dispatch({
 //     type: tickActionTypes.TICK,

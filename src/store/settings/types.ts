@@ -1,2 +1,3 @@
 export const SHOW_LOADING = 'SHOW_LOADING'
 export const HIDE_LOADING = 'HIDE_LOADING'
+export const SET_ACTIVE_ROUTE = 'SET_ACTIVE_ROUTE'

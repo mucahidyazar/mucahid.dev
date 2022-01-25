@@ -6,12 +6,12 @@ import * as S from './style'
 import {Button} from '@/ui/index'
 import {useRouter} from 'next/router'
 import {useSelector} from 'react-redux'
-import {isLoadingVisibleSelector} from '@/store/settings/selector'
+import {makeSelectIsLoadingVisible} from '@/store/settings/selectors'
 
 const PageLoading: NextComponentType = () => {
   const router = useRouter()
   const [isPageLoading, setIsPageLoading] = useState(false)
-  const isLoadingVisible = useSelector(isLoadingVisibleSelector)
+  const isLoadingVisible = useSelector(makeSelectIsLoadingVisible)
 
   useEffect(() => {
     const handleRouteChange = (/* url, {shallow} */) => {

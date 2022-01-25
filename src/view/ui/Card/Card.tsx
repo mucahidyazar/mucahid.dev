@@ -1,17 +1,20 @@
 import React from 'react'
 import Image from 'next/image'
-import {Tag} from '@/ui/index'
+import {Tag, Icon} from '@/ui/index'
 import PropTypes from 'prop-types'
 
 import * as S from './style'
 
 type TData = {
+  id?: string | number
   image?: string
   name: string
   subtitles?: string[]
   tags?: string[]
+  url?: string
   text?: string
   date?: string
+  type?: number
 }
 
 interface ICard {
@@ -29,7 +32,9 @@ const Card = ({data, type}: ICard) => {
       )}
 
       <S.CardContent>
-        <S.CardContentTitle level={6}>{data?.name}</S.CardContentTitle>
+        <S.CardContentTitle href={data?.url} target="_blank">
+          {data?.name}
+        </S.CardContentTitle>
         {data?.subtitles?.map(subtitle => (
           <S.CardContentSubtitle key={data?.id + subtitle}>
             {subtitle}
@@ -51,10 +56,12 @@ const Card = ({data, type}: ICard) => {
 
 Card.propTypes = {
   data: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     image: PropTypes.string,
     name: PropTypes.string,
     subtitles: PropTypes.arrayOf(PropTypes.string),
     tags: PropTypes.arrayOf(PropTypes.string),
+    url: PropTypes.string,
     text: PropTypes.string,
     date: PropTypes.string,
   }).isRequired,

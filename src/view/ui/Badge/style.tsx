@@ -1,4 +1,5 @@
 import styled, {css} from 'styled-components'
+import {LinkPreview as StyledLinkPreview} from '@dhaiwat10/react-link-preview'
 
 const Badge = styled.div`
   padding: 0.5rem 1.25rem;
@@ -51,4 +52,36 @@ const Badge = styled.div`
     `}
 `
 
-export {Badge}
+const LinkPreview = styled(StyledLinkPreview)`
+  display: flex;
+  flex-direction: row;
+  background: rgba(0, 0, 0, 0.9) !important;
+  width: 600px;
+  height: 220px;
+  overflow: hidden;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.95) !important;
+  }
+
+  & > div {
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  & h3 {
+    color: var(--color-white) !important;
+    font-size: var(--font-size-xl) !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  & span {
+    color: #95a1c1 !important;
+    font-size: var(--font-size-s);
+  }
+`
+
+export {Badge, LinkPreview}

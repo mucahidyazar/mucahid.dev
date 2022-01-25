@@ -5,6 +5,7 @@ export const socialMedias = [
     url: 'https://www.facebook.com/mucahidyazar',
     icon: 'facebook',
     color: '#3b5998',
+    type: 'icon',
   },
   {
     id: 'social-media-twitter',
@@ -12,6 +13,7 @@ export const socialMedias = [
     url: 'https://twitter.com/mucahidyazar',
     icon: 'twitter',
     color: '#1da1f2',
+    type: 'icon',
   },
   {
     id: 'social-media-instagram',
@@ -19,6 +21,7 @@ export const socialMedias = [
     url: 'https://instagram.com/mucahidyazar',
     icon: 'instagram',
     color: '#e1306c',
+    type: 'icon',
   },
   {
     id: 'social-media-linkedin',
@@ -26,6 +29,7 @@ export const socialMedias = [
     url: 'https://www.linkedin.com/in/mucahidyazar/',
     icon: 'linkedin',
     color: '#0077b5',
+    type: 'icon',
   },
   {
     id: 'social-media-medium',
@@ -33,6 +37,7 @@ export const socialMedias = [
     url: 'https://medium.com/@mucahidyazar',
     icon: 'medium',
     color: '#00ab6c',
+    type: 'button',
   },
   {
     id: 'social-media-github',
@@ -40,6 +45,7 @@ export const socialMedias = [
     url: 'https://github.com/mucahidyazar',
     icon: 'github',
     color: '#333',
+    type: 'icon',
   },
   {
     id: 'social-media-codepen',
@@ -47,6 +53,7 @@ export const socialMedias = [
     url: 'https://codepen.io/mucahidyazar',
     icon: 'codepen',
     color: '#000000',
+    type: 'icon',
   },
   {
     id: 'social-media-steam',
@@ -54,6 +61,7 @@ export const socialMedias = [
     url: 'https://steamcommunity.com/id/mucahidyazar',
     icon: 'steam',
     color: '#000000',
+    type: 'icon',
   },
   {
     id: 'social-media-discord',
@@ -61,6 +69,7 @@ export const socialMedias = [
     url: 'https://discord.gg/mucahidyazar',
     icon: 'discord',
     color: '#7289da',
+    type: 'button',
   },
   {
     id: 'social-media-stackoverflow',
@@ -68,5 +77,6 @@ export const socialMedias = [
     url: 'https://stackoverflow.com/users/8291849/mucahidyazar',
     icon: 'stackoverflow',
     color: '#f48024',
+    type: 'icon',
   },
 ]

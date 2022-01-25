@@ -18,34 +18,9 @@ import {
   ProjectCard,
 } from '@/ui/index'
 import * as S from './style'
+import {companies} from '@/data'
 
 const AboutContainer: NextComponentType = () => {
-  const mockData = [
-    {
-      id: 'getir',
-      name: 'Getir',
-      image: '/images/introduction-image-2.jpg',
-      title: 'Getir',
-      subtitles: [
-        'Role: Frontend Developer',
-        'Location: Istanbul',
-        'Date: 2020',
-      ],
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
-    },
-    {
-      id: 'maxithings',
-      name: 'MaxiThings',
-      image: '/images/introduction-image-2.jpg',
-      title: 'MaxiThings',
-      subtitles: [
-        'Role: Frontend Developer',
-        'Location: Istanbul',
-        'Date: 2020',
-      ],
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
-    },
-  ]
   const quotesMockData = [
     {
       id: 'getir',
@@ -73,7 +48,7 @@ const AboutContainer: NextComponentType = () => {
           title="Experiences"
           subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
         />
-        <SectionSlider data={mockData} hasBadge hasArrow />
+        <SectionSlider data={companies} hasBadge hasArrow />
       </S.ExperiencesSection>
       <S.TechnologiesSection>
         <SectionHeader

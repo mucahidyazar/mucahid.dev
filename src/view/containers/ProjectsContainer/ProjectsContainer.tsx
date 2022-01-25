@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type {NextComponentType} from 'next'
@@ -7,78 +7,36 @@ import {
   SectionHeader,
   Welcome,
   SectionSlider,
-  SubscribeBanner,
+  Sections,
 } from '@/components/index'
 import {Window} from '@/layout/index'
 import {Card, PostCard, Input, Textarea, Button, ProjectCard} from '@/ui/index'
-import {computerMockData} from '@/data'
+import {articles, computerMockData, contributions} from '@/data'
 import * as S from './style'
-import {articles} from '@/data'
+import {useDispatch, useSelector} from 'react-redux'
+import {getStarreds} from '@/store/articles'
+import {makeSelectStarreds} from '@/store/articles/selectors'
+import {SectionCard} from './SectionCard'
+import {SectionOne, SectionTwo} from './Sections'
 
 const ProjectsContainer: NextComponentType = () => {
-  const SectionCard = ({image, title, description}) => {
-    return (
-      <S.SectionCard>
-        <S.SectionCardImage>
-          <Image
-            src="/images/github-icon.png"
-            alt="Project Source Image"
-            layout="fill"
-          />
-        </S.SectionCardImage>
-        <S.SectionCardContent>
-          <S.SectionCardTitle level={6}>lodash</S.SectionCardTitle>
-          <S.SectionCardSubtitle>
-            lodas is the best library on the npm and github
-          </S.SectionCardSubtitle>
-        </S.SectionCardContent>
-      </S.SectionCard>
-    )
-  }
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getStarreds())
+  }, [])
+
   return (
     <>
       <Window>
-        <Welcome />
+        <Welcome
+          title="Projects, contributions, and more"
+          description="Here is a list of projects I have contributed to."
+          illustration="cup"
+        />
       </Window>
-      <S.SectionsContainer>
-        <S.SectionOneContainer>
-          <SectionHeader
-            title="Contributions"
-            subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-            link="/"
-          />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-        </S.SectionOneContainer>
-        <S.SectionTwoContainer>
-          <SectionHeader
-            title="Repositories"
-            subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-            link="https://www.google.com"
-          />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-          <SectionCard />
-        </S.SectionTwoContainer>
-      </S.SectionsContainer>
 
+      <Sections SectionOne={SectionOne} SectionTwo={SectionTwo} />
       <S.ProjectCardsSection>
         <SectionHeader
           title="Repositories"
@@ -118,6 +76,7 @@ const ProjectsContainer: NextComponentType = () => {
                     date={item.date}
                     tags={item.tags}
                     imageUrl={item.image}
+                    link="https://www.google.com"
                   />
                 </Link>
               )

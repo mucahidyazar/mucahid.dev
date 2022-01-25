@@ -10,18 +10,29 @@ import {
   SubscribeBanner,
 } from '@/components/index'
 import {Window} from '@/layout/index'
-import {Card, PostCard, Input, Textarea, Button, ProjectCard} from '@/ui/index'
-import {computerMockData} from '@/data'
+import {
+  Card,
+  PostCard,
+  Input,
+  Icon,
+  Textarea,
+  Button,
+  ProjectCard,
+} from '@/ui/index'
+import {computerMockData, socialMedias} from '@/data'
 import * as S from './style'
 import {articles} from '@/data'
 
 const LinkTreeContainer: NextComponentType = () => {
+  const buttons = socialMedias.filter(({type}) => type === 'button')
+  const icons = socialMedias.filter(({type}) => type === 'icon')
+
   return (
     <S.LinkTreeSection>
       <S.ImageWrapperLayout>
         <S.ImageWrapper>
           <Image
-            src="/images/introduction-image-2.jpg"
+            src="/images/profile.jpg"
             alt="Project Source Image"
             layout="fill"
           />
@@ -30,53 +41,31 @@ const LinkTreeContainer: NextComponentType = () => {
       <S.Username>@mucahidyazar</S.Username>
 
       <S.LinkCardsWrapper>
-        <S.LinkCard>
-          <S.LinkCardImage>
-            <Image
-              src="/images/github-icon.png"
-              alt="Project Source Image"
-              layout="fill"
-            />
-          </S.LinkCardImage>
-          <S.LinkCardTitle>Steam</S.LinkCardTitle>
-        </S.LinkCard>
-        <S.LinkCard>
-          <S.LinkCardImage>
-            <Image
-              src="/images/github-icon.png"
-              alt="Project Source Image"
-              layout="fill"
-            />
-          </S.LinkCardImage>
-          <S.LinkCardTitle>Steam</S.LinkCardTitle>
-        </S.LinkCard>
+        <Link href="/" passHref>
+          <S.LinkCard backgroundColor="brown">
+            <Icon name="home" />
+            <S.LinkCardTitle>My Blog</S.LinkCardTitle>
+          </S.LinkCard>
+        </Link>
+        {buttons.map(({id, icon, name, link, color}) => (
+          <S.LinkCard
+            key={id}
+            href={link}
+            backgroundColor={color}
+            target="_blank"
+          >
+            <Icon name={icon} />
+            <S.LinkCardTitle>{name}</S.LinkCardTitle>
+          </S.LinkCard>
+        ))}
       </S.LinkCardsWrapper>
 
       <S.SocialIconsWrapper>
-        <Image
-          src="/svgs/codepen-icon.svg"
-          alt="Project Source Image"
-          width={24}
-          height={24}
-        />
-        <Image
-          src="/svgs/instagram-icon.svg"
-          alt="Project Source Image"
-          width={24}
-          height={24}
-        />
-        <Image
-          src="/svgs/codepen-icon.svg"
-          alt="Project Source Image"
-          width={24}
-          height={24}
-        />
-        <Image
-          src="/svgs/instagram-icon.svg"
-          alt="Project Source Image"
-          width={24}
-          height={24}
-        />
+        {icons.map(({id, icon, link, color}) => (
+          <S.IconLink key={id} href={link} target="_blank">
+            <Icon name={icon} />
+          </S.IconLink>
+        ))}
       </S.SocialIconsWrapper>
     </S.LinkTreeSection>
   )

@@ -41,13 +41,7 @@ const PostCard = ({imageUrl, title, subtitle, date, tags, link}: IPostCard) => {
       </S.CardImage>
 
       <S.CardContent>
-        <Link
-          href={`/article/${link.replace(
-            'https://mucahidyazar.medium.com/',
-            '',
-          )}`}
-          passHref
-        >
+        <Link href={link} passHref>
           <S.CardContentTitle level={5}>{title}</S.CardContentTitle>
         </Link>
         <S.CardContentSubtitle>{stripText(subtitle)}</S.CardContentSubtitle>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
 import {
@@ -21,145 +21,35 @@ import {
 import * as S from './style'
 import {useSelector} from 'react-redux'
 import {makeInstagramSelector} from '@/store/articles/selectors'
+import {computerData, personalData, funkoPopsData, deskData} from '@/data'
 
 const MediaContainer: NextComponentType = () => {
   const instagramPhotos = useSelector(makeInstagramSelector)
-
-  // a computer hardware mock data
-  const computerMockData = [
-    {
-      id: '1',
-      type: 'hard disk',
-      name: 'WD Red 4TB',
-      price: 'Rp. 1.500.000',
-      tags: ['WD', 'Red', '4TB'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '2',
-      type: 'motherboard',
-      name: 'Asus Prime B450M-PLUS',
-      price: 'Rp. 1.500.000',
-      tags: ['Asus', 'Prime', 'B450M-PLUS'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '3',
-      type: 'processor',
-      name: 'Intel Core i7-9700K',
-      price: 'Rp. 1.500.000',
-      tags: ['Intel', 'Core', 'i7-9700K'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '4',
-      type: 'vga',
-      name: 'Asus GeForce GTX 1660 Ti',
-      price: 'Rp. 1.500.000',
-      tags: ['Asus', 'GeForce', 'Gtx 1660 Ti'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '5',
-      type: 'ram',
-      name: 'Corsair Vengeance 16GB',
-      price: 'Rp. 1.500.000',
-      tags: ['Corsair', 'Vengeance', '16GB'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '6',
-      type: 'ssd',
-      name: 'Samsung 850 EVO',
-      price: 'Rp. 1.500.000',
-      tags: ['Samsung', '850 EVO'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '7',
-      type: 'psu',
-      name: 'Corsair CX550',
-      price: 'Rp. 1.500.000',
-      tags: ['Corsair', 'CX550'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '8',
-      type: 'case',
-      name: 'Cooler Master MasterBox',
-      price: 'Rp. 1.500.000',
-      tags: ['Cooler', 'Master', 'MasterBox'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '9',
-      type: 'monitor',
-      name: 'Acer Predator X315',
-      price: 'Rp. 1.500.000',
-      tags: ['Acer', 'Predator', 'X315'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '10',
-      type: 'keyboard',
-      name: 'Logitech G213',
-      price: 'Rp. 1.500.000',
-      tags: ['Logitech', 'G213'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '11',
-      type: 'mouse',
-      name: 'Logitech G213',
-      price: 'Rp. 1.500.000',
-      tags: ['Logitech', 'G213'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '12',
-      type: 'speaker',
-      name: 'Logitech G213',
-      price: 'Rp. 1.500.000',
-      tags: ['Logitech', 'G213'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '13',
-      type: 'headphone',
-      name: 'Logitech G213',
-      price: 'Rp. 1.500.000',
-      tags: ['Logitech', 'G213'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-    {
-      id: '14',
-      type: 'charger',
-      name: 'Logitech G213',
-      price: 'Rp. 1.500.000',
-      tags: ['Logitech', 'G213'],
-      image:
-        'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-    },
-  ]
+  const randomDatas = [
+    ...computerData,
+    ...personalData,
+    ...funkoPopsData,
+    ...deskData,
+  ].sort(() => Math.random() - 0.5)
 
   return (
     <>
       <Window>
-        <Welcome />
+        <Welcome
+          title="Catch what I use"
+          description="I will share my favorite products and services that I use in my daily life. You can also share your own product and service with me."
+          illustration="camera"
+        />
       </Window>
+
+      <S.SummarySection>
+        <SectionHeader
+          title="Random Stuffs"
+          subtitle="Let me show you my random stuffs :) Click which you want to buy or just watch."
+        />
+        <SectionSlider data={randomDatas} hasArrow type={2} />
+      </S.SummarySection>
+
       <S.SectionsContainer>
         <S.SectionOneContainer>
           <SectionHeader
@@ -168,7 +58,7 @@ const MediaContainer: NextComponentType = () => {
             link="/"
           />
           <S.InstagramContainer>
-            {instagramPhotos.splice(0, 6).map(item => (
+            {instagramPhotos?.splice(0, 6).map(item => (
               <S.InstagramImage key={item}>
                 <Image
                   src={item}
@@ -198,19 +88,37 @@ const MediaContainer: NextComponentType = () => {
       <S.StuffContainer>
         <S.StuffTitle>Computer</S.StuffTitle>
         <S.StuffList>
-          {computerMockData.map(item => (
-            <Badge key={item.id + 'computer'}>{item.name}</Badge>
+          {computerData.map(item => (
+            <Card key={item.id + 'computer'} data={item} type={2}>
+              {item.name}
+            </Card>
+          ))}
+        </S.StuffList>
+        <S.StuffTitle>Desk</S.StuffTitle>
+        <S.StuffList>
+          {deskData.map(item => (
+            <Card key={item.id + 'desk'} data={item} type={2}>
+              {item.name}
+            </Card>
+          ))}
+        </S.StuffList>
+        <S.StuffTitle>Funko Pops</S.StuffTitle>
+        <S.StuffList>
+          {funkoPopsData.map(item => (
+            <Card key={item.id + 'funko'} data={item} type={2}>
+              {item.name}
+            </Card>
+          ))}
+        </S.StuffList>
+        <S.StuffTitle>Personal</S.StuffTitle>
+        <S.StuffList>
+          {personalData.map(item => (
+            <Card key={item.id + 'personal'} data={item} type={2}>
+              {item.name}
+            </Card>
           ))}
         </S.StuffList>
       </S.StuffContainer>
-
-      <S.SummarySection>
-        <SectionHeader
-          title="Contents"
-          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-        />
-        <SectionSlider data={computerMockData} hasArrow type={2} />
-      </S.SummarySection>
     </>
   )
 }

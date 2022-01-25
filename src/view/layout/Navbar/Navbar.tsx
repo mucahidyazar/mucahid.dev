@@ -1,12 +1,23 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import type {NextComponentType} from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
 import * as S from './style'
+import {useRouter} from 'next/router'
+
+const routes = [
+  {id: 'home', name: 'Home', route: '/'},
+  {id: 'about', name: 'About', route: '/about'},
+  {id: 'projects', name: 'Projects', route: '/projects'},
+  {id: 'articles', name: 'Articles', route: '/articles'},
+  {id: 'media', name: 'Media', route: '/media'},
+  {id: 'contact', name: 'Contact', route: '/contact'},
+  {id: 'links', name: 'Links', route: '/links'},
+]
 
 const Navbar: NextComponentType = () => {
+  const router = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)
 
   const handleToggleMenu = () => {
@@ -17,32 +28,16 @@ const Navbar: NextComponentType = () => {
     <S.Navbar>
       <S.NavbarBrand>Mucahid Yazar</S.NavbarBrand>
       <S.NavbarMenu isOpen={toggleMenu}>
-        <S.NavbarMenuItem>
-          <Link href="/">Home</Link>
-        </S.NavbarMenuItem>
-        <S.NavbarMenuItem>
-          <Link href="/about">About</Link>
-        </S.NavbarMenuItem>
-        <S.NavbarMenuItem>
-          <Link href="/articles">Articles</Link>
-        </S.NavbarMenuItem>
-        <S.NavbarMenuItem>
-          <Link href="/media">Media</Link>
-        </S.NavbarMenuItem>
-        <S.NavbarMenuItem>
-          <Link href="contact">Contact</Link>
-        </S.NavbarMenuItem>
-        <S.NavbarMenuItem>
-          <Link href="/links">Link</Link>
-        </S.NavbarMenuItem>
-        <S.NavbarMenuItem>
-          <Link href="/projects">Projects</Link>
-        </S.NavbarMenuItem>
+        {routes.map(({id, name, route}) => (
+          <S.NavbarMenuItem key={id} isActive={router.route === route}>
+            <Link href={route}>{name}</Link>
+          </S.NavbarMenuItem>
+        ))}
       </S.NavbarMenu>
       <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
         <S.NavbarLogo>
           <Image
-            src="/images/logo.png"
+            src="/images/profile.jpg"
             alt="logo"
             width="100%"
             height="100%"

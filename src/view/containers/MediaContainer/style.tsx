@@ -46,7 +46,7 @@ const InstagramContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 0.25rem;
   height: calc(100% - 6.25rem);
-  rem @media (max-width: ${BreakpointSize.TABLET.MAX}px) {
+  @media (max-width: ${BreakpointSize.TABLET.MAX}px) {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 `
@@ -69,12 +69,15 @@ const TwitterContainer = styled.div`
 `
 
 const StuffContainer = styled.div``
-const StuffTitle = styled.div``
+const StuffTitle = styled.div`
+  margin-bottom: 0.5rem;
+`
 const StuffList = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  grid-gap: 12px;
+
+  margin-bottom: 5rem;
 `
 
 const SummarySection = styled.div`

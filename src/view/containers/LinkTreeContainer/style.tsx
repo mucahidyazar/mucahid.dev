@@ -14,9 +14,9 @@ const ImageWrapperLayout = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.25rem;
   background: linear-gradient(225deg, #f9f871 0%, #00af90 100%);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   margin-bottom: 1rem;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
@@ -51,21 +51,36 @@ const LinkCardsWrapper = styled.div`
   margin-bottom: 1rem;
 `
 
-const LinkCard = styled.div`
-  background-color: rgba(107, 205, 247, 0.5);
+const LinkCard = styled.a`
+  background-color: ${({backgroundColor}) => backgroundColor};
   border-radius: 4px;
   width: 336px;
   display: flex;
   align-items: center;
   padding: 12px;
   cursor: pointer;
-  border: 2px solid #fff;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     width: 206px;
     padding: 6px;
     border-radius: 2px;
     border-width: 1px;
+  }
+
+  @keyframes linkCardAnimation {
+    0% {
+      transform: rotate(1deg) scale(1.02);
+    }
+    50% {
+      transform: rotate(-1deg) scale(1.03);
+    }
+    100% {
+      transform: rotate(0deg) scale(1.02);
+    }
+  }
+
+  &:hover {
+    animation: linkCardAnimation 0.5s ease-in-out infinite;
   }
 `
 const LinkCardImage = styled.div`
@@ -91,6 +106,16 @@ const SocialIconsWrapper = styled.div`
   gap: 1rem;
 `
 
+const IconLink = styled.a`
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.4);
+  }
+`
+
 export {
   LinkTreeSection,
   ImageWrapperLayout,
@@ -101,4 +126,5 @@ export {
   LinkCardImage,
   LinkCardTitle,
   SocialIconsWrapper,
+  IconLink,
 }

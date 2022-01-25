@@ -83,6 +83,26 @@ export const getInstagram = () => async dispatch => {
     })
   }
 }
+
+export const getStarreds = () => async dispatch => {
+  try {
+    dispatch({type: types.GET_STARREDS_REQUEST})
+
+    const {data} = await axios.get(
+      `https://api.github.com/users/mucahidyazar/starred`,
+    )
+
+    dispatch({
+      type: types.GET_STARREDS_SUCCESS,
+      data,
+    })
+  } catch (error) {
+    dispatch({
+      type: types.GET_STARREDS_FAILED,
+      error,
+    })
+  }
+}
 // export const startClock = () => dispatch => {
 //   return setInterval(
 //     () => dispatch({type: tickActionTypes.TICK, light: true, ts: Date.now()}),

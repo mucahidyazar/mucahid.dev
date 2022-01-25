@@ -8,6 +8,7 @@ const SubscribeBannerContainer = styled.div`
   justify-content: space-between;
   padding: 2.5rem;
   background-color: #8f88f2;
+  margin-top: 5rem;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;

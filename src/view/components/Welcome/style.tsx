@@ -16,7 +16,11 @@ const WelcomeContentDescription = styled.div`
   line-height: var(--line-height-xl);
 `
 
-const WelcomeIllustration = styled.div``
+const WelcomeIllustration = styled.div`
+  position: relative;
+  height: 600px;
+  width: 600px;
+`
 
 const WelcomeContainer = styled.div`
   display: flex;

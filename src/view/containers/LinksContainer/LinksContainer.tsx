@@ -65,7 +65,11 @@ const LinksContainer: NextComponentType = () => {
   return (
     <>
       <Window>
-        <Welcome />
+        <Welcome
+          title="Links, Notes, Bookmarks, and More"
+          description="Here are some of my favorite links, notes, and bookmarks."
+          illustration="prize"
+        />
       </Window>
       <S.URLsSection>
         <SectionHeader

@@ -1,2 +1,5 @@
+export * from './about'
 export * from './mocks'
 export * from './socialMedias'
+export * from './equipments'
+export * from './projects'

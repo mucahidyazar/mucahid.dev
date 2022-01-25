@@ -1,8 +1,7 @@
 import styled, {css} from 'styled-components'
 
 const Button = styled.button`
-  background-color: rgba(62, 76, 103, 0.5);
-  color: var(--color-white);
+  color: var(--color-black);
   padding: 12px 18px;
   border: none;
   outline: none;
@@ -10,7 +9,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(62, 76, 103, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   ${({primary}) =>
@@ -29,6 +28,7 @@ const Button = styled.button`
       padding: 9px 16px;
       background-color: transparent;
       border: 2px solid var(--color-white);
+      color: var(--color-white);
 
       &:hover {
         background-color: var(--color-white);

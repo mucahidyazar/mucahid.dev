@@ -127,28 +127,6 @@ export const computerMockData = [
   },
 ]
 
-export const contributions = [
-  {
-    id: 'contributions-1',
-    name: 'lodash',
-    description:
-      'lodash is a JavaScript utility library delivering consistency, modularity, performance, and extras.',
-    url: 'https://lodash.com/',
-    image: 'https://lodash.com/assets/img/logo.svg',
-    tags: ['lodash', 'javascript', 'library'],
-    links: [
-      {
-        name: 'GitHub',
-        url: '',
-      },
-      {
-        name: 'NPM',
-        url: '',
-      },
-    ],
-  },
-]
-
 export const articles = [
   {
     id: '1',

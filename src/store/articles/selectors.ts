@@ -31,3 +31,13 @@ export const makeInstagramStatusSelector = createSelector(
   settingsSelector,
   ({instagram}) => instagram.status,
 )
+
+export const makeSelectStarreds = createSelector(
+  settingsSelector,
+  ({starreds}) => starreds.data,
+)
+
+export const makeSelectStarredsStatus = createSelector(
+  settingsSelector,
+  ({starreds}) => starreds.status,
+)
