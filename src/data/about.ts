@@ -7,10 +7,11 @@ export const companies = [
     subtitles: [
       'Role: Frontend Developer',
       'Location: Istanbul',
+      'Website: https://getir.com',
       'Started at: 02/2021',
       'Projects: www.getir.com / www.getir.com/yemek / web-components(UI Library of Getir) / web-workspace(Micro-frontend project which built by NX)',
     ],
-    text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
+    text: "I have been working at Getir for almost a year. I learned and experienced amazing technologies and engineering in Getir. We are working 2 big projects in my position. Getir has lots of big projects. And we are developing the biggest and Getir's main project which is a shopping web application. And we are using and developing our own UI library. The application is in the process of a micro frontend structure. We are almost done. We used NX for the micro frontends base. And also I moved the UI library to monorepo base by using Lerna. And I got my responsibility and I got some time to develop this project. And I moved all projects to Lerna and I prepared a presentation and I presented the new UI library for an hour by Lerna. But it has been rejected by the team. But that is the most exciting work for me at Getir. And we are using some technologies whose names are react, next.js, react-hooks-form, redux, redux-saga, next-i18next, bitbuxcket, bitbucket pipelines, sentry, styledcomponents, git",
   },
   {
     id: '1',
@@ -20,10 +21,11 @@ export const companies = [
     subtitles: [
       'Role: Frontend Developer',
       'Location: Istanbul',
+      'Website: https://maxithings.com',
       'Started at: 10/2020',
       'Ended at: 02/2021',
     ],
-    text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
+    text: 'I worked for Maxithings for almost 5 months and I developed a big e-commerce project just by myself. The big project is iyifiyat.com. I built all frontend of this website with NextJS Typescript React Sass by myself. The company wanted me to copy a local Turkish e-commerce project. And before I quit I had almost finished all of the pages. I managed all of the fields of this project on frontend and I decided on all of the modules, packages, technologies by myself. After I got the offer of Getir I quit my job and I started on my new journey at Getir.',
   },
   {
     id: '2',
@@ -33,10 +35,11 @@ export const companies = [
     subtitles: [
       'Role: Frontend Developer',
       'Location: Istanbul',
+      'Website: https://www.granobra.com',
       'Started at: 02/2020',
       'Ended at: 10/2020',
     ],
-    text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
+    text: 'I worked at Grabobra for 6 months and I worked on 1 big full stack project and 2 side Frontend projects. The big project is Biletsepeti.com. We built this website with NextJS Typescript React Sass as 2 frontend developers. And I also built 2 frontend applications by myself in this company. One of them is a Calender App and the other one is a Donut app. Those were pure javascript projects',
   },
   {
     id: '3',
@@ -46,10 +49,11 @@ export const companies = [
     subtitles: [
       'Role: Frontend Developer',
       'Location: Istanbul',
+      'Website: https://mucahid.dev',
       'Started at: 01/2019',
       'Ended at: 02/2020',
     ],
-    text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
+    text: 'Firstly in my career, I started with freelancing jobs. I got 2 real-life projects. One of them was about a community blog(By Next.js / cengturkey.net), one is a company portfolio website(By pure html/css). And I also decided to build my personal blog(mucahid.dev) by showing my abilities.',
   },
 ]
 
@@ -60,7 +64,7 @@ export const projects = [
     url: 'https://www.getir.com',
     image: '/images/projects/getir.png',
     description:
-      "Getir is a Turkish online food delivery service. It's a food ordering and delivery service that connects customers with restaurants. It's a platform that connects customers with restaurants and restaurants with customers. Getir is a food ordering and delivery service that connects customers with restaurants. It's a platform that connects customers with restaurants and restaurants with customers.",
+      "This is the best project I have ever worked on so far. I learned lots of things and I got two-step up together. I can say Getir is a milestone on my career. I improved so much myself on developing and on engineering, I got lots of responsibilities and lots of work. Getir is the fastest grocery app in Turkey and Getir is the biggest company in Turkey. I am working with lots of amazing engineers. So I learned lots of things at Getir. Getir was a monolith project firstly, but at the end of 2022 we moved the app as a micro frontend base by using the tool which name is NX. And Getir has 5 sub-app inside itself. One of them is a food delivery app. I was working on that part with 3 frontend developers. But we also have responsibility on the common parts all together by 16 frontend developers. So we have a sync meeting twice a week by 16 developers. We are discussing the common problems and common improvements on app. And we get some decisions and we are improving our app together. And also we have a private Getir UI library on npm. I liked it so much and if you can have a chance to see the commit you would see my contributions on it so much. I love that UI library so much. As I said in my company section, I moved that UI library from monolith to monorepo just myself but on the voting, it has been rejected by 5/8. :) But it was an amazing experience for me. Some of technologies which we use in the project technologies: [ 'React', 'Redux', 'Redux-Saga', 'Next.js', 'Styled-Components', 'Webpack', 'Jest', 'Enzyme', 'Git', 'Bitbucket', 'Sentry', 'New Relic', 'Spinnaker', 'Docker', 'Bitbucket Pipelines', 'next-i18next', 'react-hook-form', ]",
     technologies: [
       'React',
       'Redux',
@@ -141,7 +145,7 @@ export const projects = [
     url: 'https://www.iyifiyat.com',
     image: '/images/projects/iyifiyat.png',
     description:
-      "Getir is a Turkish online food delivery service. It's a food ordering and delivery service that connects customers with restaurants. It's a platform that connects customers with restaurants and restaurants with customers. Getir is a food ordering and delivery service that connects customers with restaurants. It's a platform that connects customers with restaurants and restaurants with customers.",
+      "This was the second big SASS project that I had worked on. It was an e-commerce app. After Granobra(the company) and biletsepeti(the project), I got my second full-time job. I was working at Maxithings. It was a startup. And they hired me to manage and built for a SASS project. They wanted me to make a copy for an e-commerce app of a Turkish company whose name is https://www.trendyol.com. Everything and every decision on the project were chosen and decided by me for the frontend side. We were working with 4 developers on this project. We were 4 guys who are 1 frontend(me), 2 backends, 1 platform. I was a junior but I was working as a senior web developer. I faced lots of critical issues, but I solved all of them by myself. I decided which technologies I should use, I choose which tools which I use, I decided everything for the web app. That was an amazing experience for me. I completed that project for 4-5 months. Then we dockerized the project lastly and we released the project. After that time I had got my best offer from Getir and I quit and I join my new amazing journey. Some of Technologies which I use in the project technologies: [ 'React', 'Redux', 'Redux-Thunk', 'Next.js', 'SCSS', 'Gitlab', 'Gitlab CI', 'Docker', 'next-i18next', 'reacthook-form', ],",
     technologies: [
       'React',
       'Redux',
@@ -161,7 +165,7 @@ export const projects = [
     url: 'https://www.mucahid.dev',
     image: '/images/projects/mucahid.png',
     description:
-      "Getir is a Turkish online food delivery service. It's a food ordering and delivery service that connects customers with restaurants. It's a platform that connects customers with restaurants and restaurants with customers. Getir is a food ordering and delivery service that connects customers with restaurants. It's a platform that connects customers with restaurants and restaurants with customers.",
+      "This is my personal website. I developed the first version of this project in 2020. And ent of 2020 I released the second version as a CMS project. I used Gatsby to developed the second version. And now I am about the finish its the third version. I am developing the third version by all of my experience and the best practices which I learned so far. Nowadays I am learning about web3 and blockchain technologies. I was thinking to implement a blockchain message system in my blog. I created its pages on Figma and I will share them on my Github after the release. But I am putting its Figma link for my resume. https://www.figma.com/file/lSv7wkqqw95T2EYjtwCJ6l/mucahid.dev?node-id=0%3A1 I changed some parts on the coding phase but It will be like the Figma design generally. But my personal website also is on live now. If you wish you can look at it and also you can look at its Github codes. It is an open-source project. Some of Technologies which I use in the project technologies: [ 'React', 'Styled-Components', 'Jest', 'Enzyme', 'Git', 'Github', 'Github Actions', 'slick-carousel', 'eslint', 'prettier', 'stylelint', 'husky', 'webpack-bundle-analyzer', ],",
     technologies: [
       'React',
       'Styled-Components',
@@ -184,7 +188,7 @@ export const projects = [
     url: 'https://www.biletsepeti.com',
     image: '/images/projects/biletsepeti.png',
     description:
-      "Getir is a Turkish online food delivery service. It's a food ordering and delivery service that connects customers with restaurants. It's a platform that connects customers with restaurants and restaurants with customers. Getir is a food ordering and delivery service that connects customers with restaurants. It's a platform that connects customers with restaurants and restaurants with customers.",
+      "Biletsepeti was the first SASS project I had worked. I was the only one front-end developer. I was using Next.js for the framework. I developed most of the page designs by myself. (I think 15 pages). Then in my fourth month, the client stopped the project for a while. After that, I focused on the other side project in my company. Those are about the calendar app and the donut app. Some of Technologies which I use in the project technologies: [ 'React', 'Redux', 'Redux-Thunk', 'Next.js', 'SCSS', 'Bitbucket', 'next-i18next', ]",
     technologies: [
       'React',
       'Redux',
@@ -195,4 +199,30 @@ export const projects = [
       'next-i18next',
     ],
   },
+]
+
+export const technologies = [
+  'html',
+  'css',
+  'sass',
+  'styled-components',
+  'javascript',
+  'typeScript',
+  'react',
+  'next.js',
+  'redux',
+  'redux-saga',
+  'NX',
+  'lerna',
+  'webpack',
+  'jest',
+  'enzyme',
+  'git',
+  'bitbucket',
+  'sentry',
+  'new-relic',
+  'spinnaker',
+  'docker',
+  'bitbucket-pipelines',
+  'github-actions',
 ]

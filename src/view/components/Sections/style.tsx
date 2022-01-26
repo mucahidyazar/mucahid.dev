@@ -61,7 +61,7 @@ const Sections = styled.div`
 `
 
 const SectionOne = styled.div`
-  width: 50%;
+  width: calc(50% - 40px);
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     width: 100%;
@@ -69,7 +69,7 @@ const SectionOne = styled.div`
 `
 
 const SectionTwo = styled.div`
-  width: 50%;
+  width: calc(50% - 40px);
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     width: 100%;

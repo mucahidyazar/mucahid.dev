@@ -13,7 +13,6 @@ const routes = [
   {id: 'articles', name: 'Articles', route: '/articles'},
   {id: 'media', name: 'Media', route: '/media'},
   {id: 'contact', name: 'Contact', route: '/contact'},
-  {id: 'links', name: 'Links', route: '/links'},
 ]
 
 const Navbar: NextComponentType = () => {

@@ -27,7 +27,14 @@ const Card = ({data, type}: ICard) => {
     <S.Card type={type}>
       {data?.image && (
         <S.CardImage>
-          <Image src={data?.image} width={320} height={320} alt="" />
+          <Image
+            src={data?.image}
+            width={320}
+            height={320}
+            unoptimized
+            objectFit="cover"
+            alt=""
+          />
         </S.CardImage>
       )}
 

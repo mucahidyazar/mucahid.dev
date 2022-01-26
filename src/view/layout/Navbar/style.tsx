@@ -20,7 +20,7 @@ const NavbarBrand = styled.div`
   font-weight: 700;
 `
 const NavbarMenuItem = styled.li`
-  padding: 0 12px;
+  padding: 0 1rem;
   position: relative;
   font-size: var(--font-size);
 

@@ -18,7 +18,7 @@ import {
   ProjectCard,
 } from '@/ui/index'
 import * as S from './style'
-import {companies, projects} from '@/data'
+import {companies, projects, technologies} from '@/data'
 
 const AboutContainer: NextComponentType = () => {
   const quotesMockData = [
@@ -57,16 +57,7 @@ const AboutContainer: NextComponentType = () => {
           subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
         />
         <S.TechnologiesTags>
-          {[
-            'Css',
-            'Html',
-            'Javascript',
-            'React',
-            'Next.js',
-            'Redux',
-            'Sass',
-            'TypeScript',
-          ].map(item => (
+          {technologies.map(item => (
             <Badge key={item} cool>
               {item}
             </Badge>

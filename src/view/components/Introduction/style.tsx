@@ -20,7 +20,7 @@ interface IntroductionContent {
   rightContent?: boolean
 }
 const IntroductionContent = styled.div<IntroductionContent>`
-  width: 45%;
+  width: calc(50% - 30px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,9 +64,10 @@ const IntroductionContentItem = styled.div`
 `
 
 const IntroductionPhoto = styled.div`
-  width: 45%;
+  width: calc(50% - 30px);
   height: 600px;
   position: relative;
+  border: 0.2rem solid var(--color-black);
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     width: 100%;

@@ -43,6 +43,9 @@ const CardImage = styled.div`
 const CardContentTitle = styled.a`
   color: var(--color-white);
   font-size: var(--font-size-l);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
   &:hover {
     text-decoration: underline;

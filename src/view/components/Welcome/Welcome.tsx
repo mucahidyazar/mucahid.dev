@@ -17,17 +17,19 @@ const Welcome: React.FC<IWelcomeProps> = ({
 }) => {
   return (
     <S.WelcomeContainer>
+      <S.WelcomeBackground />
+      {/* <S.WelcomeIllustration>
+        <Image
+          src={`/illustrations/${illustration}.png`}
+          layout="fill"
+          objectFit="cover"
+          alt="Home Illustration"
+        />
+      </S.WelcomeIllustration> */}
       <S.WelcomeContent>
         <S.WelcomeContentTitle>{title}</S.WelcomeContentTitle>
         <S.WelcomeContentDescription>{description}</S.WelcomeContentDescription>
       </S.WelcomeContent>
-      <S.WelcomeIllustration>
-        <Image
-          src={`/illustrations/${illustration}.png`}
-          layout="fill"
-          alt="Home Illustration"
-        />
-      </S.WelcomeIllustration>
     </S.WelcomeContainer>
   )
 }

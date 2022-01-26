@@ -59,15 +59,15 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Rubik', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #0f0e13;
-  background-image: linear-gradient(
-    90deg,
-    #0d0c12 0%,
-    #2e3251 60%,
-    #501a2d 100%
-  );
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #0f0e13;
+    background-image: linear-gradient(
+      90deg,
+      #0d0c12 0%,
+      #2e3251 60%,
+      #501a2d 100%
+    );
   }
 
   ul {

@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
 
 const WelcomeContent = styled.div`
-  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,6 +9,7 @@ const WelcomeContent = styled.div`
 
 const WelcomeContentTitle = styled.h1`
   font-weight: bold;
+  margin-bottom: 2.5rem;
 `
 
 const WelcomeContentDescription = styled.div`
@@ -18,15 +18,19 @@ const WelcomeContentDescription = styled.div`
 
 const WelcomeIllustration = styled.div`
   position: relative;
-  height: 600px;
   width: 600px;
+  height: 600px;
 `
 
 const WelcomeContainer = styled.div`
   display: flex;
+  align-items: center;
   color: var(--color-white);
   width: 100%;
-  margin-bottom: 220px;
+  min-height: 500px;
+  margin-bottom: 15rem;
+  position: relative;
+  padding: 5rem 0;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     margin-bottom: 50px;
@@ -39,7 +43,19 @@ const WelcomeContainer = styled.div`
   }
 `
 
+const WelcomeBackground = styled.div`
+  background-image: url('/images/me/team.jpeg');
+  transform: translateX(-10%);
+  width: 120%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: opacity(0.2);
+`
+
 export {
+  WelcomeBackground,
   WelcomeContainer,
   WelcomeContent,
   WelcomeContentTitle,

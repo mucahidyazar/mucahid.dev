@@ -35,7 +35,7 @@ const Introduction: React.FC<IIntroduction> = ({rightContent}) => {
 
       <S.IntroductionPhoto>
         <Image
-          src="/images/introduction-image-1.jpg"
+          src="/images/me/me-1.jpg"
           alt="Introduction Image"
           layout="fill"
           objectFit="cover"

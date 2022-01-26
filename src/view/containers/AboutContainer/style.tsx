@@ -13,7 +13,7 @@ const TechnologiesTags = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  overflow-x: auto;
+  flex-wrap: wrap;
 `
 const QuotesSection = styled.div`
   margin: 5rem 0;
