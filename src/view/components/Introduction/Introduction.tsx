@@ -13,22 +13,23 @@ const Introduction: React.FC<IIntroduction> = ({rightContent}) => {
       <S.IntroductionContent rightContent={rightContent}>
         <S.IntroductionContentItem>
           <S.IntroductionContentTitle level={6}>
-            Self Taughing
+            What do you like?
           </S.IntroductionContentTitle>
           <S.IntroductionContentDescription>
-            I am a self-taughing person. I just fnished... Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Et tortor eu non integer. Sit
-            arcu duis nec nulla nunc.
+            I like to play video games(especially rpg games), trekking,
+            travelling. And I like cooking when I have enough time for it. As
+            you know I am a Turkish guy so we have lots of delicious foods. I
+            think it is the best and last thing about Turkey.
           </S.IntroductionContentDescription>
         </S.IntroductionContentItem>
         <S.IntroductionContentItem>
           <S.IntroductionContentTitle level={6}>
-            Self Taughing
+            What is your purpose? What do you want to do?
           </S.IntroductionContentTitle>
           <S.IntroductionContentDescription>
-            I am a self-taughing person. I just fnished... Lorem ipsum dolor sit
-            amet, consectetur adipiscing elit. Et tortor eu non integer. Sit
-            arcu duis nec nulla nunc.
+            Firstly being a good man. After that I want to improve my soft
+            skills. Trying to be a good engineer. By this mission I am the one
+            of them who is thinking studying during the life.
           </S.IntroductionContentDescription>
         </S.IntroductionContentItem>
       </S.IntroductionContent>

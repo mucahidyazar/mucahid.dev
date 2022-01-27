@@ -12,9 +12,10 @@ const Footer: NextComponentType = () => {
           Javascript Enthutatist, React Lover, Gamer
         </S.FooterInfoSubtitle>
         <S.FooterInfoDescription>
-          I am a Fronend developer. I am working by this profession for 2 years.
-          And I love design and coding. My point is being a good full stack
-          developer by Javascript. So let's study more.
+          I am a Fronend developer. I am working by this profession for almost 3
+          years. And I love design and coding. In my spare time, I play video
+          games, spends time with my family, and I love to trekking. And lastly
+          'Love Javascript guys!' and Let's study more!
         </S.FooterInfoDescription>
         <S.FooterSubscribe>
           <S.FooterSubscribeInput placeholder="your@email.com" />

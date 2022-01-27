@@ -28,14 +28,6 @@ const ProjectsContainer: NextComponentType = () => {
 
   return (
     <>
-      <Window>
-        <Welcome
-          title="Projects, contributions, and more"
-          description="Here is a list of projects I have contributed to."
-          illustration="cup"
-        />
-      </Window>
-
       <Sections SectionOne={SectionOne} SectionTwo={SectionTwo} />
 
       <S.ExperiencesSection>

@@ -27,13 +27,6 @@ const ArticlesContainer: NextComponentType = () => {
 
   return (
     <>
-      <Window>
-        <Welcome
-          title="Improve yourself by practicing"
-          description="Let me show you what summary of my website is :) Click which you want or just wait."
-          illustration="notebook"
-        />
-      </Window>
       <S.FiltersSection>
         <S.FilterByLabel>Search article by topic</S.FilterByLabel>
         <S.FiltersTags>

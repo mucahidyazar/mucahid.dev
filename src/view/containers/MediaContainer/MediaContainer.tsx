@@ -25,6 +25,7 @@ import {computerData, personalData, funkoPopsData, deskData} from '@/data'
 
 const MediaContainer: NextComponentType = () => {
   const instagramPhotos = useSelector(makeInstagramSelector)
+  const firstSixPhotos = instagramPhotos?.slice(0, 6)
   const randomDatas = [
     ...computerData,
     ...personalData,
@@ -32,16 +33,9 @@ const MediaContainer: NextComponentType = () => {
     ...deskData,
   ].sort(() => Math.random() - 0.5)
 
+  console.log(instagramPhotos)
   return (
     <>
-      <Window>
-        <Welcome
-          title="Catch what I use"
-          description="I will share my favorite products and services that I use in my daily life. You can also share your own product and service with me."
-          illustration="camera"
-        />
-      </Window>
-
       <S.SummarySection>
         <SectionHeader
           title="Random Stuffs"
@@ -58,7 +52,7 @@ const MediaContainer: NextComponentType = () => {
             link="/"
           />
           <S.InstagramContainer>
-            {instagramPhotos?.splice(0, 6).map(item => (
+            {firstSixPhotos.map(item => (
               <S.InstagramImage key={item}>
                 <Image
                   src={item}

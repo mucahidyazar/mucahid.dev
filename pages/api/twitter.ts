@@ -18,7 +18,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>,
 ) {
-  console.log('sadasd')
   var params = {screen_name: 'mucahidyazar'}
   client.get(
     'statuses/user_timeline',

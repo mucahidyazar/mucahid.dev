@@ -5,10 +5,10 @@ const SummarySection = styled.div`
 `
 
 const ExperiencesSection = styled.div`
-  margin: 15rem 0;
+  margin: 10rem 0;
 `
 const WorkshopsSection = styled.div`
-  margin: 15rem 0;
+  margin: 10rem 0;
 `
 
 const WorkshopsList = styled.div`

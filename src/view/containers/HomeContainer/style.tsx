@@ -10,7 +10,7 @@ const SectionsContainer = styled.div`
   display: flex;
   gap: 80px;
   justify-content: space-between;
-  padding: 15rem 0;
+  padding: 10rem 0;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     padding: 5rem 0;

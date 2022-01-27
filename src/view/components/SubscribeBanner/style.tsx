@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
 import {Title, Input, Button} from '@/ui/index'
+import {container} from 'styles'
 
 const SubscribeBannerContainer = styled.div`
   display: flex;
@@ -8,6 +9,7 @@ const SubscribeBannerContainer = styled.div`
   justify-content: space-between;
   padding: 2.5rem;
   background-color: #8f88f2;
+  ${container}
   margin-top: 5rem;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {

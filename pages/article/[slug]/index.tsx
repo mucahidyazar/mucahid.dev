@@ -7,7 +7,7 @@ import {getArticle} from '@/store/articles'
 
 const Article: NextPage = () => {
   return (
-    <MainLayout>
+    <MainLayout hasWelcome={false}>
       <ArticleContainer />
     </MainLayout>
   )

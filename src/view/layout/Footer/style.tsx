@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
 import {Button, Input} from '@/ui/index'
+import {container} from 'styles'
 
 const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
-  margin-top: 15rem;
-  padding-bottom: 15rem;
+  padding-bottom: 10rem;
   color: var(--color-white);
+  ${container}
+  margin-top: 10rem;
 
   @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
     flex-direction: column;

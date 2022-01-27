@@ -40,9 +40,6 @@ const AboutContainer: NextComponentType = () => {
 
   return (
     <>
-      <Window>
-        <AboutWelcome />
-      </Window>
       <S.ExperiencesSection>
         <SectionHeader
           title="Experiences"

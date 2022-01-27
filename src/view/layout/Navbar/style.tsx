@@ -1,5 +1,6 @@
 import styled, {css} from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
+import {container} from 'styles'
 
 const Navbar = styled.nav`
   display: flex;
@@ -9,6 +10,7 @@ const Navbar = styled.nav`
   padding: 80px 0;
   position: relative;
   cursor: pointer;
+  ${container};
 
   @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
     padding: 20px 0;

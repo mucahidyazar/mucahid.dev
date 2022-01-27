@@ -63,13 +63,6 @@ const ContactContainer: NextComponentType = () => {
 
   return (
     <>
-      <Window>
-        <Welcome
-          title="Contact with me"
-          description="If you have any questions, please contact me."
-          illustration="phone"
-        />
-      </Window>
       <S.ConnectionsContainer>
         {socialMedias.map(({id, name, icon, url, color}) => (
           <S.ConnectionIcon
