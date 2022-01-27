@@ -14,7 +14,7 @@ const Badge = styled.div`
   ${({isActive}) =>
     isActive &&
     css`
-      background: rgba(62, 76, 103, 0.8);
+      background: rgba(62, 76, 103, 1);
     `}
 
   &:hover {

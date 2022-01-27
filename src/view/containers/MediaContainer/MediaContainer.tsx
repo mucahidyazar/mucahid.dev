@@ -33,7 +33,6 @@ const MediaContainer: NextComponentType = () => {
     ...deskData,
   ].sort(() => Math.random() - 0.5)
 
-  console.log(instagramPhotos)
   return (
     <>
       <S.SummarySection>

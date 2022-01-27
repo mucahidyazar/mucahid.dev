@@ -1,6 +1,6 @@
-import styled, {css, createGlobalStyle} from 'styled-components'
+import styled, {css, createGlobalStyle, keyframes} from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   :root {
     --color-white: #fff;
     --color-black: #000;
@@ -111,4 +111,29 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-export {GlobalStyle}
+const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
+export const BackDropStyle = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+
+  body::after {
+    content: '';
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(24, 17, 45, 0.72);
+    animation: ${fade} 0.2s linear alternate;
+  }
+`

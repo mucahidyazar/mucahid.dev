@@ -5,6 +5,8 @@ import Link from 'next/link'
 import {useState} from 'react'
 import * as S from './style'
 import {useRouter} from 'next/router'
+import {DrawerPlacement} from '@/constants/DrawerPlacement'
+import {Drawer} from '@/ui/index'
 
 const routes = [
   {id: 'home', name: 'Home', route: '/'},
@@ -25,8 +27,10 @@ const Navbar: NextComponentType = () => {
 
   return (
     <S.Navbar>
-      <S.NavbarBrand>Mucahid Yazar</S.NavbarBrand>
-      <S.NavbarMenu isOpen={toggleMenu}>
+      <S.NavbarBrand>
+        <Link href="/">Mucahid Yazar</Link>
+      </S.NavbarBrand>
+      <S.NavbarMenu>
         {routes.map(({id, name, route}) => (
           <S.NavbarMenuItem key={id} isActive={router.route === route}>
             <Link href={route}>{name}</Link>
@@ -44,6 +48,21 @@ const Navbar: NextComponentType = () => {
           />
         </S.NavbarLogo>
       </S.NavbarLogoGradientBorder>
+      <Drawer
+        isVisible={toggleMenu}
+        onClose={() => setToggleMenu(false)}
+        placement={DrawerPlacement.LEFT}
+        size="50%"
+        isClosable={true}
+      >
+        <S.DrawerNavbarMenu>
+          {routes.map(({id, name, route}) => (
+            <S.DrawerNavbarMenuItem key={id}>
+              <Link href={route}>{name}</Link>
+            </S.DrawerNavbarMenuItem>
+          ))}
+        </S.DrawerNavbarMenu>
+      </Drawer>
     </S.Navbar>
   )
 }

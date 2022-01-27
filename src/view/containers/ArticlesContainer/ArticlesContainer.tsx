@@ -18,35 +18,75 @@ import {
   ProjectCard,
 } from '@/ui/index'
 import * as S from './style'
-import {useSelector} from 'react-redux'
-import {makeArticlesSelector} from '@/store/articles/selectors'
+import {useDispatch, useSelector} from 'react-redux'
+import {
+  makeArticlesSelector,
+  makeSelectCategories,
+  makeSelectFilters,
+  makeSelectYears,
+} from '@/store/articles/selectors'
+import {useRouter} from 'next/router'
+import {setFilter} from '@/store/articles'
 
 const ArticlesContainer: NextComponentType = () => {
+  const router = useRouter()
+  const dispatch = useDispatch()
   const [pagination, setPagination] = useState(6)
   const articles = useSelector(makeArticlesSelector)
+  const categories = useSelector(makeSelectCategories)
+  const years = useSelector(makeSelectYears)
+  const filters = useSelector(makeSelectFilters)
+
+  const handleFilter = (key, value) => {
+    const query = {...router.query}
+
+    if (query[key] && !query[key]?.includes(value)) {
+      query[key] = [query[key], value]
+    } else if (query[key]?.includes(value)) {
+      if (typeof query[key] === 'string') {
+        delete query[key]
+      } else {
+        query[key] = query[key]?.filter(item => item !== value)
+      }
+    } else {
+      query[key] = [value]
+    }
+
+    router.push({
+      pathname: '/articles',
+      query,
+    })
+  }
+
+  useEffect(() => {
+    dispatch(setFilter(router.query))
+  }, [dispatch, router.query])
 
   return (
     <>
       <S.FiltersSection>
         <S.FilterByLabel>Search article by topic</S.FilterByLabel>
         <S.FiltersTags>
-          {[
-            'Css',
-            'Html',
-            'Javascript',
-            'React',
-            'Next.js',
-            'Redux',
-            'Sass',
-            'TypeScript',
-          ].map(item => (
-            <Badge key={item}>{item}</Badge>
+          {categories?.map(item => (
+            <Badge
+              key={item}
+              onClick={() => handleFilter('category', item)}
+              isActive={filters?.category?.includes(item)}
+            >
+              {item}
+            </Badge>
           ))}
         </S.FiltersTags>
         <S.FilterByLabel>Search article by topic</S.FilterByLabel>
         <S.FiltersTags>
-          {['2019', '2020', '2021', '2022'].map(item => (
-            <Badge key={item}>{item}</Badge>
+          {years.map(item => (
+            <Badge
+              key={item}
+              onClick={() => handleFilter('year', item)}
+              isActive={filters?.year?.includes(item)}
+            >
+              {item}
+            </Badge>
           ))}
         </S.FiltersTags>
       </S.FiltersSection>

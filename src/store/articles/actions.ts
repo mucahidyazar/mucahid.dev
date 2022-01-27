@@ -8,10 +8,21 @@ export const getArticles = () => async dispatch => {
       `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mucahidyazar`,
     )
 
+    let years: any = []
+    let categories: any = []
+    data.items.forEach(item => {
+      categories = [...categories, ...item.categories]
+      years = [...years, item.pubDate.split('-')[0]]
+    })
+    categories = [...new Set(categories)]
+    years = [...new Set(years)]
+
     dispatch({
       type: types.GET_ARTICLES_SUCCESS,
       data: data.items,
       feed: data.feed,
+      categories,
+      years,
     })
   } catch (error) {
     dispatch({
@@ -102,6 +113,10 @@ export const getStarreds = () => async dispatch => {
       error,
     })
   }
+}
+
+export const setFilter = filters => async dispatch => {
+  dispatch({type: types.SET_FILTERS, filters})
 }
 // export const startClock = () => dispatch => {
 //   return setInterval(

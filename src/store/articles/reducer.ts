@@ -7,6 +7,9 @@ const INITIAL_STATE = {
     status: null,
     data: [],
     feed: {},
+    categories: [],
+    years: [],
+    filters: {},
     error: null,
   },
   article: {
@@ -51,6 +54,8 @@ export const reducer = produce((draft, action) => {
     case types.GET_ARTICLES_SUCCESS:
       draft.articles.status = Status.OK
       draft.articles.data = action.data
+      draft.articles.categories = action.categories
+      draft.articles.years = action.years
       draft.articles.feed = action.feed
       break
     case types.GET_ARTICLES_FAILED:
@@ -89,6 +94,10 @@ export const reducer = produce((draft, action) => {
     case types.GET_STARREDS_FAILED:
       draft.starreds.status = Status.ERROR
       draft.starreds.error = action.error
+      break
+
+    case types.SET_FILTERS:
+      draft.articles.filters = action.filters
       break
     default:
       break

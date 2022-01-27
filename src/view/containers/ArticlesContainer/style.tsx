@@ -13,6 +13,7 @@ const FiltersTags = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 2rem;
+  flex-wrap: wrap;
 `
 const ArticlesSection = styled.div`
   display: grid;

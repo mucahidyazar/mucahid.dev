@@ -11,7 +11,7 @@ import {
 } from '@/components/index'
 import {Window} from '@/layout/index'
 import {Card, PostCard, Input, Textarea, Button, ProjectCard} from '@/ui/index'
-import {articles, computerMockData, contributions} from '@/data'
+import {articles, computerMockData, contributions, workshops} from '@/data'
 import * as S from './style'
 import {useDispatch, useSelector} from 'react-redux'
 import {getStarreds} from '@/store/articles'
@@ -46,15 +46,14 @@ const ProjectsContainer: NextComponentType = () => {
         />
 
         <S.WorkshopsList>
-          {articles.map((item, index) => {
+          {workshops.map((item, index) => {
             if (index < 6) {
               return (
                 <Link key={item.id} href={`/article/${item.slug}`} passHref>
                   <PostCard
                     title={item.title}
                     subtitle={item.description}
-                    date={item.date}
-                    tags={item.tags}
+                    tags={item.technologies}
                     imageUrl={item.image}
                     link="https://www.google.com"
                   />

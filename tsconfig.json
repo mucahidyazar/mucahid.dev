@@ -21,6 +21,7 @@
       "@/constants/*": ["src/constants/*"],
       "@/layout/*": ["src/view/layout/*"],
       "@/data": ["src/data/index.ts"],
+      "@/hooks": ["src/hooks/index.ts"],
       "@/store/*": ["src/store/*"],
       "@/ui/*": ["src/view/ui/*"],
       "@/utilities/*": ["src/utilities/*"]
