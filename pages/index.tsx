@@ -1,12 +1,12 @@
-import Home from './home'
+import {getArticles} from '@/store/articles'
 import {wrapper} from '@/store/index'
-import {getArticles} from '@/store/articles/actions'
+
+import Home from './home'
 
 export const getServerSideProps = wrapper.getServerSideProps(
-  store =>
-    async ({req, res, ...etc}) => {
-      await store.dispatch(getArticles())
-    },
+  store => async () => {
+    await store.dispatch(getArticles())
+  },
 )
 
 export default Home

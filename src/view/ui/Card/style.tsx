@@ -1,7 +1,6 @@
 import styled, {css} from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Title, Subtitle} from '../Typography'
-import {Button} from '../Button'
+import {BreakpointSize} from '@/constants'
+import {Subtitle} from '../Typography'
 
 const Card = styled.div`
   display: flex;

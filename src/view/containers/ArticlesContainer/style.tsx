@@ -1,6 +1,4 @@
-import {Card} from '@/ui/index'
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
 
 const ExperiencesSection = styled.div``
 

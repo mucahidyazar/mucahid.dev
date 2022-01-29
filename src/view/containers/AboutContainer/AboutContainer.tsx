@@ -1,24 +1,11 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
-import {Window} from '@/layout/index'
-import {
-  Introduction,
-  SectionHeader,
-  Welcome,
-  SectionSlider,
-  AboutWelcome,
-} from '@/components/index'
-import {
-  Badge,
-  Card,
-  PostCard,
-  Input,
-  Textarea,
-  Button,
-  ProjectCard,
-} from '@/ui/index'
-import * as S from './style'
+
+import {SectionHeader, SectionSlider} from '@/components'
+import {Badge, ProjectCard} from '@/ui'
 import {companies, projects, technologies} from '@/data'
+
+import * as S from './style'
 
 const AboutContainer: NextComponentType = () => {
   const quotesMockData = [

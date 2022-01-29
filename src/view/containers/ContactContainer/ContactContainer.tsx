@@ -1,29 +1,15 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
 import Image from 'next/image'
-import {
-  Introduction,
-  Sections,
-  Section,
-  SectionHeader,
-  Welcome,
-  SectionSlider,
-  SubscribeBanner,
-} from '@/components/index'
-import {Window} from '@/layout/index'
-import {
-  Card,
-  Icon,
-  PostCard,
-  Input,
-  Textarea,
-  Button,
-  ProjectCard,
-} from '@/ui/index'
-import * as S from './style'
-import {socialMedias} from '@/data'
 import {useSelector} from 'react-redux'
+
+import {Sections, Section} from '@/components'
+import {Card, Icon} from '@/ui'
+
+import {socialMedias} from '@/data'
 import {makeSelectBoard, makeSelectMessages} from '@/store/contact'
+
+import * as S from './style'
 
 const ContactContainer: NextComponentType = () => {
   const messages = useSelector(makeSelectMessages)
@@ -32,7 +18,7 @@ const ContactContainer: NextComponentType = () => {
   return (
     <>
       <S.ConnectionsContainer>
-        {socialMedias.map(({id, name, icon, url, color}) => (
+        {socialMedias.map(({id, icon, url, color}) => (
           <S.ConnectionIcon
             key={id}
             backgroundColor={color}
@@ -61,27 +47,25 @@ const ContactContainer: NextComponentType = () => {
           <Section
             title="Messages"
             subtitle="You can put your message here and you can support me :) I will also support someone who is supporting me :)"
-            children={
-              <S.MessagesContainer>
-                {messages?.map(item => (
-                  <Card key={item.id} data={item} type={2} />
-                ))}
-              </S.MessagesContainer>
-            }
-          />
+          >
+            <S.MessagesContainer>
+              {messages?.map(item => (
+                <Card key={item.id} data={item} type={2} />
+              ))}
+            </S.MessagesContainer>
+          </Section>
         }
         sectionTwo={
           <Section
             title="Board"
             subtitle="This is the board message section. You messages will be shown more clear here."
-            children={
-              <S.BoardContainer>
-                {board?.map(item => (
-                  <S.BoardItem key={item.id} />
-                ))}
-              </S.BoardContainer>
-            }
-          />
+          >
+            <S.BoardContainer>
+              {board?.map(item => (
+                <S.BoardItem key={item.id} />
+              ))}
+            </S.BoardContainer>
+          </Section>
         }
       />
       <S.ContactFormContainer>

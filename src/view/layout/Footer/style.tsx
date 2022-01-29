@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Button, Input} from '@/ui/index'
+
+import {BreakpointSize} from '@/constants'
+import {Button, Input} from '@/ui'
 import {container} from 'styles'
 
 const Footer = styled.footer`

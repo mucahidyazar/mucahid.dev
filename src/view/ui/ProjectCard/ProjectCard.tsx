@@ -1,7 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import {Tag} from '@/ui/index'
 import PropTypes from 'prop-types'
+
+import {Tag} from '@/ui'
 
 import * as S from './style'
 

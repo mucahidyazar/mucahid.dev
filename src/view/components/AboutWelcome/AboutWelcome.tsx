@@ -1,10 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
-import * as S from './style'
-import {Button} from '@/ui/index'
 import {useRouter} from 'next/router'
+
+import {Button} from '@/ui'
+
+import * as S from './style'
 
 const AboutWelcome: NextComponentType = () => {
   const router = useRouter()

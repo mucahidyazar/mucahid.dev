@@ -7,7 +7,7 @@ import {
   applyMiddleware,
 } from 'redux'
 import thunk from 'redux-thunk'
-import {createWrapper, Context, HYDRATE} from 'next-redux-wrapper'
+import {createWrapper, HYDRATE} from 'next-redux-wrapper'
 import {reducers} from './reducers'
 
 export interface State {

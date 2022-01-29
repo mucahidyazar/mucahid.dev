@@ -1,7 +1,7 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
-import {Introduction, Sections, Section} from '@/components/index'
-import {Card} from '@/ui/index'
+import {Introduction, Sections, Section} from '@/components'
+import {Card} from '@/ui'
 import {useSelector} from 'react-redux'
 import {makeArticlesSelector} from '@/store/articles/selectors'
 
@@ -27,20 +27,22 @@ const HomeContainer: NextComponentType = () => {
             title="Latest Posts"
             subtitle="These are the latest posts from my website."
             link="/articles"
-            children={latestArticles.map(article => (
+          >
+            {latestArticles.map(article => (
               <Card key={article.id} data={article} type={2} />
             ))}
-          />
+          </Section>
         }
         sectionTwo={
           <Section
             title="Top 10 Reading"
             subtitle="Let's see the most read posts from my website."
             link="/articles"
-            children={randomArticles.map(article => (
+          >
+            {randomArticles.map(article => (
               <Card key={article.id} data={article} type={2} />
             ))}
-          />
+          </Section>
         }
       />
     </>

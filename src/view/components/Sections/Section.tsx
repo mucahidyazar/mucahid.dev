@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {SectionHeader} from '@/components/index'
+import {SectionHeader} from '@/components'
 
 import * as S from './style'
 

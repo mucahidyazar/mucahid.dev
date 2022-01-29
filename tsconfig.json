@@ -16,17 +16,24 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["src/view/components/*"],
-      "@/containers/*": ["src/view/containers/*"],
-      "@/constants/*": ["src/constants/*"],
-      "@/layout/*": ["src/view/layout/*"],
+      "@/components": ["src/view/components/index.ts"],
+      "@/containers": ["src/view/containers/index.ts"],
+      "@/constants": ["src/constants/index.ts"],
+      "@/layout": ["src/view/layout/index.ts"],
       "@/data": ["src/data/index.ts"],
       "@/hooks": ["src/hooks/index.ts"],
       "@/store/*": ["src/store/*"],
-      "@/ui/*": ["src/view/ui/*"],
-      "@/utilities/*": ["src/utilities/*"]
+      "@/ui": ["src/view/ui/index.ts"],
+      "@/utilities": ["src/utilities/index.ts"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/**/*.ts",
+    "src/store/**/*.ts",
+    "src/view/**/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }

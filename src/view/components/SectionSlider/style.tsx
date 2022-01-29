@@ -1,5 +1,4 @@
-import styled, {css} from 'styled-components'
-import {CardImage} from '@/ui/index'
+import styled from 'styled-components'
 
 const SectionContainer = styled.div``
 const BadgeContainer = styled.div`

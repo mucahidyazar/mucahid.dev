@@ -1,6 +1,7 @@
 import styled, {css} from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Title} from '@/ui/index'
+
+import {BreakpointSize} from '@/constants'
+import {Title} from '@/ui'
 
 const IntroductionContainer = styled.div`
   display: flex;

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Title, Input, Button} from '@/ui/index'
+
+import {BreakpointSize} from '@/constants'
+import {Title, Input, Button} from '@/ui'
 import {container} from 'styles'
 
 const SubscribeBannerContainer = styled.div`

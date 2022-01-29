@@ -1,5 +1,6 @@
 import styled, {css} from 'styled-components'
-import {IconSize} from '@/constants/index'
+
+import {IconSize} from '@/constants'
 
 const smallStyle = css`
   min-width: 12px;

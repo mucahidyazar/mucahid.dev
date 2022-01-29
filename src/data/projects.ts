@@ -58,15 +58,22 @@ export const contributions = [
 ]
 
 interface IWorkshopItem {
+  id: string
   title: string
   description: string
   url: string
   github: string
   technologies: string[]
   image: string
+  links: {
+    id: string
+    title: string
+    icon: string
+    url: string
+  }[]
 }
 
-export const workshops = [
+export const workshops: IWorkshopItem[] = [
   {
     id: '0',
     title: 'Quiz App',

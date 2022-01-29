@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
+
+import {BreakpointSize} from '@/constants'
 
 const InstagramContainer = styled.div`
   display: grid;

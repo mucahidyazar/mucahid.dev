@@ -1,6 +1,8 @@
-import * as types from './types'
 import produce from 'immer'
-import {Status} from '@/constants/index'
+
+import {Status} from '@/constants'
+
+import * as types from './types'
 
 const INITIAL_STATE = {
   instagram: {

@@ -1,22 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import type {NextComponentType} from 'next'
-import {Window} from '@/layout/index'
-import {
-  Introduction,
-  SectionHeader,
-  Welcome,
-  SectionSlider,
-  AboutWelcome,
-} from '@/components/index'
-import {
-  Badge,
-  Card,
-  PostCard,
-  Input,
-  Textarea,
-  Button,
-  ProjectCard,
-} from '@/ui/index'
+
+import {Badge, PostCard, Button} from '@/ui'
 import * as S from './style'
 import {useDispatch, useSelector} from 'react-redux'
 import {

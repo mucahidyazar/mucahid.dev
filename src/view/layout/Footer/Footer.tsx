@@ -1,9 +1,11 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
-import * as S from './style'
 import Link from 'next/link'
+
 import {socialLinks} from '@/data'
-import {Icon} from '@/ui/index'
+import {Icon} from '@/ui'
+
+import * as S from './style'
 
 const Footer: NextComponentType = () => {
   return (

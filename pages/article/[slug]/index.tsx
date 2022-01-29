@@ -1,24 +1,22 @@
 import React from 'react'
 import type {NextPage} from 'next'
-import {MainLayout} from '@/layout/index'
-import {ArticleContainer} from '@/containers/index'
-import {wrapper} from '@/store/index'
-import {getArticle} from '@/store/articles'
 
-const Article: NextPage = () => {
-  return (
-    <MainLayout hasWelcome={false}>
-      <ArticleContainer />
-    </MainLayout>
-  )
-}
+import {ArticleContainer} from '@/containers'
+import {getArticle} from '@/store/articles'
+import {wrapper} from '@/store/index'
+import {MainLayout} from '@/layout'
+
+const Article: NextPage = () => (
+  <MainLayout hasWelcome={false}>
+    <ArticleContainer />
+  </MainLayout>
+)
 
 export const getServerSideProps = wrapper.getServerSideProps(
-  store =>
-    async ({req, res, ...etc}) => {
-      const {slug} = etc.params
-      await store.dispatch(getArticle(slug))
-    },
+  store => async ctx => {
+    const {slug} = ctx.params
+    await store.dispatch(getArticle(slug))
+  },
 )
 
 export default Article

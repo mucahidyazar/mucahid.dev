@@ -1,9 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
+
 import * as S from './style'
-import {Button} from '@/ui/index'
 
 const SubscribeBanner: NextComponentType = () => {
   return (

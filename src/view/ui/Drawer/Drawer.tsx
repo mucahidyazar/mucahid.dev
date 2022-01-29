@@ -4,9 +4,11 @@ import {createPortal} from 'react-dom'
 import {CSSTransition} from 'react-transition-group'
 
 import {useOutsideClick} from '@/hooks'
-import {DrawerPlacement} from '@/constants/index'
+import {DrawerPlacement} from '@/constants'
 import {BackDropStyle} from 'styles'
+
 import * as S from './style'
+
 import {Icon} from '../'
 
 function Drawer({

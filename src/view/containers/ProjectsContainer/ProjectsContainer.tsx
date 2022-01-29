@@ -1,18 +1,9 @@
 import React, {useEffect} from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import type {NextComponentType} from 'next'
-import {
-  Introduction,
-  SectionHeader,
-  Welcome,
-  SectionSlider,
-  Sections,
-  Section,
-} from '@/components/index'
-import {Window} from '@/layout/index'
-import {Card, PostCard, Input, Textarea, Button, ProjectCard} from '@/ui/index'
-import {articles, computerMockData, contributions, workshops} from '@/data'
+import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
+import {PostCard, Button} from '@/ui'
+import {contributions, workshops} from '@/data'
 import * as S from './style'
 import {useDispatch, useSelector} from 'react-redux'
 import {SectionCard} from './SectionCard'
@@ -31,7 +22,7 @@ const ProjectsContainer: NextComponentType = () => {
   useEffect(() => {
     dispatch(getStarreds())
     dispatch(getApis())
-  }, [])
+  }, [dispatch])
 
   return (
     <>
@@ -41,33 +32,31 @@ const ProjectsContainer: NextComponentType = () => {
             title="Contributions, Open-sources"
             subtitle="These are my projects that I have contributed and created."
             link="https://www.github.com/mucahidyazar"
-            children={
-              <S.SectionCards>
-                {contributions.map(contribution => (
-                  <SectionCard key={contribution.id} {...contribution} />
-                ))}
-              </S.SectionCards>
-            }
-          />
+          >
+            <S.SectionCards>
+              {contributions.map(contribution => (
+                <SectionCard key={contribution.id} {...contribution} />
+              ))}
+            </S.SectionCards>
+          </Section>
         }
         sectionTwo={
           <Section
             title="Favorite repositories"
             subtitle="Some of my favorite repositories on github."
             link="https://www.github.com/mucahidyazar"
-            children={
-              <S.SectionCards>
-                {starreds.map(contribution => (
-                  <SectionCard
-                    key={contribution.id}
-                    title={contribution.name}
-                    description={contribution.description}
-                    url={contribution.html_url}
-                  />
-                ))}
-              </S.SectionCards>
-            }
-          />
+          >
+            <S.SectionCards>
+              {starreds.map(contribution => (
+                <SectionCard
+                  key={contribution.id}
+                  title={contribution.name}
+                  description={contribution.description}
+                  url={contribution.html_url}
+                />
+              ))}
+            </S.SectionCards>
+          </Section>
         }
       />
 

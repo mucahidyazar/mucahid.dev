@@ -1,10 +1,8 @@
 import React from 'react'
 import type {NextPage} from 'next'
-import {MainLayout} from '@/layout/index'
-import {LinkTreeContainer} from '@/containers/index'
 
-const LinkTree: NextPage = () => {
-  return <LinkTreeContainer />
-}
+import {LinkTreeContainer} from '@/containers'
+
+const LinkTree: NextPage = () => <LinkTreeContainer />
 
 export default LinkTree

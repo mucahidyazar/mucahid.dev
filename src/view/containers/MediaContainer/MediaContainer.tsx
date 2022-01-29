@@ -1,26 +1,14 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
-import {
-  SectionHeader,
-  SectionSlider,
-  Sections,
-  Section,
-} from '@/components/index'
-import {Window} from '@/layout/index'
-import {
-  Card,
-  PostCard,
-  Input,
-  Textarea,
-  Button,
-  ProjectCard,
-  Badge,
-} from '@/ui/index'
-import * as S from './style'
+import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
+import {Card} from '@/ui'
+
 import {useSelector} from 'react-redux'
 import {makeInstagramSelector} from '@/store/media'
 import {computerData, personalData, funkoPopsData, deskData} from '@/data'
+
+import * as S from './style'
 
 const MediaContainer: NextComponentType = () => {
   const instagramPhotos = useSelector(makeInstagramSelector)
@@ -47,44 +35,42 @@ const MediaContainer: NextComponentType = () => {
           <Section
             title="Instagram"
             subtitle="Let me show you what summary of my website is :) Let me show you what summary of my website is :) Click which you want or just wait."
-            children={
-              <S.InstagramContainer>
-                {firstSixPhotos.map(item => (
-                  <S.InstagramImage key={item}>
-                    <Image
-                      src={item}
-                      alt="instagram-image"
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </S.InstagramImage>
-                ))}
-              </S.InstagramContainer>
-            }
-          />
+          >
+            <S.InstagramContainer>
+              {firstSixPhotos.map(item => (
+                <S.InstagramImage key={item}>
+                  <Image
+                    src={item}
+                    alt="instagram-image"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </S.InstagramImage>
+              ))}
+            </S.InstagramContainer>
+          </Section>
         }
         sectionTwo={
           <Section
             title="Twitter"
             subtitle="Let me show you what summary of my website is :) Let me show you what summary of my website is :) Click which you want or just wait."
-            children={
-              <S.TwitterContainer>
-                <a
-                  class="twitter-timeline"
-                  data-lang="en"
-                  data-theme="light"
-                  href="https://twitter.com/MucahidYazar?ref_src=twsrc%5Etfw"
-                >
-                  Tweets by MucahidYazar
-                </a>{' '}
-                <script
-                  async
-                  src="https://platform.twitter.com/widgets.js"
-                  charset="utf-8"
-                ></script>
-              </S.TwitterContainer>
-            }
-          />
+          >
+            <S.TwitterContainer>
+              <a
+                className="twitter-timeline"
+                data-lang="en"
+                data-theme="light"
+                href="https://twitter.com/MucahidYazar?ref_src=twsrc%5Etfw"
+              >
+                Tweets by MucahidYazar
+              </a>{' '}
+              <script
+                async
+                src="https://platform.twitter.com/widgets.js"
+                charset="utf-8"
+              ></script>
+            </S.TwitterContainer>
+          </Section>
         }
       />
 

@@ -1,7 +1,6 @@
-import {Card} from '@/ui/index'
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Title, Subtitle} from '@/ui/index'
+
+import {BreakpointSize} from '@/constants'
 
 const LinkTreeSection = styled.section`
   display: flex;

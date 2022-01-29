@@ -2,26 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type {NextComponentType} from 'next'
-import {
-  Introduction,
-  SectionHeader,
-  Welcome,
-  SectionSlider,
-  SubscribeBanner,
-} from '@/components/index'
-import {Window} from '@/layout/index'
-import {
-  Card,
-  PostCard,
-  Input,
-  Icon,
-  Textarea,
-  Button,
-  ProjectCard,
-} from '@/ui/index'
-import {computerMockData, socialMedias} from '@/data'
+
+import {Icon} from '@/ui'
+import {socialMedias} from '@/data'
+
 import * as S from './style'
-import {articles} from '@/data'
 
 const LinkTreeContainer: NextComponentType = () => {
   const buttons = socialMedias.filter(({type}) => type === 'button')
@@ -61,7 +46,7 @@ const LinkTreeContainer: NextComponentType = () => {
       </S.LinkCardsWrapper>
 
       <S.SocialIconsWrapper>
-        {icons.map(({id, icon, link, color}) => (
+        {icons.map(({id, icon, link}) => (
           <S.IconLink key={id} href={link} target="_blank">
             <Icon name={icon} />
           </S.IconLink>

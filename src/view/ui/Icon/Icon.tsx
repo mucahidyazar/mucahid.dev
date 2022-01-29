@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import {IconSize} from '@/constants'
+
 import {icons} from './icons'
 import * as S from './style'
-import {IconSize} from '@/constants/index'
 
 function Icon({name, format, spinning, ...props}) {
   const iconProps = {name, spinning, ...props}

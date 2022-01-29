@@ -1,5 +1,4 @@
 import styled, {css} from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
 
 interface IWindow {
   multi?: boolean

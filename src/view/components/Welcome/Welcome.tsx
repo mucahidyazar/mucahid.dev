@@ -1,7 +1,5 @@
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
-import Image from 'next/image'
-import type {NextComponentType} from 'next'
 import * as S from './style'
 import Slider from 'react-slick'
 
@@ -11,11 +9,7 @@ interface IWelcomeProps {
   illustration: string
 }
 
-const Welcome: React.FC<IWelcomeProps> = ({
-  title,
-  description,
-  illustration,
-}) => {
+const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
   const slickRef = useRef<Slider>(null)
   const settings = {
     infinite: true,

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Card, Textarea, Button} from '@/ui/index'
+
+import {BreakpointSize} from '@/constants'
+import {Card, Textarea, Button} from '@/ui'
 
 const Header = styled.div``
 const ShareBy = styled.div`

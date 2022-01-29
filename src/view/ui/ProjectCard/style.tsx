@@ -1,52 +1,6 @@
-import styled, {css} from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Title, Subtitle} from '../Typography'
-import {Tag} from '../Tag'
+import styled from 'styled-components'
 
-{
-  /* <S.ProjectCard>
-<S.ProjectCardImage>
-  <Image src={imageUrl} width={320} height={320} alt="" />
-</S.ProjectCardImage>
-<S.ProjectCardContent>
-  <S.ProjectCardLeft>
-    <S.ProjectCardItem>
-      <S.ProjectCardLabel>Project Name</S.ProjectCardLabel>
-      <S.ProjectCardText>Getir</S.ProjectCardText>
-    </S.ProjectCardItem>
-    <S.ProjectCardItem>
-      <S.ProjectCardLabel>Technologies</S.ProjectCardLabel>
-      <S.ProjectCardTags>
-        <Tag>React</Tag>
-        <Tag>NextJS</Tag>
-        <Tag>TypeScript</Tag>
-      </S.ProjectCardTags>
-    </S.ProjectCardItem>
-    <S.ProjectCardItem>
-      <S.ProjectCardLabel>URL</S.ProjectCardLabel>
-      <S.ProjectCardText>www.getir.com</S.ProjectCardText>
-    </S.ProjectCardItem>
-  </S.ProjectCardLeft>
-
-  <S.ProjectCardRight>
-    <S.ProjectCardItem>
-      <S.ProjectCardLabel>Description</S.ProjectCardLabel>
-      <S.ProjectCardText>
-        How are you doin you having fun and like my website. I wanted to
-        welcome you. How are you doing? Hopving fuaving fun and like my
-        website. I wanted to welcome you. How are you doing? u having fun
-        and like my website. I wanted to welcome you.How are you doin you
-        having fun and like my website. I wanted to welcome you. How are
-        you doing? Hopving fuaving fun and like my website. I wanted to
-        welcome you. How are you doing? u having fun and like my website.
-        I wanted to welcome you.How are you doin you having fun and like
-        my website.
-      </S.ProjectCardText>
-    </S.ProjectCardItem>
-  </S.ProjectCardRight>
-</S.ProjectCardContent>
-</S.ProjectCard> */
-}
+import {Subtitle} from '../Typography'
 
 const ProjectCard = styled.div`
   cursor: pointer;

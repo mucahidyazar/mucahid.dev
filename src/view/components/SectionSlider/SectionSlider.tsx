@@ -2,7 +2,9 @@ import React, {useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 import Slider from 'react-slick'
-import {Badge, Card} from '@/ui/index'
+
+import {Badge, Card} from '@/ui'
+
 import * as S from './style'
 
 interface IArrow {

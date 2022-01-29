@@ -1,7 +1,8 @@
 import styled, {css} from 'styled-components'
 
+import {DrawerPlacement} from '@/constants'
+
 import {Button, Icon} from '../'
-import {DrawerPlacement} from '@/constants/index'
 
 const transformAnimationStyle = isShown => ({
   [DrawerPlacement.TOP]: isShown ? 'translateY(-100%)' : 'translateY(0)',

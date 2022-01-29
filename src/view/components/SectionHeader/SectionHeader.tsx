@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import {Title, Subtitle} from '@/ui/index'
+
+import {Title, Subtitle} from '@/ui'
+
 import * as S from './style'
 
 interface ISectionHeader {

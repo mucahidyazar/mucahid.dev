@@ -1,23 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-interface IInput {
-  children: React.ReactNode
+interface IInput {}
+
+const Input: React.FC<IInput> = props => {
+  return <S.Input data-testid="input" {...props} />
 }
 
-const Input = ({children, ...titleProps}: IInput) => {
-  return <S.Input data-testid="input" {...titleProps} />
-}
+Input.propTypes = {}
 
-Input.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
-}
-
-Input.defaultProps = {
-  children: null,
-}
+Input.defaultProps = {}
 
 Input.S = S
 

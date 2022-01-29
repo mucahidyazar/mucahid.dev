@@ -1,5 +1,6 @@
 import styled, {css} from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
+
+import {BreakpointSize} from '@/constants'
 import {container} from 'styles'
 
 const Navbar = styled.div`

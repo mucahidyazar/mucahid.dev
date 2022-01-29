@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Title} from '@/ui/index'
 
 const PageLoadingContainer = styled.div`
   position: fixed;

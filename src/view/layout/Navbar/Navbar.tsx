@@ -3,10 +3,12 @@ import type {NextComponentType} from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
-import * as S from './style'
 import {useRouter} from 'next/router'
-import {DrawerPlacement} from '@/constants/DrawerPlacement'
-import {Drawer} from '@/ui/index'
+
+import {DrawerPlacement} from '@/constants'
+import {Drawer} from '@/ui'
+
+import * as S from './style'
 
 const routes = [
   {id: 'home', name: 'Home', route: '/'},

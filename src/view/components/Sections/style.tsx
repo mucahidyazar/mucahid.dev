@@ -1,6 +1,7 @@
-import {Card} from '@/ui/index'
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
+
+import {Card} from '@/ui'
+import {BreakpointSize} from '@/constants'
 
 const SectionWrapper = styled.div``
 const SectionCards = styled.div`

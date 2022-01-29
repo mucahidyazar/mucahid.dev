@@ -12,4 +12,7 @@ module.exports = {
       'instagram.fist13-1.fna.fbcdn.net',
     ],
   },
+  eslint: {
+    dirs: ['pages', 'src'],
+  },
 }

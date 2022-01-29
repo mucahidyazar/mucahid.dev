@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import {Title, Subtitle} from '@/ui/index'
+
+import {Title, Subtitle} from '@/ui'
 
 const SectionCard = styled.a`
   display: flex;

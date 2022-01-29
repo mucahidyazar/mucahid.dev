@@ -1,27 +1,13 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
 import Image from 'next/image'
-import {
-  Introduction,
-  SectionHeader,
-  Welcome,
-  SectionSlider,
-  AboutWelcome,
-} from '@/components/index'
-import {
-  Badge,
-  Card,
-  PostCard,
-  Input,
-  Textarea,
-  Button,
-  ProjectCard,
-  Title,
-  Subtitle,
-} from '@/ui/index'
-import * as S from './style'
 import {useSelector} from 'react-redux'
+
+import {SectionHeader} from '@/components'
+import {Badge, Card, Textarea, Button, Title, Subtitle} from '@/ui'
 import {makeArticleSelector} from '@/store/articles/selectors'
+
+import * as S from './style'
 
 const ArticleContainer: NextComponentType = () => {
   const article = useSelector(makeArticleSelector)

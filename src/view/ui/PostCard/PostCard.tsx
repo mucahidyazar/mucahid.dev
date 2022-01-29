@@ -1,9 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {Tag, Icon} from '@/ui/index'
-import {stripText} from '@/utilities/index'
 import PropTypes from 'prop-types'
+
+import {Tag, Icon} from '@/ui'
+import {stripText} from '@/utilities'
 
 import * as S from './style'
 

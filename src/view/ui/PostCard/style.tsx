@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
+import styled from 'styled-components'
+
 import {Title, Subtitle} from '../Typography'
 import {Tag} from '../Tag'
 

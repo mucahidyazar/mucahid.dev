@@ -3,12 +3,10 @@ import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-interface ITextarea {
-  children: React.ReactNode
-}
+interface ITextarea {}
 
-const Textarea = ({children, ...titleProps}: ITextarea) => {
-  return <S.Textarea data-testid="textarea" {...titleProps} />
+const Textarea: React.FC<ITextarea> = props => {
+  return <S.Textarea data-testid="textarea" {...props} />
 }
 
 Textarea.propTypes = {

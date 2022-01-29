@@ -1,7 +1,7 @@
-import {Card} from '@/ui/index'
 import styled from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
-import {Button, Input, Textarea} from '@/ui/index'
+
+import {BreakpointSize} from '@/constants'
+import {Button, Input, Textarea} from '@/ui'
 
 const SummarySection = styled.div`
   max-width: 100%;

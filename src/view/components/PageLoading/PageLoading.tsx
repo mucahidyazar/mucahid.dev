@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from 'react'
-import PropTypes from 'prop-types'
-import Image from 'next/image'
+import React, {useState, useEffect} from 'react'
 import type {NextComponentType} from 'next'
-import * as S from './style'
-import {Button} from '@/ui/index'
 import {useRouter} from 'next/router'
 import {useSelector} from 'react-redux'
+
 import {makeSelectIsLoadingVisible} from '@/store/settings'
+
+import * as S from './style'
 
 const PageLoading: NextComponentType = () => {
   const router = useRouter()
@@ -27,7 +26,7 @@ const PageLoading: NextComponentType = () => {
       router.events.off('routeChangeStart', handleRouteChange)
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [])
+  }, [router.events])
 
   if (!isLoadingVisible && !isPageLoading) return null
 

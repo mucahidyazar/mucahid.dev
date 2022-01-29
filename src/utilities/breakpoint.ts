@@ -1,5 +1,6 @@
 import {css} from 'styled-components'
-import {BreakpointSize} from '@/constants/index'
+
+import {BreakpointSize} from '@/constants'
 
 export const Breakpoint = Object.keys(BreakpointSize).reduce((acc, label) => {
   if (!acc[label]) {
