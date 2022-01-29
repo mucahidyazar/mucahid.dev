@@ -1,45 +1,5 @@
-import {Card} from '@/ui/index'
 import styled from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
-
-const SectionsContainer = styled.div`
-  display: flex;
-  gap: 2.5rem;
-  justify-content: space-between;
-  margin: 5rem 0;
-
-  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
-    /* padding: 5rem 0; */
-  }
-
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    flex-direction: column;
-  }
-`
-
-const SectionOneContainer = styled.div`
-  width: 70%;
-
-  @media (max-width: ${BreakpointSize.TABLET.MAX}px) {
-    width: 60%;
-  }
-
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    width: 100%;
-  }
-`
-
-const SectionTwoContainer = styled.div`
-  width: 30%;
-
-  @media (max-width: ${BreakpointSize.TABLET.MAX}px) {
-    width: 40%;
-  }
-
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    width: 100%;
-  }
-`
 
 const InstagramContainer = styled.div`
   display: grid;
@@ -62,6 +22,7 @@ const InstagramImage = styled.div`
 const TwitterContainer = styled.div`
   background-color: var(--color-white);
   height: calc(100% - 6.25rem);
+  overflow-y: scroll;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     height: 40rem;
@@ -86,9 +47,6 @@ const SummarySection = styled.div`
 `
 
 export {
-  SectionsContainer,
-  SectionOneContainer,
-  SectionTwoContainer,
   InstagramContainer,
   InstagramImage,
   TwitterContainer,

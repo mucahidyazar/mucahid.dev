@@ -1,12 +1,12 @@
 export const socialMedias = [
-  {
-    id: 'social-media-facebook',
-    name: 'Facebook',
-    url: 'https://www.facebook.com/mucahidyazar',
-    icon: 'facebook',
-    color: '#3b5998',
-    type: 'icon',
-  },
+  // {
+  //   id: 'social-media-facebook',
+  //   name: 'Facebook',
+  //   url: 'https://www.facebook.com/mucahidyazar',
+  //   icon: 'facebook',
+  //   color: '#3b5998',
+  //   type: 'icon',
+  // },
   {
     id: 'social-media-twitter',
     name: 'Twitter',

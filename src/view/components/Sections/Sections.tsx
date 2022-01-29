@@ -4,24 +4,23 @@ import PropTypes from 'prop-types'
 import * as S from './style'
 
 interface ISections {
-  SectionOne: React.FC
-  SectionTwo: React.FC
+  sectionOne: React.ReactNode
+  sectionTwo: React.ReactNode
 }
 
-const Sections: React.FC<ISections> = ({SectionOne, SectionTwo}) => {
+const Sections: React.FC<ISections> = ({sectionOne, sectionTwo}) => {
   return (
     <S.Sections>
-      <S.SectionOne>
-        <SectionOne />
-      </S.SectionOne>
-      <S.SectionTwo>
-        <SectionTwo />
-      </S.SectionTwo>
+      {sectionOne}
+      {sectionTwo}
     </S.Sections>
   )
 }
 
-Sections.propTypes = {}
+Sections.propTypes = {
+  sectionOne: PropTypes.node.isRequired,
+  sectionTwo: PropTypes.node.isRequired,
+}
 
 Sections.defaultProps = {}
 

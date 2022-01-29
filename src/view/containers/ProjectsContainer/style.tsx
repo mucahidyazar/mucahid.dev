@@ -5,7 +5,7 @@ const SummarySection = styled.div`
 `
 
 const ExperiencesSection = styled.div`
-  margin: 10rem 0;
+  margin-bottom: 10rem;
 `
 const WorkshopsSection = styled.div`
   margin: 10rem 0;
@@ -18,4 +18,18 @@ const WorkshopsList = styled.div`
   margin-bottom: 2rem;
 `
 
-export {SummarySection, ExperiencesSection, WorkshopsSection, WorkshopsList}
+const SectionCards = styled.div`
+  height: 600px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`
+
+export {
+  SummarySection,
+  ExperiencesSection,
+  WorkshopsSection,
+  WorkshopsList,
+  SectionCards,
+}

@@ -2,6 +2,8 @@ import React from 'react'
 import type {NextComponentType} from 'next'
 import * as S from './style'
 import Link from 'next/link'
+import {socialLinks} from '@/data'
+import {Icon} from '@/ui/index'
 
 const Footer: NextComponentType = () => {
   return (
@@ -11,6 +13,13 @@ const Footer: NextComponentType = () => {
         <S.FooterInfoSubtitle>
           Javascript Enthutatist, React Lover, Gamer
         </S.FooterInfoSubtitle>
+        <S.SocialLinks>
+          {socialLinks.map(socialLink => (
+            <S.SocialLink key={socialLink.id}>
+              <Icon name={socialLink.icon} size={20} />
+            </S.SocialLink>
+          ))}
+        </S.SocialLinks>
         <S.FooterInfoDescription>
           I am a Fronend developer. I am working by this profession for almost 3
           years. And I love design and coding. In my spare time, I play video
@@ -25,14 +34,13 @@ const Footer: NextComponentType = () => {
 
       <S.FooterMenu>
         <S.FooterMenuGroup>
-          <S.FooterMenuHeader>Contacts</S.FooterMenuHeader>
+          <S.FooterMenuHeader>Info</S.FooterMenuHeader>
+          <S.FooterMenuItem href="/">Sitemap.xml</S.FooterMenuItem>
+          <S.FooterMenuItem href="/">RSS.xml</S.FooterMenuItem>
           <S.FooterMenuItem href="/">Email ME</S.FooterMenuItem>
-          <S.FooterMenuItem href="/">Instagram</S.FooterMenuItem>
-          <S.FooterMenuItem href="/">Github</S.FooterMenuItem>
-          <S.FooterMenuItem href="/">Linkedin</S.FooterMenuItem>
         </S.FooterMenuGroup>
         <S.FooterMenuGroup>
-          <S.FooterMenuHeader>Sitemap</S.FooterMenuHeader>
+          <S.FooterMenuHeader>Pages</S.FooterMenuHeader>
           <S.FooterMenuItem>
             <Link href="/">Home</Link>
           </S.FooterMenuItem>
@@ -47,9 +55,6 @@ const Footer: NextComponentType = () => {
           </S.FooterMenuItem>
           <S.FooterMenuItem>
             <Link href="/">Contact</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/">Link</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
             <Link href="/">Projects</Link>

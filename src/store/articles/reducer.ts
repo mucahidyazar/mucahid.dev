@@ -18,21 +18,6 @@ const INITIAL_STATE = {
     feed: {},
     error: null,
   },
-  tweets: {
-    status: null,
-    data: [],
-    error: null,
-  },
-  instagram: {
-    status: null,
-    data: [],
-    error: null,
-  },
-  starreds: {
-    status: null,
-    data: [],
-    error: null,
-  },
 }
 
 export const reducer = produce((draft, action) => {
@@ -61,39 +46,6 @@ export const reducer = produce((draft, action) => {
     case types.GET_ARTICLES_FAILED:
       draft.articles.status = Status.ERROR
       draft.articles.error = action.error
-      break
-    case types.GET_TWEETS_REQUEST:
-      draft.tweets.status = Status.LOADING
-      break
-    case types.GET_TWEETS_SUCCESS:
-      draft.tweets.status = Status.OK
-      draft.tweets.data = action.data
-      break
-    case types.GET_TWEETS_FAILED:
-      draft.tweets.status = Status.ERROR
-      draft.tweets.error = action.error
-      break
-    case types.GET_INSTAGRAM_REQUEST:
-      draft.instagram.status = Status.LOADING
-      break
-    case types.GET_INSTAGRAM_SUCCESS:
-      draft.instagram.status = Status.OK
-      draft.instagram.data = action.data
-      break
-    case types.GET_INSTAGRAM_FAILED:
-      draft.instagram.status = Status.ERROR
-      draft.instagram.error = action.error
-      break
-    case types.GET_STARREDS_REQUEST:
-      draft.starreds.status = Status.LOADING
-      break
-    case types.GET_STARREDS_SUCCESS:
-      draft.starreds.status = Status.OK
-      draft.starreds.data = action.data
-      break
-    case types.GET_STARREDS_FAILED:
-      draft.starreds.status = Status.ERROR
-      draft.starreds.error = action.error
       break
 
     case types.SET_FILTERS:

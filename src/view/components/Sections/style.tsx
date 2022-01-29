@@ -2,6 +2,15 @@ import {Card} from '@/ui/index'
 import styled from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
 
+const SectionWrapper = styled.div``
+const SectionCards = styled.div`
+  max-height: 600px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`
+
 const Sections = styled.div`
   display: flex;
   gap: 80px;
@@ -31,22 +40,14 @@ const Sections = styled.div`
   ${Card.S.CardContentText} {
     -webkit-line-clamp: 2;
   }
-`
 
-const SectionOne = styled.div`
-  width: calc(50% - 40px);
+  ${SectionWrapper} {
+    width: calc(50% - 40px);
 
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    width: 100%;
+    @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+      width: 100%;
+    }
   }
 `
 
-const SectionTwo = styled.div`
-  width: calc(50% - 40px);
-
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    width: 100%;
-  }
-`
-
-export {Sections, SectionOne, SectionTwo}
+export {Sections, SectionWrapper, SectionCards}

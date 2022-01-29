@@ -1,6 +1,6 @@
 export const computerData = [
   {
-    id: '1',
+    id: 'computer-1',
     type: 'hard-disk',
     name: 'WD Red 4TB',
     slug: 'wd-red-4tb',
@@ -15,7 +15,7 @@ export const computerData = [
     ],
   },
   {
-    id: '2',
+    id: 'computer-2',
     type: 'motherboard',
     name: 'Asus ROG Maximus VIII Ranger',
     slug: 'asus-rog-maximus-viii-ranger',
@@ -29,7 +29,7 @@ export const computerData = [
     ],
   },
   {
-    id: '3',
+    id: 'computer-3',
     type: 'processor',
     name: 'Corsair Vengeance LPX 32GB (2x16GB) DDR4 DRAM 3000MHz',
     slug: 'corsair-vengeance-lpx-32gb-2x16gb-ddr4-dram-3000mhz',
@@ -55,7 +55,7 @@ export const computerData = [
     ],
   },
   {
-    id: '4',
+    id: 'computer-4',
     type: 'vga',
     name: 'ASUS GeForce GTX 1070 8GB ROG Strix',
     slug: 'asus-geforce-gtx-1070-8gb-rog-strix',
@@ -71,7 +71,7 @@ export const computerData = [
     ],
   },
   {
-    id: '5',
+    id: 'computer-5',
     type: 'power-supply',
     name: 'EVGA SuperNOVA 750 P2, 80+ PLATINUM',
     slug: 'evga-supernova-750-p2-80-platinum',
@@ -86,7 +86,7 @@ export const computerData = [
     ],
   },
   {
-    id: '6',
+    id: 'computer-6',
     type: 'ssd',
     name: 'Samsung 970 Evo MZ-V7S1T0BW 1 TB 2.5" 3500-3300 MB/s SSD Sabit Disk',
     slug: 'samsung-970-evo-mz-v7s1t0bw-1-tb-2500-3300-mbs-sabit-disk',
@@ -116,7 +116,7 @@ export const computerData = [
     ],
   },
   {
-    id: '7',
+    id: 'computer-7',
     type: 'case',
     name: 'NZXT H400i',
     slug: 'nzxt-h400i',
@@ -129,7 +129,7 @@ export const computerData = [
     ],
   },
   {
-    id: '8',
+    id: 'computer-8',
     type: 'keyboard',
     name: 'Keychron K2 Wireless Mechanical Keyboard (Version 2 / Red Switch / RGB Backlight Aluminum Frame)',
     slug: 'keychron-k2-wireless-mechanical-keyboard-version-2-red-switch-rgb-backlight-aluminum-frame',
@@ -156,7 +156,7 @@ export const computerData = [
     ],
   },
   {
-    id: '9',
+    id: 'computer-9',
     type: 'mouse',
     name: 'Logitech Mx Master 3 Wireless Mouse Graphite 910-005694',
     slug: 'logitech-mx-master-3-wireless-mouse-graphite-910-005694',
@@ -179,7 +179,7 @@ export const computerData = [
     ],
   },
   {
-    id: '10',
+    id: 'computer-10',
     type: 'cpu',
     name: 'Intel Core i7 6700K',
     slug: 'intel-core-i7-6700k',
@@ -193,20 +193,11 @@ export const computerData = [
     ],
   },
   {
-    id: '11',
+    id: 'computer-11',
     type: 'cpu-cooling-fans',
     name: 'Cooler Master MasterAir MA410P RGB CPU Air Cooler',
     slug: 'cooler-master-masterair-ma410p-rgb-cpu-air-cooler',
-    tags: [
-      'Cooler',
-      'Master',
-      'MasterAir',
-      'MA410P',
-      'RGB',
-      'CPU',
-      'Air',
-      'Cooler',
-    ],
+    tags: ['Cooler', 'Master', 'MasterAir', 'MA410P', 'RGB', 'CPU', 'Air'],
     url: 'https://www.coolermaster.com/catalog/coolers/cpu-air-coolers/masterair-ma410p/',
     image: '/images/image-not-found.png',
     subtitles: [
@@ -216,7 +207,7 @@ export const computerData = [
     ],
   },
   {
-    id: '12',
+    id: 'computer-12',
     type: 'controller',
     name: 'Dualsense Wireless Controller',
     slug: 'dualsense-wireless-controller',
@@ -233,7 +224,7 @@ export const computerData = [
 
 export const deskData = [
   {
-    id: '1',
+    id: 'desk-1',
     type: 'desk-lamp',
     name: 'Ikea Terrial',
     slug: 'ikea-terrial',
@@ -247,7 +238,7 @@ export const deskData = [
     ],
   },
   {
-    id: '2',
+    id: 'desk-2',
     type: 'speaker',
     name: 'Logitech S120',
     slug: 'logitech-s120',
@@ -261,7 +252,7 @@ export const deskData = [
     ],
   },
   {
-    id: '3',
+    id: 'desk-3',
     type: 'desk',
     name: 'Nurus Otto Basic',
     slug: 'nurus-otto-basic',
@@ -275,7 +266,7 @@ export const deskData = [
     ],
   },
   {
-    id: '4',
+    id: 'desk-4',
     type: 'chair',
     name: 'IKEA Jarvfjallet',
     slug: 'ikea-jarvfjallet',
@@ -289,7 +280,7 @@ export const deskData = [
     ],
   },
   {
-    id: '5',
+    id: 'desk-5',
     type: 'printer',
     name: 'Brother HL-1110',
     slug: 'brother-hl-1110',
@@ -303,7 +294,7 @@ export const deskData = [
     ],
   },
   {
-    id: '6',
+    id: 'desk-6',
     type: 'microphone',
     name: 'Blue Yeti',
     slug: 'blue-yeti',
@@ -320,7 +311,7 @@ export const deskData = [
 
 export const funkoPopsData = [
   {
-    id: '1',
+    id: 'desk-1',
     type: 'funko-pop',
     name: 'Star Wars The Mandolorian',
     slug: 'star-wars-the-mandolorian',
@@ -335,7 +326,7 @@ export const funkoPopsData = [
     ],
   },
   {
-    id: '2',
+    id: 'desk-2',
     type: 'funko-pop',
     name: 'LOTR/Hobbit Gandalf',
     slug: 'lotr-hobbit-gandalf',
@@ -350,7 +341,7 @@ export const funkoPopsData = [
     ],
   },
   {
-    id: '3',
+    id: 'desk-3',
     type: 'funko-pop',
     name: 'God of War Kratos',
     slug: 'god-of-war-kratos',
@@ -365,7 +356,7 @@ export const funkoPopsData = [
     ],
   },
   {
-    id: '4',
+    id: 'desk-4',
     type: 'funko-pop',
     name: 'The Witcher Geralt',
     slug: 'the-witcher-geralt',
@@ -380,7 +371,7 @@ export const funkoPopsData = [
     ],
   },
   {
-    id: '5',
+    id: 'desk-5',
     type: 'funko-pop',
     name: 'The Witcher Ciri',
     slug: 'the-witcher-ciri',
@@ -398,7 +389,7 @@ export const funkoPopsData = [
 
 export const personalData = [
   {
-    id: '1',
+    id: 'personal-1',
     type: 'glass',
     name: 'Hoya Glass',
     slug: 'hoya-glass',
@@ -408,7 +399,7 @@ export const personalData = [
     subtitles: ['Brand: Hoya', 'Website: https://www.hoyavision.com'],
   },
   {
-    id: '2',
+    id: 'personal-2',
     type: 'earphones',
     name: 'Huawei FreeBuds 3 Bluetooth Black',
     slug: 'huawei-freebuds-3-bluetooth-black',
@@ -422,7 +413,7 @@ export const personalData = [
     ],
   },
   {
-    id: '3',
+    id: 'personal-3',
     type: 'powerbank',
     name: 'Baseus Bipow 10.000 mAh 18W',
     slug: 'baseus-bipow-10000-mah-18w',
@@ -436,7 +427,7 @@ export const personalData = [
     ],
   },
   {
-    id: '4',
+    id: 'personal-4',
     type: 'Phone',
     name: 'Iphone 13 256GB Navy Blue',
     slug: 'iphone-13-256gb-navy-blue',
@@ -450,7 +441,7 @@ export const personalData = [
     ],
   },
   {
-    id: '5',
+    id: 'personal-5',
     type: 'charger',
     name: 'Ikea Livboj Wireless Charger',
     slug: 'ikea-livboj-wireless-charger',

@@ -3,6 +3,8 @@ import type {NextComponentType} from 'next'
 import Image from 'next/image'
 import {
   Introduction,
+  Sections,
+  Section,
   SectionHeader,
   Welcome,
   SectionSlider,
@@ -20,46 +22,12 @@ import {
 } from '@/ui/index'
 import * as S from './style'
 import {socialMedias} from '@/data'
+import {useSelector} from 'react-redux'
+import {makeSelectBoard, makeSelectMessages} from '@/store/contact'
 
 const ContactContainer: NextComponentType = () => {
-  const mockData = [
-    {
-      id: 'home-1',
-      name: 'About',
-      title: 'Who am I?',
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
-    },
-    {
-      id: 'home-2',
-      name: 'Articles',
-      title: 'Why am I writing?',
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
-    },
-    {
-      id: 'home-3',
-      name: 'Media',
-      title: 'What do I share?',
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
-    },
-    {
-      id: 'home-4',
-      name: 'Contacts',
-      title: 'How can I contact you?',
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
-    },
-    {
-      id: 'home-5',
-      name: 'Links',
-      title: 'What do I share?',
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
-    },
-    {
-      id: 'home-6',
-      name: 'Projects',
-      title: 'What did I create?',
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
-    },
-  ]
+  const messages = useSelector(makeSelectMessages)
+  const board = useSelector(makeSelectBoard)
 
   return (
     <>
@@ -88,43 +56,34 @@ const ContactContainer: NextComponentType = () => {
           </S.ConnectMetamaskButtonText>
         </S.ConnectMetamaskButton>
       </S.ConnectMetamaskButtonContainer>
-      <S.SectionsContainer>
-        <S.SectionOneContainer>
-          <SectionHeader
+      <Sections
+        sectionOne={
+          <Section
             title="Messages"
-            subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-            link="/"
+            subtitle="You can put your message here and you can support me :) I will also support someone who is supporting me :)"
+            children={
+              <S.MessagesContainer>
+                {messages?.map(item => (
+                  <Card key={item.id} data={item} type={2} />
+                ))}
+              </S.MessagesContainer>
+            }
           />
-          <S.MessagesContainer>
-            <Card key={1} data={mockData[0]} type={2} />
-            <Card key={1} data={mockData[1]} type={2} />
-            <Card key={1} data={mockData[0]} type={2} />
-            <Card key={1} data={mockData[0]} type={2} />
-            <Card key={1} data={mockData[0]} type={2} />
-            <Card key={1} data={mockData[0]} type={2} />
-            <Card key={1} data={mockData[0]} type={2} />
-          </S.MessagesContainer>
-        </S.SectionOneContainer>
-        <S.SectionTwoContainer>
-          <SectionHeader
+        }
+        sectionTwo={
+          <Section
             title="Board"
-            subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-            link="https://www.google.com"
+            subtitle="This is the board message section. You messages will be shown more clear here."
+            children={
+              <S.BoardContainer>
+                {board?.map(item => (
+                  <S.BoardItem key={item.id} />
+                ))}
+              </S.BoardContainer>
+            }
           />
-          <S.BoardContainer>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-            <S.BoardItem></S.BoardItem>
-          </S.BoardContainer>
-        </S.SectionTwoContainer>
-      </S.SectionsContainer>
+        }
+      />
       <S.ContactFormContainer>
         <S.ContactForm>
           <S.ContactFormInput placeholder="Type" />

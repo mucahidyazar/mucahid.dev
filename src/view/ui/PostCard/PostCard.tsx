@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {Tag} from '@/ui/index'
+import {Tag, Icon} from '@/ui/index'
 import {stripText} from '@/utilities/index'
 import PropTypes from 'prop-types'
 
@@ -14,9 +14,22 @@ interface IPostCard {
   date: string
   link: string
   tags: string[]
+  links?: {
+    id: string
+    url: string
+    icon: string
+  }
 }
 
-const PostCard = ({imageUrl, title, subtitle, date, tags, link}: IPostCard) => {
+const PostCard: React.FC<IPostCard> = ({
+  imageUrl,
+  title,
+  subtitle,
+  date,
+  tags,
+  link,
+  links,
+}) => {
   const handleCopyLink = () => {
     navigator.clipboard.writeText(imageUrl)
   }
@@ -30,14 +43,23 @@ const PostCard = ({imageUrl, title, subtitle, date, tags, link}: IPostCard) => {
           alt="Article Image"
           unoptimized={true}
         />
-        <S.CardCopyIcon onClick={handleCopyLink}>
-          <Image src="/svgs/copy.svg" width={20} height={20} alt="" />
-        </S.CardCopyIcon>
-        <S.Tags>
-          {tags.map(tag => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-        </S.Tags>
+        <S.CardImageHeader>
+          <S.Tags>
+            {tags.map(tag => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+          </S.Tags>
+          <S.Links>
+            {links?.map(({id, url, icon}) => (
+              <S.Link key={id} href={url} target="_blank">
+                <Icon name={icon} size={20} />
+              </S.Link>
+            ))}
+            <S.CopyIcon onClick={handleCopyLink}>
+              <Icon name="copy" size={20} />
+            </S.CopyIcon>
+          </S.Links>
+        </S.CardImageHeader>
       </S.CardImage>
 
       <S.CardContent>
@@ -57,9 +79,19 @@ PostCard.propTypes = {
   subtitle: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+  link: PropTypes.string.isRequired,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
+    }),
+  ),
 }
 
-PostCard.defaultProps = {}
+PostCard.defaultProps = {
+  links: undefined,
+}
 
 PostCard.S = S
 

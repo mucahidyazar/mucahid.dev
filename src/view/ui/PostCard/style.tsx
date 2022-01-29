@@ -13,10 +13,22 @@ const CardImage = styled.div`
   min-height: 540px;
   margin-bottom: 0.5rem;
 `
-const CardCopyIcon = styled.div`
-  position: absolute;
-  top: 12px;
-  right: 12px;
+
+const CardImageHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+`
+
+const Links = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 1;
+  height: 40px;
+`
+const Link = styled.a`
   background-color: rgba(0, 0, 0, 0.5);
   width: 40px;
   height: 40px;
@@ -30,15 +42,16 @@ const CardCopyIcon = styled.div`
     background-color: rgba(0, 0, 0, 0.8);
   }
 `
+
+const CopyIcon = styled(Link).attrs({as: 'div'})``
+
 const Tags = styled.div`
-  width: calc(100% - 82px);
-  position: absolute;
-  top: 12px;
-  left: 12px;
+  width: calc(75%);
   display: flex;
   gap: 4px;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
+  z-index: 1;
 
   ${Tag.S.Tag} {
     padding: 0.2rem 0.8rem;
@@ -67,10 +80,13 @@ const CardContentDate = styled(Subtitle)`
 export {
   Card,
   CardImage,
+  CardImageHeader,
   Tags,
-  CardCopyIcon,
   CardContent,
   CardContentTitle,
   CardContentSubtitle,
   CardContentDate,
+  Links,
+  Link,
+  CopyIcon,
 }

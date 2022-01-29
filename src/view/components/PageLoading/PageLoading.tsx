@@ -6,7 +6,7 @@ import * as S from './style'
 import {Button} from '@/ui/index'
 import {useRouter} from 'next/router'
 import {useSelector} from 'react-redux'
-import {makeSelectIsLoadingVisible} from '@/store/settings/selectors'
+import {makeSelectIsLoadingVisible} from '@/store/settings'
 
 const PageLoading: NextComponentType = () => {
   const router = useRouter()

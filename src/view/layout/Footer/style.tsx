@@ -27,7 +27,7 @@ const FooterInfoTitle = styled.div`
 
 const FooterInfoSubtitle = styled.div`
   color: #95a1c1;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
   font-size: var(--font-size-s);
 `
 
@@ -111,6 +111,23 @@ const FooterMenu = styled.div`
   }
 `
 
+const SocialLinks = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+`
+const SocialLink = styled.a`
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    filter: brightness(85%);
+    transform: scale(1.2);
+    color: #8f88f2;
+  }
+`
+
 export {
   Footer,
   FooterInfo,
@@ -124,4 +141,6 @@ export {
   FooterMenuGroup,
   FooterMenuHeader,
   FooterMenuItem,
+  SocialLinks,
+  SocialLink,
 }

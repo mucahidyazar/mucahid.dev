@@ -2,7 +2,7 @@ import styled, {css} from 'styled-components'
 import {BreakpointSize} from '@/constants/index'
 import {container} from 'styles'
 
-const Navbar = styled.nav`
+const Navbar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;

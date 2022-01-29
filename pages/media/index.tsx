@@ -3,7 +3,7 @@ import type {NextPage} from 'next'
 import {MainLayout} from '@/layout/index'
 import {MediaContainer} from '@/containers/index'
 import {wrapper} from '@/store/index'
-import {getInstagram, getTweets} from '@/store/articles'
+import {getInstagram} from '@/store/media'
 
 const Media: NextPage = () => {
   return (
@@ -19,7 +19,6 @@ const Media: NextPage = () => {
 export const getServerSideProps = wrapper.getServerSideProps(
   store =>
     async ({req, res, ...etc}) => {
-      await store.dispatch(getTweets())
       await store.dispatch(getInstagram())
     },
 )

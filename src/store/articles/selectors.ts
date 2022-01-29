@@ -78,23 +78,3 @@ export const makeArticleStatusSelector = createSelector(
   settingsSelector,
   ({article}) => article.status,
 )
-
-export const makeInstagramSelector = createSelector(
-  settingsSelector,
-  ({instagram}) => instagram.data,
-)
-
-export const makeInstagramStatusSelector = createSelector(
-  settingsSelector,
-  ({instagram}) => instagram.status,
-)
-
-export const makeSelectStarreds = createSelector(
-  settingsSelector,
-  ({starreds}) => starreds.data,
-)
-
-export const makeSelectStarredsStatus = createSelector(
-  settingsSelector,
-  ({starreds}) => starreds.status,
-)

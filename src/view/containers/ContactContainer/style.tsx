@@ -7,53 +7,6 @@ const SummarySection = styled.div`
   max-width: 100%;
 `
 
-const SectionsContainer = styled.div`
-  display: flex;
-  gap: 80px;
-  justify-content: space-between;
-  margin: 5rem 0;
-
-  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
-    padding: 5rem 0;
-  }
-
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    flex-direction: column;
-  }
-
-  ${Card.S.CardImage} {
-    min-width: 20%;
-  }
-  ${Card.S.Card} {
-    gap: 20px;
-    position: relative;
-    cursor: pointer;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid rgba(62, 76, 103, 0.5);
-    }
-  }
-  ${Card.S.CardContentText} {
-    -webkit-line-clamp: 2;
-  }
-`
-
-const SectionOneContainer = styled.div`
-  width: 50%;
-
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    width: 100%;
-  }
-`
-
-const SectionTwoContainer = styled.div`
-  width: 50%;
-
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    width: 100%;
-  }
-`
-
 const ConnectionsContainer = styled.div`
   display: flex;
   align-items: center;
@@ -105,14 +58,14 @@ const ConnectMetamaskButtonText = styled.p`
 `
 
 const MessagesContainer = styled.div`
-  height: 600px;
+  max-height: 600px;
   overflow: auto;
 `
 const BoardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  height: 600px;
+  max-height: 600px;
   overflow: auto;
 `
 const BoardItem = styled.div`
@@ -147,9 +100,6 @@ const ContactFormButton = styled(Button)`
 
 export {
   SummarySection,
-  SectionsContainer,
-  SectionOneContainer,
-  SectionTwoContainer,
   ConnectionsContainer,
   ConnectionIcon,
   ConnectMetamaskButtonContainer,
