@@ -60,6 +60,7 @@ const ModalNews = styled.div`
       height: 280px;
       float: none;
       margin-bottom: 1rem;
+      max-width: 100%;
     }
     ${MainNews.S.MainNewsContent} {
       font-size: 1rem;

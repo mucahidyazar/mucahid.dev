@@ -87,10 +87,8 @@ const ArticlesContainer: NextComponentType = () => {
                 subtitle={article.description}
                 date={article.pubDate}
                 tags={article.categories}
-                link={`/article/${article.link.replace(
-                  'https://mucahidyazar.medium.com/',
-                  '',
-                )}`}
+                // article.guid = https://medium.com/p/e2d129b93d4c
+                link={`/article/${article.guid.split('/')[4]}`}
                 imageUrl={article.thumbnail}
               />
             )

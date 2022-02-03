@@ -1,30 +1,37 @@
 import React from 'react'
 import Image from 'next/image'
+import {useDispatch} from 'react-redux'
+
+import {setNews} from '@/store/home'
 
 import * as S from './style'
 
-const OldNews = () => {
+const OldNews = ({news, onClick, isModal, ...rest}) => {
+  const dispatch = useDispatch()
+  const openNewsHandler = () => {
+    if (!isModal) {
+      dispatch(setNews(news))
+      onClick()
+    }
+  }
+
   return (
-    <S.OldNews>
+    <S.OldNews {...rest} onClick={openNewsHandler}>
       <S.OldNewsImage>
         <S.OldNewsFigure>
           <Image
             width={80}
             height="100%"
             objectFit="cover"
-            src="http://i.giphy.com/4fDWVPMoSyhgc.gif"
+            src={news.image}
             alt="News Gif"
           />
         </S.OldNewsFigure>
       </S.OldNewsImage>
 
       <S.OldNewsBody>
-        <S.OldNewsTitle>Evleniyorum</S.OldNewsTitle>
-        <S.OldNewsContent>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
-          dolor sit amet, consectetur adipisicing elit. Minus nihil dolor iure
-          odit ex aliquid consequuntur doloremque eos libero molestias!
-        </S.OldNewsContent>
+        <S.OldNewsTitle>{news.title}</S.OldNewsTitle>
+        <S.OldNewsContent>{news.content}</S.OldNewsContent>
       </S.OldNewsBody>
     </S.OldNews>
   )

@@ -1,24 +1,38 @@
 import produce from 'immer'
 
-// import {Status} from '@/constants'
+import {Status} from '@/constants'
 
-// import * as types from './types'
+import * as types from './types'
 
 const INITIAL_STATE = {
   messages: {
-    status: null,
+    status: Status.INIT,
     data: [],
     error: null,
   },
   board: {
-    status: null,
+    status: Status.INIT,
     data: [],
+    error: null,
+  },
+  email: {
+    status: Status.INIT,
     error: null,
   },
 }
 
 export const reducer = produce((draft, action) => {
   switch (action.type) {
+    case types.SEND_EMAIL_REQUEST:
+      draft.email.status = Status.LOADING
+      break
+    case types.SEND_EMAIL_SUCCESS:
+      draft.email.status = Status.OK
+      break
+    case types.SEND_EMAIL_FAILED:
+      draft.email.status = Status.ERROR
+      draft.email.error = action.error
+      break
     default:
       break
   }

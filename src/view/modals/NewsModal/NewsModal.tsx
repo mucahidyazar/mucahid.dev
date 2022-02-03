@@ -1,20 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
+import {useSelector} from 'react-redux'
 
 import {Modal} from '@/ui'
 import {ModalType} from '@/constants'
-import {MainNews, OldNews} from '@/components'
+import {makeSelectSelectedNews} from '@/store/home'
 
 import * as S from './style'
 
-interface INewsModalProps {
-  title: string
-  description: string
-  illustration: string
-}
+interface INewsModalProps {}
 
-const NewsModal: React.FC<INewsModalProps> = ({data}) => {
+const NewsModal: React.FC<INewsModalProps> = () => {
+  const selectedNews = useSelector(makeSelectSelectedNews)
+
   return (
     <Modal name={ModalType.NEWS_MODAL}>
       <S.NewsHeader>
@@ -32,7 +31,7 @@ const NewsModal: React.FC<INewsModalProps> = ({data}) => {
         </S.NewsHeaderDescription>
       </S.NewsHeader>
       <S.ModalNews>
-        <S.ModalMainNews />
+        <S.ModalMainNews news={selectedNews} isModal />
       </S.ModalNews>
     </Modal>
   )

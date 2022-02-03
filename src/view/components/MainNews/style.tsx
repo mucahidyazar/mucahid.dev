@@ -7,6 +7,7 @@ const MainNews = styled.div`
   padding: 0 1rem 1rem 1rem;
   transition: all 0.2s ease-in-out;
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  min-height: 196px;
 
   &:hover {
     background: rgba(249, 247, 241, 0.2);
@@ -48,11 +49,11 @@ const MainNewsImage = styled.div`
   position: relative;
   float: left;
   margin-right: 1rem;
-  margin-bottom: 0.2rem;
   filter: grayscale(100%);
   border-radius: 4px;
   overflow: hidden;
   height: 100px;
+  max-width: 50%;
 
   @media (max-width: ${BreakpointSize.TABLET.MAX}px) {
     width: 140px;

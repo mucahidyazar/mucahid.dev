@@ -2,7 +2,7 @@ import React from 'react'
 import type {NextPage} from 'next'
 
 import {ArticleContainer} from '@/containers'
-import {getArticle} from '@/store/articles'
+import {getArticle, getComments} from '@/store/articles'
 import {wrapper} from '@/store/index'
 import {MainLayout} from '@/layout'
 
@@ -21,6 +21,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
     async (ctx: any) => {
       const {slug} = ctx.params
       await store.dispatch(getArticle(slug))
+      await store.dispatch(getComments(slug))
     },
 )
 

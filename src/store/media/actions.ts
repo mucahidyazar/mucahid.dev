@@ -11,8 +11,8 @@ export const getInstagram = (): any => async (dispatch: Dispatch) => {
 
     dispatch({
       type: types.GET_INSTAGRAM_SUCCESS,
-      data: res.data?.graphql?.user?.edge_owner_to_timeline_media.edges.map(
-        (edge: any) => edge.node.display_url,
+      data: res?.data?.graphql?.user?.edge_owner_to_timeline_media.edges.map(
+        (edge: any) => edge?.node?.display_url,
       ),
     })
   } catch (error) {

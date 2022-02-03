@@ -1,4 +1,5 @@
 export * from './BreakpointSize'
+export * from './ContactType'
 export * from './DrawerPlacement'
 export * from './IconSize'
 export * from './ModalType'

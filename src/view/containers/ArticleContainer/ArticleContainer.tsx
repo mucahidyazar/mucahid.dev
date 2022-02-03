@@ -1,16 +1,37 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import type {NextComponentType} from 'next'
 import Image from 'next/image'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import {useRouter} from 'next/router'
 
 import {SectionHeader} from '@/components'
 import {Badge, Card, Textarea, Button, Title, Subtitle} from '@/ui'
-import {makeArticleSelector} from '@/store/articles/selectors'
+import {
+  makeArticleSelector,
+  makeSelectComments,
+} from '@/store/articles/selectors'
+import {makeSelectUser} from '@/store/auth'
+import {addComment} from '@/store/articles'
 
 import * as S from './style'
 
 const ArticleContainer: NextComponentType = () => {
+  const router = useRouter()
+  const dispatch = useDispatch()
   const article = useSelector(makeArticleSelector)
+  const comments = useSelector(makeSelectComments)
+  const user = useSelector(makeSelectUser)
+  const formRef = useRef(null)
+
+  const sendCommentHandler = e => {
+    e.preventDefault()
+    const form = new FormData(e.currentTarget)
+    const comment = form.get('comment')
+    const {slug} = router.query
+
+    dispatch(addComment(slug, comment))
+    formRef.current.reset()
+  }
 
   return (
     <>
@@ -50,7 +71,7 @@ const ArticleContainer: NextComponentType = () => {
         <Image width={1440} height={540} src="/images/article.jpg" alt="mail" />
       </S.ArticleImage>
       <S.ArticleTags>
-        {article.categories.map((item: any) => (
+        {article?.categories?.map((item: any) => (
           <Badge key={item}>{item}</Badge>
         ))}
       </S.ArticleTags>
@@ -59,45 +80,25 @@ const ArticleContainer: NextComponentType = () => {
       <S.Divider />
       <SectionHeader title="Comments" subtitle="6 Comments" />
       <S.Comments>
-        {[
-          {
-            id: 'cooment-1',
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias',
-            date: '1 day ago',
-          },
-          {
-            id: 'cooment-2',
-            text: 'Fugiat cumque voluptate aliquam minima, sapiente minus laboriosam',
-            date: '1 day ago',
-          },
-          {
-            id: 'cooment-3',
-            text: 'Facilis necessitatibus quo. Earum quo vel dolor quos. Exercitationem',
-            date: '1 day ago',
-          },
-          {
-            id: 'cooment-4',
-            text: 'Obcaecati officia, eum mollitia enim ullam architecto reiciendis dolorem',
-            date: '1 day ago',
-          },
-          {
-            id: 'cooment-5',
-            text: 'Ab veniam maiores nemo! Natus earum ea iste asperiores, explicabo eum',
-            date: '1 day ago',
-          },
-          {
-            id: 'cooment-6',
-            text: 'Aut. Saepe voluptatibus fugit nisi, reiciendis quos deserunt recusandae',
-            date: '1 day ago',
-          },
-        ].map(comment => (
-          <Card key={comment.id} data={comment} type={2} />
+        {comments?.map(comment => (
+          <Card
+            key={comment.id}
+            data={{
+              id: comment.id,
+              text: comment.message,
+              date: comment.createdAt,
+              name: comment.author.name,
+            }}
+            type={2}
+          />
         ))}
       </S.Comments>
-      <S.CommentsForm>
-        <Textarea />
-        <Button primary>Send</Button>
-      </S.CommentsForm>
+      {user?.email && (
+        <S.CommentsForm onSubmit={sendCommentHandler} ref={formRef}>
+          <Textarea name="comment" />
+          <Button primary>Send</Button>
+        </S.CommentsForm>
+      )}
     </>
   )
 }

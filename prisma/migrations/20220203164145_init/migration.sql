@@ -11,6 +11,17 @@ CREATE TABLE "Post" (
 );
 
 -- CreateTable
+CREATE TABLE "Comment" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "message" TEXT NOT NULL,
+    "postId" TEXT NOT NULL,
+    "authorId" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    CONSTRAINT "Comment_authorId_fkey" FOREIGN KEY ("authorId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
 CREATE TABLE "Message" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "title" TEXT NOT NULL,

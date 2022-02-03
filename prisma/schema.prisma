@@ -18,6 +18,15 @@ model Post {
   authorId  Int
 }
 
+model Comment {
+  id            Int     @id @default(autoincrement())
+  message       String
+  author        User    @relation(fields: [authorId], references: [id])
+  postId        String
+  authorId      Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
 
 // enum MessageType {
 //   EMAIL
@@ -100,6 +109,7 @@ model User {
   newsletter    Boolean? @default(false)
   news          News[]
   role          Int @default(1)
+  comments      Comment[]
 }
 
 model VerificationToken {

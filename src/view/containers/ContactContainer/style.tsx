@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {Button, Input, Textarea} from '@/ui'
+import {Button, Input, Textarea, SelectBox} from '@/ui'
 
 const SummarySection = styled.div`
   max-width: 100%;
@@ -84,8 +84,10 @@ const ContactFormContainer = styled.div`
   flex-direction: column;
   margin: 5rem 0;
 `
+
 const ContactForm = styled.form`
   width: 50%;
+  position: relative;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     width: 100%;
@@ -99,6 +101,32 @@ const ContactFormTextarea = styled(Textarea)`
 `
 const ContactFormButton = styled(Button)`
   width: 100%;
+`
+
+const ContactFormType = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+`
+const ContactFormTypeItem = styled.div`
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(62, 76, 103, 0.5);
+  margin-bottom: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(62, 76, 103, 0.8);
+    outline: 2px solid #e9b258;
+  }
+
+  ${({isSelected}) =>
+    isSelected &&
+    css`
+      background-color: rgba(62, 76, 103, 0.8);
+      outline: 2px solid #e9b258;
+    `}
 `
 
 export {
@@ -116,4 +144,6 @@ export {
   ContactFormInput,
   ContactFormTextarea,
   ContactFormButton,
+  ContactFormType,
+  ContactFormTypeItem,
 }

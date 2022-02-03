@@ -6,7 +6,7 @@ import * as types from './types'
 
 const INITIAL_STATE: any = {
   instagram: {
-    status: null,
+    status: Status.INIT,
     data: [],
     error: null,
   },

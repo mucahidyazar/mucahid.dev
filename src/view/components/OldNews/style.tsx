@@ -22,6 +22,7 @@ const OldNewsImage = styled.div`
   filter: grayscale(100%);
   overflow: hidden;
   width: 60px;
+  min-width: 60px;
   height: 60px;
 `
 const OldNewsFigure = styled.figure``

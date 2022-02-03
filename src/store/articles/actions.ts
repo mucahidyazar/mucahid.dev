@@ -64,3 +64,52 @@ export const getArticle =
 export const setFilter = (filters: any) => async (dispatch: Dispatch) => {
   dispatch({type: types.SET_FILTERS, filters})
 }
+
+export const addComment =
+  (postId: string, comment: string): any =>
+  async (dispatch: Dispatch, getState: any) => {
+    try {
+      dispatch({type: types.ADD_COMMENT_REQUEST})
+
+      const res = await axios.post(
+        'http://localhost:3000/api/post/add-comment',
+        {postId, comment},
+      )
+
+      dispatch({
+        type: types.ADD_COMMENT_SUCCESS,
+        data: res.data,
+      })
+      dispatch(getComments(postId))
+    } catch (error) {
+      dispatch({
+        type: types.ADD_COMMENT_FAILED,
+        error,
+      })
+    }
+  }
+
+export const getComments =
+  (postId: string): any =>
+  async (dispatch: Dispatch) => {
+    try {
+      dispatch({type: types.GET_COMMENTS_REQUEST})
+      console.log('x')
+      console.log(typeof postId)
+      const res = await axios.get(
+        `http://localhost:3000/api/post/get-comments?postId=${postId}`,
+      )
+
+      console.log({x: res.data})
+      dispatch({
+        type: types.GET_COMMENTS_SUCCESS,
+        data: res.data,
+      })
+    } catch (error) {
+      console.log(error)
+      dispatch({
+        type: types.GET_COMMENTS_FAILED,
+        error,
+      })
+    }
+  }

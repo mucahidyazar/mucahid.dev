@@ -1,19 +1,31 @@
 import React from 'react'
 import Image from 'next/image'
+import {useDispatch} from 'react-redux'
+
+import {setNews} from '@/store/home'
 
 import * as S from './style'
 
-const MainNews = ({onClick, rest}) => {
+const MainNews = ({news, onClick, isModal, ...rest}) => {
+  const dispatch = useDispatch()
+  const openNewsHandler = () => {
+    if (!isModal) {
+      dispatch(setNews(news))
+      onClick()
+    }
+  }
+
   return (
-    <S.MainNews onClick={onClick} {...rest}>
-      <S.MainNewsTitle>Bu Cuma evleniyorum</S.MainNewsTitle>
-      <S.MainNewsDate>ISTANBUL - THURSDAY AUGUST 30, 1978</S.MainNewsDate>
+    <S.MainNews {...rest} onClick={openNewsHandler}>
+      <S.MainNewsTitle>{news.title}</S.MainNewsTitle>
+      {/* <S.MainNewsDate>ISTANBUL - THURSDAY AUGUST 30, 1978</S.MainNewsDate> */}
+      <S.MainNewsDate>{news.location}</S.MainNewsDate>
       <S.MainNewsImage>
         <S.MainNewsFigure>
           <Image
             layout="fill"
             objectFit="cover"
-            src="http://i.giphy.com/4fDWVPMoSyhgc.gif"
+            src={news.image}
             alt="News Gif"
           />
           <S.MainNewsFigcaption>
@@ -21,16 +33,7 @@ const MainNews = ({onClick, rest}) => {
           </S.MainNewsFigcaption>
         </S.MainNewsFigure>
       </S.MainNewsImage>
-      <S.MainNewsContent>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo in
-        fugiat ea ad, quod reiciendis deleniti minima tempora consequatur
-        laboriosam sequi iure eum debitis consectetur molestiae alias fugit
-        voluptates dolorem porro exercsam harum sunt facere libero sed
-        asperiores culpa eaque beatae ipsa nam,imus assumenda ex eveniet
-        voluptates consequatur officia vel rerum voluptatum optio corporis ullam
-        voluptate in doloribus, commodi, ea dignissimos quo modi repellat. Quos
-        ipsa suscipit id, aliquid modi voluptatem nostrum!
-      </S.MainNewsContent>
+      <S.MainNewsContent>{news.content}</S.MainNewsContent>
     </S.MainNews>
   )
 }

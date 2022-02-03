@@ -66,7 +66,7 @@ const Comments = styled.div`
   }
 `
 
-const CommentsForm = styled.div`
+const CommentsForm = styled.form`
   ${Textarea.S.Textarea} {
     margin-bottom: 1rem;
   }

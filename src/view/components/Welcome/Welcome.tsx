@@ -2,11 +2,12 @@ import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
 import Slider from 'react-slick'
 import Image from 'next/image'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 import {ModalType} from '@/constants'
 import {setModalType} from '@/store/settings'
 import {AllNewsModal, NewsModal} from '@/modals'
+import {makeSelectAllNews} from '@/store/home'
 
 import {MainNews} from '../MainNews'
 import {OldNews} from '../OldNews'
@@ -22,6 +23,7 @@ interface IWelcomeProps {
 const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
   const slickRef = useRef<Slider>(null)
   const dispatch = useDispatch()
+  const allNews = useSelector(makeSelectAllNews)
 
   const openModalHandler = () => {
     dispatch(setModalType(ModalType.ALL_NEWS_MODAL))
@@ -79,8 +81,20 @@ const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
           </S.NewsHeader>
 
           <S.NewsList>
-            <MainNews onClick={openNewsHandler} />
-            <OldNews />
+            {allNews?.map((news, index) => {
+              if (index === 0)
+                return (
+                  <MainNews
+                    key={news.id}
+                    news={news}
+                    onClick={openNewsHandler}
+                  />
+                )
+
+              return (
+                <OldNews key={news.id} news={news} onClick={openNewsHandler} />
+              )
+            })}
           </S.NewsList>
         </S.News>
         <AllNewsModal />

@@ -1,44 +1,44 @@
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import type {NextComponentType} from 'next'
 import Image from 'next/image'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
-import {Sections, Section} from '@/components'
+import {Sections, Section, LoadingWrapper} from '@/components'
 import {Card, Icon} from '@/ui'
 import {socialMedias} from '@/data'
-import {makeSelectBoard, makeSelectMessages} from '@/store/contact'
+import {
+  makeSelectBoard,
+  makeSelectEmailStatus,
+  makeSelectMessages,
+  sendEmail,
+} from '@/store/contact'
+import {ContactType, Status} from '@/constants'
 
 import * as S from './style'
 
 const ContactContainer: NextComponentType = () => {
-  const [loading, setLoading] = useState(false)
+  const [type, setType] = useState(ContactType.EMAIL)
   const messages = useSelector(makeSelectMessages)
   const board = useSelector(makeSelectBoard)
+  const emailStatus = useSelector(makeSelectEmailStatus)
+  const dispatch = useDispatch()
+  const contactFormRef = useRef()
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = new FormData(e.currentTarget)
+    // const ether = form.get('ether')
     const title = form.get('title')
-    const type = form.get('type')
     const content = form.get('content')
-    setLoading(true)
 
     if (title && type && content) {
-      try {
-        const res = await fetch('/api/send/email', {
-          method: 'POST',
-          body: JSON.stringify({
-            title,
-            content,
-            type,
-          }),
-        })
-        console.log(res)
-        setLoading(false)
-      } catch (error) {
-        console.log(error)
-        setLoading(false)
+      const data = {
+        title,
+        content,
+        type,
       }
+      dispatch(sendEmail(data))
+      contactFormRef?.current?.reset()
     }
   }
 
@@ -96,14 +96,36 @@ const ContactContainer: NextComponentType = () => {
         }
       />
       <S.ContactFormContainer>
-        <S.ContactForm onSubmit={onSubmitHandler}>
-          <S.ContactFormInput name="type" placeholder="Type" />
+        <S.ContactForm onSubmit={onSubmitHandler} ref={contactFormRef}>
+          <S.ContactFormType>
+            <S.ContactFormTypeItem
+              onClick={() => setType(ContactType.MESSAGE)}
+              isSelected={ContactType.MESSAGE === type}
+            >
+              Message
+            </S.ContactFormTypeItem>
+            <S.ContactFormTypeItem
+              onClick={() => setType(ContactType.BOARD)}
+              isSelected={ContactType.BOARD === type}
+            >
+              Board
+            </S.ContactFormTypeItem>
+            <S.ContactFormTypeItem
+              onClick={() => setType(ContactType.EMAIL)}
+              isSelected={ContactType.EMAIL === type}
+            >
+              Email
+            </S.ContactFormTypeItem>
+          </S.ContactFormType>
+          {type !== ContactType.EMAIL && (
+            <S.ContactFormInput name="ether" placeholder="0.00000 ether" />
+          )}
           <S.ContactFormInput name="title" placeholder="Title" />
-          <S.ContactFormInput name="ether" placeholder="0.00000 ether" />
           <S.ContactFormTextarea name="content" placeholder="Message" />
           <S.ContactFormButton>
-            {loading ? 'Loading' : 'Send'}
+            {emailStatus === Status.LOADING ? 'Loading' : 'Send'}
           </S.ContactFormButton>
+          <LoadingWrapper isLoading={emailStatus === Status.LOADING} />
         </S.ContactForm>
       </S.ContactFormContainer>
     </>

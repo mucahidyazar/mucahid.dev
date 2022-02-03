@@ -6,13 +6,13 @@ import * as types from './types'
 
 const INITIAL_STATE: any = {
   apis: {
-    status: null,
+    status: Status.INIT,
     data: [],
     count: null,
     error: null,
   },
   starreds: {
-    status: null,
+    status: Status.INIT,
     data: [],
     error: null,
   },

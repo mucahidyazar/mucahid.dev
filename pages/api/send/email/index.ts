@@ -9,7 +9,7 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const {title, content, type, to} = JSON.parse(req.body)
+  const {title, content, type, to} = req.body
 
   const session = await getSession({req})
   sgMail.setApiKey(process.env.SENDGRID_API_KEY)
@@ -30,6 +30,16 @@ export default async function handle(
       .catch(error => {
         console.error(error)
       })
+
+    const result = await prisma.message.create({
+      data: {
+        title: title,
+        type: type,
+        content: content,
+        author: {connect: {email: session?.user?.email}},
+      },
+    })
+    res.json(result)
   } else if (session) {
     const result = await prisma.message.create({
       data: {

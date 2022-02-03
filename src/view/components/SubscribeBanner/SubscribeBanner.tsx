@@ -1,27 +1,25 @@
 import React from 'react'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
-import {makeSelectUser} from '@/store/auth'
+import {makeSelectUser, setNewsletter} from '@/store/auth'
 
 import * as S from './style'
 
 const SubscribeBanner: NextComponentType = () => {
+  const dispatch = useDispatch()
   const user = useSelector(makeSelectUser)
 
   const submitHandler = e => {
     e.preventDefault()
     const form = new FormData(e.currentTarget)
-    const body = JSON.stringify({
+    const data = {
       email: form.get('email'),
       name: form.get('name'),
-    })
+    }
 
-    fetch('/api/newsletter', {
-      method: 'POST',
-      body,
-    })
+    dispatch(setNewsletter(data))
   }
 
   return (

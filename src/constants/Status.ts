@@ -1,5 +1,6 @@
 export const Status = {
-  OK: 'ok',
-  ERROR: 'error',
-  LOADING: 'loading',
+  INIT: 'INIT',
+  OK: 'OK',
+  ERROR: 'ERROR',
+  LOADING: 'LOADING',
 }

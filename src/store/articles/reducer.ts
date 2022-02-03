@@ -6,7 +6,7 @@ import * as types from './types'
 
 const INITIAL_STATE: any = {
   articles: {
-    status: null,
+    status: Status.INIT,
     data: [],
     feed: {},
     categories: [],
@@ -15,9 +15,14 @@ const INITIAL_STATE: any = {
     error: null,
   },
   article: {
-    status: null,
+    status: Status.INIT,
     data: [],
     feed: {},
+    comments: {
+      status: Status.INIT,
+      data: [],
+      error: null,
+    },
     error: null,
   },
 }
@@ -34,6 +39,17 @@ export const reducer = produce((draft, action) => {
     case types.GET_ARTICLE_FAILED:
       draft.article.status = Status.ERROR
       draft.article.error = action.error
+      break
+    case types.GET_COMMENTS_REQUEST:
+      draft.article.comments.status = Status.LOADING
+      break
+    case types.GET_COMMENTS_SUCCESS:
+      draft.article.comments.status = Status.OK
+      draft.article.comments.data = action.data
+      break
+    case types.GET_COMMENTS_FAILED:
+      draft.article.comments.status = Status.ERROR
+      draft.article.comments.error = action.error
       break
     case types.GET_ARTICLES_REQUEST:
       draft.articles.status = Status.LOADING

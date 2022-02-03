@@ -5,7 +5,9 @@ import produce from 'immer'
 import * as types from './types'
 
 const INITIAL_STATE = {
-  user: null,
+  user: {
+    newsletter: false,
+  },
   expires: null,
 }
 
@@ -14,6 +16,9 @@ export const reducer = produce((draft, action) => {
     case types.SAVE_AUTH:
       draft.user = action.data?.user
       draft.expires = action.data?.expires
+      break
+    case types.SET_NEWSLETTER_SUCCESS:
+      draft.user.newsletter = true
       break
     default:
       break

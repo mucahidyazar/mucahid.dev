@@ -78,3 +78,8 @@ export const makeArticleStatusSelector = createSelector(
   settingsSelector,
   ({article}) => article.status,
 )
+
+export const makeSelectComments = createSelector(
+  settingsSelector,
+  ({article}) => article.comments.data,
+)

@@ -21,3 +21,8 @@ export const makeSelectBoardStatus = createSelector(
   selectContact,
   ({board}) => board.status,
 )
+
+export const makeSelectEmailStatus = createSelector(
+  selectContact,
+  ({email}) => email?.status,
+)

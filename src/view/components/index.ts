@@ -1,4 +1,5 @@
 export * from './AboutWelcome'
+export * from './LoadingWrapper'
 export * from './MainNews'
 export * from './OldNews'
 export * from './PageLoading'

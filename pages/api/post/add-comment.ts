@@ -1,8 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {getSession} from 'next-auth/react'
 
-import {Role} from '@/constants'
-
 import prisma from '../../../lib/prisma'
 
 // POST /api/post
@@ -12,16 +10,15 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const {title, content, location = '', image = ''} = JSON.parse(req.body)
-
+  console.log(req.body)
+  const {comment, postId} = req.body
+  console.log({comment, postId})
   const session = await getSession({req})
-  if (session && session.user.role === Role.ADMIN) {
-    const result = await prisma.news.create({
+  if (session) {
+    const result = await prisma.comment.create({
       data: {
-        title,
-        content,
-        location,
-        image,
+        message: comment,
+        postId,
         author: {connect: {email: session?.user?.email}},
       },
     })
