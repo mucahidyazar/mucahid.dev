@@ -6,7 +6,18 @@ import {IconSize} from '@/constants'
 import {icons} from './icons'
 import * as S from './style'
 
-function Icon({name, format, spinning, ...props}) {
+interface IIcon {
+  name: string
+  size?: number
+  color?: string
+  spinning?: boolean
+  version?: string
+  xmlns?: string
+  viewBox?: string
+  format?: any
+}
+
+function Icon({name, format, spinning, ...props}: IIcon) {
   const iconProps = {name, spinning, ...props}
   const wrapperProps = {...props, format}
 

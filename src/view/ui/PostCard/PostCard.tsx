@@ -12,17 +12,17 @@ interface IPostCard {
   imageUrl: string
   title: string
   subtitle: string
-  date: string
+  date?: string
   link: string
   tags: string[]
   links?: {
     id: string
     url: string
     icon: string
-  }
+  }[]
 }
 
-const PostCard: React.FC<IPostCard> = ({
+const PostCard = ({
   imageUrl,
   title,
   subtitle,
@@ -30,7 +30,7 @@ const PostCard: React.FC<IPostCard> = ({
   tags,
   link,
   links,
-}) => {
+}: IPostCard) => {
   const handleCopyLink = () => {
     navigator.clipboard.writeText(imageUrl)
   }
@@ -51,7 +51,7 @@ const PostCard: React.FC<IPostCard> = ({
             ))}
           </S.Tags>
           <S.Links>
-            {links?.map(({id, url, icon}) => (
+            {links?.map(({id, url, icon}: any) => (
               <S.Link key={id} href={url} target="_blank">
                 <Icon name={icon} size={20} />
               </S.Link>
@@ -64,11 +64,14 @@ const PostCard: React.FC<IPostCard> = ({
       </S.CardImage>
 
       <S.CardContent>
-        <Link href={link} passHref>
-          <S.CardContentTitle level={5}>{title}</S.CardContentTitle>
-        </Link>
+        <S.CardContentTitle level={5}>
+          <Link href={link} passHref>
+            {title}
+          </Link>
+        </S.CardContentTitle>
+
         <S.CardContentSubtitle>{stripText(subtitle)}</S.CardContentSubtitle>
-        <S.CardContentDate>{date}</S.CardContentDate>
+        {date && <S.CardContentDate>{date}</S.CardContentDate>}
       </S.CardContent>
     </S.Card>
   )
@@ -78,7 +81,7 @@ PostCard.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  date: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   link: PropTypes.string.isRequired,
   links: PropTypes.arrayOf(
@@ -91,6 +94,7 @@ PostCard.propTypes = {
 }
 
 PostCard.defaultProps = {
+  date: null,
   links: undefined,
 }
 

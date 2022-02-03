@@ -1,4 +1,6 @@
 export * from './AboutWelcome'
+export * from './MainNews'
+export * from './OldNews'
 export * from './PageLoading'
 export * from './Sections'
 export * from './SectionSlider'

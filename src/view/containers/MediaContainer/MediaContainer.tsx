@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
+import {useSelector} from 'react-redux'
+
 import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
 import {Card} from '@/ui'
-
-import {useSelector} from 'react-redux'
 import {makeInstagramSelector} from '@/store/media'
 import {computerData, personalData, funkoPopsData, deskData} from '@/data'
 
@@ -37,7 +37,7 @@ const MediaContainer: NextComponentType = () => {
             subtitle="Let me show you what summary of my website is :) Let me show you what summary of my website is :) Click which you want or just wait."
           >
             <S.InstagramContainer>
-              {firstSixPhotos.map(item => (
+              {firstSixPhotos.map((item: any) => (
                 <S.InstagramImage key={item}>
                   <Image
                     src={item}
@@ -67,7 +67,7 @@ const MediaContainer: NextComponentType = () => {
               <script
                 async
                 src="https://platform.twitter.com/widgets.js"
-                charset="utf-8"
+                charSet="utf-8"
               ></script>
             </S.TwitterContainer>
           </Section>
@@ -82,15 +82,13 @@ const MediaContainer: NextComponentType = () => {
       <S.StuffContainer>
         <S.StuffTitle>Computer</S.StuffTitle>
         <S.StuffList>
-          {computerData.map(item => (
-            <Card key={item.id} data={item} type={2}>
-              {item.name}
-            </Card>
+          {computerData.map((item: any) => (
+            <Card key={item.id} data={item} type={2} />
           ))}
         </S.StuffList>
         <S.StuffTitle>Desk</S.StuffTitle>
         <S.StuffList>
-          {deskData.map(item => (
+          {deskData.map((item: any) => (
             <Card key={item.id} data={item} type={2}>
               {item.name}
             </Card>
@@ -98,18 +96,14 @@ const MediaContainer: NextComponentType = () => {
         </S.StuffList>
         <S.StuffTitle>Funko Pops</S.StuffTitle>
         <S.StuffList>
-          {funkoPopsData.map(item => (
-            <Card key={item.id} data={item} type={2}>
-              {item.name}
-            </Card>
+          {funkoPopsData.map((item: any) => (
+            <Card key={item.id} data={item} type={2} />
           ))}
         </S.StuffList>
         <S.StuffTitle>Personal</S.StuffTitle>
         <S.StuffList>
-          {personalData.map(item => (
-            <Card key={item.id} data={item} type={2}>
-              {item.name}
-            </Card>
+          {personalData.map((item: any) => (
+            <Card key={item.id} data={item} type={2} />
           ))}
         </S.StuffList>
       </S.StuffContainer>

@@ -2,9 +2,9 @@ import styled, {css} from 'styled-components'
 
 import {DrawerPlacement} from '@/constants'
 
-import {Button, Icon} from '../'
+import {Button} from '../'
 
-const transformAnimationStyle = isShown => ({
+const transformAnimationStyle = (isShown: any) => ({
   [DrawerPlacement.TOP]: isShown ? 'translateY(-100%)' : 'translateY(0)',
   [DrawerPlacement.RIGHT]: isShown ? 'translateX(100%)' : 'translateX(0)',
   [DrawerPlacement.BOTTOM]: isShown ? 'translateY(100%)' : 'translateY(0)',
@@ -36,17 +36,17 @@ const placementStyle = {
 
 // left and right
 const horizontalStyle = css`
-  width: ${({size}) => size};
+  width: ${({size}: any): any => size};
   height: 100vh;
 `
 
 // top and bottom
 const verticalStyle = css`
   width: 100vw;
-  height: ${({size}) => size};
+  height: ${({size}: any): any => size};
 `
 
-const DrawerContent = styled.div`
+const DrawerContent = styled.div<any>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -56,7 +56,7 @@ const DrawerContent = styled.div`
   background-color: rgba(0, 0, 0, 0.9);
 `
 
-const DrawerWrapper = styled.div`
+const DrawerWrapper = styled.div<any>`
   position: fixed;
   z-index: 100;
 
@@ -76,7 +76,8 @@ const DrawerWrapper = styled.div`
 const enterScene = css`
   ${DrawerWrapper} {
     opacity: 0.2;
-    transform: ${props => transformAnimationStyle(true)[props.placement]};
+    transform: ${(props: any): any =>
+      transformAnimationStyle(true)[props.placement]};
   }
 `
 
@@ -84,7 +85,8 @@ const exitScene = css`
   ${DrawerWrapper} {
     opacity: 1;
     transition: 400ms;
-    transform: ${props => transformAnimationStyle(false)[props.placement]};
+    transform: ${(props: any): any =>
+      transformAnimationStyle(false)[props.placement]};
   }
 `
 
@@ -115,8 +117,11 @@ const CloseButton = styled(Button)`
   &:hover {
     background-color: transparent;
   }
+`
 
-  ${Icon?.S?.Icon} {
+export {Wrapper, DrawerContent, CloseButton, DrawerWrapper}
+
+/* // ${Icon.S.Icon} {
     color: var(--color-white);
     filter: blur(1px);
     margin: 2rem;
@@ -137,7 +142,4 @@ const CloseButton = styled(Button)`
         }
       }
     }
-  }
-`
-
-export {Wrapper, DrawerContent, CloseButton, DrawerWrapper}
+  } */

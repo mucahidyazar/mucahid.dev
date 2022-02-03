@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import type {NextComponentType} from 'next'
+import {useRouter} from 'next/router'
+import {useDispatch, useSelector} from 'react-redux'
 
 import {Badge, PostCard, Button} from '@/ui'
-import * as S from './style'
-import {useDispatch, useSelector} from 'react-redux'
 import {
   makeArticlesSelector,
   makeSelectCategories,
   makeSelectFilters,
   makeSelectYears,
 } from '@/store/articles/selectors'
-import {useRouter} from 'next/router'
 import {setFilter} from '@/store/articles'
+
+import * as S from './style'
 
 const ArticlesContainer: NextComponentType = () => {
   const router = useRouter()
@@ -22,8 +23,8 @@ const ArticlesContainer: NextComponentType = () => {
   const years = useSelector(makeSelectYears)
   const filters = useSelector(makeSelectFilters)
 
-  const handleFilter = (key, value) => {
-    const query = {...router.query}
+  const handleFilter = (key: string, value: string) => {
+    const query: any = {...router.query}
 
     if (query[key] && !query[key]?.includes(value)) {
       query[key] = [query[key], value]
@@ -31,7 +32,7 @@ const ArticlesContainer: NextComponentType = () => {
       if (typeof query[key] === 'string') {
         delete query[key]
       } else {
-        query[key] = query[key]?.filter(item => item !== value)
+        query[key] = query[key]?.filter((item: any) => item !== value)
       }
     } else {
       query[key] = [value]
@@ -52,7 +53,7 @@ const ArticlesContainer: NextComponentType = () => {
       <S.FiltersSection>
         <S.FilterByLabel>Search article by topic</S.FilterByLabel>
         <S.FiltersTags>
-          {categories?.map(item => (
+          {categories?.map((item: any) => (
             <Badge
               key={item}
               onClick={() => handleFilter('category', item)}
@@ -64,7 +65,7 @@ const ArticlesContainer: NextComponentType = () => {
         </S.FiltersTags>
         <S.FilterByLabel>Search article by topic</S.FilterByLabel>
         <S.FiltersTags>
-          {years.map(item => (
+          {years.map((item: any) => (
             <Badge
               key={item}
               onClick={() => handleFilter('year', item)}
@@ -77,7 +78,7 @@ const ArticlesContainer: NextComponentType = () => {
       </S.FiltersSection>
 
       <S.ArticlesSection>
-        {articles.map((article, index) => {
+        {articles.map((article: any, index: any) => {
           if (index < pagination) {
             return (
               <PostCard

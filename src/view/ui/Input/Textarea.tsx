@@ -3,18 +3,20 @@ import PropTypes from 'prop-types'
 
 import * as S from './style'
 
-interface ITextarea {}
+interface ITextarea {
+  placeholder?: string
+}
 
-const Textarea: React.FC<ITextarea> = props => {
+const Textarea = (props: ITextarea) => {
   return <S.Textarea data-testid="textarea" {...props} />
 }
 
 Textarea.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  placeholder: PropTypes.string,
 }
 
 Textarea.defaultProps = {
-  children: null,
+  placeholder: '',
 }
 
 Textarea.S = S

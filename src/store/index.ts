@@ -5,9 +5,11 @@ import {
   Store,
   combineReducers,
   applyMiddleware,
+  Middleware,
 } from 'redux'
 import thunk from 'redux-thunk'
 import {createWrapper, HYDRATE} from 'next-redux-wrapper'
+
 import {reducers} from './reducers'
 
 export interface State {
@@ -18,7 +20,7 @@ const combinedReducers = combineReducers({
   ...reducers,
 })
 
-const bindMiddleware = middleware => {
+const bindMiddleware = (middleware: Middleware[]) => {
   if (process.env.NODE_ENV !== 'production') {
     const {composeWithDevTools} = require('redux-devtools-extension')
     return composeWithDevTools(applyMiddleware(...middleware))
@@ -27,7 +29,7 @@ const bindMiddleware = middleware => {
 }
 
 // create your reducer
-const reducer = (state: State, action: AnyAction) => {
+const reducer = (state: any, action: AnyAction) => {
   if (action.type === HYDRATE) {
     const nextState = {
       ...state, // use previous state

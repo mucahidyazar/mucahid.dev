@@ -12,6 +12,13 @@ const CardImage = styled.div`
   width: 100%;
   min-height: 540px;
   margin-bottom: 0.5rem;
+  overflow: hidden;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    outline: 3px solid #e9b258;
+    outline-offset: 3px;
+  }
 `
 
 const CardImageHeader = styled.div`

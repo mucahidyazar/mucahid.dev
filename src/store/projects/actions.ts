@@ -1,7 +1,9 @@
-import * as types from './types'
 import axios from 'axios'
+import {Dispatch} from 'redux'
 
-export const getApis = () => async dispatch => {
+import * as types from './types'
+
+export const getApis = () => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_APIS_REQUEST})
 
@@ -20,7 +22,7 @@ export const getApis = () => async dispatch => {
   }
 }
 
-export const getStarreds = () => async dispatch => {
+export const getStarreds = () => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_STARREDS_REQUEST})
 

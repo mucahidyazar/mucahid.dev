@@ -16,9 +16,10 @@ const Media: NextPage = () => (
 )
 
 export const getServerSideProps = wrapper.getServerSideProps(
-  store => async () => {
-    await store.dispatch(getInstagram())
-  },
+  (store): any =>
+    async () => {
+      await store.dispatch(getInstagram())
+    },
 )
 
 export default Media

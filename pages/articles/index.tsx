@@ -1,5 +1,6 @@
 import React from 'react'
 import type {NextPage} from 'next'
+import {getSession} from 'next-auth/react'
 
 import {MainLayout} from '@/layout'
 import {ArticlesContainer} from '@/containers'
@@ -16,9 +17,10 @@ const Articles: NextPage<State> = () => (
 )
 
 export const getServerSideProps = wrapper.getServerSideProps(
-  store => async () => {
-    await store.dispatch(getArticles())
-  },
+  (store): any =>
+    async () => {
+      await store.dispatch(getArticles())
+    },
 )
 
 export default Articles

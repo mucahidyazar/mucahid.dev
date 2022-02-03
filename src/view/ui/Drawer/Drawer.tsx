@@ -5,12 +5,20 @@ import {CSSTransition} from 'react-transition-group'
 
 import {useOutsideClick} from '@/hooks'
 import {DrawerPlacement} from '@/constants'
-import {BackDropStyle} from 'styles'
-
-import * as S from './style'
+import {BackDropStyle} from '@/styles'
 
 import {Icon} from '../'
 
+import * as S from './style'
+
+interface IDrawer {
+  children: React.ReactNode
+  onClose: () => void
+  placement: any
+  isClosable: boolean
+  isVisible: boolean
+  size: number | string
+}
 function Drawer({
   children,
   onClose,
@@ -19,7 +27,7 @@ function Drawer({
   isVisible,
   size,
   ...props
-}) {
+}: IDrawer) {
   const [isShown, setShown] = useState(isVisible)
   const backdropRef = useRef()
 
@@ -57,7 +65,7 @@ function Drawer({
           <S.DrawerWrapper {...drawerWrapperProps}>
             <S.DrawerContent {...drawerContentProps}>
               {isClosable && (
-                <S.CloseButton onClick={onClose} kind="transparent">
+                <S.CloseButton onClick={onClose}>
                   <Icon name="close" size={32} color="#504F53" />
                 </S.CloseButton>
               )}

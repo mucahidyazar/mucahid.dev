@@ -1,7 +1,9 @@
-import * as types from './types'
 import axios from 'axios'
+import {Dispatch} from 'redux'
 
-export const getInstagram = () => async dispatch => {
+import * as types from './types'
+
+export const getInstagram = (): any => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_INSTAGRAM_REQUEST})
 
@@ -10,7 +12,7 @@ export const getInstagram = () => async dispatch => {
     dispatch({
       type: types.GET_INSTAGRAM_SUCCESS,
       data: res.data?.graphql?.user?.edge_owner_to_timeline_media.edges.map(
-        edge => edge.node.display_url,
+        (edge: any) => edge.node.display_url,
       ),
     })
   } catch (error) {

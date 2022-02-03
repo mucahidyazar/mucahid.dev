@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-const selectContact = state => state.contact
+const selectContact = (state: any) => state.contact
 
 export const makeSelectMessages = createSelector(
   selectContact,

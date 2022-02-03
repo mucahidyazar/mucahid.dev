@@ -1,4 +1,4 @@
-import styled, {css, createGlobalStyle, keyframes} from 'styled-components'
+import {createGlobalStyle, keyframes} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -49,6 +49,30 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  
+
+  &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      border-radius: 10px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-image: -webkit-gradient(linear,
+                        left bottom,
+                        left top,
+                        color-stop(0.1, rgba(80,26,45,0.8)),
+                        color-stop(0.5, rgba(80,26,45,0.65)),
+                        color-stop(1, rgba(80,26,45,0.8)));
+    }
 
   html {
     width: 100%;

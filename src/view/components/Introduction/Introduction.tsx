@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
+
 import * as S from './style'
 
 interface IIntroduction {

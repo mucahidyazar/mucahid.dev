@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
 import {Title, Input, Button} from '@/ui'
-import {container} from 'styles'
+import {container} from '@/styles'
 
 const SubscribeBannerContainer = styled.div`
   display: flex;
@@ -38,11 +38,12 @@ const SubscribeBannerBottomTitle = styled(Title)`
   line-height: 80%;
   font-weight: 800;
 `
-const SubscribeBannerRight = styled.div`
+const SubscribeBannerForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-grow: 1;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;
@@ -70,7 +71,7 @@ export {
   SubscribeBannerLeft,
   SubscribeBannerTopTitle,
   SubscribeBannerBottomTitle,
-  SubscribeBannerRight,
+  SubscribeBannerForm,
   SubscribeBannerInput,
   SubscribeBannerButton,
   SubscribeBannerButtonText,

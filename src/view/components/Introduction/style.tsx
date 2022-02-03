@@ -10,6 +10,7 @@ const IntroductionContainer = styled.div`
   backdrop-filter: blur(20px);
   transform: perspective(500px);
   transform-style: preserve-3d;
+  margin-bottom: 10rem;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     flex-direction: column;

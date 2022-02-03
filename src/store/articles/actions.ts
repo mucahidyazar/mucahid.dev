@@ -1,7 +1,9 @@
-import * as types from './types'
 import axios from 'axios'
+import {Dispatch} from 'redux'
 
-export const getArticles = () => async dispatch => {
+import * as types from './types'
+
+export const getArticles = (): any => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_ARTICLES_REQUEST})
     const {data} = await axios.get(
@@ -10,7 +12,7 @@ export const getArticles = () => async dispatch => {
 
     let years: any = []
     let categories: any = []
-    data.items.forEach(item => {
+    data.items.forEach((item: any) => {
       categories = [...categories, ...item.categories]
       years = [...years, item.pubDate.split('-')[0]]
     })
@@ -32,31 +34,33 @@ export const getArticles = () => async dispatch => {
   }
 }
 
-export const getArticle = slug => async (dispatch, getState) => {
-  try {
-    dispatch({type: types.GET_ARTICLE_REQUEST})
+export const getArticle =
+  (slug: string): any =>
+  async (dispatch: Dispatch, getState: any) => {
+    try {
+      dispatch({type: types.GET_ARTICLE_REQUEST})
 
-    let data = getState()?.articles?.articles?.data
+      let data = getState()?.articles?.articles?.data
 
-    if (!data.length) {
-      const res = await axios.get(
-        `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mucahidyazar`,
-      )
-      data = res.data?.items
+      if (!data.length) {
+        const res = await axios.get(
+          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mucahidyazar`,
+        )
+        data = res.data?.items
+      }
+
+      dispatch({
+        type: types.GET_ARTICLE_SUCCESS,
+        data: data.find((item: any) => item.link.includes(slug)),
+      })
+    } catch (error) {
+      dispatch({
+        type: types.GET_ARTICLE_FAILED,
+        error,
+      })
     }
-
-    dispatch({
-      type: types.GET_ARTICLE_SUCCESS,
-      data: data.find(item => item.link.includes(slug)),
-    })
-  } catch (error) {
-    dispatch({
-      type: types.GET_ARTICLE_FAILED,
-      error,
-    })
   }
-}
 
-export const setFilter = filters => async dispatch => {
+export const setFilter = (filters: any) => async (dispatch: Dispatch) => {
   dispatch({type: types.SET_FILTERS, filters})
 }

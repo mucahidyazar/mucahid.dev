@@ -10,7 +10,7 @@ interface IProjectCardProps {
   name: string
   url: string
   image: string
-  technologies: string[]
+  technologies?: any[]
   description: string
 }
 

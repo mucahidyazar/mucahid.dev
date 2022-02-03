@@ -50,7 +50,7 @@ const ArticleContainer: NextComponentType = () => {
         <Image width={1440} height={540} src="/images/article.jpg" alt="mail" />
       </S.ArticleImage>
       <S.ArticleTags>
-        {article.categories.map(item => (
+        {article.categories.map((item: any) => (
           <Badge key={item}>{item}</Badge>
         ))}
       </S.ArticleTags>

@@ -36,6 +36,4 @@ SectionCard.propTypes = {
 
 SectionCard.defaultProps = {}
 
-SectionCard.S = S
-
 export default SectionCard

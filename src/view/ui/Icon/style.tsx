@@ -34,22 +34,22 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${({format}) => format !== IconSize.NONE && IconSizeStyles[format]};
+  ${({format}: any) => format !== IconSize.NONE && IconSizeStyles[format]};
 `
 
 const Path = styled.path``
 
 const Icon = styled.svg`
   fill: currentColor;
-  width: ${({size}) => `${size}px`};
-  height: ${({size}) => `${size}px`};
+  width: ${({size}: any) => `${size}px`};
+  height: ${({size}: any) => `${size}px`};
 
   ${Path} {
-    width: ${({size}) => `${size}px`};
-    height: ${({size}) => `${size}px`};
+    width: ${({size}: any) => `${size}px`};
+    height: ${({size}: any) => `${size}px`};
   }
 
-  ${({spinning}) =>
+  ${({spinning}: any) =>
     spinning &&
     css`
       animation: 1.5s loading linear infinite;

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import {container} from 'styles'
+
+import {container} from '@/styles'
 
 const MainLayout = styled.div`
   height: 100%;

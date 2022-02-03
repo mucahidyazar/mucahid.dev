@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
 import {Button, Input} from '@/ui'
-import {container} from 'styles'
+import {container} from '@/styles'
 
 const Footer = styled.footer`
   display: flex;
@@ -80,11 +80,11 @@ const FooterMenuHeader = styled.div`
   font-weight: 700;
   margin-bottom: 40px;
 `
-const FooterMenuItem = styled.p`
+const FooterMenuItem = styled.a`
   cursor: pointer;
 
   &:hover {
-    background: -webkit-linear-gradient(225deg, #f9f871 0%, #00af90 100%);
+    background: -webkit-linear-gradient(225deg, #e9b258 0%, #00af90 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

@@ -1,8 +1,13 @@
 import styled, {css} from 'styled-components'
+
 import {BreakpointSize} from '@/constants'
+
 import {Subtitle} from '../Typography'
 
-const Card = styled.div`
+interface ICard {
+  type: number
+}
+const Card = styled.div<ICard>`
   display: flex;
   gap: 60px;
   width: 100%;

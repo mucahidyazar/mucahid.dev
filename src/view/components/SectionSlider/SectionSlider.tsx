@@ -1,15 +1,12 @@
 import React, {useRef, useState} from 'react'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
-import Slider from 'react-slick'
+import Slider, {Settings} from 'react-slick'
 
 import {Badge, Card} from '@/ui'
 
 import * as S from './style'
 
-interface IArrow {
-  onClick?: () => void
-}
 const PrevArrow = ({onClick}: IArrow) => (
   <S.PrevArrow onClick={onClick}>
     <Image src="/svgs/left-arrow.svg" width={12} height={12} alt="Prev Arrow" />
@@ -27,22 +24,6 @@ const NextArrow = ({onClick}: IArrow) => (
   </S.NextArrow>
 )
 
-type TData = {
-  id?: string | number
-  image?: string
-  name: string
-  subtitles?: string[]
-  tags?: string[]
-  text?: string
-  date?: string
-}
-
-interface ISectionSlider {
-  hasBadge?: boolean
-  hasArrow?: boolean
-  type?: number
-  data: TData[]
-}
 const SectionSlider: React.FC<ISectionSlider> = ({
   data,
   hasBadge,
@@ -51,7 +32,7 @@ const SectionSlider: React.FC<ISectionSlider> = ({
 }) => {
   const slickRef = useRef<Slider>(null)
   const [activeSlide, setActiveSlide] = useState(1)
-  const settings = {
+  const settings: SliderTypes = {
     infinite: true,
     arrows: hasArrow,
     dots: type !== 2,
@@ -63,11 +44,11 @@ const SectionSlider: React.FC<ISectionSlider> = ({
     pauseOnHover: true,
     afterChange: (index: number) => setActiveSlide(index + 1),
     slickGoTo: handleChangeSlide,
-    prevArrow: type === 2 && <PrevArrow />,
-    nextArrow: type === 2 && <NextArrow />,
+    prevArrow: type === 2 ? <PrevArrow /> : undefined,
+    nextArrow: type === 2 ? <NextArrow /> : undefined,
   }
 
-  function handleChangeSlide(index: any) {
+  function handleChangeSlide(index: string | number | undefined) {
     const numberIndex = Number(index)
     slickRef?.current?.slickGoTo(numberIndex - 1)
     setActiveSlide(numberIndex)
@@ -83,7 +64,7 @@ const SectionSlider: React.FC<ISectionSlider> = ({
               imagePath={item.image}
               text={item.name}
               cool
-              isActive={activeSlide == item.id}
+              isActive={String(activeSlide) == item.id}
               onClick={() => handleChangeSlide(item.id)}
             />
           ))}
@@ -101,13 +82,40 @@ const SectionSlider: React.FC<ISectionSlider> = ({
   )
 }
 
+// SliderTypes extends Settings
+type SliderTypes = Settings & {
+  // eslint-disable-next-line no-unused-vars
+  slickGoTo: (index: string | number | undefined) => void
+}
+
+interface IArrow {
+  onClick?: () => void
+}
+
+// type TData = {
+//   id: string
+//   image?: string
+//   name: string
+//   subtitles?: string[]
+//   tags?: string[]
+//   text?: string
+//   date?: string
+// }
+
+interface ISectionSlider {
+  hasBadge?: boolean
+  hasArrow?: boolean
+  type?: number
+  data: any[]
+}
+
 SectionSlider.propTypes = {
   hasBadge: PropTypes.bool,
   hasArrow: PropTypes.bool,
   type: PropTypes.number,
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.string.isRequired,
       image: PropTypes.string,
       name: PropTypes.string.isRequired,
       subtitles: PropTypes.arrayOf(PropTypes.string),

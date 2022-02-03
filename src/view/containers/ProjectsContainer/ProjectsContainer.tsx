@@ -1,18 +1,20 @@
 import React, {useEffect} from 'react'
 import Link from 'next/link'
 import type {NextComponentType} from 'next'
+import {useDispatch, useSelector} from 'react-redux'
+
 import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
 import {PostCard, Button} from '@/ui'
 import {contributions, workshops} from '@/data'
-import * as S from './style'
-import {useDispatch, useSelector} from 'react-redux'
-import {SectionCard} from './SectionCard'
 import {
   getApis,
   getStarreds,
   makeSelectApis,
   makeSelectStarreds,
 } from '@/store/projects'
+
+import * as S from './style'
+import {SectionCard} from './SectionCard'
 
 const ProjectsContainer: NextComponentType = () => {
   const dispatch = useDispatch()
@@ -34,7 +36,7 @@ const ProjectsContainer: NextComponentType = () => {
             link="https://www.github.com/mucahidyazar"
           >
             <S.SectionCards>
-              {contributions.map(contribution => (
+              {contributions.map((contribution: any) => (
                 <SectionCard key={contribution.id} {...contribution} />
               ))}
             </S.SectionCards>
@@ -47,7 +49,7 @@ const ProjectsContainer: NextComponentType = () => {
             link="https://www.github.com/mucahidyazar"
           >
             <S.SectionCards>
-              {starreds.map(contribution => (
+              {starreds.map((contribution: any) => (
                 <SectionCard
                   key={contribution.id}
                   title={contribution.name}
@@ -73,7 +75,7 @@ const ProjectsContainer: NextComponentType = () => {
         />
 
         <S.WorkshopsList>
-          {workshops.map((item, index) => {
+          {workshops.map((item: any, index) => {
             if (index < 6) {
               return (
                 <Link key={item.id} href={`/article/${item.slug}`} passHref>

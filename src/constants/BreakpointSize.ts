@@ -1,4 +1,4 @@
-export const BreakpointSize = {
+export const BreakpointSize: any = {
   MOBILE: {
     MIN: 375,
     MAX: 767,

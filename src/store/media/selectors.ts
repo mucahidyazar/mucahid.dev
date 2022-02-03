@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-const mediaSelector = state => state.media
+const mediaSelector = (state: any) => state.media
 
 export const makeInstagramSelector = createSelector(
   mediaSelector,

@@ -4,7 +4,7 @@ import {Status} from '@/constants'
 
 import * as types from './types'
 
-const INITIAL_STATE = {
+const INITIAL_STATE: any = {
   articles: {
     status: null,
     data: [],

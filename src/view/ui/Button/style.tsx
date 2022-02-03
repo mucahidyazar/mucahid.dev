@@ -1,6 +1,10 @@
 import styled, {css} from 'styled-components'
 
-const Button = styled.button`
+interface IButton {
+  primary?: boolean
+  outline?: boolean
+}
+const Button = styled.button<IButton>`
   color: var(--color-black);
   padding: 12px 18px;
   border: none;

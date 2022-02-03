@@ -9,7 +9,7 @@ import * as S from './style'
 type TData = {
   id?: string | number
   image?: string
-  name: string
+  name?: string
   subtitles?: string[]
   tags?: string[]
   url?: string
@@ -19,6 +19,7 @@ type TData = {
 }
 
 interface ICard {
+  children?: React.ReactNode
   data: TData
   type: number
 }
@@ -43,14 +44,14 @@ const Card = ({data, type}: ICard) => {
         <S.CardContentTitle href={data?.url} target="_blank">
           {data?.name}
         </S.CardContentTitle>
-        {data?.subtitles?.map(subtitle => (
+        {data?.subtitles?.map((subtitle: any) => (
           <S.CardContentSubtitle key={data?.id + subtitle}>
             {subtitle}
           </S.CardContentSubtitle>
         ))}
         {data?.tags && (
           <S.CardContentTags>
-            {data.tags.map(tag => (
+            {data.tags.map((tag: any) => (
               <Tag key={tag}>{tag}</Tag>
             ))}
           </S.CardContentTags>

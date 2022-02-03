@@ -14,7 +14,10 @@ const ConnectionsContainer = styled.div`
   gap: 1rem;
   margin-bottom: 5rem;
 `
-const ConnectionIcon = styled.a`
+interface IConnectionIcon {
+  backgroundColor: string
+}
+const ConnectionIcon = styled.a<IConnectionIcon>`
   width: 80px;
   height: 80px;
   display: flex;

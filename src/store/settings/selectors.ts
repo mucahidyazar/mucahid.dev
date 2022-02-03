@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-const selectSettings = state => state.settings
+const selectSettings = (state: any) => state.settings
 
 export const makeSelectIsLoadingVisible = createSelector(
   selectSettings,
@@ -10,4 +10,9 @@ export const makeSelectIsLoadingVisible = createSelector(
 export const makeSelectActiveRoute = createSelector(
   selectSettings,
   ({activeRoute}) => activeRoute,
+)
+
+export const makeSelectModalType = createSelector(
+  selectSettings,
+  ({modalType}) => modalType,
 )

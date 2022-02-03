@@ -1,4 +1,6 @@
 export * from './BreakpointSize'
 export * from './DrawerPlacement'
 export * from './IconSize'
+export * from './ModalType'
+export * from './Role'
 export * from './Status'

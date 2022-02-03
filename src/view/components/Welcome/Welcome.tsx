@@ -1,7 +1,17 @@
 import React, {useRef} from 'react'
 import PropTypes from 'prop-types'
-import * as S from './style'
 import Slider from 'react-slick'
+import Image from 'next/image'
+import {useDispatch} from 'react-redux'
+
+import {ModalType} from '@/constants'
+import {setModalType} from '@/store/settings'
+import {AllNewsModal, NewsModal} from '@/modals'
+
+import {MainNews} from '../MainNews'
+import {OldNews} from '../OldNews'
+
+import * as S from './style'
 
 interface IWelcomeProps {
   title: string
@@ -11,6 +21,16 @@ interface IWelcomeProps {
 
 const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
   const slickRef = useRef<Slider>(null)
+  const dispatch = useDispatch()
+
+  const openModalHandler = () => {
+    dispatch(setModalType(ModalType.ALL_NEWS_MODAL))
+  }
+
+  const openNewsHandler = () => {
+    dispatch(setModalType(ModalType.NEWS_MODAL))
+  }
+
   const settings = {
     infinite: true,
     arrows: false,
@@ -40,10 +60,32 @@ const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
           alt="Home Illustration"
         />
       </S.WelcomeIllustration> */}
-      <S.WelcomeContent>
-        <S.WelcomeContentTitle>{title}</S.WelcomeContentTitle>
-        <S.WelcomeContentDescription>{description}</S.WelcomeContentDescription>
-      </S.WelcomeContent>
+      <S.WelcomeSection>
+        <S.WelcomeContent>
+          <S.WelcomeContentTitle>{title}</S.WelcomeContentTitle>
+          <S.WelcomeContentDescription>
+            {description}
+          </S.WelcomeContentDescription>
+        </S.WelcomeContent>
+        <S.News>
+          <S.NewsHeader onClick={openModalHandler}>
+            <S.NewsHeaderImage>
+              <Image
+                src="/svgs/thenewyorktimes.svg"
+                alt="The New York Times"
+                layout="fill"
+              />
+            </S.NewsHeaderImage>
+          </S.NewsHeader>
+
+          <S.NewsList>
+            <MainNews onClick={openNewsHandler} />
+            <OldNews />
+          </S.NewsList>
+        </S.News>
+        <AllNewsModal />
+        <NewsModal />
+      </S.WelcomeSection>
     </S.WelcomeContainer>
   )
 }

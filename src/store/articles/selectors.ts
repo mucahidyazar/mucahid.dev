@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-const settingsSelector = state => state.articles
+const settingsSelector = (state: any) => state.articles
 
 export const makeArticlesSelector = createSelector(
   settingsSelector,
@@ -10,7 +10,7 @@ export const makeArticlesSelector = createSelector(
       return articles.data
     }
 
-    const filteredArticles = articles.data.filter(item => {
+    const filteredArticles = articles.data.filter((item: any) => {
       const {category, year} = articles.filters
       const {categories, pubDate} = item
 
@@ -20,7 +20,7 @@ export const makeArticlesSelector = createSelector(
             return true
           }
         } else {
-          category.forEach(y => {
+          category.forEach((y: string) => {
             if (categories.includes(y)) {
               return true
             }
@@ -34,7 +34,7 @@ export const makeArticlesSelector = createSelector(
             return true
           }
         } else {
-          year.forEach(y => {
+          year.forEach((y: string) => {
             if (pubDate.includes(y)) {
               return true
             }

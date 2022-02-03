@@ -1,6 +1,6 @@
 import {createSelector} from 'reselect'
 
-const selectProjects = state => state.projects
+const selectProjects = (state: any) => state.projects
 
 // id: '1',
 // type: 'hard disk',
@@ -10,7 +10,7 @@ const selectProjects = state => state.projects
 // image:
 
 export const makeSelectApis = createSelector(selectProjects, ({apis}) =>
-  apis?.data.slice(0, 40).map(api => ({
+  apis?.data.slice(0, 40).map((api: any) => ({
     id: api.API,
     name: api.API,
     text: api.Description,
@@ -20,7 +20,7 @@ export const makeSelectApis = createSelector(selectProjects, ({apis}) =>
     subtitles: [
       `Auth: ${api.Auth}`,
       `HTTPS: ${api.HTTPS}`,
-      `Cors: ${api.CORS}`,
+      `Cors: ${api.CORS ? 'Yes' : 'No'}`,
     ],
   })),
 )

@@ -11,9 +11,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "downlevelIteration": true, // ti fix ...new Set() errors
     "baseUrl": ".",
     "paths": {
       "@/components": ["src/view/components/index.ts"],
@@ -22,10 +22,13 @@
       "@/layout": ["src/view/layout/index.ts"],
       "@/data": ["src/data/index.ts"],
       "@/hooks": ["src/hooks/index.ts"],
+      "@/modals": ["src/view/modals/index.ts"],
       "@/store/*": ["src/store/*"],
+      "@/styles": ["src/styles/index.ts"],
       "@/ui": ["src/view/ui/index.ts"],
       "@/utilities": ["src/utilities/index.ts"]
-    }
+    },
+    "isolatedModules": true
   },
   "include": [
     "next-env.d.ts",

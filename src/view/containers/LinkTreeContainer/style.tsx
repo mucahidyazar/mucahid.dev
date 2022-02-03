@@ -14,7 +14,7 @@ const ImageWrapperLayout = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0.25rem;
-  background: linear-gradient(225deg, #f9f871 0%, #00af90 100%);
+  background: linear-gradient(225deg, #e9b258 0%, #00af90 100%);
   border-radius: 0.25rem;
   margin-bottom: 1rem;
 
@@ -50,7 +50,10 @@ const LinkCardsWrapper = styled.div`
   margin-bottom: 1rem;
 `
 
-const LinkCard = styled.a`
+interface ILinkCard {
+  backgroundColor: string
+}
+const LinkCard = styled.a<ILinkCard>`
   background-color: ${({backgroundColor}) => backgroundColor};
   border-radius: 4px;
   width: 336px;

@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {container} from 'styles'
+import {container} from '@/styles'
 
 const Navbar = styled.div`
   display: flex;
@@ -22,7 +22,11 @@ const NavbarBrand = styled.div`
   font-size: var(--font-size-2xl);
   font-weight: 700;
 `
-const NavbarMenuItem = styled.li`
+interface INavbarMenuItem {
+  isActive: boolean
+  key?: string
+}
+const NavbarMenuItem = styled.li<INavbarMenuItem>`
   padding: 0 1rem;
   position: relative;
   font-size: var(--font-size);
@@ -82,9 +86,9 @@ const NavbarMenu = styled.ul`
 `
 
 const NavbarLogoGradientBorder = styled.div`
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(225deg, #f9f871 0%, #00af90 100%);
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(225deg, #e9b258 0%, #00af90 100%);
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -105,7 +109,10 @@ const DrawerNavbarMenu = styled(NavbarMenu)`
   width: 100%;
   margin-top: 10rem;
 `
-const DrawerNavbarMenuItem = styled(NavbarMenuItem)`
+const DrawerNavbarMenuItem = styled.li`
+  padding: 0 1rem;
+  position: relative;
+  font-size: var(--font-size);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: var(--font-size-2xl);
@@ -113,6 +120,12 @@ const DrawerNavbarMenuItem = styled(NavbarMenuItem)`
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
+    width: 200px;
+    padding: 12px 32px;
+    text-align: center;
   }
 `
 
