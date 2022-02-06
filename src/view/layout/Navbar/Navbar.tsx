@@ -4,8 +4,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
 import {useRouter} from 'next/router'
+import {useSelector} from 'react-redux'
 
 import {DrawerPlacement} from '@/constants'
+import {makeSelectUser} from '@/store/auth'
 import {Drawer} from '@/ui'
 
 import * as S from './style'
@@ -20,6 +22,7 @@ const routes = [
 ]
 
 const Navbar: NextComponentType = () => {
+  const user = useSelector(makeSelectUser)
   const router = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)
 
@@ -30,7 +33,11 @@ const Navbar: NextComponentType = () => {
   return (
     <S.Navbar>
       <S.NavbarBrand>
-        <Link href="/">Mucahid Yazar</Link>
+        <Link href="/" passHref>
+          <S.NavbarBrandText>
+            mucahid<S.NavbarBrandColor>.dev</S.NavbarBrandColor>
+          </S.NavbarBrandText>
+        </Link>
       </S.NavbarBrand>
       <S.NavbarMenu>
         {routes.map(({id, name, route}) => (
@@ -42,7 +49,7 @@ const Navbar: NextComponentType = () => {
       <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
         <S.NavbarLogo>
           <Image
-            src="/images/profile.jpg"
+            src={user?.image ? user.image : '/gif/profile/gif-1.gif'}
             alt="logo"
             width="100%"
             height="100%"

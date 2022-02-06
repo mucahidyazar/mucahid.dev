@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {Title} from '@/ui'
+import {Title, Icon as StyledIcon} from '@/ui'
 import {container} from '@/styles'
 
 import {MainNews} from '../MainNews'
@@ -9,12 +9,27 @@ import {OldNews} from '../OldNews'
 
 const WelcomeSection = styled.section`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   ${container}
   gap: 40px;
+  position: relative;
+  min-height: 500px;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;
+  }
+
+  & > div:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+      left;
+      filter: blur(5px);
+    }
   }
 `
 const WelcomeContent = styled.div`
@@ -36,14 +51,48 @@ const WelcomeContent = styled.div`
   }
 `
 
+const WelcomeTest = styled.h1`
+  font-size: 10rem;
+  color: #e9b258;
+  font-weight: 600;
+  letter-spacing: 2rem;
+  text-transform: uppercase;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    font-size: 5rem;
+    text-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
+    letter-spacing: 1rem;
+  }
+
+  @media (max-width: ${BreakpointSize.MOBILE.MIN}px) {
+    font-size: 4rem;
+  }
+`
 const WelcomeContentTitle = styled.h1`
-  font-weight: bold;
+  font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
   margin-bottom: 2.5rem;
-  line-height: 100%;
+  line-height: 130%;
+  text-transform: uppercase;
 `
 
 const WelcomeContentDescription = styled.div`
   line-height: var(--line-height-xl);
+  letter-spacing: 0.05rem;
+  text-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 1);
+
+  &::first-letter {
+    color: #e9b258;
+    padding: 0 0.6rem;
+    margin: 0 0.3rem 0 0;
+    border: 2px solid;
+    border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 3rem;
+    float: left;
+    line-height: 1;
+  }
 `
 
 const WelcomeIllustration = styled.div`
@@ -69,7 +118,7 @@ const WelcomeContainer = styled.div`
   }
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
-    margin-bottom: 50px;
+    margin-bottom: 0;
   }
 `
 
@@ -136,6 +185,42 @@ const NewsList = styled.div`
   padding: 2px;
 `
 
+{
+  /* <S.VideoWrapper>
+<S.VideoOveryLay>
+  <S.VideoWrapper>
+    <S.VideoPlayIcon>
+      <S.Icon name="play" />
+      <S.Video />
+    </S.VideoPlayIcon>
+  </S.VideoWrapper>
+</S.VideoOveryLay>
+</S.VideoWrapper> */
+}
+
+const VideoWrapper = styled.div`
+  width: 400px;
+  height: 500px;
+  position: relative;
+`
+const VideoOveryLay = styled.div`
+  // rgba #e9b258 = rgba(233, 178, 88, 0.5)
+  background-color: rgba(255, 255, 88, 0.5);
+`
+const VideoPlayIcon = styled.div`
+  width: 100%;
+  height: 100%;
+`
+const Video = styled.video``
+const Icon = styled(StyledIcon)`
+  width: 80px;
+  height: 80px;
+  max-width: 80px;
+  max-height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+`
+
 export {
   WelcomeBackground,
   WelcomeContainer,
@@ -149,4 +234,10 @@ export {
   NewsHeader,
   NewsHeaderImage,
   NewsList,
+  WelcomeTest,
+  VideoWrapper,
+  VideoOveryLay,
+  VideoPlayIcon,
+  Video,
+  Icon,
 }

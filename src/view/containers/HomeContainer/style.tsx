@@ -238,8 +238,8 @@ const Logos = styled.div`
   align-items: center;
   justify-content: center;
   gap: 4rem;
-  transform: translateY(-5rem);
   overflow-x: auto;
+  margin-bottom: 10rem;
 
   &::-webkit-scrollbar {
     display: none;

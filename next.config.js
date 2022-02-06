@@ -8,6 +8,7 @@ module.exports = {
     domains: [
       'picsum.photos',
       'images.unsplash.com',
+      'avatars.githubusercontent.com',
       'cdn-images-1.medium.com',
       'instagram.fist4-1.fna.fbcdn.net',
       'i.giphy.com',

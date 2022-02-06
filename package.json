@@ -27,6 +27,7 @@
     "next-redux-wrapper": "^7.0.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-lottie": "^1.2.3",
     "react-markdown": "7.1.2",
     "react-modal": "^3.14.4",
     "react-redux": "^7.2.6",
@@ -36,6 +37,8 @@
     "redux-thunk": "^2.4.1",
     "reselect": "^4.1.5",
     "slick-carousel": "^1.8.1",
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1",
     "styled-components": "5.2.0",
     "twitter": "^1.7.1",
     "web3": "^1.7.0"
