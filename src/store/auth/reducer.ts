@@ -1,14 +1,20 @@
 import produce from 'immer'
 
-// import {Status} from '@/constants'
+import {AuthState} from '@/types'
 
 import * as types from './types'
 
-const INITIAL_STATE = {
+const INITIAL_STATE: AuthState = {
   user: {
+    id: '',
+    name: '',
+    email: '',
+    emailVerified: false,
+    image: '',
     newsletter: false,
+    role: 1,
   },
-  expires: null,
+  expires: '',
 }
 
 export const reducer = produce((draft, action) => {

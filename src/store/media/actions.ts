@@ -3,7 +3,7 @@ import {Dispatch} from 'redux'
 
 import * as types from './types'
 
-export const getInstagram = (): any => async (dispatch: Dispatch) => {
+export const getInstagram = () => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_INSTAGRAM_REQUEST})
 

@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect'
 
-const settingsSelector = (state: any) => state.articles
+import {Article, State} from '@/types'
+
+const settingsSelector = (state: State) => state.articles
 
 export const makeArticlesSelector = createSelector(
   settingsSelector,
@@ -10,7 +12,7 @@ export const makeArticlesSelector = createSelector(
       return articles.data
     }
 
-    const filteredArticles = articles.data.filter((item: any) => {
+    const filteredArticles = articles.data.filter((item: Article) => {
       const {category, year} = articles.filters
       const {categories, pubDate} = item
 

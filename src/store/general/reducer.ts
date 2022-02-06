@@ -1,10 +1,10 @@
 import produce from 'immer'
 
-// import {Status} from '@/constants'
+import {GeneralState} from '@/types'
 
 import * as types from './types'
 
-const INITIAL_STATE = {
+const INITIAL_STATE: GeneralState = {
   activeUsers: [],
 }
 

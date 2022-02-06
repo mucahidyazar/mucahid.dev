@@ -1,18 +1,20 @@
 import axios from 'axios'
 import {Dispatch} from 'redux'
 
+import {Article, State} from '@/types'
+
 import * as types from './types'
 
-export const getArticles = (): any => async (dispatch: Dispatch) => {
+export const getArticles = () => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_ARTICLES_REQUEST})
     const {data} = await axios.get(
       `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mucahidyazar`,
     )
 
-    let years: any = []
-    let categories: any = []
-    data.items.forEach((item: any) => {
+    let years: string[] = []
+    let categories: string[] = []
+    data.items.forEach((item: Article) => {
       categories = [...categories, ...item.categories]
       years = [...years, item.pubDate.split('-')[0]]
     })
@@ -35,8 +37,7 @@ export const getArticles = (): any => async (dispatch: Dispatch) => {
 }
 
 export const getArticle =
-  (slug: string): any =>
-  async (dispatch: Dispatch, getState: any) => {
+  (slug: string) => async (dispatch: Dispatch, getState: () => State) => {
     try {
       dispatch({type: types.GET_ARTICLE_REQUEST})
 

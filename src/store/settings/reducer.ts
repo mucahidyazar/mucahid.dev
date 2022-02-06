@@ -1,10 +1,12 @@
 import produce from 'immer'
 
+import {SettingsState} from '@/types'
+
 // import {Status} from '@/constants'
 
 import * as types from './types'
 
-const INITIAL_STATE = {
+const INITIAL_STATE: SettingsState = {
   isLoadingVisible: false,
   activeRoute: '/',
   modalType: null,

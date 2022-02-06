@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect'
 
-const homeSelector = (state: any) => state.home
+import {State} from '@/types'
+
+const homeSelector = (state: State) => state.home
 
 export const makeSelectAllNews = createSelector(
   homeSelector,

@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect'
 
-const selectGeneral = (state: any) => state.general
+import {State} from '@/types'
+
+const selectGeneral = (state: State) => state.general
 
 export const makeSelectActiveUsers = createSelector(
   selectGeneral,

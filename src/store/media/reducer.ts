@@ -1,10 +1,11 @@
 import produce from 'immer'
 
 import {Status} from '@/constants'
+import {MediaState} from '@/types'
 
 import * as types from './types'
 
-const INITIAL_STATE: any = {
+const INITIAL_STATE: MediaState = {
   instagram: {
     status: Status.INIT,
     data: [],

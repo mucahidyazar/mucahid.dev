@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect'
 
-const selectAuth = (state: any) => state.auth
+import {State} from '@/types'
+
+const selectAuth = (state: State) => state.auth
 
 export const makeSelectUser = createSelector(selectAuth, ({user}) => user)
 

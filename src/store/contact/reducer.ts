@@ -1,10 +1,11 @@
 import produce from 'immer'
 
 import {Status} from '@/constants'
+import {ContactState} from '@/types'
 
 import * as types from './types'
 
-const INITIAL_STATE = {
+const INITIAL_STATE: ContactState = {
   messages: {
     status: Status.INIT,
     data: [],
@@ -17,6 +18,7 @@ const INITIAL_STATE = {
   },
   email: {
     status: Status.INIT,
+    data: [],
     error: null,
   },
 }

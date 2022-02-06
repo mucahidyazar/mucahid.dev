@@ -10,11 +10,9 @@ import {
 import thunk from 'redux-thunk'
 import {createWrapper, HYDRATE} from 'next-redux-wrapper'
 
-import {reducers} from './reducers'
+import {State} from '@/types'
 
-export interface State {
-  tick: string
-}
+import {reducers} from './reducers'
 
 const combinedReducers = combineReducers({
   ...reducers,

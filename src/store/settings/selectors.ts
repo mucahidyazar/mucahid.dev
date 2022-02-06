@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect'
 
-const selectSettings = (state: any) => state.settings
+import {State} from '@/types'
+
+const selectSettings = (state: State) => state.settings
 
 export const makeSelectIsLoadingVisible = createSelector(
   selectSettings,

@@ -1,10 +1,11 @@
 import {Dispatch} from 'redux'
 
+import {State, User} from '@/types'
+
 import * as types from './types'
 
 export const addActiveUser =
-  (user: any): any =>
-  async (dispatch: Dispatch, getState: any) => {
+  (user: User) => async (dispatch: Dispatch, getState: () => State) => {
     const prevActiveUsers = getState()?.general?.activeUsers
     const isThereSameUser = prevActiveUsers.some(u => u.id === user.id)
     if (isThereSameUser) {
@@ -19,7 +20,7 @@ export const addActiveUser =
 
 export const removeActiveUser =
   (user: any): any =>
-  async (dispatch: Dispatch, getState: any) =>
+  async (dispatch: Dispatch, getState: () => State) =>
     dispatch({
       type: types.REMOVE_ACTIVE_USER,
       activeUsers: getState()?.general?.activeUsers?.filter(

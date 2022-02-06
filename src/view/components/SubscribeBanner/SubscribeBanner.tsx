@@ -7,10 +7,11 @@ import {makeSelectUser, setNewsletter} from '@/store/auth'
 
 import * as S from './style'
 
-const SubscribeBanner: NextComponentType = () => {
+const SubscribeBanner = () => {
   const dispatch = useDispatch()
   const user = useSelector(makeSelectUser)
 
+  // event type
   const submitHandler = e => {
     e.preventDefault()
     const form = new FormData(e.currentTarget)

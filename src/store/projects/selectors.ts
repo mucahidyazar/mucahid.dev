@@ -1,16 +1,11 @@
 import {createSelector} from 'reselect'
 
-const selectProjects = (state: any) => state.projects
+import {API, State} from '@/types'
 
-// id: '1',
-// type: 'hard disk',
-// name: 'WD Red 4TB',
-// price: 'Rp. 1.500.000',
-// tags: ['WD', 'Red', '4TB'],
-// image:
+const selectProjects = (state: State) => state.projects
 
 export const makeSelectApis = createSelector(selectProjects, ({apis}) =>
-  apis?.data.slice(0, 40).map((api: any) => ({
+  apis?.data.slice(0, 40).map((api: API) => ({
     id: api.API,
     name: api.API,
     text: api.Description,

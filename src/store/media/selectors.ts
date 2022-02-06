@@ -1,6 +1,8 @@
 import {createSelector} from 'reselect'
 
-const mediaSelector = (state: any) => state.media
+import {State} from '@/types'
+
+const mediaSelector = (state: State) => state.media
 
 export const makeInstagramSelector = createSelector(
   mediaSelector,

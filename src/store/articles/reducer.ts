@@ -1,14 +1,14 @@
 import produce from 'immer'
 
 import {Status} from '@/constants'
+import {ArticleState} from '@/types'
 
 import * as types from './types'
 
-const INITIAL_STATE: any = {
+const INITIAL_STATE: ArticleState = {
   articles: {
     status: Status.INIT,
     data: [],
-    feed: {},
     categories: [],
     years: [],
     filters: {},
@@ -16,8 +16,7 @@ const INITIAL_STATE: any = {
   },
   article: {
     status: Status.INIT,
-    data: [],
-    feed: {},
+    data: null,
     comments: {
       status: Status.INIT,
       data: [],

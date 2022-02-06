@@ -25,6 +25,7 @@
       "@/modals": ["src/view/modals/index.ts"],
       "@/store/*": ["src/store/*"],
       "@/styles": ["src/styles/index.ts"],
+      "@/types": ["src/types/index.ts"],
       "@/ui": ["src/view/ui/index.ts"],
       "@/utilities": ["src/utilities/index.ts"]
     },
