@@ -4,13 +4,34 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
 import {useRouter} from 'next/router'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import {CSSTransition, SwitchTransition} from 'react-transition-group'
 
 import {DrawerPlacement} from '@/constants'
 import {makeSelectUser} from '@/store/auth'
+import {
+  changeLanguage,
+  changeTheme,
+  makeSelectLanguage,
+  makeSelectTheme,
+} from '@/store/settings'
 import {Drawer} from '@/ui'
 
 import * as S from './style'
+
+const duration = 300
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+}
+
+const transitionStyles = {
+  entering: {opacity: 1, translateY: '20px'},
+  entered: {opacity: 1, translateY: '20px'},
+  exiting: {opacity: 1, translateY: '10px'},
+  exited: {opacity: 1, translateY: '10px'},
+}
 
 const routes = [
   {id: 'home', name: 'Home', route: '/'},
@@ -23,11 +44,22 @@ const routes = [
 
 const Navbar: NextComponentType = () => {
   const user = useSelector(makeSelectUser)
+  const dispatch = useDispatch()
   const router = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)
 
+  const theme = useSelector(makeSelectTheme)
+  const language = useSelector(makeSelectLanguage)
+
   const handleToggleMenu = () => {
     setToggleMenu(prev => !prev)
+  }
+
+  const changeThemeHandler = () => {
+    dispatch(changeTheme())
+  }
+  const changeLanguageHandler = () => {
+    dispatch(changeLanguage())
   }
 
   return (
@@ -47,8 +79,38 @@ const Navbar: NextComponentType = () => {
         ))}
       </S.NavbarMenu>
       <S.NavbarUser>
-        <S.NavbarTheme>
-          <S.NavbarIcon size={24} name="sun" />
+        <S.NavbarLanguages>
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={language === 'tr' ? 'tr' : 'en'}
+              addEndListener={(node, done) =>
+                node.addEventListener('transitionend', done, false)
+              }
+              classNames="fade"
+            >
+              <S.NavbarLanguage onClick={changeLanguageHandler}>
+                {language === 'tr' ? 'en' : 'tr'}
+              </S.NavbarLanguage>
+            </CSSTransition>
+          </SwitchTransition>
+        </S.NavbarLanguages>
+        <S.NavbarTheme onClick={changeThemeHandler}>
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={theme === 'light' ? 'dark' : 'light'}
+              addEndListener={(node, done) =>
+                node.addEventListener('transitionend', done, false)
+              }
+              classNames="fade"
+            >
+              <S.NavbarIconWrapper>
+                <S.NavbarIcon
+                  size={24}
+                  name={theme === 'dark' ? 'sun' : 'moon'}
+                />
+              </S.NavbarIconWrapper>
+            </CSSTransition>
+          </SwitchTransition>
         </S.NavbarTheme>
         <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
           <S.NavbarLogo>

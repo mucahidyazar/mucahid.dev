@@ -9,6 +9,7 @@ const INITIAL_STATE = {
   activeRoute: '/',
   modalType: null,
   theme: 'dark',
+  language: 'tr',
 }
 
 export const reducer = produce((draft, action) => {
@@ -21,6 +22,13 @@ export const reducer = produce((draft, action) => {
       break
     case types.CHANGE_THEME:
       draft.theme = action.theme
+        ? action.theme
+        : draft.theme === 'dark'
+        ? 'light'
+        : 'dark'
+      break
+    case types.CHANGE_LANGUAGE:
+      draft.language = draft.language === 'tr' ? 'en' : 'tr'
       break
     default:
       break

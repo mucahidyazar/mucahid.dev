@@ -133,6 +133,27 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+
+  
+  .fade-enter{
+    opacity: 0;
+    transform: translateY(-32px);
+  }
+  .fade-exit{
+    opacity: 1;
+  }
+  .fade-enter-active{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-exit-active{
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  .fade-enter-active,
+  .fade-exit-active{
+    transition: all 500ms;
+  }
 `
 
 const fade = keyframes`

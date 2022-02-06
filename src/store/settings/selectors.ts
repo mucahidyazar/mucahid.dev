@@ -21,3 +21,8 @@ export const makeSelectTheme = createSelector(
   selectSettings,
   ({theme}) => theme,
 )
+
+export const makeSelectLanguage = createSelector(
+  selectSettings,
+  ({language}) => language,
+)

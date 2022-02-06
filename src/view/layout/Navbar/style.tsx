@@ -102,7 +102,18 @@ const NavbarUser = styled.div`
   align-items: center;
   gap: 1rem;
 `
+const NavbarLanguages = styled.div``
+const NavbarLanguage = styled.div`
+  text-transform: uppercase;
+`
 const NavbarTheme = styled.div``
+const NavbarIconWrapper = styled.div`
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 const NavbarIcon = styled(Icon)``
 
 const NavbarLogoGradientBorder = styled.div`
@@ -157,8 +168,11 @@ export {
   NavbarMenu,
   NavbarMenuItem,
   NavbarUser,
+  NavbarLanguages,
+  NavbarLanguage,
   NavbarTheme,
   NavbarIcon,
+  NavbarIconWrapper,
   NavbarLogoGradientBorder,
   NavbarLogo,
   DrawerNavbarMenu,
