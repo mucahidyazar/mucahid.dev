@@ -42,7 +42,7 @@ const SectionSlider: React.FC<ISectionSlider> = ({
     slidesToShow: 1,
     slidesToScroll: 1,
     pauseOnHover: true,
-    afterChange: (index: number) => setActiveSlide(index + 1),
+    afterChange: (index: number) => setActiveSlide(index),
     slickGoTo: handleChangeSlide,
     prevArrow: type === 2 ? <PrevArrow /> : undefined,
     nextArrow: type === 2 ? <NextArrow /> : undefined,
@@ -50,7 +50,7 @@ const SectionSlider: React.FC<ISectionSlider> = ({
 
   function handleChangeSlide(index: string | number | undefined) {
     const numberIndex = Number(index)
-    slickRef?.current?.slickGoTo(numberIndex - 1)
+    slickRef?.current?.slickGoTo(numberIndex)
     setActiveSlide(numberIndex)
   }
 

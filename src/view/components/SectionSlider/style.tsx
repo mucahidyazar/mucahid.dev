@@ -6,6 +6,10 @@ const BadgeContainer = styled.div`
   gap: 20px;
   margin-bottom: 40px;
   overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const SectionSliderContainer = styled.div``

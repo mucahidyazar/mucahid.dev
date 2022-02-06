@@ -10,14 +10,14 @@ import * as S from './style'
 const AboutContainer: NextComponentType = () => {
   const quotesMockData = [
     {
-      id: 'getir',
+      id: '0',
       name: 'Getir',
       image: '/images/introduction-image-2.jpg',
       title: 'Getir',
       text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
     },
     {
-      id: 'maxithings',
+      id: '1',
       name: 'MaxiThings',
       image: '/images/introduction-image-2.jpg',
       title: 'MaxiThings',

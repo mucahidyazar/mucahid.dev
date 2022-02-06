@@ -8,6 +8,10 @@ const CardImage = styled.div`
   position: relative;
   width: 320px;
   height: 320px;
+
+  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+    width: 100%;
+  }
 `
 
 interface ICard {
