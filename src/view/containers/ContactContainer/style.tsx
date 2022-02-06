@@ -11,8 +11,10 @@ const ConnectionsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 5rem;
+  overflow-y: auto;
 `
 interface IConnectionIcon {
   backgroundColor: string
@@ -53,6 +55,10 @@ const ConnectMetamaskButton = styled(Button)`
   padding: 1rem 2rem;
   gap: 2rem;
   color: var(--color-white);
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    width: 100%;
+  }
 `
 const ConnectMetamaskButtonText = styled.p`
   text-transform: uppercase;

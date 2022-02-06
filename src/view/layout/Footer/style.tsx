@@ -15,10 +15,6 @@ const Footer = styled.footer`
   @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
     flex-direction: column;
   }
-
-  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
-    margin: 5rem 0;
-  }
 `
 
 const FooterInfoTitle = styled.div`

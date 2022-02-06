@@ -79,7 +79,7 @@ const ProjectsContainer: NextComponentType = () => {
             if (index < 6) {
               return (
                 <Link key={item.id} href={`/article/${item.slug}`} passHref>
-                  <PostCard
+                  <S.PostCard
                     title={item.title}
                     subtitle={item.description}
                     tags={item.technologies}

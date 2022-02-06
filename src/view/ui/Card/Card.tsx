@@ -31,11 +31,10 @@ const Card = ({data, type}: ICard) => {
         <S.CardImage>
           <Image
             src={data?.image}
-            width={320}
-            height={320}
+            layout="fill"
             unoptimized
             objectFit="cover"
-            alt=""
+            alt={data?.image}
           />
         </S.CardImage>
       )}

@@ -7,6 +7,7 @@ const InstagramContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 0.25rem;
   height: calc(100% - 6.25rem);
+
   @media (max-width: ${BreakpointSize.TABLET.MAX}px) {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
@@ -38,8 +39,11 @@ const StuffList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   grid-gap: 12px;
-
   margin-bottom: 5rem;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 `
 
 const SummarySection = styled.div`

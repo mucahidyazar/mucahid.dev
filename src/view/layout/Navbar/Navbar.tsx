@@ -128,7 +128,7 @@ const Navbar: NextComponentType = () => {
         isVisible={toggleMenu}
         onClose={() => setToggleMenu(false)}
         placement={DrawerPlacement.LEFT}
-        size="50%"
+        size="80%"
         isClosable={true}
       >
         <S.DrawerNavbarMenu>

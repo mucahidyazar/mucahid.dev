@@ -1,4 +1,6 @@
 export const ZIndex = {
+  WELCOME_LOTTIE: -1,
+  POST_CARD_TAG: 1,
   // Modal
   modal: 1000,
   // Sidebar

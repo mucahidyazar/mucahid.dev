@@ -37,6 +37,10 @@ const SubscribeBannerBottomTitle = styled(Title)`
   font-size: var(--font-size-4xl);
   line-height: 80%;
   font-weight: 800;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    font-size: var(--font-size-3xl);
+  }
 `
 const SubscribeBannerForm = styled.form`
   display: flex;

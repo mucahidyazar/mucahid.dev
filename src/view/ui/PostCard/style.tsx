@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import {BreakpointSize, ZIndex} from '@/constants'
+
 import {Title, Subtitle} from '../Typography'
 import {Tag} from '../Tag'
 
@@ -10,7 +12,7 @@ const Card = styled.div`
 const CardImage = styled.div`
   position: relative;
   width: 100%;
-  min-height: 540px;
+  height: 540px;
   margin-bottom: 0.5rem;
   overflow: hidden;
   transition: all 0.15s ease-in-out;
@@ -18,6 +20,10 @@ const CardImage = styled.div`
   &:hover {
     outline: 3px solid #e9b258;
     outline-offset: 3px;
+  }
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    height: 320px;
   }
 `
 
@@ -58,7 +64,7 @@ const Tags = styled.div`
   gap: 4px;
   align-items: flex-start;
   flex-wrap: wrap;
-  z-index: 1;
+  z-index: ${ZIndex.POST_CARD_TAG};
 
   ${Tag.S.Tag} {
     padding: 0.2rem 0.8rem;
@@ -68,6 +74,11 @@ const Tags = styled.div`
 
 const CardContent = styled.div``
 const CardContentTitle = styled(Title)`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
   &:hover {
     text-decoration: underline;
     color: var(--color-pastel1);

@@ -4,6 +4,12 @@ import {BreakpointSize} from '@/constants'
 
 import {Subtitle} from '../Typography'
 
+const CardImage = styled.div`
+  position: relative;
+  width: 320px;
+  height: 320px;
+`
+
 interface ICard {
   type: number
 }
@@ -19,29 +25,17 @@ const Card = styled.div<ICard>`
       padding: 20px;
 
       ${CardImage} {
-        height: auto;
-        min-width: 280px;
+        width: 480px;
+
+        @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+          width: 100%;
+        }
       }
     `}
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;
     gap: 20px;
-  }
-`
-const CardImage = styled.div`
-  height: 320px;
-  min-width: 320px;
-
-  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
-    width: 100%;
-
-    span {
-      min-width: 100%;
-    }
-    img {
-      object-fit: cover !important;
-    }
   }
 `
 const CardContentTitle = styled.a`

@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components'
 
-import {BreakpointSize} from '@/constants'
+import {BreakpointSize, ZIndex} from '@/constants'
 import {Title, Icon as StyledIcon} from '@/ui'
 import {container} from '@/styles'
 
@@ -25,6 +25,7 @@ const WelcomeSection = styled.section`
     top: 0;
     right: 0;
     bottom: 0;
+    z-index: ${ZIndex.WELCOME_LOTTIE};
 
     @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
       left;
@@ -75,12 +76,20 @@ const WelcomeContentTitle = styled.h1`
   margin-bottom: 2.5rem;
   line-height: 130%;
   text-transform: uppercase;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    font-size: var(--font-size-2xl);
+  }
 `
 
 const WelcomeContentDescription = styled.div`
   line-height: var(--line-height-xl);
   letter-spacing: 0.05rem;
   text-shadow: 0 0.3rem 0.3rem rgba(0, 0, 0, 1);
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    font-size: var(--font-size);
+  }
 
   &::first-letter {
     color: #e9b258;
