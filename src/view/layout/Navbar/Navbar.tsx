@@ -46,17 +46,22 @@ const Navbar: NextComponentType = () => {
           </S.NavbarMenuItem>
         ))}
       </S.NavbarMenu>
-      <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
-        <S.NavbarLogo>
-          <Image
-            src={user?.image ? user.image : '/gif/profile/gif-1.gif'}
-            alt="logo"
-            width="100%"
-            height="100%"
-            className="bg-black"
-          />
-        </S.NavbarLogo>
-      </S.NavbarLogoGradientBorder>
+      <S.NavbarUser>
+        <S.NavbarTheme>
+          <S.NavbarIcon size={24} name="sun" />
+        </S.NavbarTheme>
+        <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
+          <S.NavbarLogo>
+            <Image
+              src={user?.image ? user.image : '/gif/profile/gif-1.gif'}
+              alt="logo"
+              width="100%"
+              height="100%"
+              className="bg-black"
+            />
+          </S.NavbarLogo>
+        </S.NavbarLogoGradientBorder>
+      </S.NavbarUser>
       <Drawer
         isVisible={toggleMenu}
         onClose={() => setToggleMenu(false)}

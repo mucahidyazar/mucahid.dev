@@ -8,6 +8,7 @@ const INITIAL_STATE = {
   isLoadingVisible: false,
   activeRoute: '/',
   modalType: null,
+  theme: 'dark',
 }
 
 export const reducer = produce((draft, action) => {
@@ -17,6 +18,9 @@ export const reducer = produce((draft, action) => {
       break
     case types.SET_MODAL_TYPE:
       draft.modalType = action.modalType
+      break
+    case types.CHANGE_THEME:
+      draft.theme = action.theme
       break
     default:
       break

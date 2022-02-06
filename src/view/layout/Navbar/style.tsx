@@ -2,6 +2,7 @@ import styled, {css} from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
 import {container} from '@/styles'
+import {Icon} from '@/ui'
 
 const Navbar = styled.div`
   display: flex;
@@ -96,6 +97,14 @@ const NavbarMenu = styled.ul`
   }
 `
 
+const NavbarUser = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`
+const NavbarTheme = styled.div``
+const NavbarIcon = styled(Icon)``
+
 const NavbarLogoGradientBorder = styled.div`
   width: 46px;
   height: 46px;
@@ -147,6 +156,9 @@ export {
   NavbarBrandColor,
   NavbarMenu,
   NavbarMenuItem,
+  NavbarUser,
+  NavbarTheme,
+  NavbarIcon,
   NavbarLogoGradientBorder,
   NavbarLogo,
   DrawerNavbarMenu,

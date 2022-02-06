@@ -16,3 +16,8 @@ export const makeSelectModalType = createSelector(
   selectSettings,
   ({modalType}) => modalType,
 )
+
+export const makeSelectTheme = createSelector(
+  selectSettings,
+  ({theme}) => theme,
+)

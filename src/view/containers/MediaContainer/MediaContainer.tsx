@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
 import {useSelector} from 'react-redux'
+import Script from 'next/script'
 
 import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
 import {Card} from '@/ui'
@@ -63,12 +64,8 @@ const MediaContainer: NextComponentType = () => {
                 href="https://twitter.com/MucahidYazar?ref_src=twsrc%5Etfw"
               >
                 Tweets by MucahidYazar
-              </a>{' '}
-              <script
-                async
-                src="https://platform.twitter.com/widgets.js"
-                charSet="utf-8"
-              ></script>
+              </a>
+              <Script src="https://platform.twitter.com/widgets.js" />
             </S.TwitterContainer>
           </Section>
         }
