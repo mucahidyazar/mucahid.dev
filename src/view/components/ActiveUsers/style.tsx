@@ -40,7 +40,7 @@ const ActiveUser = styled.div`
 
   &:hover {
     filter: brightness(0.8);
-    z-index: ${({index}) => index * 10};
+    z-index: ${({index}) => index + 1 * 10};
     transform: translateY(-50%) scale(1.4);
   }
 `
