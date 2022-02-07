@@ -19,7 +19,7 @@ export default NextAuth({
         port: Number(process.env.SMTP_PORT),
         auth: {
           user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASSWORD,
+          pass: process.env.SMTP_PASS,
         },
       },
       from: process.env.SMTP_FROM,
