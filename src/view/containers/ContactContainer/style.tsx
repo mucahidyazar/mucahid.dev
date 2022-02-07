@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {Button, Input, Textarea, SelectBox} from '@/ui'
+import {Button, Input, Textarea} from '@/ui'
 
 const SummarySection = styled.div`
   max-width: 100%;
@@ -114,7 +114,10 @@ const ContactFormType = styled.div`
   align-items: center;
   justify-content: space-evenly;
 `
-const ContactFormTypeItem = styled.div`
+interface IContactFormTypeItemProps {
+  isSelected: boolean
+}
+const ContactFormTypeItem = styled.div<IContactFormTypeItemProps>`
   width: 100%;
   text-align: center;
   padding: 20px;

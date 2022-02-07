@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react'
+import React, {useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
-import io from 'socket.io-client'
+import io, {Socket} from 'socket.io-client'
 import {useDispatch} from 'react-redux'
 
 import {ActiveUsers, SubscribeBanner, Welcome} from '@/components'
 import {Navbar, Footer} from '@/layout'
+import {addActiveUser, removeActiveUser} from '@/store/general'
 
 import * as S from './style'
-import {addActiveUser, removeActiveUser} from '@/store/general'
 
 interface IMainLayout {
   children: React.ReactNode
@@ -24,15 +24,9 @@ const MainLayout: React.FC<IMainLayout> = ({
   hasWelcome,
 }) => {
   const dispatch = useDispatch()
-  const [socket, setSocket] = React.useState(null)
+  const [socket, setSocket] = React.useState<Socket>()
 
-  useEffect(() => {
-    if (!socket) {
-      initSocket()
-    }
-  }, [socket])
-
-  const initSocket = () => {
+  const initSocket = useCallback(() => {
     let socket = io()
 
     // const {'CHAT_MESSAGE', 'ROOM_USERS'} = SOCKET_EVENTS
@@ -47,10 +41,14 @@ const MainLayout: React.FC<IMainLayout> = ({
       dispatch(removeActiveUser(user))
     })
 
-    console.log({socket})
-
     setSocket(socket)
-  }
+  }, [dispatch])
+
+  useEffect(() => {
+    if (!socket) {
+      initSocket()
+    }
+  }, [socket, initSocket])
 
   return (
     <S.MainLayout>

@@ -1,3 +1,5 @@
+import {ParsedUrlQuery} from 'querystring'
+
 import axios from 'axios'
 import {Dispatch} from 'redux'
 
@@ -5,7 +7,7 @@ import {Article, State} from '@/types'
 
 import * as types from './types'
 
-export const getArticles = () => async (dispatch: Dispatch) => {
+export const getArticles = (): any => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_ARTICLES_REQUEST})
     const {data} = await axios.get(
@@ -37,7 +39,8 @@ export const getArticles = () => async (dispatch: Dispatch) => {
 }
 
 export const getArticle =
-  (slug: string) => async (dispatch: Dispatch, getState: () => State) => {
+  (slug: string): any =>
+  async (dispatch: Dispatch, getState: () => State) => {
     try {
       dispatch({type: types.GET_ARTICLE_REQUEST})
 
@@ -52,7 +55,7 @@ export const getArticle =
 
       dispatch({
         type: types.GET_ARTICLE_SUCCESS,
-        data: data.find((item: any) => item.link.includes(slug)),
+        data: data.find((item: Article) => item.link.includes(slug)),
       })
     } catch (error) {
       dispatch({
@@ -62,13 +65,13 @@ export const getArticle =
     }
   }
 
-export const setFilter = (filters: any) => async (dispatch: Dispatch) => {
-  dispatch({type: types.SET_FILTERS, filters})
-}
+export const setFilter =
+  (filters: ParsedUrlQuery) => async (dispatch: Dispatch) => {
+    dispatch({type: types.SET_FILTERS, filters})
+  }
 
 export const addComment =
-  (postId: string, comment: string): any =>
-  async (dispatch: Dispatch, getState: any) => {
+  (postId: string, comment: string) => async (dispatch: Dispatch<any>) => {
     try {
       dispatch({type: types.ADD_COMMENT_REQUEST})
 
@@ -95,19 +98,15 @@ export const getComments =
   async (dispatch: Dispatch) => {
     try {
       dispatch({type: types.GET_COMMENTS_REQUEST})
-      console.log('x')
-      console.log(typeof postId)
       const res = await axios.get(
         `http://localhost:3000/api/post/get-comments?postId=${postId}`,
       )
 
-      console.log({x: res.data})
       dispatch({
         type: types.GET_COMMENTS_SUCCESS,
         data: res.data,
       })
     } catch (error) {
-      console.log(error)
       dispatch({
         type: types.GET_COMMENTS_FAILED,
         error,

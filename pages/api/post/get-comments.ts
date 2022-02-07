@@ -1,5 +1,4 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
-import {getSession} from 'next-auth/react'
 
 import prisma from '../../../lib/prisma'
 
@@ -10,12 +9,9 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  console.log('test')
-  console.log(req.query)
   // get query Post Id
-  const {postId} = req.query
+  const {postId}: any = req.query
 
-  console.log({y: postId})
   const result = await prisma.comment.findMany({
     where: {postId},
     include: {author: true},

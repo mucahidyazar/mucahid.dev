@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
-import {useRouter} from 'next/router'
-import {makeSelectActiveUsers} from '@/store/general'
 import {useSelector} from 'react-redux'
+
+import {makeSelectActiveUsers} from '@/store/general'
 
 import * as S from './style'
 

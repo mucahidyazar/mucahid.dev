@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Slider, {Settings} from 'react-slick'
 
 import {Badge, Card} from '@/ui'
+import {CardData} from '@/types'
 
 import * as S from './style'
 
@@ -92,38 +93,28 @@ interface IArrow {
   onClick?: () => void
 }
 
-// type TData = {
-//   id: string
-//   image?: string
-//   name: string
-//   subtitles?: string[]
-//   tags?: string[]
-//   text?: string
-//   date?: string
-// }
-
 interface ISectionSlider {
   hasBadge?: boolean
   hasArrow?: boolean
   type?: number
-  data: any[]
+  data: CardData[]
 }
 
 SectionSlider.propTypes = {
   hasBadge: PropTypes.bool,
   hasArrow: PropTypes.bool,
   type: PropTypes.number,
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      image: PropTypes.string,
-      name: PropTypes.string.isRequired,
-      subtitles: PropTypes.arrayOf(PropTypes.string),
-      tags: PropTypes.arrayOf(PropTypes.string),
-      text: PropTypes.string,
-      date: PropTypes.string,
-    }),
-  ).isRequired,
+  // data: PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     id: PropTypes.string.isRequired,
+  //     image: PropTypes.string,
+  //     name: PropTypes.string.isRequired,
+  //     subtitles: PropTypes.arrayOf(PropTypes.string),
+  //     tags: PropTypes.arrayOf(PropTypes.string),
+  //     text: PropTypes.string,
+  //     date: PropTypes.string,
+  //   }),
+  // ).isRequired,
 }
 
 SectionSlider.defaultProps = {

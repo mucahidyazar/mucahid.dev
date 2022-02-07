@@ -13,7 +13,7 @@ export const setActiveRoute = (route: string) => ({
   route,
 })
 
-export const setModalType = (modalType: string) => ({
+export const setModalType = (modalType: string | null) => ({
   type: types.SET_MODAL_TYPE,
   modalType,
 })

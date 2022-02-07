@@ -9,7 +9,7 @@ export type User = {
 }
 
 export type Article = {
-  id: number
+  id: string | number
   title: string
   pubDate: string
   link: string
@@ -22,7 +22,7 @@ export type Article = {
 }
 
 export type Comment = {
-  id: number
+  id: string | number
   message: string
   postId: string
   authorId: number
@@ -106,3 +106,28 @@ export type Starred = {
   watchers: string
   default_branch: number
 }
+
+export type Equipment = {
+  id: string | number
+  type: string
+  name: string
+  slug: string
+  tags: string[]
+  url: string
+  image: string
+  subtitles: string[]
+}
+
+export type CardData = {
+  id?: string | number
+  image?: string
+  name?: string
+  subtitles?: string[]
+  tags?: string[]
+  url?: string
+  text?: string
+  date?: string
+  type?: number
+}
+
+export type Query = {[key: string]: string | string[]}

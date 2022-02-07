@@ -29,27 +29,34 @@ const IconSizeStyles = {
   [IconSize.XLARGE]: xlargeStyle,
 }
 
-const Wrapper = styled.div`
+interface IWrapper {
+  format: 'none' | 'small' | 'medium' | 'large' | 'xlarge'
+}
+const Wrapper = styled.div<IWrapper>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  ${({format}: any) => format !== IconSize.NONE && IconSizeStyles[format]};
+  ${({format}) => format !== IconSize.NONE && IconSizeStyles[format]};
 `
 
 const Path = styled.path``
 
-const Icon = styled.svg`
+interface IIcon {
+  size?: string | number
+  spinning?: boolean
+}
+const Icon = styled.svg<IIcon>`
   fill: currentColor;
-  width: ${({size}: any) => `${size}px`};
-  height: ${({size}: any) => `${size}px`};
+  width: ${({size}) => `${size}px`};
+  height: ${({size}) => `${size}px`};
 
   ${Path} {
-    width: ${({size}: any) => `${size}px`};
-    height: ${({size}: any) => `${size}px`};
+    width: ${({size}) => `${size}px`};
+    height: ${({size}) => `${size}px`};
   }
 
-  ${({spinning}: any) =>
+  ${({spinning}) =>
     spinning &&
     css`
       animation: 1.5s loading linear infinite;

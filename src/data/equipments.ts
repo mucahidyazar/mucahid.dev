@@ -1,7 +1,7 @@
 export const computerData = [
   {
     id: 'computer-1',
-    type: 'hard-disk',
+    what: 'hard-disk',
     name: 'WD Red 4TB',
     slug: 'wd-red-4tb',
     tags: ['WD', 'Red', '4TB'],
@@ -16,7 +16,7 @@ export const computerData = [
   },
   {
     id: 'computer-2',
-    type: 'motherboard',
+    what: 'motherboard',
     name: 'Asus ROG Maximus VIII Ranger',
     slug: 'asus-rog-maximus-viii-ranger',
     tags: ['Asus', 'ROG', 'Maximus', 'VIII', 'Ranger'],
@@ -30,7 +30,7 @@ export const computerData = [
   },
   {
     id: 'computer-3',
-    type: 'processor',
+    what: 'processor',
     name: 'Corsair Vengeance LPX 32GB (2x16GB) DDR4 DRAM 3000MHz',
     slug: 'corsair-vengeance-lpx-32gb-2x16gb-ddr4-dram-3000mhz',
     tags: [
@@ -56,7 +56,7 @@ export const computerData = [
   },
   {
     id: 'computer-4',
-    type: 'vga',
+    what: 'vga',
     name: 'ASUS GeForce GTX 1070 8GB ROG Strix',
     slug: 'asus-geforce-gtx-1070-8gb-rog-strix',
     tags: ['ASUS', 'GeForce', 'GTX', '1070', '8GB', 'ROG', 'Strix'],
@@ -72,7 +72,7 @@ export const computerData = [
   },
   {
     id: 'computer-5',
-    type: 'power-supply',
+    what: 'power-supply',
     name: 'EVGA SuperNOVA 750 P2, 80+ PLATINUM',
     slug: 'evga-supernova-750-p2-80-platinum',
     tags: ['EVGA', 'SuperNOVA', '750', 'P2', '80', 'PLATINUM'],
@@ -87,7 +87,7 @@ export const computerData = [
   },
   {
     id: 'computer-6',
-    type: 'ssd',
+    what: 'ssd',
     name: 'Samsung 970 Evo MZ-V7S1T0BW 1 TB 2.5" 3500-3300 MB/s SSD Sabit Disk',
     slug: 'samsung-970-evo-mz-v7s1t0bw-1-tb-2500-3300-mbs-sabit-disk',
     tags: [
@@ -117,7 +117,7 @@ export const computerData = [
   },
   {
     id: 'computer-7',
-    type: 'case',
+    what: 'case',
     name: 'NZXT H400i',
     slug: 'nzxt-h400i',
     tags: ['NZXT', 'H400i'],
@@ -130,7 +130,7 @@ export const computerData = [
   },
   {
     id: 'computer-8',
-    type: 'keyboard',
+    what: 'keyboard',
     name: 'Keychron K2 Wireless Mechanical Keyboard (Version 2 / Red Switch / RGB Backlight Aluminum Frame)',
     slug: 'keychron-k2-wireless-mechanical-keyboard-version-2-red-switch-rgb-backlight-aluminum-frame',
     tags: [
@@ -157,7 +157,7 @@ export const computerData = [
   },
   {
     id: 'computer-9',
-    type: 'mouse',
+    what: 'mouse',
     name: 'Logitech Mx Master 3 Wireless Mouse Graphite 910-005694',
     slug: 'logitech-mx-master-3-wireless-mouse-graphite-910-005694',
     tags: [
@@ -180,7 +180,7 @@ export const computerData = [
   },
   {
     id: 'computer-10',
-    type: 'cpu',
+    what: 'cpu',
     name: 'Intel Core i7 6700K',
     slug: 'intel-core-i7-6700k',
     tags: ['Intel', 'Core', 'i7', '6700K'],
@@ -194,7 +194,7 @@ export const computerData = [
   },
   {
     id: 'computer-11',
-    type: 'cpu-cooling-fans',
+    what: 'cpu-cooling-fans',
     name: 'Cooler Master MasterAir MA410P RGB CPU Air Cooler',
     slug: 'cooler-master-masterair-ma410p-rgb-cpu-air-cooler',
     tags: ['Cooler', 'Master', 'MasterAir', 'MA410P', 'RGB', 'CPU', 'Air'],
@@ -208,7 +208,7 @@ export const computerData = [
   },
   {
     id: 'computer-12',
-    type: 'controller',
+    what: 'controller',
     name: 'Dualsense Wireless Controller',
     slug: 'dualsense-wireless-controller',
     tags: ['Dualsense', '5', 'Wireless', 'Controller'],
@@ -225,7 +225,7 @@ export const computerData = [
 export const deskData = [
   {
     id: 'desk-1',
-    type: 'desk-lamp',
+    what: 'desk-lamp',
     name: 'Ikea Terrial',
     slug: 'ikea-terrial',
     tags: ['Ikea', 'Terrial'],
@@ -239,7 +239,7 @@ export const deskData = [
   },
   {
     id: 'desk-2',
-    type: 'speaker',
+    what: 'speaker',
     name: 'Logitech S120',
     slug: 'logitech-s120',
     tags: ['Logitech', 'S120'],
@@ -253,7 +253,7 @@ export const deskData = [
   },
   {
     id: 'desk-3',
-    type: 'desk',
+    what: 'desk',
     name: 'Nurus Otto Basic',
     slug: 'nurus-otto-basic',
     tags: ['Nurus', 'Otto', 'Basic'],
@@ -267,7 +267,7 @@ export const deskData = [
   },
   {
     id: 'desk-4',
-    type: 'chair',
+    what: 'chair',
     name: 'IKEA Jarvfjallet',
     slug: 'ikea-jarvfjallet',
     tags: ['IKEA', 'Jarvfjallet'],
@@ -281,7 +281,7 @@ export const deskData = [
   },
   {
     id: 'desk-5',
-    type: 'printer',
+    what: 'printer',
     name: 'Brother HL-1110',
     slug: 'brother-hl-1110',
     tags: ['Brother', 'HL-1110'],
@@ -295,7 +295,7 @@ export const deskData = [
   },
   {
     id: 'desk-6',
-    type: 'microphone',
+    what: 'microphone',
     name: 'Blue Yeti',
     slug: 'blue-yeti',
     tags: ['Blue', 'Yeti'],
@@ -312,7 +312,7 @@ export const deskData = [
 export const funkoPopsData = [
   {
     id: 'desk-1',
-    type: 'funko-pop',
+    what: 'funko-pop',
     name: 'Star Wars The Mandolorian',
     slug: 'star-wars-the-mandolorian',
     tags: ['Star', 'Wars', 'The', 'Mandolorian'],
@@ -327,7 +327,7 @@ export const funkoPopsData = [
   },
   {
     id: 'desk-2',
-    type: 'funko-pop',
+    what: 'funko-pop',
     name: 'LOTR/Hobbit Gandalf',
     slug: 'lotr-hobbit-gandalf',
     tags: ['LOTR', 'Hobbit', 'Gandalf'],
@@ -342,7 +342,7 @@ export const funkoPopsData = [
   },
   {
     id: 'desk-3',
-    type: 'funko-pop',
+    what: 'funko-pop',
     name: 'God of War Kratos',
     slug: 'god-of-war-kratos',
     tags: ['God', 'War', 'Kratos'],
@@ -357,7 +357,7 @@ export const funkoPopsData = [
   },
   {
     id: 'desk-4',
-    type: 'funko-pop',
+    what: 'funko-pop',
     name: 'The Witcher Geralt',
     slug: 'the-witcher-geralt',
     tags: ['The', 'Witcher', 'Geralt'],
@@ -372,7 +372,7 @@ export const funkoPopsData = [
   },
   {
     id: 'desk-5',
-    type: 'funko-pop',
+    what: 'funko-pop',
     name: 'The Witcher Ciri',
     slug: 'the-witcher-ciri',
     tags: ['The', 'Witcher', 'Ciri'],
@@ -390,7 +390,7 @@ export const funkoPopsData = [
 export const personalData = [
   {
     id: 'personal-1',
-    type: 'glass',
+    what: 'glass',
     name: 'Hoya Glass',
     slug: 'hoya-glass',
     tags: ['Hoya', 'Glass'],
@@ -400,7 +400,7 @@ export const personalData = [
   },
   {
     id: 'personal-2',
-    type: 'earphones',
+    what: 'earphones',
     name: 'Huawei FreeBuds 3 Bluetooth Black',
     slug: 'huawei-freebuds-3-bluetooth-black',
     tags: ['Huawei', 'FreeBuds', '3', 'Bluetooth', 'Black'],
@@ -414,7 +414,7 @@ export const personalData = [
   },
   {
     id: 'personal-3',
-    type: 'powerbank',
+    what: 'powerbank',
     name: 'Baseus Bipow 10.000 mAh 18W',
     slug: 'baseus-bipow-10000-mah-18w',
     tags: ['Baseus', 'Bipow', '10.000', 'mAh', '18W'],
@@ -428,7 +428,7 @@ export const personalData = [
   },
   {
     id: 'personal-4',
-    type: 'Phone',
+    what: 'Phone',
     name: 'Iphone 13 256GB Navy Blue',
     slug: 'iphone-13-256gb-navy-blue',
     tags: ['Iphone', '13', '256GB', 'Navy', 'Blue'],
@@ -442,7 +442,7 @@ export const personalData = [
   },
   {
     id: 'personal-5',
-    type: 'charger',
+    what: 'charger',
     name: 'Ikea Livboj Wireless Charger',
     slug: 'ikea-livboj-wireless-charger',
     tags: ['Ikea', 'Livboj', 'Wireless', 'Charger'],

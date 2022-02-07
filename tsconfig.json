@@ -39,5 +39,5 @@
     "src/store/**/*.ts",
     "src/view/**/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "server.ts"]
 }

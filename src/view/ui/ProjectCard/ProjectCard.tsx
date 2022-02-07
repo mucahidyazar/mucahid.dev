@@ -10,7 +10,7 @@ interface IProjectCardProps {
   name: string
   url: string
   image: string
-  technologies?: any[]
+  technologies?: string[]
   description: string
 }
 
@@ -67,7 +67,6 @@ ProjectCard.propTypes = {
   name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  technologies: PropTypes.arrayOf(PropTypes.string),
   description: PropTypes.string.isRequired,
 }
 

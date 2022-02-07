@@ -5,7 +5,7 @@ import {News} from '@/types'
 
 import * as types from './types'
 
-export const getAllNews = () => async (dispatch: Dispatch) => {
+export const getAllNews = (): any => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_ALL_NEWS_REQUEST})
     const {data} = await axios.get('http://localhost:3000/api/news')

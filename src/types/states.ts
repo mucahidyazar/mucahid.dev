@@ -1,5 +1,5 @@
 import {Status} from './enums'
-import {Article, Comment, User, News, API, Starred} from './models'
+import {Article, Comment, User, News, API, Starred, Query} from './models'
 
 export interface State {
   articles: ArticleState
@@ -18,14 +18,12 @@ export type ArticleState = {
     data: Article[]
     categories: string[]
     years: string[]
-    filters: {
-      [key: string]: string | string[]
-    }
+    filters: Query
     error: any
   }
   article: {
     status: Status
-    data: Article | null
+    data: Article
     comments: {
       status: Status
       data: Comment[]

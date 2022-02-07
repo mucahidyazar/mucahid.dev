@@ -1,10 +1,11 @@
 import styled, {css} from 'styled-components'
 
 import {DrawerPlacement} from '@/constants'
+import {EDrawerPlacement} from '@/types'
 
 import {Button} from '../'
 
-const transformAnimationStyle = (isShown: any) => ({
+const transformAnimationStyle = (isShown: boolean) => ({
   [DrawerPlacement.TOP]: isShown ? 'translateY(-100%)' : 'translateY(0)',
   [DrawerPlacement.RIGHT]: isShown ? 'translateX(100%)' : 'translateX(0)',
   [DrawerPlacement.BOTTOM]: isShown ? 'translateY(100%)' : 'translateY(0)',
@@ -36,17 +37,17 @@ const placementStyle = {
 
 // left and right
 const horizontalStyle = css`
-  width: ${({size}: any): any => size};
+  width: ${({size}: {size: string}) => size};
   height: 100vh;
 `
 
 // top and bottom
 const verticalStyle = css`
   width: 100vw;
-  height: ${({size}: any): any => size};
+  height: ${({size}: {size: string}) => size};
 `
 
-const DrawerContent = styled.div<any>`
+const DrawerContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -56,7 +57,11 @@ const DrawerContent = styled.div<any>`
   background-color: rgba(0, 0, 0, 0.9);
 `
 
-const DrawerWrapper = styled.div<any>`
+interface IDrawerWrapper {
+  placement: EDrawerPlacement
+  size: string
+}
+const DrawerWrapper = styled.div<IDrawerWrapper>`
   position: fixed;
   z-index: 100;
 
@@ -73,20 +78,21 @@ const DrawerWrapper = styled.div<any>`
     horizontalStyle}
 `
 
-const enterScene = css`
+interface IEScene {
+  placement: EDrawerPlacement
+}
+const enterScene = css<IEScene>`
   ${DrawerWrapper} {
     opacity: 0.2;
-    transform: ${(props: any): any =>
-      transformAnimationStyle(true)[props.placement]};
+    transform: ${props => transformAnimationStyle(true)[props.placement]};
   }
 `
 
-const exitScene = css`
+const exitScene = css<IEScene>`
   ${DrawerWrapper} {
     opacity: 1;
     transition: 400ms;
-    transform: ${(props: any): any =>
-      transformAnimationStyle(false)[props.placement]};
+    transform: ${props => transformAnimationStyle(false)[props.placement]};
   }
 `
 

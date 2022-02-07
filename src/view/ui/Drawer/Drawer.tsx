@@ -6,6 +6,7 @@ import {CSSTransition} from 'react-transition-group'
 import {useOutsideClick} from '@/hooks'
 import {DrawerPlacement} from '@/constants'
 import {BackDropStyle} from '@/styles'
+import {EDrawerPlacement} from '@/types'
 
 import {Icon} from '../'
 
@@ -14,10 +15,10 @@ import * as S from './style'
 interface IDrawer {
   children: React.ReactNode
   onClose: () => void
-  placement: any
+  placement: EDrawerPlacement
   isClosable: boolean
   isVisible: boolean
-  size: number | string
+  size: string
 }
 function Drawer({
   children,
@@ -29,15 +30,7 @@ function Drawer({
   ...props
 }: IDrawer) {
   const [isShown, setShown] = useState(isVisible)
-  const backdropRef = useRef()
-
-  const drawerContentProps = {
-    placement,
-    isVisible,
-    size,
-    ref: backdropRef,
-    'data-testid': 'drawer-content',
-  }
+  const backdropRef = useRef<any>()
 
   useEffect(() => {
     setShown(isVisible)
@@ -50,8 +43,6 @@ function Drawer({
     }
   })
 
-  const drawerWrapperProps = {size, placement}
-
   if (typeof document !== 'undefined') {
     return createPortal(
       <CSSTransition
@@ -60,10 +51,10 @@ function Drawer({
         unmountOnExit
         timeout={500}
       >
-        <S.Wrapper data-testid="drawer" {...drawerWrapperProps} {...props}>
+        <S.Wrapper data-testid="drawer" placement={placement} {...props}>
           <BackDropStyle />
-          <S.DrawerWrapper {...drawerWrapperProps}>
-            <S.DrawerContent {...drawerContentProps}>
+          <S.DrawerWrapper size={size} placement={placement}>
+            <S.DrawerContent ref={backdropRef} data-testid="drawer-content">
               {isClosable && (
                 <S.CloseButton onClick={onClose}>
                   <Icon name="close" size={32} color="#504F53" />

@@ -14,16 +14,13 @@ interface IIcon {
   version?: string
   xmlns?: string
   viewBox?: string
-  format?: any
+  format: 'none' | 'small' | 'medium' | 'large' | 'xlarge'
 }
 
 function Icon({name, format, spinning, ...props}: IIcon) {
-  const iconProps = {name, spinning, ...props}
-  const wrapperProps = {...props, format}
-
   return (
-    <S.Wrapper {...wrapperProps}>
-      <S.Icon data-testid="icon" {...iconProps}>
+    <S.Wrapper format={format} {...props}>
+      <S.Icon data-testid="icon" name={name} spinning={spinning} {...props}>
         <S.Path d={icons[name]} />
       </S.Icon>
     </S.Wrapper>

@@ -1,8 +1,5 @@
 import styled from 'styled-components'
 
-import {BreakpointSize} from '@/constants'
-import {Loading as StyledLoading} from '@/ui'
-
 const LoadingWrapper = styled.div`
   display: flex;
   align-items: center;

@@ -51,7 +51,7 @@ const PostCard = ({
             ))}
           </S.Tags>
           <S.Links>
-            {links?.map(({id, url, icon}: any) => (
+            {links?.map(({id, url, icon}) => (
               <S.Link key={id} href={url} target="_blank">
                 <Icon name={icon} size={20} />
               </S.Link>

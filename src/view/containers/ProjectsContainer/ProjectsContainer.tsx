@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react'
-import Link from 'next/link'
 import type {NextComponentType} from 'next'
 import {useDispatch, useSelector} from 'react-redux'
 
 import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
-import {PostCard, Button} from '@/ui'
+import {Button} from '@/ui'
 import {contributions, workshops} from '@/data'
 import {
   getApis,
@@ -36,7 +35,7 @@ const ProjectsContainer: NextComponentType = () => {
             link="https://www.github.com/mucahidyazar"
           >
             <S.SectionCards>
-              {contributions.map((contribution: any) => (
+              {contributions.map(contribution => (
                 <SectionCard key={contribution.id} {...contribution} />
               ))}
             </S.SectionCards>
@@ -49,7 +48,7 @@ const ProjectsContainer: NextComponentType = () => {
             link="https://www.github.com/mucahidyazar"
           >
             <S.SectionCards>
-              {starreds.map((contribution: any) => (
+              {starreds.map(contribution => (
                 <SectionCard
                   key={contribution.id}
                   title={contribution.name}
@@ -75,19 +74,17 @@ const ProjectsContainer: NextComponentType = () => {
         />
 
         <S.WorkshopsList>
-          {workshops.map((item: any, index) => {
+          {workshops.map((item, index) => {
             if (index < 6) {
               return (
-                <Link key={item.id} href={`/article/${item.slug}`} passHref>
-                  <S.PostCard
-                    title={item.title}
-                    subtitle={item.description}
-                    tags={item.technologies}
-                    imageUrl={item.image}
-                    link="https://www.google.com"
-                    links={item.links}
-                  />
-                </Link>
+                <S.PostCard
+                  title={item.title}
+                  subtitle={item.description}
+                  tags={item.technologies}
+                  imageUrl={item.image}
+                  link="https://www.google.com"
+                  links={item.links}
+                />
               )
             }
           })}

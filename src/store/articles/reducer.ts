@@ -16,7 +16,18 @@ const INITIAL_STATE: ArticleState = {
   },
   article: {
     status: Status.INIT,
-    data: null,
+    data: {
+      id: '0',
+      title: '',
+      pubDate: '',
+      link: '',
+      guid: '',
+      author: '',
+      thumbnail: '',
+      description: '',
+      content: '',
+      categories: [],
+    },
     comments: {
       status: Status.INIT,
       data: [],
@@ -58,7 +69,6 @@ export const reducer = produce((draft, action) => {
       draft.articles.data = action.data
       draft.articles.categories = action.categories
       draft.articles.years = action.years
-      draft.articles.feed = action.feed
       break
     case types.GET_ARTICLES_FAILED:
       draft.articles.status = Status.ERROR

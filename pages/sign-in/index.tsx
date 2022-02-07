@@ -7,7 +7,7 @@ import {MainLayout} from '@/layout'
 import {SignInContainer} from '@/containers'
 import {wrapper} from '@/store/index'
 
-const SignIn: NextPage = ({csrfToken, providers}) => (
+const SignIn: NextPage = ({csrfToken, providers}: any) => (
   <MainLayout
     title="Signed In"
     description="You can add comment and find some easter egg if you signed in :)"
@@ -18,7 +18,7 @@ const SignIn: NextPage = ({csrfToken, providers}) => (
 
 // This is the recommended way for Next.js 9.3 or newer
 export const getServerSideProps = wrapper.getServerSideProps(
-  (): any => async context => {
+  () => async context => {
     const csrfToken = await getCsrfToken(context)
     const providers = await getProviders()
 

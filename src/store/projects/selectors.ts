@@ -15,7 +15,7 @@ export const makeSelectApis = createSelector(selectProjects, ({apis}) =>
     subtitles: [
       `Auth: ${api.Auth}`,
       `HTTPS: ${api.HTTPS}`,
-      `Cors: ${api.CORS ? 'Yes' : 'No'}`,
+      `Cors: ${api.Cors ? 'Yes' : 'No'}`,
     ],
   })),
 )

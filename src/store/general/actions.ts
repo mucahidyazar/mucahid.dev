@@ -19,11 +19,10 @@ export const addActiveUser =
   }
 
 export const removeActiveUser =
-  (user: any): any =>
-  async (dispatch: Dispatch, getState: () => State) =>
+  (user: User) => async (dispatch: Dispatch, getState: () => State) =>
     dispatch({
       type: types.REMOVE_ACTIVE_USER,
       activeUsers: getState()?.general?.activeUsers?.filter(
-        (u: any) => u.id !== user.id,
+        u => u.id !== user.id,
       ),
     })

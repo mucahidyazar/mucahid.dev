@@ -1,11 +1,8 @@
 import styled, {css} from 'styled-components'
 
 import {BreakpointSize, ZIndex} from '@/constants'
-import {Title, Icon as StyledIcon} from '@/ui'
+import {Icon as StyledIcon} from '@/ui'
 import {container} from '@/styles'
-
-import {MainNews} from '../MainNews'
-import {OldNews} from '../OldNews'
 
 const WelcomeSection = styled.section`
   display: flex;
@@ -193,19 +190,6 @@ const NewsList = styled.div`
   overflow-y: auto;
   padding: 2px;
 `
-
-{
-  /* <S.VideoWrapper>
-<S.VideoOveryLay>
-  <S.VideoWrapper>
-    <S.VideoPlayIcon>
-      <S.Icon name="play" />
-      <S.Video />
-    </S.VideoPlayIcon>
-  </S.VideoWrapper>
-</S.VideoOveryLay>
-</S.VideoWrapper> */
-}
 
 const VideoWrapper = styled.div`
   width: 400px;

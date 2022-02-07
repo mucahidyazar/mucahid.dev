@@ -1,22 +1,11 @@
-import React, {useCallback, useEffect, useRef} from 'react'
+import React, {useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
-import Slider from 'react-slick'
-import Image from 'next/image'
 import {useRouter} from 'next/router'
-import {useDispatch, useSelector} from 'react-redux'
 import Lottie from 'react-lottie'
-import dynamic from 'next/dynamic'
 
-import {ModalType} from '@/constants'
-import {setModalType} from '@/store/settings'
 import {AllNewsModal, NewsModal} from '@/modals'
-import {makeSelectAllNews} from '@/store/home'
-
-import {MainNews} from '../MainNews'
-import {OldNews} from '../OldNews'
 
 import * as S from './style'
-import HomeAnimation from './lotties/media.json'
 
 interface IWelcomeProps {
   title: string
@@ -25,31 +14,18 @@ interface IWelcomeProps {
 }
 
 const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
-  const slickRef = useRef<Slider>(null)
-  const dispatch = useDispatch()
-  const allNews = useSelector(makeSelectAllNews)
+  // const dispatch = useDispatch()
+  // const allNews = useSelector(makeSelectAllNews)
   const router = useRouter()
   const [animation, setAnimation] = React.useState()
 
-  const openModalHandler = () => {
-    dispatch(setModalType(ModalType.ALL_NEWS_MODAL))
-  }
+  // const openModalHandler = () => {
+  //   dispatch(setModalType(ModalType.ALL_NEWS_MODAL))
+  // }
 
-  const openNewsHandler = () => {
-    dispatch(setModalType(ModalType.NEWS_MODAL))
-  }
-
-  const settings = {
-    infinite: true,
-    arrows: false,
-    dots: false,
-    speed: 500,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    pauseOnHover: true,
-  }
+  // const openNewsHandler = () => {
+  //   dispatch(setModalType(ModalType.NEWS_MODAL))
+  // }
 
   const dynamicAnimation = useCallback(async () => {
     const route = router.route === '/' ? '/home' : router.route

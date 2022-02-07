@@ -14,7 +14,8 @@ export default async function handle(
 ) {
   const {title, content, location = '', image = ''} = JSON.parse(req.body)
 
-  const session = await getSession({req})
+  const session: any = await getSession({req})
+
   if (session && session.user.role === Role.ADMIN) {
     const result = await prisma.news.create({
       data: {

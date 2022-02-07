@@ -9,7 +9,7 @@ export default async function handle(
   res: NextApiResponse,
 ) {
   const body = req.body
-  const session = await getSession({req})
+  const session: any = await getSession({req})
 
   const data = {
     name: session?.user?.name,
@@ -31,18 +31,12 @@ export default async function handle(
       })
       res.json(result)
     } else {
-      const result = await prisma.newsletter.create({
+      const result = await prisma.newsLetter.create({
         data,
       })
       res.json(result)
     }
   } catch (error) {
-    throw new Error(error)
+    res.status(500).send(error)
   }
 }
-// id        Int     @id @default(autoincrement())
-// title     String
-// type      MessageType
-// content   String?
-// author    User?   @relation(fields: [authorId], references: [id])
-// authorId  Int?

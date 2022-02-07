@@ -17,9 +17,10 @@ const Article: NextPage = () => (
 )
 
 export const getServerSideProps = wrapper.getServerSideProps(
-  (store): any =>
-    async (ctx: any) => {
-      const {slug} = ctx.params
+  store =>
+    async (ctx): Promise<any> => {
+      const {slug} = ctx.params as any
+
       await store.dispatch(getArticle(slug))
       await store.dispatch(getComments(slug))
     },

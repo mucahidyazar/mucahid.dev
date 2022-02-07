@@ -3,24 +3,19 @@ import type {NextComponentType} from 'next'
 import {useSelector} from 'react-redux'
 import Image from 'next/image'
 
-import {Introduction, Sections, Section} from '@/components'
-import {Card} from '@/ui'
+import {Introduction} from '@/components'
 import {makeArticlesSelector} from '@/store/articles/selectors'
 
 import * as S from './style'
 
 const HomeContainer: NextComponentType = () => {
   const articles = useSelector(makeArticlesSelector)
-  const articlesForCard = articles.map((article: any) => ({
+  const articlesForCard = articles.map(article => ({
     id: article.guid,
     name: article.title,
     text: article.description,
   }))
   const latestArticles = articlesForCard.slice(0, 4)
-  const randomArticles = articlesForCard
-    .slice(3, articlesForCard.length)
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 3)
 
   return (
     <>
@@ -66,8 +61,8 @@ const HomeContainer: NextComponentType = () => {
           <S.SectionButton>Daha fazla</S.SectionButton>
         </S.Section>
         <S.Articles>
-          {latestArticles.map((article: any) => (
-            <S.Article>
+          {latestArticles.map(article => (
+            <S.Article key={article.id}>
               <S.ArticleBody>
                 <S.ArticleDate>Feb 14 - Blog</S.ArticleDate>
                 <S.ArticleTitle>How to delte your Github?</S.ArticleTitle>
@@ -117,37 +112,6 @@ const HomeContainer: NextComponentType = () => {
           </S.ContentDetails>
         </S.Content>
       </S.SectionWrapper>
-
-      {/* <Sections
-        sectionOne={
-          <Section
-            title="Latest Posts"
-            subtitle="These are the latest posts from my website."
-            link="/articles"
-          >
-            {latestArticles.map((article: any) => (
-              <S.Article>
-                <S.ArticleBody>
-                  <S.ArticleDate>Feb 14 - Blog</S.ArticleDate>
-                  <S.ArticleTitle>How to delte your Github?</S.ArticleTitle>
-                </S.ArticleBody>
-                <S.ArticleGo>Go</S.ArticleGo>
-              </S.Article>
-            ))}
-          </Section>
-        }
-        sectionTwo={
-          <Section
-            title="Top 10 Reading"
-            subtitle="Let's see the most read posts from my website."
-            link="/articles"
-          >
-            {randomArticles.map((article: any) => (
-              <Card key={article.id} data={article} type={2} />
-            ))}
-          </Section>
-        }
-      /> */}
     </>
   )
 }

@@ -38,7 +38,7 @@ const MediaContainer: NextComponentType = () => {
             subtitle="Let me show you what summary of my website is :) Let me show you what summary of my website is :) Click which you want or just wait."
           >
             <S.InstagramContainer>
-              {firstSixPhotos.map((item: any) => (
+              {firstSixPhotos.map((item: string) => (
                 <S.InstagramImage key={item}>
                   <Image
                     src={item}
@@ -79,13 +79,13 @@ const MediaContainer: NextComponentType = () => {
       <S.StuffContainer>
         <S.StuffTitle>Computer</S.StuffTitle>
         <S.StuffList>
-          {computerData.map((item: any) => (
+          {computerData.map(item => (
             <Card key={item.id} data={item} type={2} />
           ))}
         </S.StuffList>
         <S.StuffTitle>Desk</S.StuffTitle>
         <S.StuffList>
-          {deskData.map((item: any) => (
+          {deskData.map(item => (
             <Card key={item.id} data={item} type={2}>
               {item.name}
             </Card>
@@ -93,13 +93,13 @@ const MediaContainer: NextComponentType = () => {
         </S.StuffList>
         <S.StuffTitle>Funko Pops</S.StuffTitle>
         <S.StuffList>
-          {funkoPopsData.map((item: any) => (
+          {funkoPopsData.map(item => (
             <Card key={item.id} data={item} type={2} />
           ))}
         </S.StuffList>
         <S.StuffTitle>Personal</S.StuffTitle>
         <S.StuffList>
-          {personalData.map((item: any) => (
+          {personalData.map(item => (
             <Card key={item.id} data={item} type={2} />
           ))}
         </S.StuffList>

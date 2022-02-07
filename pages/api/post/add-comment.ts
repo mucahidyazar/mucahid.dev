@@ -10,10 +10,10 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  console.log(req.body)
   const {comment, postId} = req.body
-  console.log({comment, postId})
-  const session = await getSession({req})
+
+  const session: any = await getSession({req})
+
   if (session) {
     const result = await prisma.comment.create({
       data: {

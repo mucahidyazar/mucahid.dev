@@ -6,7 +6,6 @@ import {socialLinks} from '@/data'
 import {Icon} from '@/ui'
 
 import * as S from './style'
-import {ActiveUsers} from '@/components'
 
 const Footer: NextComponentType = () => {
   return (

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Image from 'next/image'
 
 import {Modal} from '@/ui'
@@ -27,7 +26,7 @@ const AllNewsModal: React.FC<IAllNewsModalProps> = () => {
         </S.NewsHeaderDescription>
       </S.NewsHeader>
       <S.ModalNews>
-        <S.ModalMainNews />
+        {/* <S.ModalMainNews /> */}
         <S.ModalOldNews>
           <S.ModalOldNewsTitle>
             When darkness overspreads my eyes

@@ -1,11 +1,13 @@
 import React from 'react'
-import type {NextComponentType} from 'next'
 
 import {Loading} from '@/ui'
 
 import * as S from './style'
 
-const LoadingWrapper = ({isLoading}) => {
+interface ILodingWrapperProps {
+  isLoading: boolean
+}
+const LoadingWrapper = ({isLoading}: ILodingWrapperProps) => {
   if (isLoading) {
     return (
       <S.LoadingWrapper>

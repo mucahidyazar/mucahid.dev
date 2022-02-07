@@ -1,10 +1,8 @@
-import {NextApiHandler} from 'next'
 import GitHubProvider from 'next-auth/providers/github'
 import EmailProvider from 'next-auth/providers/email'
 import NextAuth from 'next-auth'
-import GoogleProvider from 'next-auth/providers/google'
+// import GoogleProvider from 'next-auth/providers/google'
 import {PrismaAdapter} from '@next-auth/prisma-adapter'
-import {PrismaClient} from '@prisma/client'
 
 import prisma from '../../../lib/prisma'
 
@@ -37,7 +35,7 @@ export default NextAuth({
     signIn: '/sign-in',
   },
   callbacks: {
-    async session({session, user}) {
+    async session({session, user}): Promise<any> {
       // Send properties to the client, like an access_token from a provider.
       return Promise.resolve({...session, user})
     },

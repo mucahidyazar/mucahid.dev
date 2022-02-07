@@ -1,9 +1,8 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
 import {Title} from '@/ui'
-import {container} from '@/styles'
-import {MainNews, OldNews} from '@/components'
+import {MainNews} from '@/components'
 
 const NewsHeader = styled.div`
   box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.1);

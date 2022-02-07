@@ -12,7 +12,8 @@ export default async function handle(
 ) {
   const {title, content} = req.body
 
-  const session = await getSession({req})
+  const session: any = await getSession({req})
+
   if (session) {
     const result = await prisma.post.create({
       data: {

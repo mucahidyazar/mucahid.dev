@@ -5,6 +5,7 @@ import * as S from './style'
 
 interface ITextarea {
   placeholder?: string
+  name?: string
 }
 
 const Textarea = (props: ITextarea) => {
@@ -13,10 +14,12 @@ const Textarea = (props: ITextarea) => {
 
 Textarea.propTypes = {
   placeholder: PropTypes.string,
+  name: PropTypes.string,
 }
 
 Textarea.defaultProps = {
   placeholder: '',
+  name: '',
 }
 
 Textarea.S = S

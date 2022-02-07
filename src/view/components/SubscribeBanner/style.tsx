@@ -42,6 +42,7 @@ const SubscribeBannerBottomTitle = styled(Title)`
     font-size: var(--font-size-3xl);
   }
 `
+
 const SubscribeBannerForm = styled.form`
   display: flex;
   align-items: center;

@@ -1,8 +1,5 @@
 import styled from 'styled-components'
 
-import {BreakpointSize} from '@/constants'
-import {Title} from '@/ui'
-
 const ActiveUsersWrapper = styled.div`
   width: 100%;
   position: sticky;
@@ -23,7 +20,11 @@ const ActiveUsers = styled.div`
     filter: opacity(1);
   }
 `
-const ActiveUser = styled.div`
+
+interface IActiveUser {
+  index: number
+}
+const ActiveUser = styled.div<IActiveUser>`
   width: 4rem;
   height: 4rem;
   background-color: #e9b258;

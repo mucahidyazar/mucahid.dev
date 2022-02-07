@@ -22,14 +22,14 @@ const ContactContainer: NextComponentType = () => {
   const board = useSelector(makeSelectBoard)
   const emailStatus = useSelector(makeSelectEmailStatus)
   const dispatch = useDispatch()
-  const contactFormRef = useRef()
+  const contactFormRef = useRef({} as HTMLFormElement)
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = new FormData(e.currentTarget)
     // const ether = form.get('ether')
-    const title = form.get('title')
-    const content = form.get('content')
+    const title = String(form.get('title'))
+    const content = String(form.get('content'))
 
     if (title && type && content) {
       const data = {
@@ -76,7 +76,7 @@ const ContactContainer: NextComponentType = () => {
             subtitle="You can put your message here and you can support me :) I will also support someone who is supporting me :)"
           >
             <S.MessagesContainer>
-              {messages?.map((item: any) => (
+              {messages?.map(item => (
                 <Card key={item.id} data={item} type={2} />
               ))}
             </S.MessagesContainer>
@@ -88,7 +88,7 @@ const ContactContainer: NextComponentType = () => {
             subtitle="This is the board message section. You messages will be shown more clear here."
           >
             <S.BoardContainer>
-              {board?.map((item: any) => (
+              {board?.map(item => (
                 <S.BoardItem key={item.id} />
               ))}
             </S.BoardContainer>

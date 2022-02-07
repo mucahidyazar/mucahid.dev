@@ -1,7 +1,12 @@
-const app = require('express')()
-const server = require('http').createServer(app)
-const next = require('next')
+/* eslint-disable import/order */
+const express = require('express')
 const {getSession} = require('next-auth/react')
+
+const http = require('http')
+const next = require('next')
+
+const app = express()
+const server = http.createServer(app)
 
 const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({dev})
@@ -22,10 +27,6 @@ var PORT = process.env.PORT || 3000
 nextApp.prepare().then(() => {
   // Apply the rate limiting middleware to all requests
   // app.use(limiter)
-
-  // app.get('/api/socket', (req, res) => {
-  //   return nextHandler(req, res)
-  // })
 
   app.all('*', (req, res) => {
     return nextHandler(req, res)

@@ -9,14 +9,14 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const {title, content, type, to} = req.body
+  const {title, content, type, to = 'mucahidyazar@gmail.com'} = req.body
 
-  const session = await getSession({req})
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+  const session: any = await getSession({req})
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
 
   if (type === 'EMAIL') {
     const msg = {
-      to: 'mucahidyazar@gmail.com', // Change to your recipient
+      to, // Change to your recipient
       from: 'admin@mucahid.dev', // Change to your verified sender
       subject: title,
       text: content,
@@ -25,9 +25,11 @@ export default async function handle(
     sgMail
       .send(msg)
       .then(() => {
+        // eslint-disable-next-line no-console
         console.log('Email sent')
       })
       .catch(error => {
+        // eslint-disable-next-line no-console
         console.error(error)
       })
 
@@ -54,9 +56,3 @@ export default async function handle(
     res.status(401).send({message: 'Unauthorized'})
   }
 }
-// id        Int     @id @default(autoincrement())
-// title     String
-// type      MessageType
-// content   String?
-// author    User?   @relation(fields: [authorId], references: [id])
-// authorId  Int?

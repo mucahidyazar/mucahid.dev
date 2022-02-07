@@ -1,25 +1,8 @@
-import React, {useEffect} from 'react'
-import Link from 'next/link'
-import type {NextComponentType} from 'next'
-import {useDispatch, useSelector} from 'react-redux'
+import React from 'react'
 import {useSession, signIn, signOut} from 'next-auth/react'
 
-import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
-import {PostCard, Button} from '@/ui'
-import {contributions, workshops} from '@/data'
-import {
-  getApis,
-  getStarreds,
-  makeSelectApis,
-  makeSelectStarreds,
-} from '@/store/projects'
-
-import * as S from './style'
-import {SectionCard} from './SectionCard'
-
-const SignedInContainer: NextComponentType = ({csrfToken, providers}) => {
-  const {data: session} = useSession()
-  console.log(session)
+const SignedInContainer = ({csrfToken, providers}: any) => {
+  const {data: session}: any = useSession()
   if (session) {
     return (
       <>
@@ -39,7 +22,7 @@ const SignedInContainer: NextComponentType = ({csrfToken, providers}) => {
         <button type="submit">Sign in with Email</button>
       </form>
 
-      {Object.values(providers).map(provider => (
+      {Object.values(providers).map((provider: any) => (
         <div key={provider.name}>
           <button onClick={() => signIn(provider.id)}>
             Sign in with {provider.name}
@@ -51,12 +34,3 @@ const SignedInContainer: NextComponentType = ({csrfToken, providers}) => {
 }
 
 export default SignedInContainer
-
-/*
-// If older than Next.js 9.3
-SignIn.getInitialProps = async (context) => {
-  return {
-    csrfToken: await getCsrfToken(context)
-  }
-}
-*/

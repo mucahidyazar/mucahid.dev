@@ -5,3 +5,9 @@ export enum Status {
   ERROR,
   LOADING,
 }
+export enum EDrawerPlacement {
+  INIT,
+  OK,
+  ERROR,
+  LOADING,
+}

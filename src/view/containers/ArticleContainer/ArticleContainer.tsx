@@ -21,15 +21,15 @@ const ArticleContainer: NextComponentType = () => {
   const article = useSelector(makeArticleSelector)
   const comments = useSelector(makeSelectComments)
   const user = useSelector(makeSelectUser)
-  const formRef = useRef(null)
+  const formRef = useRef({} as HTMLFormElement)
 
-  const sendCommentHandler = e => {
+  const sendCommentHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    const form = new FormData(e.currentTarget)
+    const form = new FormData(e.currentTarget as any)
     const comment = form.get('comment')
     const {slug} = router.query
 
-    dispatch(addComment(slug, comment))
+    dispatch(addComment(slug as string, comment as string))
     formRef.current.reset()
   }
 
@@ -71,7 +71,7 @@ const ArticleContainer: NextComponentType = () => {
         <Image width={1440} height={540} src="/images/article.jpg" alt="mail" />
       </S.ArticleImage>
       <S.ArticleTags>
-        {article?.categories?.map((item: any) => (
+        {article?.categories?.map(item => (
           <Badge key={item}>{item}</Badge>
         ))}
       </S.ArticleTags>

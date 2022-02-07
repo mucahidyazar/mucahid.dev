@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Image from 'next/image'
 import {useSelector} from 'react-redux'
 
@@ -31,7 +30,7 @@ const NewsModal: React.FC<INewsModalProps> = () => {
         </S.NewsHeaderDescription>
       </S.NewsHeader>
       <S.ModalNews>
-        <S.ModalMainNews news={selectedNews} isModal />
+        {selectedNews && <S.ModalMainNews news={selectedNews} isModal />}
       </S.ModalNews>
     </Modal>
   )

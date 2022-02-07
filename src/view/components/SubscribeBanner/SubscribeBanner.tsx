@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import type {NextComponentType} from 'next'
 import {useDispatch, useSelector} from 'react-redux'
 
 import {makeSelectUser, setNewsletter} from '@/store/auth'
@@ -12,15 +11,15 @@ const SubscribeBanner = () => {
   const user = useSelector(makeSelectUser)
 
   // event type
-  const submitHandler = e => {
+  const submitHandler = (e: React.FormEvent) => {
     e.preventDefault()
-    const form = new FormData(e.currentTarget)
+    const form = new FormData(e.currentTarget as any)
     const data = {
       email: form.get('email'),
       name: form.get('name'),
     }
 
-    dispatch(setNewsletter(data))
+    dispatch(setNewsletter(data as any))
   }
 
   return (

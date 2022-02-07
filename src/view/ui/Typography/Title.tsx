@@ -9,7 +9,7 @@ interface ITitle {
 }
 
 const Title = ({children, level, ...titleProps}: ITitle) => {
-  const Titles: any = S
+  const Titles = S as {[key: string]: React.FunctionComponent}
   const TitleItem = Titles[`Title${level}`]
 
   return (

@@ -3,24 +3,13 @@ import Image from 'next/image'
 import PropTypes from 'prop-types'
 
 import {Tag} from '@/ui'
+import {CardData} from '@/types'
 
 import * as S from './style'
 
-type TData = {
-  id?: string | number
-  image?: string
-  name?: string
-  subtitles?: string[]
-  tags?: string[]
-  url?: string
-  text?: string
-  date?: string
-  type?: number
-}
-
 interface ICard {
   children?: React.ReactNode
-  data: TData
+  data: CardData
   type: number
 }
 
@@ -43,14 +32,14 @@ const Card = ({data, type}: ICard) => {
         <S.CardContentTitle href={data?.url} target="_blank">
           {data?.name}
         </S.CardContentTitle>
-        {data?.subtitles?.map((subtitle: any) => (
+        {data?.subtitles?.map(subtitle => (
           <S.CardContentSubtitle key={data?.id + subtitle}>
             {subtitle}
           </S.CardContentSubtitle>
         ))}
         {data?.tags && (
           <S.CardContentTags>
-            {data.tags.map((tag: any) => (
+            {data.tags.map(tag => (
               <Tag key={tag}>{tag}</Tag>
             ))}
           </S.CardContentTags>

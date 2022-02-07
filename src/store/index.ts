@@ -38,6 +38,7 @@ const reducer = (state: any, action: AnyAction) => {
 
   return combinedReducers(state, action)
 }
+export type RootState = ReturnType<typeof reducer>
 
 // create a makeStore function
 const makeStore = () => createStore(reducer, bindMiddleware([thunk]))

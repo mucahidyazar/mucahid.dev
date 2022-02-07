@@ -1,7 +1,7 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import React, {FC} from 'react'
-import {AppProps} from 'next/app'
+import React from 'react'
+import type {AppProps, AppContext} from 'next/app'
 import {getSession, SessionProvider} from 'next-auth/react'
 import {useSelector} from 'react-redux'
 
@@ -12,7 +12,7 @@ import {makeSelectTheme} from '@/store/settings'
 
 import {wrapper} from '../src/store'
 
-const WrappedApp: FC<AppProps> = ({Component, pageProps}) => {
+const WrappedApp = ({Component, pageProps}: AppProps) => {
   const theme = useSelector(makeSelectTheme)
 
   return (
@@ -25,18 +25,28 @@ const WrappedApp: FC<AppProps> = ({Component, pageProps}) => {
 }
 
 WrappedApp.getInitialProps = wrapper.getInitialAppProps(
-  store => async (ctx: any) => {
-    const data = await getSession(ctx)
+  store =>
+    async ({ctx}: AppContext): Promise<any> => {
+      const data = await getSession(ctx)
 
-    if (data) {
-      await store.dispatch(saveAuth(data))
+      if (data) {
+        await store.dispatch(saveAuth(data as any))
+        return {
+          pageProps: {
+            session: data,
+          },
+        }
+      }
+
       return {
         pageProps: {
-          session: data,
+          session: {
+            user: null,
+            espires: null,
+          },
         },
       }
-    }
-  },
+    },
 )
 
 export default wrapper.withRedux(WrappedApp)

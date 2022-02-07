@@ -1,3 +1,5 @@
+import {ParsedUrlQuery} from 'querystring'
+
 import React, {useEffect, useState} from 'react'
 import type {NextComponentType} from 'next'
 import {useRouter} from 'next/router'
@@ -24,15 +26,15 @@ const ArticlesContainer: NextComponentType = () => {
   const filters = useSelector(makeSelectFilters)
 
   const handleFilter = (key: string, value: string) => {
-    const query: any = {...router.query}
+    const query: ParsedUrlQuery = {...router.query}
 
     if (query[key] && !query[key]?.includes(value)) {
-      query[key] = [query[key], value]
+      query[key] = [query[key] as string, value]
     } else if (query[key]?.includes(value)) {
       if (typeof query[key] === 'string') {
         delete query[key]
       } else {
-        query[key] = query[key]?.filter((item: any) => item !== value)
+        query[key] = (query[key] as string[]).filter(item => item !== value)
       }
     } else {
       query[key] = [value]
@@ -53,7 +55,7 @@ const ArticlesContainer: NextComponentType = () => {
       <S.FiltersSection>
         <S.FilterByLabel>Search article by topic</S.FilterByLabel>
         <S.FiltersTags>
-          {categories?.map((item: any) => (
+          {categories?.map(item => (
             <Badge
               key={item}
               onClick={() => handleFilter('category', item)}
@@ -65,7 +67,7 @@ const ArticlesContainer: NextComponentType = () => {
         </S.FiltersTags>
         <S.FilterByLabel>Search article by topic</S.FilterByLabel>
         <S.FiltersTags>
-          {years.map((item: any) => (
+          {years.map(item => (
             <Badge
               key={item}
               onClick={() => handleFilter('year', item)}
@@ -78,7 +80,7 @@ const ArticlesContainer: NextComponentType = () => {
       </S.FiltersSection>
 
       <S.ArticlesSection>
-        {articles.map((article: any, index: any) => {
+        {articles.map((article, index) => {
           if (index < pagination) {
             return (
               <PostCard

@@ -3,10 +3,17 @@ import Image from 'next/image'
 import {useDispatch} from 'react-redux'
 
 import {setNews} from '@/store/home'
+import {News} from '@/types'
 
 import * as S from './style'
 
-const OldNews = ({news, onClick, isModal, ...rest}) => {
+interface IOldNewsProps {
+  news: News
+  onClick?: any
+  isModal?: boolean
+}
+
+const OldNews = ({news, onClick, isModal, ...rest}: IOldNewsProps) => {
   const dispatch = useDispatch()
   const openNewsHandler = () => {
     if (!isModal) {

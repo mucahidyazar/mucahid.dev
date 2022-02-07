@@ -32,10 +32,10 @@ const LinkTreeContainer: NextComponentType = () => {
             <S.LinkCardTitle>My Blog</S.LinkCardTitle>
           </S.LinkCard>
         </Link>
-        {buttons.map(({id, icon, name, link, color}: any) => (
+        {buttons.map(({id, icon, name, url, color}) => (
           <S.LinkCard
             key={id}
-            href={link}
+            href={url}
             backgroundColor={color}
             target="_blank"
           >
@@ -46,8 +46,8 @@ const LinkTreeContainer: NextComponentType = () => {
       </S.LinkCardsWrapper>
 
       <S.SocialIconsWrapper>
-        {icons.map(({id, icon, link}: any) => (
-          <S.IconLink key={id} href={link} target="_blank">
+        {icons.map(({id, icon, url}) => (
+          <S.IconLink key={id} href={url} target="_blank">
             <Icon name={icon} />
           </S.IconLink>
         ))}

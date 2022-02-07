@@ -1,8 +1,8 @@
 const DrawerPlacement = {
-  TOP: 'top',
-  RIGHT: 'right',
-  BOTTOM: 'bottom',
-  LEFT: 'left',
+  TOP: 0,
+  RIGHT: 1,
+  BOTTOM: 2,
+  LEFT: 3,
 }
 
 export {DrawerPlacement}

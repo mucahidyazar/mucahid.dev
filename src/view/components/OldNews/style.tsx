@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import {BreakpointSize} from '@/constants'
 import {Title} from '@/ui'
 
 const OldNews = styled.div`
