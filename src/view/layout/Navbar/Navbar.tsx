@@ -25,6 +25,7 @@ type RouteModel = {
   key?: string
   name: string
   route: string
+  source: string
 }
 
 const Navbar: NextComponentType = () => {
@@ -60,8 +61,8 @@ const Navbar: NextComponentType = () => {
         </Link>
       </S.NavbarBrand>
       <S.NavbarMenu>
-        {routes.map(({id, name, route}) => (
-          <S.NavbarMenuItem key={id} isActive={router.route === route}>
+        {routes.map(({id, name, route, source}) => (
+          <S.NavbarMenuItem key={id} isActive={router.route === source}>
             <Link href={route}>{name}</Link>
           </S.NavbarMenuItem>
         ))}
