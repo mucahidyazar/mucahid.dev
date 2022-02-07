@@ -1,5 +1,6 @@
 import React from 'react'
-import type {NextPage} from 'next'
+import type {GetServerSideProps, NextPage} from 'next'
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
 import {wrapper} from '@/store/index'
 import {getInstagram} from '@/store/media'
@@ -15,13 +16,16 @@ const Media: NextPage = () => (
   </MainLayout>
 )
 
-export const getServerSideProps = wrapper.getServerSideProps(
-  store => async () => {
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps(store => async ctx => {
+    const {locale}: any = ctx
     await store.dispatch(getInstagram())
+
     return {
-      props: {},
+      props: {
+        ...(await serverSideTranslations(locale, ['common'])),
+      },
     }
-  },
-)
+  })
 
 export default Media

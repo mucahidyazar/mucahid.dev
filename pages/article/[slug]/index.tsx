@@ -1,9 +1,10 @@
 import React from 'react'
 import type {NextPage} from 'next'
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
+import {wrapper} from '@/store/index'
 import {ArticleContainer} from '@/containers'
 import {getArticle, getComments} from '@/store/articles'
-import {wrapper} from '@/store/index'
 import {MainLayout} from '@/layout'
 
 const Article: NextPage = () => (
@@ -19,10 +20,19 @@ const Article: NextPage = () => (
 export const getServerSideProps = wrapper.getServerSideProps(
   store =>
     async (ctx): Promise<any> => {
-      const {slug} = ctx.params as any
+      const {
+        params: {slug},
+        locale,
+      } = ctx as any
 
       await store.dispatch(getArticle(slug))
       await store.dispatch(getComments(slug))
+
+      return {
+        props: {
+          ...(await serverSideTranslations(locale, ['common'])),
+        },
+      }
     },
 )
 

@@ -59,7 +59,7 @@ module.exports = {
       locale: false,
     },
     {
-      source: '/tr/hakkimizda',
+      source: '/tr/hakkinda',
       destination: '/tr/about',
       locale: false,
     },

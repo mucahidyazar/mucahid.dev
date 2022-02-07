@@ -1,6 +1,8 @@
 import React from 'react'
 import type {NextPage} from 'next'
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
+import {wrapper} from '@/store/index'
 import {MainLayout} from '@/layout'
 import {AboutContainer} from '@/containers'
 
@@ -11,6 +13,17 @@ const About: NextPage = () => (
   >
     <AboutContainer />
   </MainLayout>
+)
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  () =>
+    async ({locale}: {locale: string}) => {
+      return {
+        props: {
+          ...(await serverSideTranslations(locale, ['common'])),
+        },
+      }
+    },
 )
 
 export default About

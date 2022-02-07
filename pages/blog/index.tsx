@@ -1,10 +1,11 @@
 import React from 'react'
 import type {NextPage} from 'next'
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
+import {wrapper} from '@/store/index'
 import {MainLayout} from '@/layout'
 import {BlogContainer} from '@/containers'
 import {getArticles} from '@/store/articles/actions'
-import {wrapper} from '@/store/index'
 
 const Blog: NextPage = () => (
   <MainLayout
@@ -17,8 +18,15 @@ const Blog: NextPage = () => (
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store): any =>
-    async () => {
+    async (ctx: any) => {
+      const {locale} = ctx
       await store.dispatch(getArticles())
+
+      return {
+        props: {
+          ...(await serverSideTranslations(locale, ['common'])),
+        },
+      }
     },
 )
 
