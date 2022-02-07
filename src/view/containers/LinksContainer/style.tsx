@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
 
-const LinkTreeSection = styled.section`
+const LinksSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,7 +119,7 @@ const IconLink = styled.a`
 `
 
 export {
-  LinkTreeSection,
+  LinksSection,
   ImageWrapperLayout,
   ImageWrapper,
   Username,

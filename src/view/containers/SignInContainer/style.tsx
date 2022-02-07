@@ -1,35 +1,90 @@
 import styled from 'styled-components'
 
-const SummarySection = styled.div`
-  max-width: 100%;
+import {Button, Input} from '@/ui'
+import {BreakpointSize} from '@/constants'
+
+const SignInContainer = styled.div`
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2.5rem;
+  margin: 10rem auto;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    width: 100%;
+    padding: 1rem;
+  }
 `
 
-const ExperiencesSection = styled.div`
-  margin-bottom: 10rem;
+const SignInForm = styled.form`
+  &::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 1.25rem auto;
+  }
 `
-const WorkshopsSection = styled.div`
-  margin: 10rem 0;
+const SignInFormHiddenInput = styled.input``
+const SignInFormLabel = styled.label`
+  display: block;
+  margin-bottom: 1rem;
+`
+const SignInFormInput = styled(Input)``
+const SignInFormButton = styled(Button)`
+  width: 100%;
 `
 
-const WorkshopsList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  grid-gap: 5rem;
-  margin-bottom: 2rem;
-`
-
-const SectionCards = styled.div`
-  height: 600px;
-  overflow-y: scroll;
+const SignInProviders = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+`
+const SignInProvider = styled.div``
+const SignInProviderButton = styled(Button)`
+  width: 100%;
+`
+
+// SIGNED IN
+const SignedInContainer = styled.div`
+  width: 320px;
+  margin: 5rem auto 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    width: 100%;
+  }
+`
+const SignedInEmail = styled.div`
+  margin-bottom: 1rem;
+`
+const SignedInImage = styled.div`
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+`
+const SignedInSignOutButton = styled(Button)`
+  width: 100%;
 `
 
 export {
-  SummarySection,
-  ExperiencesSection,
-  WorkshopsSection,
-  WorkshopsList,
-  SectionCards,
+  SignInContainer,
+  SignInForm,
+  SignInFormHiddenInput,
+  SignInFormLabel,
+  SignInFormInput,
+  SignInFormButton,
+  SignInProviders,
+  SignInProvider,
+  SignInProviderButton,
+  SignedInContainer,
+  SignedInEmail,
+  SignedInImage,
+  SignedInSignOutButton,
 }

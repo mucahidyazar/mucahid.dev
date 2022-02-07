@@ -8,12 +8,12 @@ import {socialMedias} from '@/data'
 
 import * as S from './style'
 
-const LinkTreeContainer: NextComponentType = () => {
+const LinksContainer: NextComponentType = () => {
   const buttons = socialMedias.filter(({type}) => type === 'button')
   const icons = socialMedias.filter(({type}) => type === 'icon')
 
   return (
-    <S.LinkTreeSection>
+    <S.LinksSection>
       <S.ImageWrapperLayout>
         <S.ImageWrapper>
           <Image
@@ -52,8 +52,8 @@ const LinkTreeContainer: NextComponentType = () => {
           </S.IconLink>
         ))}
       </S.SocialIconsWrapper>
-    </S.LinkTreeSection>
+    </S.LinksSection>
   )
 }
 
-export default LinkTreeContainer
+export default LinksContainer

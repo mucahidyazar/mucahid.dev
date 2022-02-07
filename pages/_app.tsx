@@ -40,10 +40,7 @@ WrappedApp.getInitialProps = wrapper.getInitialAppProps(
 
       return {
         pageProps: {
-          session: {
-            user: null,
-            espires: null,
-          },
+          session: null,
         },
       }
     },

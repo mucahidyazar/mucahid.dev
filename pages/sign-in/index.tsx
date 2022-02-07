@@ -11,6 +11,7 @@ const SignIn: NextPage = ({csrfToken, providers}: any) => (
   <MainLayout
     title="Signed In"
     description="You can add comment and find some easter egg if you signed in :)"
+    hasWelcome={false}
   >
     <SignInContainer csrfToken={csrfToken} providers={providers} />
   </MainLayout>

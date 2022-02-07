@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import * as S from './style'
 
 interface IInput {
+  id?: string
   type?: string
   placeholder?: string
   name?: string
@@ -14,12 +15,14 @@ const Input = (props: IInput) => {
 }
 
 Input.propTypes = {
+  id: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,
   name: PropTypes.string,
 }
 
 Input.defaultProps = {
+  id: '',
   type: 'text',
   placeholder: '',
   name: '',

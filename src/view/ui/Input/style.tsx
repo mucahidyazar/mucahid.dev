@@ -12,6 +12,8 @@ const Input = styled.input`
 
   &::placeholder {
     color: var(--color-white);
+    font-size: 14px;
+    letter-spacing: 1px;
   }
 
   &:focus {
