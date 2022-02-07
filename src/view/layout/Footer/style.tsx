@@ -84,10 +84,6 @@ const FooterMenuItem = styled.a`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
-  &:not(:last-child) {
-    margin-bottom: 12px;
-  }
 `
 
 const FooterMenu = styled.div`
@@ -105,6 +101,10 @@ const FooterMenu = styled.div`
     ${FooterMenuItem} {
       text-align: center;
     }
+  }
+
+  ${FooterMenuItem}:not(:last-child) {
+    margin-bottom: 12px;
   }
 `
 

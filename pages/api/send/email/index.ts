@@ -1,6 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {getSession} from 'next-auth/react'
-import sgMail from '@sendgrid/mail'
+import nodemailer from 'nodemailer'
 
 import prisma from '../../../../lib/prisma'
 
@@ -12,26 +12,26 @@ export default async function handle(
   const {title, content, type, to = 'mucahidyazar@gmail.com'} = req.body
 
   const session: any = await getSession({req})
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  })
 
   if (type === 'EMAIL') {
-    const msg = {
-      to, // Change to your recipient
-      from: 'admin@mucahid.dev', // Change to your verified sender
+    transporter.sendMail({
+      from: 'admin@mucahid.dev',
+      to,
       subject: title,
       text: content,
-      html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    }
-    sgMail
-      .send(msg)
-      .then(() => {
-        // eslint-disable-next-line no-console
-        console.log('Email sent')
-      })
-      .catch(error => {
-        // eslint-disable-next-line no-console
-        console.error(error)
-      })
+      html: `<h1>${title}</h1><p>${content}</p>`,
+    })
+    // .then(info => {
+    //   console.log(info)
+    // })
 
     const result = await prisma.message.create({
       data: {

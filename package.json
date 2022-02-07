@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "node server.ts",
     "build": "next build",
-    "start": "next start",
+    "start": "node server.ts -p $PORT",
     "lint": "next lint"
   },
   "lint-staged": {

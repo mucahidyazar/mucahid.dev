@@ -50,14 +50,6 @@ const IntroductionContentDescription = styled.p`
 `
 
 const IntroductionContentItem = styled.div`
-  &:nth-child(even) ${IntroductionContentTitle} {
-    text-align: right;
-  }
-
-  &:nth-child(even) ${IntroductionContentDescription} {
-    text-align: right;
-  }
-
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     &:first-child {
       margin-bottom: 20px;
@@ -77,6 +69,13 @@ const IntroductionPhoto = styled.div`
   }
 `
 
+const QA = styled.span`
+  font-size: var(--font-size-4xl);
+  font-weight: 400;
+  margin-right: 0.5rem;
+  color: #e9b258;
+`
+
 export {
   IntroductionContainer,
   IntroductionContent,
@@ -84,4 +83,5 @@ export {
   IntroductionContentTitle,
   IntroductionContentDescription,
   IntroductionPhoto,
+  QA,
 }
