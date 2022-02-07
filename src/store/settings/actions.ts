@@ -1,6 +1,5 @@
 import router from 'next/router'
-
-import {setCookie} from '@/utilities'
+import {Dispatch} from 'redux'
 
 import * as types from './types'
 
@@ -39,13 +38,14 @@ export const changeTheme = () => {
   }
 }
 
-export const changeLanguage = (language: string) => async dispatch => {
-  await dispatch({
-    type: types.CHANGE_LANGUAGE,
-    language,
-  })
+export const changeLanguage =
+  (language: string) => async (dispatch: Dispatch) => {
+    await dispatch({
+      type: types.CHANGE_LANGUAGE,
+      language,
+    })
 
-  if (typeof window !== 'undefined') {
-    router.push(router.asPath, router.asPath, {locale: language})
+    if (typeof window !== 'undefined') {
+      router.push(router.asPath, router.asPath, {locale: language})
+    }
   }
-}

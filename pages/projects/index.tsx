@@ -15,8 +15,8 @@ const Projects: NextPage = () => (
   </MainLayout>
 )
 
-export const getServerSideProps: GetServerSideProps =
-  wrapper.getServerSideProps(() => async ctx => {
+export const getServerSideProps = wrapper.getServerSideProps(
+  () => async ctx => {
     const {locale}: any = ctx
 
     return {
@@ -24,6 +24,7 @@ export const getServerSideProps: GetServerSideProps =
         ...(await serverSideTranslations(locale, ['common'])),
       },
     }
-  })
+  },
+)
 
 export default Projects

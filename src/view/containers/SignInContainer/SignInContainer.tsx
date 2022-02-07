@@ -41,9 +41,7 @@ const SignInContainer = ({csrfToken, providers}: any) => {
             placeholder="test@example.com"
           />
         </S.SignInFormLabel>
-        <S.SignInFormButton type="submit">
-          Sign in with Email
-        </S.SignInFormButton>
+        <S.SignInFormButton>Sign in with Email</S.SignInFormButton>
       </S.SignInForm>
 
       <S.SignInProviders>

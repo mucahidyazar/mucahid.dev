@@ -23,6 +23,7 @@ Button.propTypes = {
   outline: PropTypes.bool,
   primary: PropTypes.bool,
   onClick: PropTypes.func,
+  type: PropTypes.string,
 }
 
 Button.defaultProps = {

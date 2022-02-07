@@ -16,14 +16,14 @@ const About: NextPage = () => (
 )
 
 export const getServerSideProps = wrapper.getServerSideProps(
-  () =>
-    async ({locale}: {locale: string}) => {
-      return {
-        props: {
-          ...(await serverSideTranslations(locale, ['common'])),
-        },
-      }
-    },
+  () => async (context: any) => {
+    const {locale} = context
+    return {
+      props: {
+        ...(await serverSideTranslations(locale, ['common'])),
+      },
+    }
+  },
 )
 
 export default About

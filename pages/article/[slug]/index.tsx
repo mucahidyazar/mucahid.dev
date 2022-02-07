@@ -19,11 +19,11 @@ const Article: NextPage = () => (
 
 export const getServerSideProps = wrapper.getServerSideProps(
   store =>
-    async (ctx): Promise<any> => {
+    async (context: any): Promise<any> => {
       const {
         params: {slug},
         locale,
-      } = ctx as any
+      } = context
 
       await store.dispatch(getArticle(slug))
       await store.dispatch(getComments(slug))

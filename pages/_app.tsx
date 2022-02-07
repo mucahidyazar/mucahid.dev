@@ -1,7 +1,7 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import React from 'react'
-import type {AppProps, AppContext} from 'next/app'
+import type {AppProps} from 'next/app'
 import {getSession, SessionProvider} from 'next-auth/react'
 import {useSelector} from 'react-redux'
 import {appWithTranslation} from 'next-i18next'
@@ -27,9 +27,10 @@ const WrappedApp = ({Component, pageProps}: AppProps) => {
 
 WrappedApp.getInitialProps = wrapper.getInitialAppProps(
   store =>
-    async ({ctx}: AppContext): Promise<any> => {
+    async ({ctx}): Promise<any> => {
       const data = await getSession(ctx)
-      store.dispatch(changeLanguage(ctx.locale))
+      const {locale} = ctx
+      await store.dispatch(changeLanguage(locale as string) as any)
 
       if (data) {
         await store.dispatch(saveAuth(data as any))

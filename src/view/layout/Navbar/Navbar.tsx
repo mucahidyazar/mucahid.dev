@@ -20,13 +20,20 @@ import {Drawer} from '@/ui'
 
 import * as S from './style'
 
+type RouteModel = {
+  id: string
+  key?: string
+  name: string
+  route: string
+}
+
 const Navbar: NextComponentType = () => {
   const {t, i18n} = useTranslation('common')
   const user = useSelector(makeSelectUser)
   const dispatch = useDispatch()
   const router = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)
-  const routes = t('navbar', {returnObjects: true})
+  const routes = t('navbar', {returnObjects: true}) as RouteModel[]
 
   const theme = useSelector(makeSelectTheme)
   const language = useSelector(makeSelectLanguage)
