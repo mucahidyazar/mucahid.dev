@@ -6,6 +6,7 @@ import {useState} from 'react'
 import {useRouter} from 'next/router'
 import {useDispatch, useSelector} from 'react-redux'
 import {CSSTransition, SwitchTransition} from 'react-transition-group'
+import {useTranslation} from 'next-i18next'
 
 import {DrawerPlacement} from '@/constants'
 import {makeSelectUser} from '@/store/auth'
@@ -19,21 +20,13 @@ import {Drawer} from '@/ui'
 
 import * as S from './style'
 
-const routes = [
-  {id: 'home', name: 'Home', route: '/'},
-  {id: 'about', name: 'About', route: '/about'},
-  {id: 'projects', name: 'Projects', route: '/projects'},
-  {id: 'articles', name: 'Articles', route: '/articles'},
-  {id: 'media', name: 'Media', route: '/media'},
-  {id: 'contact', name: 'Contact', route: '/contact'},
-  {id: 'links', name: 'Links', route: '/links'},
-]
-
 const Navbar: NextComponentType = () => {
+  const {t, i18n} = useTranslation('common')
   const user = useSelector(makeSelectUser)
   const dispatch = useDispatch()
   const router = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)
+  const routes = t('navbar', {returnObjects: true})
 
   const theme = useSelector(makeSelectTheme)
   const language = useSelector(makeSelectLanguage)
@@ -46,7 +39,8 @@ const Navbar: NextComponentType = () => {
     dispatch(changeTheme())
   }
   const changeLanguageHandler = () => {
-    dispatch(changeLanguage())
+    const nextLanguage = i18n.language === 'en' ? 'tr' : 'en'
+    dispatch(changeLanguage(nextLanguage))
   }
 
   return (
@@ -69,14 +63,14 @@ const Navbar: NextComponentType = () => {
         <S.NavbarLanguages>
           <SwitchTransition mode="out-in">
             <CSSTransition
-              key={language === 'tr' ? 'tr' : 'en'}
+              key={language}
               addEndListener={(node, done) =>
                 node.addEventListener('transitionend', done, false)
               }
               classNames="fade"
             >
               <S.NavbarLanguage onClick={changeLanguageHandler}>
-                {language === 'tr' ? 'en' : 'tr'}
+                {language}
               </S.NavbarLanguage>
             </CSSTransition>
           </SwitchTransition>

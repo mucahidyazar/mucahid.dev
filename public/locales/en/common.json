@@ -1,0 +1,11 @@
+{
+  "navbar": [
+    {"id": "0", "ket": "home", "name": "Home", "route": "/"},
+    {"id": "1", "ket": "about", "name": "About", "route": "/about"},
+    {"id": "2", "ket": "projects", "name": "Projects", "route": "/projects"},
+    {"id": "3", "ket": "blog", "name": "Blog", "route": "/blog"},
+    {"id": "4", "ket": "media", "name": "Media", "route": "/media"},
+    {"id": "5", "ket": "contact", "name": "Contact", "route": "/contact"},
+    {"id": "6", "ket": "links", "name": "Links", "route": "/links"}
+  ]
+}

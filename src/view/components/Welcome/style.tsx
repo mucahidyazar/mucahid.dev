@@ -34,7 +34,7 @@ const WelcomeContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 60%;
 
   @media (max-width: ${BreakpointSize.TABLET.MAX}px) {
     width: 70%;

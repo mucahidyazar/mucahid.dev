@@ -41,7 +41,7 @@ const ModalNews = styled.div`
     grid-template-columns: 1fr;
   }
 
-  ${MainNews.S.MainNews} {
+  ${MainNews?.S.MainNews} {
     padding: 0;
     padding-right: 1rem;
 

@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const {i18n} = require('./next-i18next.config')
+
 module.exports = {
   experimental: {
     styledComponents: true,
@@ -29,4 +31,97 @@ module.exports = {
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
     PORT: process.env.PORT,
   },
+  i18n,
+  rewrites: async () => [
+    {
+      source: '/en/sign-in',
+      destination: '/en/sign-in',
+      locale: false,
+    },
+    {
+      source: '/tr/giris',
+      destination: '/tr/sign-in',
+      locale: false,
+    },
+    {
+      source: '/en/home',
+      destination: '/en',
+      locale: false,
+    },
+    {
+      source: '/tr/anasayfa',
+      destination: '/tr',
+      locale: false,
+    },
+    {
+      source: '/en/about',
+      destination: '/en/about',
+      locale: false,
+    },
+    {
+      source: '/tr/hakkimizda',
+      destination: '/tr/about',
+      locale: false,
+    },
+    {
+      source: '/en/projects',
+      destination: '/en/projects',
+      locale: false,
+    },
+    {
+      source: '/tr/projeler',
+      destination: '/tr/projects',
+      locale: false,
+    },
+    {
+      source: '/en/blog',
+      destination: '/en/blog',
+      locale: false,
+    },
+    {
+      source: '/tr/blog',
+      destination: '/tr/blog',
+      locale: false,
+    },
+    {
+      source: '/en/article',
+      destination: '/en/article',
+      locale: false,
+    },
+    {
+      source: '/tr/yazi',
+      destination: '/tr/article',
+      locale: false,
+    },
+    {
+      source: '/en/media',
+      destination: '/en/media',
+      locale: false,
+    },
+    {
+      source: '/tr/medya',
+      destination: '/tr/media',
+      locale: false,
+    },
+    {
+      source: '/en/contact',
+      destination: '/en/contact',
+      locale: false,
+    },
+    {
+      source: '/tr/iletisim',
+      destination: '/tr/contact',
+      locale: false,
+    },
+    {
+      source: '/en/links',
+      destination: '/en/links',
+      locale: false,
+    },
+    {
+      source: '/tr/linkler',
+      destination: '/tr/links',
+      locale: false,
+    },
+  ],
 }

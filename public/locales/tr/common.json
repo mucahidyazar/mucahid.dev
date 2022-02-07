@@ -1,0 +1,11 @@
+{
+  "navbar": [
+    {"id": "0", "ket": "home", "name": "Ana Sayfa", "route": "/"},
+    {"id": "1", "ket": "about", "name": "Hakkında", "route": "/about"},
+    {"id": "2", "ket": "projects", "name": "Projeler", "route": "/projects"},
+    {"id": "3", "ket": "blog", "name": "Blog", "route": "/blog"},
+    {"id": "4", "ket": "media", "name": "Medya", "route": "/media"},
+    {"id": "5", "ket": "contact", "name": "İletişim", "route": "/contact"},
+    {"id": "6", "ket": "links", "name": "Linkler", "route": "/links"}
+  ]
+}

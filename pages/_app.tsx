@@ -4,11 +4,12 @@ import React from 'react'
 import type {AppProps, AppContext} from 'next/app'
 import {getSession, SessionProvider} from 'next-auth/react'
 import {useSelector} from 'react-redux'
+import {appWithTranslation} from 'next-i18next'
 
 import {PageLoading} from '@/components'
 import {GlobalStyle} from '@/styles'
 import {saveAuth} from '@/store/auth'
-import {makeSelectTheme} from '@/store/settings'
+import {changeLanguage, makeSelectTheme} from '@/store/settings'
 
 import {wrapper} from '../src/store'
 
@@ -28,6 +29,7 @@ WrappedApp.getInitialProps = wrapper.getInitialAppProps(
   store =>
     async ({ctx}: AppContext): Promise<any> => {
       const data = await getSession(ctx)
+      store.dispatch(changeLanguage(ctx.locale))
 
       if (data) {
         await store.dispatch(saveAuth(data as any))
@@ -46,4 +48,4 @@ WrappedApp.getInitialProps = wrapper.getInitialAppProps(
     },
 )
 
-export default wrapper.withRedux(WrappedApp)
+export default wrapper.withRedux(appWithTranslation(WrappedApp))

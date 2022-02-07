@@ -1,3 +1,7 @@
+import router from 'next/router'
+
+import {setCookie} from '@/utilities'
+
 import * as types from './types'
 
 export const showLoading = () => ({
@@ -35,6 +39,13 @@ export const changeTheme = () => {
   }
 }
 
-export const changeLanguage = () => ({
-  type: types.CHANGE_LANGUAGE,
-})
+export const changeLanguage = (language: string) => async dispatch => {
+  await dispatch({
+    type: types.CHANGE_LANGUAGE,
+    language,
+  })
+
+  if (typeof window !== 'undefined') {
+    router.push(router.asPath, router.asPath, {locale: language})
+  }
+}

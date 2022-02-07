@@ -11,7 +11,7 @@ const INITIAL_STATE: SettingsState = {
   activeRoute: '/',
   modalType: null,
   theme: 'dark',
-  language: 'tr',
+  language: 'en',
 }
 
 export const reducer = produce((draft, action) => {
@@ -30,7 +30,7 @@ export const reducer = produce((draft, action) => {
         : 'dark'
       break
     case types.CHANGE_LANGUAGE:
-      draft.language = draft.language === 'tr' ? 'en' : 'tr'
+      draft.language = action.language
       break
     default:
       break

@@ -16,7 +16,7 @@ import {setFilter} from '@/store/articles'
 
 import * as S from './style'
 
-const ArticlesContainer: NextComponentType = () => {
+const BlogContainer: NextComponentType = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const [pagination, setPagination] = useState(6)
@@ -113,4 +113,4 @@ const ArticlesContainer: NextComponentType = () => {
   )
 }
 
-export default ArticlesContainer
+export default BlogContainer

@@ -39,5 +39,5 @@
     "src/store/**/*.ts",
     "src/view/**/**/*.ts"
   ],
-  "exclude": ["node_modules", "server.ts"]
+  "exclude": ["node_modules", "server.ts", "next-i18next.config.ts"]
 }
