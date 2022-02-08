@@ -8,6 +8,7 @@ interface IInput {
   type?: string
   placeholder?: string
   name?: string
+  min?: number | string
 }
 
 const Input = (props: IInput) => {
@@ -19,6 +20,7 @@ Input.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   name: PropTypes.string,
+  min: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 
 Input.defaultProps = {
@@ -26,6 +28,7 @@ Input.defaultProps = {
   type: 'text',
   placeholder: '',
   name: '',
+  min: 0,
 }
 
 Input.S = S

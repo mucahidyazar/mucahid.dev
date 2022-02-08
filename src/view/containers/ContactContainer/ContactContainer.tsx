@@ -118,7 +118,12 @@ const ContactContainer: NextComponentType = () => {
             </S.ContactFormTypeItem>
           </S.ContactFormType>
           {type !== ContactType.EMAIL && (
-            <S.ContactFormInput name="ether" placeholder="0.00000 ether" />
+            <S.ContactFormInput
+              type="number"
+              min="0"
+              name="ether"
+              placeholder="0.00000 ether"
+            />
           )}
           <S.ContactFormInput name="title" placeholder="Title" />
           <S.ContactFormTextarea name="content" placeholder="Message" />
