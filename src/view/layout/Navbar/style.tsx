@@ -117,6 +117,11 @@ const NavbarLogo = styled.div`
   background-color: black;
   border-radius: 2px;
 `
+const NavbarImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`
 const NavbarUser = styled.div`
   display: flex;
   align-items: center;
@@ -177,6 +182,7 @@ export {
   NavbarIconWrapper,
   NavbarLogoGradientBorder,
   NavbarLogo,
+  NavbarImage,
   DrawerNavbarMenu,
   DrawerNavbarMenuItem,
 }

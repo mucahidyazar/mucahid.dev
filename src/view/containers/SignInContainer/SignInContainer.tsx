@@ -1,22 +1,27 @@
 import React from 'react'
 import {useSession, signIn, signOut} from 'next-auth/react'
-import Image from 'next/image'
 
 import * as S from './style'
 
-const SignInContainer = ({csrfToken, providers}: any) => {
-  const {data: session}: any = useSession()
+type TProvider = {
+  callbackUrl: string
+  id: string
+  name: string
+  signinUrl: string
+  type: string
+}
+interface IProps {
+  csrfToken: string
+  providers: TProvider[]
+}
+
+const SignInContainer: React.FC<IProps> = ({csrfToken, providers}) => {
+  const {data: session} = useSession()
+
   if (session) {
     return (
       <S.SignedInContainer>
-        <S.SignedInImage>
-          <Image
-            src={session.user.image}
-            alt={session.user.name}
-            layout="fill"
-            objectFit="cover"
-          />
-        </S.SignedInImage>
+        <S.SignedInImage src={session.user.image} alt={session.user.name} />
         <S.SignedInEmail>{session.user.email}</S.SignedInEmail>
         <S.SignedInSignOutButton onClick={() => signOut()}>
           Sign out
@@ -24,6 +29,7 @@ const SignInContainer = ({csrfToken, providers}: any) => {
       </S.SignedInContainer>
     )
   }
+
   return (
     <S.SignInContainer>
       <S.SignInForm method="post" action="/api/auth/signin/email">
@@ -45,7 +51,7 @@ const SignInContainer = ({csrfToken, providers}: any) => {
       </S.SignInForm>
 
       <S.SignInProviders>
-        {Object.values(providers).map((provider: any) => (
+        {Object.values(providers).map(provider => (
           <S.SignInProvider key={provider.name}>
             <S.SignInProviderButton onClick={() => signIn(provider.id)}>
               Sign in with {provider.name}

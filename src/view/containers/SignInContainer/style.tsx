@@ -62,7 +62,7 @@ const SignedInContainer = styled.div`
 const SignedInEmail = styled.div`
   margin-bottom: 1rem;
 `
-const SignedInImage = styled.div`
+const SignedInImage = styled.img`
   position: relative;
   width: 100%;
   height: 320px;

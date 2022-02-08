@@ -1,6 +1,5 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
 import {useState} from 'react'
 import {useRouter} from 'next/router'
@@ -103,11 +102,9 @@ const Navbar: NextComponentType = () => {
         </S.NavbarTheme>
         <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
           <S.NavbarLogo>
-            <Image
+            <S.NavbarImage
               src={user?.image ? user.image : '/gif/profile/gif-1.gif'}
               alt="logo"
-              width="100%"
-              height="100%"
               className="bg-black"
             />
           </S.NavbarLogo>
