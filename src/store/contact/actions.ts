@@ -28,6 +28,14 @@ export const sendEmail =
         type: types.SEND_EMAIL_SUCCESS,
       })
     } catch (error) {
+      toast('Your message was not been sent :(', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      })
       dispatch({
         type: types.SEND_EMAIL_FAILED,
         error,
