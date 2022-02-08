@@ -22,16 +22,20 @@ export default async function handle(
   } as any)
 
   if (type === 'EMAIL') {
-    transporter.sendMail({
-      from: 'admin@mucahid.dev',
-      to,
-      subject: title,
-      text: content,
-      html: `<h1>${title}</h1><p>${content}</p>`,
-    })
-    // .then(info => {
-    //   console.log(info)
-    // })
+    transporter
+      .sendMail({
+        from: 'admin@mucahid.dev',
+        to,
+        subject: title,
+        text: content,
+        html: `<h1>${title}</h1><p>${content}</p>`,
+      })
+      .then(info => {
+        res.json({info})
+      })
+      .catch(error => {
+        res.json({error})
+      })
 
     const result = await prisma.message.create({
       data: {
