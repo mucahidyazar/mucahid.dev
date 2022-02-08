@@ -1,10 +1,12 @@
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import 'react-toastify/dist/ReactToastify.css'
 import React from 'react'
 import type {AppProps} from 'next/app'
 import {getSession, SessionProvider} from 'next-auth/react'
 import {useSelector} from 'react-redux'
 import {appWithTranslation} from 'next-i18next'
+import {ToastContainer} from 'react-toastify'
 
 import {PageLoading} from '@/components'
 import {GlobalStyle} from '@/styles'
@@ -21,6 +23,7 @@ const WrappedApp = ({Component, pageProps}: AppProps) => {
       <Component {...pageProps} />
       <GlobalStyle theme={theme} />
       <PageLoading />
+      <ToastContainer />
     </SessionProvider>
   )
 }
