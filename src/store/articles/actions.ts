@@ -1,8 +1,8 @@
 import {ParsedUrlQuery} from 'querystring'
 
-import axios from 'axios'
 import {Dispatch} from 'redux'
 
+import axios from '@/axios'
 import {Article, State} from '@/types'
 
 import * as types from './types'
@@ -75,10 +75,7 @@ export const addComment =
     try {
       dispatch({type: types.ADD_COMMENT_REQUEST})
 
-      const res = await axios.post(
-        'http://localhost:3000/api/post/add-comment',
-        {postId, comment},
-      )
+      const res = await axios.post('/api/post/add-comment', {postId, comment})
 
       dispatch({
         type: types.ADD_COMMENT_SUCCESS,
@@ -98,9 +95,7 @@ export const getComments =
   async (dispatch: Dispatch) => {
     try {
       dispatch({type: types.GET_COMMENTS_REQUEST})
-      const res = await axios.get(
-        `http://localhost:3000/api/post/get-comments?postId=${postId}`,
-      )
+      const res = await axios.get(`/api/post/get-comments?postId=${postId}`)
 
       dispatch({
         type: types.GET_COMMENTS_SUCCESS,

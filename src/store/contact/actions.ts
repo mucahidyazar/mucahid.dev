@@ -1,6 +1,6 @@
 import {Dispatch} from 'redux'
-import axios from 'axios'
 
+import axios from '@/axios'
 import {sendEmailData} from '@/types'
 
 import * as types from './types'
@@ -12,7 +12,7 @@ export const sendEmail =
     })
 
     try {
-      await axios.post('http://localhost:3000/api/send/email', data)
+      await axios.post('/api/send/email', data)
 
       dispatch({
         type: types.SEND_EMAIL_SUCCESS,

@@ -16,6 +16,7 @@
     "downlevelIteration": true, // ti fix ...new Set() errors
     "baseUrl": ".",
     "paths": {
+      "@/axios": ["src/axios/index.ts"],
       "@/components": ["src/view/components/index.ts"],
       "@/containers": ["src/view/containers/index.ts"],
       "@/constants": ["src/constants/index.ts"],

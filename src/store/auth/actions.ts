@@ -1,6 +1,6 @@
 import {Dispatch} from 'redux'
-import axios from 'axios'
 
+import axios from '@/axios'
 import {AuthState, newsletterData} from '@/types'
 
 import * as types from './types'

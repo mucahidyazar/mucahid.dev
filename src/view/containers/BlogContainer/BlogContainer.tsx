@@ -41,7 +41,7 @@ const BlogContainer: NextComponentType = () => {
     }
 
     router.push({
-      pathname: '/articles',
+      pathname: '/blog',
       query,
     })
   }

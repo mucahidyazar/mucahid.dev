@@ -1,6 +1,6 @@
-import axios from 'axios'
 import {Dispatch} from 'redux'
 
+import axios from '@/axios'
 import {News} from '@/types'
 
 import * as types from './types'
@@ -8,7 +8,7 @@ import * as types from './types'
 export const getAllNews = (): any => async (dispatch: Dispatch) => {
   try {
     dispatch({type: types.GET_ALL_NEWS_REQUEST})
-    const {data} = await axios.get('http://localhost:3000/api/news')
+    const {data} = await axios.get('/api/news')
 
     dispatch({
       type: types.GET_ALL_NEWS_SUCCESS,
