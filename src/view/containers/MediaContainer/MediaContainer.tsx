@@ -38,7 +38,7 @@ const MediaContainer: NextComponentType = () => {
             subtitle="Let me show you what summary of my website is :) Let me show you what summary of my website is :) Click which you want or just wait."
           >
             <S.InstagramContainer>
-              {firstSixPhotos.map((item: string) => (
+              {firstSixPhotos?.map((item: string) => (
                 <S.InstagramImage key={item}>
                   <Image
                     src={item}
