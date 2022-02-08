@@ -1,6 +1,8 @@
 import {NextPage} from 'next'
 import React from 'react'
 
-const NotFound: NextPage = () => <div>Test 404 page</div>
+import {NotFoundContainer} from '@/containers'
+
+const NotFound: NextPage = () => <NotFoundContainer />
 
 export default NotFound
