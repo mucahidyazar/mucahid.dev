@@ -139,14 +139,6 @@ const NavbarUser = styled.div`
   }
 `
 
-const DrawerNavbarMenu = styled(NavbarMenu)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  margin-top: 10rem;
-`
 const DrawerNavbarMenuItem = styled.li`
   padding: 0 1rem;
   position: relative;
@@ -164,6 +156,23 @@ const DrawerNavbarMenuItem = styled.li`
     width: 200px;
     padding: 12px 32px;
     text-align: center;
+  }
+`
+const DrawerNavbarMenu = styled(NavbarMenu)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 10rem;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-top: 0;
+
+    ${DrawerNavbarMenuItem} {
+      font-size: var(--font-size-l);
+      filter: blur(0.5px);
+    }
   }
 `
 

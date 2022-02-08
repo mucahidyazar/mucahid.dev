@@ -17,6 +17,7 @@ const HomeContainer: NextComponentType = () => {
   }))
   const latestArticles = articlesForCard.slice(0, 4)
 
+  console.log({latestArticles})
   return (
     <>
       <S.Logos>
@@ -65,7 +66,7 @@ const HomeContainer: NextComponentType = () => {
             <S.Article key={article.id}>
               <S.ArticleBody>
                 <S.ArticleDate>Feb 14 - Blog</S.ArticleDate>
-                <S.ArticleTitle>How to delte your Github?</S.ArticleTitle>
+                <S.ArticleTitle>{article.name}</S.ArticleTitle>
               </S.ArticleBody>
               <S.ArticleGo>Go</S.ArticleGo>
             </S.Article>

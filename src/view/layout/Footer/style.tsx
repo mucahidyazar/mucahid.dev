@@ -76,7 +76,7 @@ const FooterMenuHeader = styled.div`
   font-weight: 700;
   margin-bottom: 40px;
 `
-const FooterMenuItem = styled.a`
+const FooterMenuItem = styled.div`
   cursor: pointer;
 
   &:hover {

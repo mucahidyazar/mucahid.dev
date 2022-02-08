@@ -16,6 +16,7 @@ const Article = styled.div`
 const ArticleBody = styled.div`
   display: flex;
   align-items: center;
+  width: 85%;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     flex-direction: column;
@@ -35,6 +36,11 @@ const ArticleDate = styled.div`
 const ArticleTitle = styled.a`
   font-size: var(--font-size-xl);
   transition: all 0.3s ease;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 
   &:hover {
     cursor: pointer;
@@ -63,6 +69,8 @@ const ArticleTitle = styled.a`
   }
 `
 const ArticleGo = styled.div`
+  width: 10%;
+
   @keyframes circle {
     0% {
     }
