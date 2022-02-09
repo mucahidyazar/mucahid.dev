@@ -1,4 +1,4 @@
-import {reducer as articlesReducer} from './articles'
+import {reducer as blogReducer} from './blog'
 import {reducer as authReducer} from './auth'
 import {reducer as blockchainReducer} from './blockchain'
 import {reducer as contactReducer} from './contact'
@@ -9,7 +9,7 @@ import {reducer as projectsReducer} from './projects'
 import {reducer as settingsReducer} from './settings'
 
 export const reducers = {
-  articles: articlesReducer,
+  blog: blogReducer,
   blockchain: blockchainReducer,
   contact: contactReducer,
   general: generalReducer,

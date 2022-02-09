@@ -2,7 +2,7 @@ import {Status} from './enums'
 import {Article, Comment, User, News, API, Starred, Query} from './models'
 
 export interface State {
-  articles: ArticleState
+  blog: BlogState
   auth: AuthState
   contact: ContactState
   general: GeneralState
@@ -12,7 +12,7 @@ export interface State {
   settings: SettingsState
 }
 
-export type ArticleState = {
+export type BlogState = {
   articles: {
     status: Status
     data: Article[]

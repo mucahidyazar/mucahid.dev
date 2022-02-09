@@ -2,9 +2,10 @@ import React from 'react'
 import type {NextComponentType} from 'next'
 import {useSelector} from 'react-redux'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import {Introduction} from '@/components'
-import {makeArticlesSelector} from '@/store/articles/selectors'
+import {makeArticlesSelector} from '@/store/blog/selectors'
 
 import * as S from './style'
 
@@ -14,10 +15,11 @@ const HomeContainer: NextComponentType = () => {
     id: article.guid,
     name: article.title,
     text: article.description,
+    date: article.pubDate,
+    slug: article.slug,
   }))
   const latestArticles = articlesForCard.slice(0, 4)
 
-  console.log({latestArticles})
   return (
     <>
       <S.Logos>
@@ -65,10 +67,14 @@ const HomeContainer: NextComponentType = () => {
           {latestArticles.map(article => (
             <S.Article key={article.id}>
               <S.ArticleBody>
-                <S.ArticleDate>Feb 14 - Blog</S.ArticleDate>
-                <S.ArticleTitle>{article.name}</S.ArticleTitle>
+                <S.ArticleDate>{article.date} - Blog</S.ArticleDate>
+                <Link href={`/blog/${article.slug}`} passHref>
+                  <S.ArticleTitle>{article.name}</S.ArticleTitle>
+                </Link>
               </S.ArticleBody>
-              <S.ArticleGo>Go</S.ArticleGo>
+              <Link href={`/blog/${article.slug}`} passHref>
+                <S.ArticleGo>Go</S.ArticleGo>
+              </Link>
             </S.Article>
           ))}
         </S.Articles>

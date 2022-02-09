@@ -18,6 +18,7 @@ export type Article = {
   thumbnail: string
   description: string
   content: string
+  slug?: string
   categories: string[]
 }
 

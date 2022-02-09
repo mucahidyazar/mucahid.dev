@@ -5,7 +5,7 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import {wrapper} from '@/store/index'
 import {MainLayout} from '@/layout'
 import {BlogContainer} from '@/containers'
-import {getArticles} from '@/store/articles/actions'
+import {getArticles} from '@/store/blog/actions'
 
 const Blog: NextPage = () => (
   <MainLayout

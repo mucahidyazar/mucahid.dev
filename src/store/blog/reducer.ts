@@ -1,11 +1,11 @@
 import produce from 'immer'
 
 import {Status} from '@/constants'
-import {ArticleState} from '@/types'
+import {BlogState} from '@/types'
 
 import * as types from './types'
 
-const INITIAL_STATE: ArticleState = {
+const INITIAL_STATE: BlogState = {
   articles: {
     status: Status.INIT,
     data: [],

@@ -4,7 +4,7 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
 import {wrapper} from '@/store/index'
 import {ArticleContainer} from '@/containers'
-import {getArticle, getComments} from '@/store/articles'
+import {getArticle, getComments} from '@/store/blog'
 import {MainLayout} from '@/layout'
 
 const Article: NextPage = () => (

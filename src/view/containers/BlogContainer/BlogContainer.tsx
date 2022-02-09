@@ -11,8 +11,8 @@ import {
   makeSelectCategories,
   makeSelectFilters,
   makeSelectYears,
-} from '@/store/articles/selectors'
-import {setFilter} from '@/store/articles'
+} from '@/store/blog/selectors'
+import {setFilter} from '@/store/blog'
 
 import * as S from './style'
 
@@ -90,7 +90,7 @@ const BlogContainer: NextComponentType = () => {
                 date={article.pubDate}
                 tags={article.categories}
                 // article.guid = https://medium.com/p/e2d129b93d4c
-                link={`/article/${article.guid.split('/')[4]}`}
+                link={`/blog/${article.slug}`}
                 imageUrl={article.thumbnail}
               />
             )

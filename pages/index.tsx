@@ -1,6 +1,6 @@
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 
-import {getArticles} from '@/store/articles'
+import {getArticles} from '@/store/blog'
 import {getAllNews} from '@/store/home'
 import {wrapper} from '@/store/index'
 

@@ -23,10 +23,14 @@ export const getArticles = (): any => async (dispatch: Dispatch) => {
     categories = [...new Set(categories)]
     years = [...new Set(years)]
 
+    const items = data.items.map((item: Article) => ({
+      ...item,
+      slug: item.guid.split('/')[4],
+    }))
+
     dispatch({
       type: types.GET_ARTICLES_SUCCESS,
-      data: data.items,
-      feed: data.feed,
+      data: items,
       categories,
       years,
     })
@@ -44,14 +48,12 @@ export const getArticle =
     try {
       dispatch({type: types.GET_ARTICLE_REQUEST})
 
-      let data = getState()?.articles?.articles?.data
+      let data = getState()?.blog?.articles?.data
 
       if (!data.length) {
-        const res = await axios.get(
-          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mucahidyazar`,
-        )
-        data = res.data?.items
+        await dispatch(getArticles())
       }
+      data = getState()?.blog?.articles?.data
 
       dispatch({
         type: types.GET_ARTICLE_SUCCESS,

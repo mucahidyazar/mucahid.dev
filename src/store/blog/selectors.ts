@@ -2,7 +2,7 @@ import {createSelector} from 'reselect'
 
 import {Article, State} from '@/types'
 
-const settingsSelector = (state: State) => state.articles
+const settingsSelector = (state: State) => state.blog
 
 export const makeArticlesSelector = createSelector(
   settingsSelector,

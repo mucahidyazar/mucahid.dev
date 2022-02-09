@@ -6,12 +6,9 @@ import {useRouter} from 'next/router'
 
 import {SectionHeader} from '@/components'
 import {Badge, Card, Textarea, Button, Title, Subtitle} from '@/ui'
-import {
-  makeArticleSelector,
-  makeSelectComments,
-} from '@/store/articles/selectors'
+import {makeArticleSelector, makeSelectComments} from '@/store/blog/selectors'
 import {makeSelectUser} from '@/store/auth'
-import {addComment} from '@/store/articles'
+import {addComment} from '@/store/blog'
 
 import * as S from './style'
 
