@@ -1,5 +1,5 @@
 export const ContactType = {
-  MESSAGE: 'MESSAGE',
-  BOARD: 'BOARD',
-  EMAIL: 'EMAIL',
+  MESSAGE: '0',
+  BOARD: '1',
+  EMAIL: '2',
 }

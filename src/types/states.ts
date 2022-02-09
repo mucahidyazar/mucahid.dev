@@ -2,6 +2,7 @@ import {Status} from './enums'
 import {Article, Comment, User, News, API, Starred, Query} from './models'
 
 export interface State {
+  blockchain: BlockchainState
   blog: BlogState
   auth: AuthState
   contact: ContactState
@@ -10,6 +11,22 @@ export interface State {
   media: MediaState
   projects: ProjectsState
   settings: SettingsState
+}
+
+export type BlockchainState = {
+  blockchain: {
+    status: Status
+    account: string | null
+    contract: any
+    web3: any
+    error: string | null
+  }
+  messages: {
+    status: Status
+    messages: string[][]
+    boardMessages: string[][]
+    error: string | null
+  }
 }
 
 export type BlogState = {

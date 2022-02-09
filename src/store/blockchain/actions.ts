@@ -1,83 +1,103 @@
-// import * as types from './types'
+declare var window: any
 
-export const connectRequest = () => {
-  return {
-    type: 'CONNECTION_REQUEST',
+import Web3 from 'web3'
+import {Dispatch} from 'redux'
+
+import {State} from '@/types'
+
+import SmartContract from '../../contracts/Mucahid.json'
+
+import * as types from './types'
+
+export const connectBlockchain = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch({type: types.CONNECTION_REQUEST})
+    const {ethereum} = window
+    if (ethereum) {
+      let accounts = await window.ethereum.request({
+        method: 'eth_requestAccounts',
+      })
+
+      let web3 = new Web3(ethereum)
+
+      try {
+        const networkId = await ethereum.request({
+          method: 'net_version',
+        })
+
+        // 137 Global Polygon network
+        if (networkId == 5777) {
+          const contract = await new web3.eth.Contract(
+            SmartContract.abi as any,
+            SmartContract.networks['5777'].address,
+          )
+
+          dispatch({
+            type: types.CONNECTION_SUCCESS,
+            web3,
+            contract,
+            account: accounts[0],
+          })
+
+          // Add listeners start
+          ethereum.on('accountsChanged', (accounts: string[]) => {
+            dispatch(updateAccount(accounts[0]))
+          })
+          ethereum.on('chainChanged', () => {
+            location.reload()
+          })
+          // Add listeners end
+        } else {
+          dispatch({
+            type: types.CONNECTION_FAILED,
+            error: 'Change network to Polygon.',
+          })
+        }
+      } catch (err) {
+        dispatch({
+          type: types.CONNECTION_FAILED,
+          error: 'Something went wrong.',
+        })
+      }
+    } else {
+      dispatch({
+        type: types.CONNECTION_FAILED,
+        error: 'Install Metamask.',
+      })
+    }
   }
 }
 
-// const connectSuccess = payload => {
-//   return {
-//     type: 'CONNECTION_SUCCESS',
-//     payload: payload,
-//   }
-// }
+export const updateAccount: any = (account: string) => {
+  return async (dispatch: Dispatch) => {
+    dispatch({type: types.UPDATE_ACCOUNT, account})
+    dispatch(getAllMessages())
+  }
+}
 
-// const connectFailed = payload => {
-//   return {
-//     type: 'CONNECTION_FAILED',
-//     payload: payload,
-//   }
-// }
+export const getAllMessages: any =
+  () => async (dispatch: Dispatch, getState: () => State) => {
+    dispatch({
+      type: types.GET_ALL_MESSAGES_REQUEST,
+    })
 
-// const updateAccountRequest = payload => {
-//   return {
-//     type: 'UPDATE_ACCOUNT',
-//     payload: payload,
-//   }
-// }
+    const contract = await getState().blockchain.blockchain.contract
 
-// export const connect = () => {
-//   return async dispatch => {
-//     dispatch(connectRequest())
-//     if (window.ethereum) {
-//       await window.ethereum.enable()
-//       let web3 = new Web3(window.ethereum)
-//       try {
-//         const accounts = await window.ethereum.request({
-//           method: 'eth_accounts',
-//         })
-//         const networkId = await window.ethereum.request({
-//           method: 'net_version',
-//         })
-//         console.log({networkId})
-//         // 137 Global Polygon network
-//         if (networkId === '5777') {
-//           const lipToken = new web3.eth.Contract(
-//             LipToken.abi,
-//             LipToken.networks['5777'].address,
-//           )
-//           console.log({LipToken, lipToken})
-//           dispatch(
-//             connectSuccess({
-//               account: accounts[0],
-//               lipToken: lipToken,
-//               web3: web3,
-//             }),
-//           )
-//           // Add listeners start
-//           window.ethereum.on('accountsChanged', accounts => {
-//             dispatch(updateAccount(accounts[0]))
-//           })
-//           window.ethereum.on('chainChanged', () => {
-//             window.location.reload()
-//           })
-//           // Add listeners end
-//         } else {
-//           dispatch(connectFailed('Change network to Polygon.'))
-//         }
-//       } catch (err) {
-//         dispatch(connectFailed('Something went wrong.'))
-//       }
-//     } else {
-//       dispatch(connectFailed('Install Metamask.'))
-//     }
-//   }
-// }
+    try {
+      let messages = await contract.methods.getMessagesTransactions().call()
+      let boardMessages = await contract.methods
+        .getAllBoardTransactions()
+        .call()
 
-// export const updateAccount = account => {
-//   return async dispatch => {
-//     dispatch(updateAccountRequest({account: account}))
-//     dispatch(fetchData(account))
-//   }
-// }
+      dispatch({
+        type: types.GET_ALL_MESSAGES_SUCCESS,
+        messages,
+        boardMessages,
+      })
+    } catch (error) {
+      dispatch({
+        type: types.GET_ALL_MESSAGES_FAILED,
+        error,
+      })
+    }
+  }

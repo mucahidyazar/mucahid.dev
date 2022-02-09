@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import type {NextComponentType} from 'next'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
@@ -13,11 +13,21 @@ import {
   sendEmail,
 } from '@/store/contact'
 import {ContactType, Status} from '@/constants'
+import {
+  connectBlockchain,
+  getAllMessages,
+  makeSelectBlockchainAccount,
+  makeSelectBlockchainContract,
+  makeSelectBlockchainStatus,
+} from '@/store/blockchain'
 
 import * as S from './style'
 
 const ContactContainer: NextComponentType = () => {
   const [type, setType] = useState(ContactType.EMAIL)
+  const contract = useSelector(makeSelectBlockchainContract)
+  const blockChainStatus = useSelector(makeSelectBlockchainStatus)
+  const blockChainAccount = useSelector(makeSelectBlockchainAccount)
   const messages = useSelector(makeSelectMessages)
   const board = useSelector(makeSelectBoard)
   const emailStatus = useSelector(makeSelectEmailStatus)
@@ -31,16 +41,40 @@ const ContactContainer: NextComponentType = () => {
     const title = String(form.get('title'))
     const content = String(form.get('content'))
 
-    if (title && type && content) {
-      const data = {
-        title,
-        content,
-        type,
+    if (title && content && type !== undefined) {
+      if (type !== ContactType.EMAIL) {
+        let gasLimit = 3000000
+        contract.methods
+          .addToBlockchain(blockChainAccount, title, content, type)
+          .send({
+            gasLimit,
+            from: blockChainAccount,
+            // value = 0.005 ether
+            // 1 eth = 1000000000000000000,
+            value: 500000000000000000,
+          })
+          .then((/*receipt*/) => {
+            dispatch(getAllMessages())
+          })
+      } else {
+        const data = {
+          title,
+          content,
+          type,
+        }
+        dispatch(sendEmail(data))
       }
-      dispatch(sendEmail(data))
       contactFormRef?.current?.reset()
     }
   }
+
+  const connectMetaMaskHandler = () => {
+    dispatch(connectBlockchain())
+  }
+
+  useEffect(() => {
+    dispatch(getAllMessages())
+  }, [dispatch, contract])
 
   return (
     <>
@@ -56,19 +90,23 @@ const ContactContainer: NextComponentType = () => {
           </S.ConnectionIcon>
         ))}
       </S.ConnectionsContainer>
-      <S.ConnectMetamaskButtonContainer>
-        <S.ConnectMetamaskButton>
-          <Image
-            src="/svgs/metamask-icon.svg"
-            alt="metamask-icon"
-            width={60}
-            height={60}
-          />
-          <S.ConnectMetamaskButtonText>
-            Connect Metamask
-          </S.ConnectMetamaskButtonText>
-        </S.ConnectMetamaskButton>
-      </S.ConnectMetamaskButtonContainer>
+      {blockChainStatus !== Status.OK && (
+        <S.ConnectMetamaskButtonContainer>
+          <S.ConnectMetamaskButton>
+            <Image
+              src="/svgs/metamask-icon.svg"
+              alt="metamask-icon"
+              width={60}
+              height={60}
+            />
+            (
+            <S.ConnectMetamaskButtonText onClick={connectMetaMaskHandler}>
+              Connect Metamask
+            </S.ConnectMetamaskButtonText>
+            )
+          </S.ConnectMetamaskButton>
+        </S.ConnectMetamaskButtonContainer>
+      )}
       <Sections
         sectionOne={
           <Section
