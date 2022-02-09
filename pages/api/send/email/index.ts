@@ -21,7 +21,7 @@ export default async function handle(
     },
   } as any)
 
-  if (type === 'EMAIL') {
+  if (session?.user?.email) {
     transporter
       .sendMail({
         from: 'admin@mucahid.dev',
@@ -46,17 +46,14 @@ export default async function handle(
       },
     })
     res.json(result)
-  } else if (session) {
+  } else {
     const result = await prisma.message.create({
       data: {
         title: title,
         type: type,
         content: content,
-        author: {connect: {email: session?.user?.email}},
       },
     })
     res.json(result)
-  } else {
-    res.status(401).send({message: 'Unauthorized'})
   }
 }

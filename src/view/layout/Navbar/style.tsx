@@ -171,7 +171,7 @@ const DrawerNavbarMenu = styled(NavbarMenu)`
 
     ${DrawerNavbarMenuItem} {
       font-size: var(--font-size-l);
-      filter: blur(0.5px);
+      filter: blur(0.2px);
     }
   }
 `

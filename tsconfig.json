@@ -24,6 +24,7 @@
       "@/data": ["src/data/index.ts"],
       "@/hooks": ["src/hooks/index.ts"],
       "@/modals": ["src/view/modals/index.ts"],
+      "@/pages/*": ["pages/*"],
       "@/store/*": ["src/store/*"],
       "@/styles": ["src/styles/index.ts"],
       "@/types": ["src/types/index.ts"],
@@ -40,5 +41,10 @@
     "src/store/**/*.ts",
     "src/view/**/**/*.ts"
   ],
-  "exclude": ["node_modules", "server.ts", "next-i18next.config.ts"]
+  "exclude": [
+    "node_modules",
+    "server.ts",
+    "next-i18next.config.ts",
+    "__tests__/runner.ts"
+  ]
 }
