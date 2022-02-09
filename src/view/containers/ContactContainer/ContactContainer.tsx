@@ -99,11 +99,9 @@ const ContactContainer: NextComponentType = () => {
               width={60}
               height={60}
             />
-            (
             <S.ConnectMetamaskButtonText onClick={connectMetaMaskHandler}>
               Connect Metamask
             </S.ConnectMetamaskButtonText>
-            )
           </S.ConnectMetamaskButton>
         </S.ConnectMetamaskButtonContainer>
       )}
