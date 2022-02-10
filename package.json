@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "node server.ts",
     "build": "next build",
+    "build:post": "cross-env next-sitemap --config next-sitemap.js",
     "start": "node server.ts -p $PORT",
     "lint": "next lint",
     "test": "jest --watch",
     "test:ci": "jest --ci",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:rss": "node src/utilities/generateRss.ts"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
@@ -75,12 +77,17 @@
     "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^2.0.2",
     "babel-plugin-transform-runtime": "^6.23.0",
+    "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.8.0",
     "eslint-config-next": "^12.0.10",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-testing-library": "^5.0.5",
+    "feed": "^4.2.2",
     "husky": "^7.0.0",
     "jest": "^27.5.1",
+    "next-sitemap": "^2.1.13",
     "nodemailer": "^6.7.2",
     "prettier": "^2.5.1",
     "prisma": "^3.9.0",
@@ -90,5 +97,10 @@
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

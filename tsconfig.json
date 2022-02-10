@@ -45,6 +45,7 @@
     "node_modules",
     "server.ts",
     "next-i18next.config.ts",
-    "__tests__/runner.ts"
+    "__tests__/runner.ts",
+    "./src/utilities/generateRss.ts"
   ]
 }

@@ -41,10 +41,10 @@ const Footer: NextComponentType = () => {
             <Link href="/">Updates</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
-            <Link href="/">Sitemap.xml</Link>
+            <Link href="/sitemap-0.xml">Sitemap.xml</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
-            <Link href="/">RSS.xml</Link>
+            <Link href="/rss.xml">RSS.xml</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
             <Link href="/contact">Email ME</Link>
