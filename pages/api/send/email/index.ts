@@ -59,7 +59,6 @@ export default async function handle(
       res.json(result)
     }
   } catch (error) {
-    console.log(error)
     res.json({error})
   }
 }

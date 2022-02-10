@@ -3,6 +3,7 @@ import styled, {css} from 'styled-components'
 import {BreakpointSize} from '@/constants'
 import {container} from '@/styles'
 import {Icon} from '@/ui'
+import {Drawer as StyledDrawer} from '@/ui'
 
 const Navbar = styled.div`
   display: flex;
@@ -41,6 +42,8 @@ const NavbarMenuItem = styled.li<INavbarMenuItem>`
   padding: 0 1rem;
   position: relative;
   font-size: var(--font-size);
+  text-transform: uppercase;
+  font-face: 'Poppins';
 
   @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
     width: 200px;
@@ -101,6 +104,64 @@ const NavbarIconWrapper = styled.div`
   justify-content: center;
 `
 const NavbarIcon = styled(Icon)``
+const NavbarUserIconWrapper = styled.div`
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+const NavbarUserIcon = styled(Icon)``
+
+const NavbarMenuIconWrapper = styled.div`
+  display: none;
+
+  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+    display: block;
+  }
+`
+const NavbarMenuIconBar = styled.div`
+  position: relative;
+  top: 10px;
+  left: 0;
+  background: white;
+  height: 2px;
+  width: 24px;
+  transition: all 0.4s ease;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: -7px;
+    background: white;
+    width: 100%;
+    height: 2px;
+    transition: all 0.4s ease;
+  }
+
+  &:after {
+    top: 7px;
+  }
+`
+const NavbarMenuIcon = styled.div`
+  height: 21px;
+  cursor: pointer;
+`
+const NavbarMenuToggler = styled.input`
+  display: none;
+
+  &:checked + ${NavbarMenuIcon} ${NavbarMenuIconBar} {
+    background: transparent;
+  }
+  &:checked + ${NavbarMenuIcon} ${NavbarMenuIconBar}:before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  &:checked + ${NavbarMenuIcon} ${NavbarMenuIconBar}:after {
+    top: 0;
+    transform: rotate(135deg);
+  }
+`
 
 const NavbarLogoGradientBorder = styled.div`
   width: 46px;
@@ -127,50 +188,69 @@ const NavbarUser = styled.div`
   align-items: center;
   gap: 1rem;
 
+  ${NavbarUserIconWrapper} {
+    order: 3;
+  }
+
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     flex-direction: column;
 
+    ${NavbarUserIconWrapper} {
+      order: 2;
+    }
+
     ${NavbarLanguages} {
-      order: 3;
+      order: 4;
     }
     ${NavbarTheme} {
-      order: 2;
+      order: 3;
     }
   }
 `
 
 const DrawerNavbarMenuItem = styled.li`
-  padding: 0 1rem;
   position: relative;
-  font-size: var(--font-size);
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  font-size: var(--font-size-2xl);
   filter: blur(1px);
+  width: max-content;
 
-  &:hover {
-    text-decoration: underline;
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #e9b258;
+    transition: all 0.3s ease-in-out;
   }
 
-  @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
-    width: 200px;
-    padding: 12px 32px;
-    text-align: center;
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+`
+const Drawer = styled(StyledDrawer)`
+  ${StyledDrawer.S.CloseButton} {
+    display: none;
+  }
+
+  ${StyledDrawer.S.DrawerContent} {
+    justify-content: center;
   }
 `
 const DrawerNavbarMenu = styled(NavbarMenu)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
-  margin-top: 10rem;
+  margin-top: 0 auto;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
-    margin-top: 0;
-
     ${DrawerNavbarMenuItem} {
-      font-size: var(--font-size-l);
+      font-size: var(--font-size-2xl);
       filter: blur(0);
     }
   }
@@ -184,6 +264,12 @@ export {
   NavbarMenu,
   NavbarMenuItem,
   NavbarUser,
+  NavbarUserIcon,
+  NavbarUserIconWrapper,
+  NavbarMenuIconWrapper,
+  NavbarMenuIcon,
+  NavbarMenuToggler,
+  NavbarMenuIconBar,
   NavbarLanguages,
   NavbarLanguage,
   NavbarTheme,
@@ -192,6 +278,7 @@ export {
   NavbarLogoGradientBorder,
   NavbarLogo,
   NavbarImage,
+  Drawer,
   DrawerNavbarMenu,
   DrawerNavbarMenuItem,
 }

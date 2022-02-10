@@ -15,7 +15,6 @@ import {
   makeSelectLanguage,
   makeSelectTheme,
 } from '@/store/settings'
-import {Drawer} from '@/ui'
 
 import * as S from './style'
 
@@ -100,31 +99,45 @@ const Navbar: NextComponentType = () => {
             </CSSTransition>
           </SwitchTransition>
         </S.NavbarTheme>
-        <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
-          <S.NavbarLogo>
-            <S.NavbarImage
-              src={user?.image ? user.image : '/gif/profile/gif-1.gif'}
-              alt="logo"
-              className="bg-black"
-            />
-          </S.NavbarLogo>
-        </S.NavbarLogoGradientBorder>
+        <S.NavbarMenuIconWrapper onClick={handleToggleMenu}>
+          <S.NavbarMenuToggler type="checkbox" checked={toggleMenu} />
+          <S.NavbarMenuIcon>
+            <S.NavbarMenuIconBar />
+          </S.NavbarMenuIcon>
+        </S.NavbarMenuIconWrapper>
+        {user.image ? (
+          <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
+            <S.NavbarLogo>
+              <S.NavbarImage
+                src={user?.image ? user.image : '/gif/profile/gif-1.gif'}
+                alt="logo"
+                className="bg-black"
+              />
+            </S.NavbarLogo>
+          </S.NavbarLogoGradientBorder>
+        ) : (
+          <S.NavbarUserIconWrapper>
+            <Link href="/sign-in" passHref>
+              <S.NavbarUserIcon size={24} name="user" />
+            </Link>
+          </S.NavbarUserIconWrapper>
+        )}
       </S.NavbarUser>
-      <Drawer
+      <S.Drawer
         isVisible={toggleMenu}
         onClose={() => setToggleMenu(false)}
         placement={DrawerPlacement.LEFT}
-        size="80%"
         isClosable={true}
+        size="80%"
       >
         <S.DrawerNavbarMenu>
           {routes.map(({id, name, route}) => (
-            <S.DrawerNavbarMenuItem key={id}>
-              <Link href={route}>{name}</Link>
-            </S.DrawerNavbarMenuItem>
+            <Link href={route} passHref key={id}>
+              <S.DrawerNavbarMenuItem>{name}</S.DrawerNavbarMenuItem>
+            </Link>
           ))}
         </S.DrawerNavbarMenu>
-      </Drawer>
+      </S.Drawer>
     </S.Navbar>
   )
 }
