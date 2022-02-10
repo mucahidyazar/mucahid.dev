@@ -1,16 +1,30 @@
 {
   "name": "mucahid.dev",
-  "private": true,
   "version": "2.0.0-beta.1",
+  "engines": {
+    "node": "16",
+    "npm": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mucahidyazar/mucahid.dev.git"
+  },
+  "author": {
+    "name": "Mucahid Yazar",
+    "email": "mucahidyazar@gmail.com",
+    "url": "https://mucahid.dev"
+  },
+  "homepage": "https://mucahid.dev",
+  "license": "MIT",
   "scripts": {
     "dev": "node server.ts",
     "build": "next build",
-    "build:post": "cross-env next-sitemap --config next-sitemap.js",
     "start": "node server.ts -p $PORT",
     "lint": "next lint",
     "test": "jest --watch",
     "test:ci": "jest --ci",
     "prepare": "husky install",
+    "generate:sitemap": "cross-env next-sitemap --config others/next-sitemap.js",
     "generate:rss": "ts-node others/generate-rss.js",
     "commit": "cz"
   },
@@ -103,5 +117,14 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "server-build",
+    "build",
+    "public/build",
+    "*.ignored/",
+    "*.ignored.*"
+  ]
 }
