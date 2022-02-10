@@ -6,7 +6,7 @@
 // "build:post": "cross-env next-sitemap --config next-sitemap.js",
 
 module.exports = {
-  siteUrl: process.env.BASE_URL || 'http://mucahid.dev',
+  siteUrl: 'https://mucahid.dev', // process.env.BASE_URL
   changefreq: 'daily',
   generateRobotsTxt: true, // (optional)
   // ...other options
