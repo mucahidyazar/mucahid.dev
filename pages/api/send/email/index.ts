@@ -22,7 +22,7 @@ export default async function handle(
       },
     } as any)
 
-    transporter
+    await transporter
       .sendMail({
         from: 'admin@mucahid.dev',
         to,
