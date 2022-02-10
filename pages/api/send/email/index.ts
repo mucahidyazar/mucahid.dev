@@ -22,8 +22,9 @@ export default async function handle(
       },
     } as any)
 
+    let result
     if (session?.user?.email) {
-      const result = await prisma.message.create({
+      result = await prisma.message.create({
         data: {
           title: title,
           type: type,
@@ -33,7 +34,7 @@ export default async function handle(
       })
       res.json(result)
     } else {
-      const result = await prisma.message.create({
+      result = await prisma.message.create({
         data: {
           title: title,
           type: type,
@@ -52,7 +53,7 @@ export default async function handle(
         html: `<h1>${title}</h1><p>${content}</p>`,
       })
       .then(info => {
-        res.json({info})
+        res.json({info, result})
       })
       .catch(error => {
         res.json({error})
