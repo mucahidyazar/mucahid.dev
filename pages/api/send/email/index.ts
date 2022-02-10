@@ -53,6 +53,7 @@ export default async function handle(
         html: `<h1>${title}</h1><p>${content}</p>`,
       })
       .then(info => {
+        console.log({info, result})
         res.json({info, result})
       })
       .catch(error => {
