@@ -11,7 +11,8 @@
     "test": "jest --watch",
     "test:ci": "jest --ci",
     "prepare": "husky install",
-    "generate:rss": "node src/utilities/generateRss.ts"
+    "generate:rss": "ts-node others/generate-rss.js",
+    "commit": "cz"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

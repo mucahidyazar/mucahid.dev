@@ -1,6 +1,7 @@
+const fs = require('fs')
+
 const axios = require('axios')
 const {Feed} = require('feed')
-const fs = require('fs')
 
 const getArticles = async () => {
   try {
@@ -43,7 +44,7 @@ const getArticles = async () => {
     })
 
     const rss = feed.rss2()
-    fs.writeFileSync(`${__dirname}/../../public/rss.xml`, rss)
+    fs.writeFileSync(`${__dirname}/../public/rss.xml`, rss)
   } catch (error) {
     throw error
   }
