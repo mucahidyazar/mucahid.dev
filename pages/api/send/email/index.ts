@@ -23,21 +23,6 @@ export default async function handle(
     } as any)
 
     if (session?.user?.email) {
-      transporter
-        .sendMail({
-          from: 'admin@mucahid.dev',
-          to,
-          subject: title,
-          text: content,
-          html: `<h1>${title}</h1><p>${content}</p>`,
-        })
-        .then(info => {
-          res.json({info})
-        })
-        .catch(error => {
-          res.json({error})
-        })
-
       const result = await prisma.message.create({
         data: {
           title: title,
@@ -57,6 +42,21 @@ export default async function handle(
       })
       res.json(result)
     }
+
+    transporter
+      .sendMail({
+        from: 'admin@mucahid.dev',
+        to,
+        subject: title,
+        text: content,
+        html: `<h1>${title}</h1><p>${content}</p>`,
+      })
+      .then(info => {
+        res.json({info})
+      })
+      .catch(error => {
+        res.json({error})
+      })
   } catch (error) {
     console.log(error)
     res.json({error})
