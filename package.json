@@ -1,13 +1,15 @@
 {
   "name": "mucahid.dev",
   "private": true,
+  "version": "2.0.0-beta.1",
   "scripts": {
     "dev": "node server.ts",
     "build": "next build",
     "start": "node server.ts -p $PORT",
     "lint": "next lint",
     "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
@@ -77,6 +79,7 @@
     "eslint-config-next": "^12.0.10",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-testing-library": "^5.0.5",
+    "husky": "^7.0.0",
     "jest": "^27.5.1",
     "nodemailer": "^6.7.2",
     "prettier": "^2.5.1",
