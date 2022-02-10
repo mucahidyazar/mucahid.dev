@@ -1,5 +1,5 @@
 {
-  "extends": ["next"],
+  "extends": ["next", "prettier"],
   "rules": {
     "react/no-unescaped-entities": "off",
     "no-unused-vars": 2,
@@ -20,5 +20,14 @@
       }
     ],
     "no-console": 1 // 1 Warning, 0 Error, 2 Off
-  }
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/public/**",
+    "**/static/**",
+    "**/types/**"
+  ]
 }

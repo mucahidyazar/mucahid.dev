@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 // import {render, screen} from '@testing-library/react'
 
 // import Home from '@/pages/index'
-let remote = process.env.VERCEL_URL
+const remote = process.env.VERCEL_URL
 
-if (remote) {
+if (process.env.VERCEL_URL) {
   console.log(`Testing against remote url: ${remote}.`)
 } else {
   console.log('Testing locally only.')
