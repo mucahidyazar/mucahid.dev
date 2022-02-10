@@ -22,7 +22,7 @@ export default async function handle(
       },
     } as any)
 
-    let result
+    let result: any = null
     if (session?.user?.email) {
       result = await prisma.message.create({
         data: {
