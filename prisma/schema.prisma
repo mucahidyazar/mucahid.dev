@@ -1,10 +1,10 @@
-generator client {
-  provider = "prisma-client-js"
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+generator client {
+  provider        = "prisma-client-js"
 }
 
 model Post {
@@ -28,16 +28,16 @@ model Comment {
   updatedAt     DateTime @updatedAt
 }
 
-// enum MessageType {
-//   EMAIL
-//   MESSAGE
-//   BOARD
-// }
+enum MessageType {
+  EMAIL
+  MESSAGE
+  BOARD
+}
 
 model Message {
   id        Int     @id @default(autoincrement())
   title     String
-  type      String
+  type      MessageType
   content   String
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  Int?
@@ -90,10 +90,10 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-// enum Role {
-//   ADMIN 0
-//   USER 1
-// }
+enum Role {
+  ADMIN
+  MEMBER
+}
 
 model User {
   id            Int       @id @default(autoincrement())
@@ -108,7 +108,7 @@ model User {
   metamask      Metamask?
   newsletter    Boolean? @default(false)
   news          News[]
-  role          Int @default(1)
+  role          Role     @default(MEMBER)
   comments      Comment[]
 }
 

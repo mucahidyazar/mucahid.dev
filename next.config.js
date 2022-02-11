@@ -20,7 +20,7 @@ module.exports = {
     dirs: ['pages', 'src'],
   },
   env: {
-    GITHUB_ID: process.env.GITHUB_ID,
+    GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
     GITHUB_SECRET: process.env.GITHUB_SECRET,
     SMTP_HOST: process.env.SMTP_HOST,
     SMTP_PORT: process.env.SMTP_PORT,
