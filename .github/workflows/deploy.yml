@@ -2,8 +2,7 @@ name: 'Deploy mucahid.dev'
 on:
   push:
     branches:
-      - v2.0.0
-      - dev
+      - main
 
 jobs:
   vercel:
