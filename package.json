@@ -17,9 +17,9 @@
   "homepage": "https://mucahid.dev",
   "license": "MIT",
   "scripts": {
-    "dev": "node server.ts",
+    "dev": "next dev",
     "build": "next build",
-    "start": "node server.ts -p $PORT",
+    "start": "next start",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ext js,jsx,ts,tsx .",
     "test": "jest --watch",
     "test:ci": "jest --ci",

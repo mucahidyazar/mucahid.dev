@@ -27,7 +27,9 @@ const MainLayout: React.FC<IMainLayout> = ({
   const [socket, setSocket] = React.useState<Socket>()
 
   const initSocket = useCallback(() => {
-    let socket = io('/')
+    let socket = io({
+      path: '/api/socket',
+    })
 
     // const {'CHAT_MESSAGE', 'ROOM_USERS'} = SOCKET_EVENTS
 

@@ -1,0 +1,63 @@
+name: 'Deploy mucahid.dev'
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  vercel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 100
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Setup Node 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Check is there any necessary changes for build
+        id: has-changed
+        uses: MarceloPrado/has-changed-path@v1.0
+        with:
+          paths: __paths__ lib pages prisma src types
+
+      - name: Build
+        if: steps.has-changed.outputs.changed == 'true'
+        run: |
+          yarn install --frozen-lockfile
+          yarn generate:rss
+          yarn build
+
+      - name: Run Tests Locally
+        if: steps.has-changed.outputs.changed == 'true'
+        run: yarn test:ci
+
+      - name: Deploy to Staging
+        if: steps.has-changed.outputs.changed == 'true'
+        id: deploy-vercel-staging
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Run Tests Against Vercel
+        if: steps.has-changed.outputs.changed == 'true'
+        env:
+          VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
+        run: yarn test:ci
