@@ -1,0 +1,33 @@
+{
+  "extends": ["next", "prettier"],
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "no-unused-vars": 2,
+    // About the import orders
+    // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin", // import { join } from 'path';
+          "external", // import chalk from 'chalk';
+          "internal", // import foo from 'src/foo';
+          "parent", // import foo from '../foo';
+          "index", // import main from './';
+          "sibling" // import bar from './bar';
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "no-console": 1 // 1 Warning, 0 Error, 2 Off
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/public/**",
+    "**/static/**",
+    "**/types/**"
+  ]
+}

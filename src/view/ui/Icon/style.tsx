@@ -1,0 +1,75 @@
+import styled, {css} from 'styled-components'
+
+import {IconSize} from '@/constants'
+
+const smallStyle = css`
+  min-width: 12px;
+  min-height: 12px;
+`
+
+const mediumStyle = css`
+  min-width: 18px;
+  min-height: 18px;
+`
+
+const largeStyle = css`
+  min-width: 24px;
+  min-height: 24px;
+`
+
+const xlargeStyle = css`
+  min-width: 30px;
+  min-height: 30px;
+`
+
+const IconSizeStyles = {
+  [IconSize.SMALL]: smallStyle,
+  [IconSize.MEDIUM]: mediumStyle,
+  [IconSize.LARGE]: largeStyle,
+  [IconSize.XLARGE]: xlargeStyle,
+}
+
+interface IWrapper {
+  format: 'none' | 'small' | 'medium' | 'large' | 'xlarge'
+}
+const Wrapper = styled.div<IWrapper>`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  ${({format}) => format !== IconSize.NONE && IconSizeStyles[format]};
+`
+
+const Path = styled.path``
+
+interface IIcon {
+  size?: string | number
+  spinning?: boolean
+}
+const Icon = styled.svg<IIcon>`
+  fill: currentColor;
+  width: ${({size}) => `${size}px`};
+  height: ${({size}) => `${size}px`};
+
+  ${Path} {
+    width: ${({size}) => `${size}px`};
+    height: ${({size}) => `${size}px`};
+  }
+
+  ${({spinning}) =>
+    spinning &&
+    css`
+      animation: 1.5s loading linear infinite;
+
+      @keyframes loading {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    `}
+`
+
+export {Icon, Path, Wrapper}

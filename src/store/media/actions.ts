@@ -1,0 +1,27 @@
+import {Dispatch} from 'redux'
+
+import axios from '@/axios'
+
+import * as types from './types'
+
+export const getInstagram = (): any => async (dispatch: Dispatch) => {
+  try {
+    dispatch({type: types.GET_INSTAGRAM_REQUEST})
+
+    const res = await axios.get(`https://instagram.com/instagram/?__a=1`)
+
+    dispatch({
+      type: types.GET_INSTAGRAM_SUCCESS,
+      data: res?.data?.graphql?.user?.edge_owner_to_timeline_media?.edges?.map(
+        (edge: any) => {
+          return edge?.node?.display_url
+        },
+      ),
+    })
+  } catch (error) {
+    dispatch({
+      type: types.GET_INSTAGRAM_FAILED,
+      error,
+    })
+  }
+}

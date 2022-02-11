@@ -1,0 +1,149 @@
+import React from 'react'
+import type {NextComponentType} from 'next'
+import Link from 'next/link'
+import {useState} from 'react'
+import {useRouter} from 'next/router'
+import {useDispatch, useSelector} from 'react-redux'
+import {CSSTransition, SwitchTransition} from 'react-transition-group'
+import {useTranslation} from 'next-i18next'
+
+import {DrawerPlacement} from '@/constants'
+import {makeSelectUser} from '@/store/auth'
+import {
+  changeLanguage,
+  changeTheme,
+  makeSelectLanguage,
+  makeSelectTheme,
+} from '@/store/settings'
+
+import * as S from './style'
+
+type RouteModel = {
+  id: string
+  key?: string
+  name: string
+  route: string
+  source: string
+}
+
+const Navbar: NextComponentType = () => {
+  const {t, i18n} = useTranslation('common')
+  const user = useSelector(makeSelectUser)
+  const dispatch = useDispatch()
+  const router = useRouter()
+  const [toggleMenu, setToggleMenu] = useState(false)
+  const routes = t('navbar', {returnObjects: true}) as RouteModel[]
+
+  const theme = useSelector(makeSelectTheme)
+  const language = useSelector(makeSelectLanguage)
+
+  const handleToggleMenu = () => {
+    setToggleMenu(prev => !prev)
+  }
+
+  const changeThemeHandler = () => {
+    dispatch(changeTheme())
+  }
+  const changeLanguageHandler = () => {
+    const nextLanguage = i18n.language === 'en' ? 'tr' : 'en'
+    dispatch(changeLanguage(nextLanguage))
+  }
+
+  return (
+    <S.Navbar>
+      <S.NavbarBrand>
+        <Link href="/" passHref>
+          <S.NavbarBrandText>
+            mucahid<S.NavbarBrandColor>.dev</S.NavbarBrandColor>
+          </S.NavbarBrandText>
+        </Link>
+      </S.NavbarBrand>
+      <S.NavbarMenu>
+        {routes.map(({id, name, route, source}) => (
+          <S.NavbarMenuItem key={id} isActive={router.route === source}>
+            <Link href={route}>{name}</Link>
+          </S.NavbarMenuItem>
+        ))}
+      </S.NavbarMenu>
+      <S.NavbarUser>
+        <S.NavbarLanguages>
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={language}
+              addEndListener={(node, done) =>
+                node.addEventListener('transitionend', done, false)
+              }
+              classNames="fade"
+            >
+              <S.NavbarLanguage onClick={changeLanguageHandler}>
+                {language}
+              </S.NavbarLanguage>
+            </CSSTransition>
+          </SwitchTransition>
+        </S.NavbarLanguages>
+        <S.NavbarTheme onClick={changeThemeHandler}>
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              key={theme === 'light' ? 'dark' : 'light'}
+              addEndListener={(node, done) =>
+                node.addEventListener('transitionend', done, false)
+              }
+              classNames="fade"
+            >
+              <S.NavbarIconWrapper>
+                <S.NavbarIcon
+                  size={24}
+                  name={theme === 'dark' ? 'sun' : 'moon'}
+                />
+              </S.NavbarIconWrapper>
+            </CSSTransition>
+          </SwitchTransition>
+        </S.NavbarTheme>
+        <S.NavbarMenuIconWrapper onClick={handleToggleMenu}>
+          <S.NavbarMenuToggler type="checkbox" checked={toggleMenu} />
+          <S.NavbarMenuIcon>
+            <S.NavbarMenuIconBar />
+          </S.NavbarMenuIcon>
+        </S.NavbarMenuIconWrapper>
+        {user.image ? (
+          <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
+            <S.NavbarLogo>
+              <S.NavbarImage
+                src={user?.image ? user.image : '/gif/profile/gif-1.gif'}
+                alt="logo"
+                className="bg-black"
+              />
+            </S.NavbarLogo>
+          </S.NavbarLogoGradientBorder>
+        ) : (
+          <S.NavbarUserIconWrapper>
+            <Link href="/sign-in" passHref>
+              <S.NavbarUserIcon size={24} name="user" />
+            </Link>
+          </S.NavbarUserIconWrapper>
+        )}
+      </S.NavbarUser>
+      <S.Drawer
+        isVisible={toggleMenu}
+        onClose={() => setToggleMenu(false)}
+        placement={DrawerPlacement.LEFT}
+        isClosable={true}
+        size="80%"
+      >
+        <S.DrawerNavbarMenu>
+          {routes.map(({id, name, route}) => (
+            <Link href={route} passHref key={id}>
+              <S.DrawerNavbarMenuItem>{name}</S.DrawerNavbarMenuItem>
+            </Link>
+          ))}
+        </S.DrawerNavbarMenu>
+      </S.Drawer>
+    </S.Navbar>
+  )
+}
+
+Navbar.propTypes = {}
+
+Navbar.defaultProps = {}
+
+export default Navbar

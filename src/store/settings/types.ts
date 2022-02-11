@@ -1,0 +1,7 @@
+export const SHOW_LOADING = 'SHOW_LOADING'
+export const HIDE_LOADING = 'HIDE_LOADING'
+export const SET_ACTIVE_ROUTE = 'SET_ACTIVE_ROUTE'
+export const SET_MODAL_TYPE = 'SET_MODAL_TYPE'
+
+export const CHANGE_THEME = 'CHANGE_THEME'
+export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'
