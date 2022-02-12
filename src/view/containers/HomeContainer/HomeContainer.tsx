@@ -27,8 +27,7 @@ const HomeContainer: NextComponentType = () => {
           <Image
             src="/images/logos/granobra.png"
             alt="getir logo"
-            width={280}
-            height={36}
+            layout="fill"
             objectFit="cover"
           />
         </S.Logo>
@@ -36,8 +35,7 @@ const HomeContainer: NextComponentType = () => {
           <Image
             src="/images/logos/getir.png"
             alt="getir logo"
-            width={60}
-            height={60}
+            layout="fill"
             objectFit="cover"
           />
         </S.Logo>
@@ -45,8 +43,7 @@ const HomeContainer: NextComponentType = () => {
           <Image
             src="/images/logos/maxithings.png"
             alt="getir logo"
-            width={360}
-            height={48}
+            layout="fill"
             objectFit="cover"
           />
         </S.Logo>

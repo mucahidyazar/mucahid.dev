@@ -241,7 +241,6 @@ const ContentDetailsText = styled.div`
 `
 
 const Logos = styled.div`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,18 +253,31 @@ const Logos = styled.div`
   }
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
-    transform: translateY(0);
-    margin-bottom: 50px;
+    gap: 2rem;
   }
 `
 const Logo = styled.div`
   filter: blur(4px) saturate(0.5);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  position: relative;
+  min-width: 100px;
+  min-height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
 
   &:hover {
     filter: blur(0) saturate(1);
-    transform: scale(1.1);
+    transform: scale(1.4);
+  }
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    &:first-child:hover {
+      transform: scale(1.1) translateX(10%);
+    }
+    &:last-child:hover {
+      transform: scale(1.1) translateX(-10%);
+    }
   }
 `
 
