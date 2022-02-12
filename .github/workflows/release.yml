@@ -1,8 +1,8 @@
-name: 'Deploy mucahid.dev'
+name: 'Release mucahid.dev'
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   vercel:
@@ -61,3 +61,21 @@ jobs:
         env:
           VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
         run: yarn test:ci
+
+      - uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.RELEASE_SECRET }}'
+          automatic_release_tag: 'latest'
+          prerelease: true
+          title: 'Production Build'
+
+      - name: Deploy to Production
+        uses: amondnet/vercel-action@v20
+        id: deploy-vercel-production
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID_TL_ENGINE }}
+          vercel-args: '--prod'
+          scope: ${{ secrets.VERCEL_ORG_ID }}
