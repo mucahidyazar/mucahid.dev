@@ -72,3 +72,4 @@ jobs:
           automatic_release_tag: 'latest'
           prerelease: true
           title: 'Development Build'
+# to udnerstand semantic release work or not
