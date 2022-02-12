@@ -75,6 +75,10 @@ const FooterMenuHeader = styled.div`
   font-size: var(--font-size-l);
   font-weight: 700;
   margin-bottom: 40px;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    text-align: center;
+  }
 `
 const FooterMenuItem = styled.div`
   cursor: pointer;
