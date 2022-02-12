@@ -1,18 +1,20 @@
-name: 'Release mucahid.dev'
+name: 'Release on tag @mucahid.dev'
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 jobs:
   vercel:
     runs-on: ubuntu-latest
     steps:
+      # Checkout source code
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           fetch-depth: 100
 
+      # Cache dependencies for faster build time in future
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -24,17 +26,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      # Setup Node.js
       - name: Setup Node 14
         uses: actions/setup-node@v2
         with:
           node-version: '14'
 
+      # Check is there changes which is need to build
       - name: Check is there any necessary changes for build
         id: has-changed
         uses: MarceloPrado/has-changed-path@v1.0
         with:
           paths: __paths__ lib pages prisma src types
 
+      # If there is changes then build
       - name: Build
         if: steps.has-changed.outputs.changed == 'true'
         run: |
@@ -42,10 +47,12 @@ jobs:
           yarn generate:rss
           yarn build
 
+      # If there is changes then let the tests runs
       - name: Run Tests Locally
         if: steps.has-changed.outputs.changed == 'true'
         run: yarn test:ci
 
+      # If there is changes then deploy to stagging on vercel
       - name: Deploy to Staging
         if: steps.has-changed.outputs.changed == 'true'
         id: deploy-vercel-staging
@@ -56,19 +63,29 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
 
+      # If there is changes then run the tests against vercel
       - name: Run Tests Against Vercel
         if: steps.has-changed.outputs.changed == 'true'
         env:
           VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
         run: yarn test:ci
 
+      # Prepare release files from BUILD directory
+      - name: Prepare release files
+        run: |
+          cd BUILD && tar -zcf ../release-$GITHUB_REF_NAME.tar.gz . && cd .. && ls -la
+
+      # then create a release
       - uses: 'marvinpinto/action-automatic-releases@latest'
         with:
           repo_token: '${{ secrets.RELEASE_SECRET }}'
-          automatic_release_tag: 'latest'
+          automatic_release_tag: 'release'
           prerelease: false
           title: 'Production Build'
+          files: |
+            release-${{ github.ref_name }}.tar.gz
 
+      # finally deploy it to production
       - name: Deploy to Production
         uses: amondnet/vercel-action@v20
         id: deploy-vercel-production
