@@ -80,7 +80,6 @@ jobs:
       - uses: 'marvinpinto/action-automatic-releases@latest'
         with:
           repo_token: '${{ secrets.RELEASE_SECRET }}'
-          automatic_release_tag: 'release'
           prerelease: false
           title: 'Production Build'
           files: |
@@ -97,4 +96,3 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
           scope: ${{ secrets.VERCEL_ORG_ID }}
-# test 1
