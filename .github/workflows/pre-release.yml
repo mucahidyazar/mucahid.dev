@@ -72,8 +72,10 @@ jobs:
 
       # Prepare pre-release files from BUILD directory
       - name: Prepare pre-release files
+        if: steps.has-changed.outputs.changed == 'true'
         run: |
-          cd BUILD && tar -zcf ../release-$GITHUB_REF_NAME.tar.gz . && cd .. && ls -la
+          echo $GITHUB_REF_NAME
+          cd BUILD && tar -zcf ../pre-release-$GITHUB_REF_NAME.tar.gz . && cd .. && ls -la
 
       # then create a pre-release
       - uses: 'marvinpinto/action-automatic-releases@latest'

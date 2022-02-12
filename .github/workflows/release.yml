@@ -72,6 +72,7 @@ jobs:
 
       # Prepare release files from BUILD directory
       - name: Prepare release files
+        if: steps.has-changed.outputs.changed == 'true'
         run: |
           cd BUILD && tar -zcf ../release-$GITHUB_REF_NAME.tar.gz . && cd .. && ls -la
 
@@ -96,3 +97,4 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
           scope: ${{ secrets.VERCEL_ORG_ID }}
+# test 1
