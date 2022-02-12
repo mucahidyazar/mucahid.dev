@@ -44,8 +44,12 @@ jobs:
         if: steps.has-changed.outputs.changed == 'true'
         run: |
           yarn install --frozen-lockfile
-          yarn generate:rss
           yarn build
+          mkdir BUILD
+          cp -r public BUILD/public
+          cp -r package.json BUILD/package.json
+          cp -r yarn.lock BUILD/yarn.lock
+          mv .next BUILD/.next
 
       # If there is changes then let the tests runs
       - name: Run Tests Locally
