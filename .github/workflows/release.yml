@@ -62,6 +62,13 @@ jobs:
           VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
         run: yarn test:ci
 
+      - uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.RELEASE_SECRET }}'
+          automatic_release_tag: 'latest'
+          prerelease: false
+          title: 'Production Build'
+
       - name: Deploy to Production
         uses: amondnet/vercel-action@v20
         id: deploy-vercel-production
@@ -72,10 +79,3 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
           scope: ${{ secrets.VERCEL_ORG_ID }}
-
-      # - uses: 'marvinpinto/action-automatic-releases@latest'
-      #   with:
-      #     repo_token: '${{ secrets.RELEASE_SECRET }}'
-      #     automatic_release_tag: 'latest'
-      #     prerelease: false
-      #     title: 'Production Build'
