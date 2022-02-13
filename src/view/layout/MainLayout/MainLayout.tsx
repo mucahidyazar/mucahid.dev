@@ -7,6 +7,7 @@ import {useDispatch} from 'react-redux'
 import {ActiveUsers, SubscribeBanner, Welcome} from '@/components'
 import {Navbar, Footer} from '@/layout'
 import {addActiveUser, removeActiveUser} from '@/store/general'
+import {setTheme} from '@/store/settings'
 
 import * as S from './style'
 
@@ -51,6 +52,10 @@ const MainLayout: React.FC<IMainLayout> = ({
       initSocket()
     }
   }, [socket, initSocket])
+
+  useEffect(() => {
+    dispatch(setTheme())
+  }, [])
 
   return (
     <S.MainLayout>

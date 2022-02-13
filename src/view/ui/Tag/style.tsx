@@ -8,34 +8,34 @@ const Tag = styled.div`
   border-radius: 4px;
   width: max-content;
 
-  &:nth-child(1n + 1) {
+  &:nth-child(10n + 1) {
     background: var(--color-facebook);
   }
-  &:nth-child(1n + 2) {
+  &:nth-child(10n + 2) {
     background: var(--color-twitter);
   }
-  &:nth-child(1n + 3) {
+  &:nth-child(10n + 3) {
     background: var(--color-instagram);
   }
-  &:nth-child(1n + 4) {
+  &:nth-child(10n + 4) {
     background: var(--color-youtube);
   }
-  &:nth-child(1n + 5) {
+  &:nth-child(10n + 5) {
     background: var(--color-linkedin);
   }
-  &:nth-child(1n + 6) {
+  &:nth-child(10n + 6) {
     background: var(--color-github);
   }
-  &:nth-child(1n + 7) {
+  &:nth-child(10n + 7) {
     background: var(--color-black);
   }
-  &:nth-child(1n + 8) {
+  &:nth-child(10n + 8) {
     background: var(--color-black);
   }
-  &:nth-child(1n + 9) {
+  &:nth-child(10n + 9) {
     background: var(--color-discord);
   }
-  &:nth-child(1n + 10) {
+  &:nth-child(10n + 10) {
     background: var(--color-stackoverflow);
   }
 `

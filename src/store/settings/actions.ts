@@ -21,20 +21,20 @@ export const setModalType = (modalType: string | null) => ({
   modalType,
 })
 
-export const changeTheme = () => {
+export const setTheme = () => async (dispatch: Dispatch) => {
   const theme = localStorage.getItem('theme')
 
   if (theme) {
-    localStorage.setItem('theme', theme === 'dark' ? 'light' : 'dark')
-
-    return {
-      type: types.CHANGE_THEME,
-      theme,
-    }
+    dispatch(changeTheme(theme))
   }
+}
+
+export const changeTheme = (theme: string) => {
+  localStorage.setItem('theme', theme)
 
   return {
     type: types.CHANGE_THEME,
+    theme,
   }
 }
 

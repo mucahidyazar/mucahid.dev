@@ -10,7 +10,7 @@ const INITIAL_STATE: SettingsState = {
   isLoadingVisible: false,
   activeRoute: '/',
   modalType: null,
-  theme: 'dark',
+  theme: 'default',
   language: 'en',
 }
 
@@ -24,10 +24,6 @@ export const reducer = produce((draft, action) => {
       break
     case types.CHANGE_THEME:
       draft.theme = action.theme
-        ? action.theme
-        : draft.theme === 'dark'
-        ? 'light'
-        : 'dark'
       break
     case types.CHANGE_LANGUAGE:
       draft.language = action.language

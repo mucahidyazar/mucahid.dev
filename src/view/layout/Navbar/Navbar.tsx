@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {CSSTransition, SwitchTransition} from 'react-transition-group'
 import {useTranslation} from 'next-i18next'
 
-import {DrawerPlacement} from '@/constants'
+import {DrawerPlacement, Theme} from '@/constants'
 import {makeSelectUser} from '@/store/auth'
 import {
   changeLanguage,
@@ -42,7 +42,7 @@ const Navbar: NextComponentType = () => {
   }
 
   const changeThemeHandler = () => {
-    dispatch(changeTheme())
+    dispatch(changeTheme(theme === Theme.DEFAULT ? Theme.LIGHT : Theme.DEFAULT))
   }
   const changeLanguageHandler = () => {
     const nextLanguage = i18n.language === 'en' ? 'tr' : 'en'
@@ -84,7 +84,7 @@ const Navbar: NextComponentType = () => {
         <S.NavbarTheme onClick={changeThemeHandler}>
           <SwitchTransition mode="out-in">
             <CSSTransition
-              key={theme === 'light' ? 'dark' : 'light'}
+              key={theme === Theme.LIGHT ? Theme.DEFAULT : Theme.LIGHT}
               addEndListener={(node, done) =>
                 node.addEventListener('transitionend', done, false)
               }
@@ -93,7 +93,7 @@ const Navbar: NextComponentType = () => {
               <S.NavbarIconWrapper>
                 <S.NavbarIcon
                   size={24}
-                  name={theme === 'dark' ? 'sun' : 'moon'}
+                  name={theme === Theme.DEFAULT ? 'sun' : 'moon'}
                 />
               </S.NavbarIconWrapper>
             </CSSTransition>

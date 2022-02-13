@@ -1,6 +1,8 @@
 import {createGlobalStyle, keyframes} from 'styled-components'
 
-import {defaultColors} from './colors'
+import {Theme} from '@/constants'
+
+import {defaultColors, lightColors} from './colors'
 import {fontSizes} from './font-sizes'
 import {lineHeights} from './line-heights'
 
@@ -125,6 +127,8 @@ export const GlobalStyle = createGlobalStyle`
   .fade-exit-active{
     transition: all 500ms;
   }
+
+  ${({theme}) => theme === Theme.LIGHT && lightColors}
 `
 
 const fade = keyframes`

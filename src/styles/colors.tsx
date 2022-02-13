@@ -54,4 +54,20 @@ export const defaultColors = css`
 `
 
 // convert the colors for the light theme
-export const lightColors = css``
+export const lightColors = css`
+  :root {
+    --color-primary: #164da7;
+    --color-newspaper: #f9f7f1;
+
+    --color-white: #000;
+    --color-black: #fff;
+
+    --color-background: #f0f1ec;
+    --color-background-blue: #d1cdae;
+    --color-background-brown: #afe5d2;
+  }
+
+  svg {
+    color: var(--color-black);
+  }
+`

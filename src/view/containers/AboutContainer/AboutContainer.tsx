@@ -42,9 +42,7 @@ const AboutContainer: NextComponentType = () => {
         />
         <S.TechnologiesTags>
           {technologies.map(item => (
-            <Badge key={item} cool>
-              {item}
-            </Badge>
+            <Badge key={item}>{item}</Badge>
           ))}
         </S.TechnologiesTags>
       </S.TechnologiesSection>

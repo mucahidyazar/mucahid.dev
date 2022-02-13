@@ -20,11 +20,11 @@ const Badge = styled.div<IBadge>`
 
   background: ${({isActive, cool}) => {
     if (cool && isActive) {
-      return css`linear-gradient(225deg, rgba(163, 161, 0, 0.8) 0%, rgba(0, 175, 144, 0.8) 100%); &:hover {background: linear-gradient(225deg, rgba(163, 161, 0, 0.8) 0%, rgba(0, 175, 144, 0.8) 100%);}`
+      return css`var(--color-pastel2); &:hover { background: var(--color-pastel2); }`
     } else if (isActive) {
       return css`rgba(62, 76, 103, 1)`
     } else if (cool) {
-      return css`linear-gradient(225deg, rgba(163, 161, 0, 0.5) 0%, rgba(0, 175, 144, 0.5) 100%); &:hover {background: linear-gradient(225deg,rgba(163, 161, 0, 0.8) 0%,rgba(0, 175, 144, 0.8) 100%);}`
+      return css`linear-gradient(225deg, var(--color-pastel2) 0%, var(--color-pastel7) 100%); &:hover {background: var(--color-pastel2);}`
     }
   }};
 `
