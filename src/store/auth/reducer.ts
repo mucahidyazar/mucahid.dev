@@ -12,6 +12,7 @@ const INITIAL_STATE: AuthState = {
     emailVerified: false,
     image: '',
     newsletter: false,
+    metamask: [],
     role: 1,
   },
   expires: '',
@@ -25,6 +26,9 @@ export const reducer = produce((draft, action) => {
       break
     case types.SET_NEWSLETTER_SUCCESS:
       draft.user.newsletter = true
+      break
+    case types.GET_USER_METAMASKS_SUCCESS:
+      draft.user.metamask = action.data
       break
     default:
       break

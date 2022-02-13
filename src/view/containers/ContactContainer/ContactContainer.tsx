@@ -8,20 +8,21 @@ import {Card, Icon} from '@/ui'
 import {socialMedias} from '@/data'
 import {
   getStats,
-  makeSelectBoard,
   makeSelectEmailStatus,
-  makeSelectMessages,
   makeSelectStats,
+  mintMessage,
   sendEmail,
 } from '@/store/contact'
 import {ContactType, Status} from '@/constants'
 import {
   connectBlockchain,
   getAllMessages,
-  makeSelectBlockchainAccount,
+  makeSelectBlockchainBoardMessages,
   makeSelectBlockchainContract,
+  makeSelectBlockchainMessageMessages,
   makeSelectBlockchainStatus,
 } from '@/store/blockchain'
+import {getUserMetamasks} from '@/store/auth'
 
 import * as S from './style'
 
@@ -30,9 +31,8 @@ const ContactContainer: NextComponentType = () => {
   const stats = useSelector(makeSelectStats)
   const contract = useSelector(makeSelectBlockchainContract)
   const blockChainStatus = useSelector(makeSelectBlockchainStatus)
-  const blockChainAccount = useSelector(makeSelectBlockchainAccount)
-  const messages = useSelector(makeSelectMessages)
-  const board = useSelector(makeSelectBoard)
+  const messages = useSelector(makeSelectBlockchainMessageMessages)
+  const board = useSelector(makeSelectBlockchainBoardMessages)
   const emailStatus = useSelector(makeSelectEmailStatus)
   const dispatch = useDispatch()
   const contactFormRef = useRef({} as HTMLFormElement)
@@ -46,19 +46,7 @@ const ContactContainer: NextComponentType = () => {
 
     if (title && content && type !== undefined) {
       if (type !== ContactType.EMAIL) {
-        let gasLimit = 3000000
-        contract.methods
-          .addToBlockchain(blockChainAccount, title, content, type)
-          .send({
-            gasLimit,
-            from: blockChainAccount,
-            // value = 0.005 ether
-            // 1 eth = 1000000000000000000,
-            value: 500000000000000000,
-          })
-          .then((/*receipt*/) => {
-            dispatch(getAllMessages())
-          })
+        dispatch(mintMessage(title, content, type))
       } else {
         const data = {
           title,
@@ -80,9 +68,11 @@ const ContactContainer: NextComponentType = () => {
   }, [dispatch, contract])
 
   useEffect(() => {
+    dispatch(getUserMetamasks())
     dispatch(getStats())
   }, [dispatch])
 
+  console.log({messages, board})
   return (
     <S.ContactContainer>
       <S.Stats>
@@ -92,8 +82,8 @@ const ContactContainer: NextComponentType = () => {
           <S.StatDescription>Total messages</S.StatDescription>
         </S.Stat>
         <S.Stat>
-          <S.StatIcon name="dollar" size={48} />
-          <S.StatTitle level={5}>{stats.totalGiveaways}$</S.StatTitle>
+          <S.StatIcon name="ethereum" size={48} />
+          <S.StatTitle level={5}>{stats.totalGiveaways}</S.StatTitle>
           <S.StatDescription>Total giveaways</S.StatDescription>
         </S.Stat>
         <S.Stat>
@@ -124,8 +114,12 @@ const ContactContainer: NextComponentType = () => {
             subtitle="You can put your message here and you can support me :) I will also support someone who is supporting me :)"
           >
             <S.MessagesContainer>
-              {messages?.map(item => (
-                <Card key={item.id} data={item} type={2} />
+              {messages?.map((item: any) => (
+                <Card
+                  key={item.id}
+                  data={{name: item.title, text: item.content}}
+                  type={2}
+                />
               ))}
             </S.MessagesContainer>
           </Section>
@@ -136,7 +130,7 @@ const ContactContainer: NextComponentType = () => {
             subtitle="This is the board message section. You messages will be shown more clear here."
           >
             <S.BoardContainer>
-              {board?.map(item => (
+              {board?.map((item: any) => (
                 <S.BoardItem key={item.id} />
               ))}
             </S.BoardContainer>
@@ -165,13 +159,17 @@ const ContactContainer: NextComponentType = () => {
               Board
             </S.ContactFormTypeItem>
           </S.ContactFormType>
-          {type !== ContactType.EMAIL && (
-            <S.ContactFormInput
-              type="number"
-              min="0"
-              name="ether"
-              placeholder="0.00000 ether"
-            />
+          {type === ContactType.MESSAGE && (
+            <S.ContactFormWarning>
+              This will cost 0.002 ETH. And also you need to connect with your
+              Metamask.
+            </S.ContactFormWarning>
+          )}
+          {type === ContactType.BOARD && (
+            <S.ContactFormWarning>
+              This will cost 0.004 ETH. And also you need to connect with your
+              Metamask.
+            </S.ContactFormWarning>
           )}
           <S.ContactFormInput name="title" placeholder="Title" />
           <S.ContactFormTextarea name="content" placeholder="Message" />

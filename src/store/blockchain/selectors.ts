@@ -49,6 +49,11 @@ export const makeSelectBlockchainBoardMessages = createSelector(
   ({boardMessages}) => boardMessages,
 )
 
+export const makeSelectBlockchainMessageMessages = createSelector(
+  makeSelectBlockchainMessages,
+  ({messages}) => messages,
+)
+
 export const makeSelectBlockchainMessagesError = createSelector(
   makeSelectBlockchainMessages,
   ({error}) => error,

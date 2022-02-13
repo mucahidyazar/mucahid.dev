@@ -29,3 +29,23 @@ export const setNewsletter =
       })
     }
   }
+
+export const getUserMetamasks = () => async (dispatch: Dispatch) => {
+  dispatch({
+    type: types.GET_USER_METAMASKS_REQUEST,
+  })
+
+  try {
+    const {data} = await axios.get('/api/general/get-user-metamasks')
+
+    dispatch({
+      type: types.GET_USER_METAMASKS_SUCCESS,
+      data,
+    })
+  } catch (error) {
+    dispatch({
+      type: types.GET_USER_METAMASKS_FAILED,
+      error,
+    })
+  }
+}

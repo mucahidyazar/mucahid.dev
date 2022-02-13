@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {Button, Input, Textarea, Title, Icon} from '@/ui'
+import {Button, Input, Textarea, Title, Icon, Subtitle} from '@/ui'
 
 import {Sections} from '../../components/Sections/style'
 
@@ -16,9 +16,7 @@ const Stat = styled.div`
   flex-direction: column;
   align-items: center;
 `
-const StatIcon = styled(Icon)`
-  transform: translateX(2px);
-`
+const StatIcon = styled(Icon)``
 const StatTitle = styled(Title)`
   font-size: var(--font-size-2xl);
   font-weight: 200;
@@ -125,8 +123,11 @@ const ContactForm = styled.form`
     width: 100%;
   }
 `
+const ContactFormWarning = styled(Subtitle)`
+  text-align: center;
+`
 const ContactFormInput = styled(Input)`
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 `
 const ContactFormTextarea = styled(Textarea)`
   margin-bottom: 1rem;
@@ -139,6 +140,7 @@ const ContactFormType = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  margin-bottom: 0.5rem;
 `
 interface IContactFormTypeItemProps {
   isSelected: boolean
@@ -148,7 +150,6 @@ const ContactFormTypeItem = styled.div<IContactFormTypeItemProps>`
   text-align: center;
   padding: 20px;
   background-color: var(--color-blue-transparent);
-  margin-bottom: 1rem;
   cursor: pointer;
 
   &:hover {
@@ -188,6 +189,7 @@ export {
   BoardItem,
   ContactFormContainer,
   ContactForm,
+  ContactFormWarning,
   ContactFormInput,
   ContactFormTextarea,
   ContactFormButton,

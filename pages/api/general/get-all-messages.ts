@@ -10,21 +10,16 @@ export default async function handle(
 ) {
   try {
     const allMessages = await prisma.message.findMany()
-    const boardMessages = allMessages.filter(
-      message => message.type === ContactType.BOARD,
-    )
     const messages = allMessages.filter(
       message => message.type === ContactType.MESSAGE,
     )
-    const totalGiveaways = Math.round(
-      (boardMessages.length + messages.length) / 10,
+    const boardMessages = allMessages.filter(
+      message => message.type === ContactType.BOARD,
     )
-    const totalCoffee = boardMessages.length * 2 + messages.length
 
     res.status(200).json({
-      totalMessages: allMessages.length,
-      totalGiveaways,
-      totalCoffee,
+      messages,
+      boardMessages,
     })
   } catch (error) {
     res.status(500).json({error})

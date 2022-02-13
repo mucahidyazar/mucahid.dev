@@ -105,7 +105,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   messages      Message[]
-  metamask      Metamask?
+  metamask      Metamask[]
   newsletter    Boolean? @default(false)
   news          News[]
   role          Role     @default(MEMBER)

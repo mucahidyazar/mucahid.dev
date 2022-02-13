@@ -1,3 +1,8 @@
+export type MetaMask = {
+  id: string | number
+  walletId: string
+}
+
 export type User = {
   id: string | number
   name: string
@@ -6,6 +11,7 @@ export type User = {
   image: string
   newsletter: boolean
   role: number
+  metamask: MetaMask[]
 }
 
 export type Article = {
