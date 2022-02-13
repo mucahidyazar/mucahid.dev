@@ -102,7 +102,11 @@ const Language = styled.div`
 `
 
 //? THEMES
-const Themes = styled.div``
+const Themes = styled.div`
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-bottom: 1rem;
+  }
+`
 const Theme = styled.div`
   width: 46px;
   height: 46px;
@@ -118,6 +122,9 @@ const Menu = styled.div`
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     display: block;
+  }
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-bottom: 1rem;
   }
 `
 const MenuIcon = styled.div`
@@ -187,6 +194,10 @@ const UserIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-bottom: 1rem;
+  }
 `
 const UserIconSource = styled(Icon)``
 
@@ -194,7 +205,6 @@ const UserIconSource = styled(Icon)``
 const NavbarControlPanel = styled.div`
   display: flex;
   align-items: center;
-  gap: 1rem;
 
   /* ${UserIcon} {
     order: 3;

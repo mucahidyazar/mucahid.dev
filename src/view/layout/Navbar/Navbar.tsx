@@ -86,7 +86,7 @@ const Navbar: NextComponentType = () => {
         <S.Themes onClick={changeThemeHandler}>
           <SwitchTransition mode="out-in">
             <CSSTransition
-              key={theme === Theme.LIGHT ? Theme.DEFAULT : Theme.LIGHT}
+              key={theme === Theme.DEFAULT ? Theme.DEFAULT : Theme.LIGHT}
               addEndListener={(node, done) =>
                 node.addEventListener('transitionend', done, false)
               }
@@ -95,7 +95,7 @@ const Navbar: NextComponentType = () => {
               <S.Theme>
                 <S.ThemeIcon
                   size={24}
-                  name={theme === Theme.DEFAULT ? 'sun' : 'moon'}
+                  name={theme === Theme.DEFAULT ? 'moon' : 'sun'}
                 />
               </S.Theme>
             </CSSTransition>
