@@ -27,11 +27,11 @@ interface IActiveUser {
 const ActiveUser = styled.div<IActiveUser>`
   width: 4rem;
   height: 4rem;
-  background-color: #e9b258;
+  background-color: var(--color-primary);
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  border: 2px solid #e9b258;
+  border: 2px solid var(--color-primary);
   cursor: pointer;
   position: absolute;
   top: 50%;

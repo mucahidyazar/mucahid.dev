@@ -19,8 +19,8 @@ const NotFoundContainer = styled.div`
 const LottieWrapper = styled.div``
 const HomeButton = styled(Button)`
   width: 100%;
-  background-color: #e9b258;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   font-size: var(--font-size-xl);
   text-transform: uppercase;
   letter-spacing: 2px;

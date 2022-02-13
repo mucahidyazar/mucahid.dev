@@ -23,7 +23,7 @@ const FooterInfoTitle = styled.div`
 `
 
 const FooterInfoSubtitle = styled.div`
-  color: #95a1c1;
+  color: var(--color-blue-light);
   margin-bottom: 1rem;
   font-size: var(--font-size-s);
 `
@@ -84,7 +84,11 @@ const FooterMenuItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    background: -webkit-linear-gradient(225deg, #e9b258 0%, #00af90 100%);
+    background: -webkit-linear-gradient(
+      225deg,
+      var(--color-primary) 0%,
+      var(--color-pastel3) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -125,7 +129,7 @@ const SocialLink = styled.a`
   &:hover {
     filter: brightness(85%);
     transform: scale(1.2);
-    color: #8f88f2;
+    color: var(--color-pastel2);
   }
 `
 

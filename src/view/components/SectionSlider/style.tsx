@@ -15,7 +15,7 @@ const BadgeContainer = styled.div`
 const SectionSliderContainer = styled.div``
 
 const PrevArrow = styled.div`
-  background-color: rgba(62, 76, 103, 0.5);
+  background-color: var(--color-blue-transparent);
   border-radius: 2px 0 0 2px;
   width: 28px;
   height: 28px;
@@ -29,7 +29,7 @@ const PrevArrow = styled.div`
   cursor: pointer;
 `
 const NextArrow = styled.div`
-  background-color: rgba(62, 76, 103, 0.5);
+  background-color: var(--color-blue-transparent);
   border-radius: 0 2px 2px 0;
   width: 28px;
   height: 28px;

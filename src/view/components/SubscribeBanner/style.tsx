@@ -9,7 +9,7 @@ const SubscribeBannerContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 2.5rem;
-  background-color: #8f88f2;
+  background-color: var(--color-pastel2);
   ${container}
   margin-top: 5rem;
 

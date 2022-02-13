@@ -11,7 +11,7 @@ const ProjectCard = styled.div`
   &:hover {
     box-shadow: 0px 4px 10px 2px rgba(0, 0, 0, 0.1);
     padding: 1rem;
-    outline: 3px solid #e9b258;
+    outline: 3px solid var(--color-primary);
   }
 `
 const ProjectCardImage = styled.div`

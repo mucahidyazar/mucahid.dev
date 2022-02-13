@@ -9,34 +9,34 @@ const Tag = styled.div`
   width: max-content;
 
   &:nth-child(1n + 1) {
-    background: #3b5998;
+    background: var(--color-facebook);
   }
   &:nth-child(1n + 2) {
-    background: #1da1f2;
+    background: var(--color-twitter);
   }
   &:nth-child(1n + 3) {
-    background: #e1306c;
+    background: var(--color-instagram);
   }
   &:nth-child(1n + 4) {
-    background: #0077b5;
+    background: var(--color-youtube);
   }
   &:nth-child(1n + 5) {
-    background: #00ab6c;
+    background: var(--color-linkedin);
   }
   &:nth-child(1n + 6) {
-    background: #333;
+    background: var(--color-github);
   }
   &:nth-child(1n + 7) {
-    background: #000000;
+    background: var(--color-black);
   }
   &:nth-child(1n + 8) {
-    background: #000000;
+    background: var(--color-black);
   }
   &:nth-child(1n + 9) {
-    background: #7289da;
+    background: var(--color-discord);
   }
   &:nth-child(1n + 10) {
-    background: #f48024;
+    background: var(--color-stackoverflow);
   }
 `
 

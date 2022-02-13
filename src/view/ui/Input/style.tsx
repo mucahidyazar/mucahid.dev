@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Input = styled.input`
   display: block;
   width: 100%;
-  background-color: rgba(149, 161, 193, 0.5);
+  background-color: var(--color-gray-transparent);
   border: none;
   outline: none;
   padding: 12px 20px;
@@ -29,7 +29,7 @@ const Textarea = styled.textarea`
   height: 10rem;
   min-height: 10rem;
   max-height: 10rem;
-  background-color: rgba(149, 161, 193, 0.5);
+  background-color: var(--color-gray-transparent);
   border: none;
   outline: none;
   padding: 12px 20px;

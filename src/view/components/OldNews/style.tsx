@@ -29,7 +29,7 @@ const OldNewsBody = styled.div`
   width: 100%;
 `
 const OldNewsTitle = styled(Title)`
-  color: #000;
+  color: var(--color-black);
   font-size: var(--font-size);
   font-weight: 600;
   line-height: 140%;

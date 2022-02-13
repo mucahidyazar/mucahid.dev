@@ -53,7 +53,7 @@ const DrawerContent = styled.div`
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  color: #000;
+  color: var(--color-black);
   background-color: rgba(0, 0, 0, 0.9);
 `
 

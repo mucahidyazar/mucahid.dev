@@ -51,7 +51,7 @@ const WelcomeContent = styled.div`
 
 const WelcomeTest = styled.h1`
   font-size: 10rem;
-  color: #e9b258;
+  color: var(--color-primary);
   font-weight: 600;
   letter-spacing: 2rem;
   text-transform: uppercase;
@@ -89,7 +89,7 @@ const WelcomeContentDescription = styled.div`
   }
 
   &::first-letter {
-    color: #e9b258;
+    color: var(--color-primary);
     padding: 0 0.6rem;
     margin: 0 0.3rem 0 0;
     border: 2px solid;
@@ -156,7 +156,7 @@ const WelcomeBackground = styled.div<IWelcomeBackgroundProps>`
 const News = styled.div`
   width: 360px;
   height: min-content;
-  color: #000;
+  color: var(--color-black);
   border-radius: 4px;
   cursor: pointer;
   background: rgba(249, 247, 241, 0.25);
@@ -197,7 +197,7 @@ const VideoWrapper = styled.div`
   position: relative;
 `
 const VideoOveryLay = styled.div`
-  // rgba #e9b258 = rgba(233, 178, 88, 0.5)
+  // rgba var(--color-primary) = rgba(233, 178, 88, 0.5)
   background-color: rgba(255, 255, 88, 0.5);
 `
 const VideoPlayIcon = styled.div`

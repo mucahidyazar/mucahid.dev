@@ -73,7 +73,7 @@ const QA = styled.span`
   font-size: var(--font-size-4xl);
   font-weight: 400;
   margin-right: 0.5rem;
-  color: #e9b258;
+  color: var(--color-primary);
 `
 
 export {

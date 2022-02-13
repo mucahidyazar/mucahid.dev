@@ -9,8 +9,7 @@ const Badge = styled.div<IBadge>`
   display: flex;
   align-items: center;
   gap: 18px;
-  //#3E4C67
-  background: rgba(62, 76, 103, 0.5);
+  background: var(--color-blue-transparent);
   width: max-content;
   border-radius: 4px;
   cursor: pointer;

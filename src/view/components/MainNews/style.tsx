@@ -11,11 +11,11 @@ const MainNews = styled.div`
 
   &:hover {
     background: rgba(249, 247, 241, 0.2);
-    /* outline: 2px solid #e9b258; */
+    /* outline: 2px solid var(--color-primary); */
   }
 `
 const MainNewsTitle = styled(Title)`
-  color: #000;
+  color: var(--color-black);
   font-size: var(--font-size-l);
   text-transform: uppercase;
   font-weight: 700;

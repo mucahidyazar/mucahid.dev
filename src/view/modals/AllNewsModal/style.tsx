@@ -7,10 +7,10 @@ import {MainNews} from '@/components'
 const NewsHeader = styled.div`
   box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.1);
   padding: 10px 0;
-  background: #f9f7f1;
+  background: var(--color-newspaper);
   padding: 1rem 3rem 0;
-  border-bottom: 1px solid #2f2f2f;
-  color: #2f2f2f;
+  border-bottom: 1px solid var(--color-black-light);
+  color: var(--color-black-light);
 `
 const NewsHeaderImage = styled.div`
   position: relative;
@@ -35,8 +35,8 @@ const ModalNews = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  background: #f9f7f1;
-  color: #2f2f2f;
+  background: var(--color-newspaper);
+  color: var(--color-black-light);
   padding: 2rem 3rem 2rem;
   grid-gap: 1rem;
   grid-row-gap: 4rem;
@@ -51,7 +51,7 @@ const ModalNews = styled.div`
   ${MainNews.S.MainNews} {
     padding: 0;
     padding-right: 1rem;
-    border-right: 1px solid #2f2f2f;
+    border-right: 1px solid var(--color-black-light);
     grid-column: 1 / span 2;
 
     @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
@@ -103,7 +103,7 @@ const ModalOldNews = styled.div`
   height: max-content;
 `
 const ModalOldNewsTitle = styled(Title)`
-  color: #2f2f2f;
+  color: var(--color-black-light);
   font-size: 1.6rem;
   font-family: 'Playfair Display', serif;
   font-style: italic;
@@ -120,7 +120,7 @@ const ModalOldNewsDescription = styled.p`
     display: block;
     width: 100%;
     height: 2px;
-    background: #000;
+    background: var(--color-black);
   }
 `
 const ModalOldNewsContent = styled.p`

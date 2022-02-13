@@ -48,7 +48,11 @@ const ConnectMetamaskButtonContainer = styled.div`
 `
 
 const ConnectMetamaskButton = styled(Button)`
-  background: linear-gradient(88.54deg, #41466c 0%, #e1564f 100%);
+  background: linear-gradient(
+    88.54deg,
+    var(--metamask-dark) 0%,
+    var(--metamask-light) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,20 +125,20 @@ const ContactFormTypeItem = styled.div<IContactFormTypeItemProps>`
   width: 100%;
   text-align: center;
   padding: 20px;
-  background-color: rgba(62, 76, 103, 0.5);
+  background-color: var(--color-blue-transparent);
   margin-bottom: 1rem;
   cursor: pointer;
 
   &:hover {
     background-color: rgba(62, 76, 103, 0.8);
-    outline: 2px solid #e9b258;
+    outline: 2px solid var(--color-primary);
   }
 
   ${({isSelected}) =>
     isSelected &&
     css`
       background-color: rgba(62, 76, 103, 0.8);
-      outline: 2px solid #e9b258;
+      outline: 2px solid var(--color-primary);
     `}
 `
 

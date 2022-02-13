@@ -1,41 +1,14 @@
 import {createGlobalStyle, keyframes} from 'styled-components'
 
+import {defaultColors} from './colors'
+import {fontSizes} from './font-sizes'
+import {lineHeights} from './line-heights'
+
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --color-white: #fff;
-    --color-black: #000;
-    --color-blue-primary: #2892D4;
-    --color-blue-light: #95A1C1;
-    --color-blue-transparent: rgba(62, 76, 103, 0.5);
-    --color-gray-transparent: rgba(149, 161, 193, 0.5);
-    --color-pastel1: #6BCDF7;
-    --color-pastel2: #8F88F2;
-    --color-pastel3: #9BDB9D;
-    --color-pastel4: #C574A0;
-    --color-pastel5: #2F3039;
-    --color-pastel6: #CBD743;
-    --color-pastel7: #67943F;
-    --color-pastel8: #FA7519;
-    --color-pastel9: #406E4C;
-    --color-pastel10: #4C4BD5;
-    --color-pastel11: #DFDAD9;
-    --color-pastel12: #D38A69;
-
-    // MAJOR THIRD SCALE RATIOS
-    --line-height: 125%;
-    --line-height-l: 156%;
-    --line-height-xl: 195%;
-
-    --font-size-2xs: 0.51rem;
-    --font-size-xs: 0.64rem;
-    --font-size-s: 0.80rem;
-    --font-size: 1rem;
-    --font-size-l: 1.25rem;
-    --font-size-xl: 1.6rem;
-    --font-size-2xl: 2rem;
-    --font-size-3xl: 2.4rem;
-    --font-size-4xl: 3rem;
-    --font-size-5xl: 3.9rem;
+    ${defaultColors}
+    ${fontSizes}
+    ${lineHeights}
   }
 
   *,
@@ -50,29 +23,27 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  
-
   &::-webkit-scrollbar-track {
-      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-      background-color: #F5F5F5;
-      border-radius: 10px;
-    }
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: var(--color-scrollbar);
+    border-radius: 10px;
+  }
 
-    &::-webkit-scrollbar {
-      width: 8px;
-      border-radius: 10px;
-      background-color: #F5F5F5;
-    }
+  &::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 10px;
+    background-color: var(--color-scrollbar);
+  }
 
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background-image: -webkit-gradient(linear,
-                        left bottom,
-                        left top,
-                        color-stop(0.1, rgba(80,26,45,0.8)),
-                        color-stop(0.5, rgba(80,26,45,0.65)),
-                        color-stop(1, rgba(80,26,45,0.8)));
-    }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear,
+                      left bottom,
+                      left top,
+                      color-stop(0.1, rgba(80,26,45,0.8)),
+                      color-stop(0.5, rgba(80,26,45,0.65)),
+                      color-stop(1, rgba(80,26,45,0.8)));
+  }
 
   html {
     width: 100%;
@@ -85,12 +56,12 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Rubik', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #0f0e13;
+    background-color: var(--color-background-dark);
     background-image: linear-gradient(
       90deg,
-      #0d0c12 0%,
-      #2e3251 60%,
-      #501a2d 100%
+      var(--color-background) 0%,
+      var(--color-background-blue) 60%,
+      var(--color-background-brown) 100%
     );
   }
 

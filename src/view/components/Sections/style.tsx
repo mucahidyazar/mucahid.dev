@@ -35,7 +35,7 @@ const Sections = styled.div`
     cursor: pointer;
 
     &:not(:last-child) {
-      border-bottom: 1px solid rgba(62, 76, 103, 0.5);
+      border-bottom: 1px solid var(--color-blue-transparent);
     }
   }
   ${Card.S.CardContentText} {

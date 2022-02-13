@@ -27,7 +27,7 @@ export const titleHover = css`
     top: 10px;
     left: 0;
     height: 20px;
-    background-color: #e9b258;
+    background-color: var(--color-primary);
     z-index: -1;
     transform: rotateZ(-2deg);
     animation: expansing 0.5s ease-in-out forwards;

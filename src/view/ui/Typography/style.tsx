@@ -31,7 +31,7 @@ const Title6 = styled.h6`
 `
 
 const Subtitle = styled.p`
-  color: #95a1c1;
+  color: var(--color-blue-light);
   font-size: var(--font-size-s);
 `
 

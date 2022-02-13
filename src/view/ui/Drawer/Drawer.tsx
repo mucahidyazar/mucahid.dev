@@ -57,7 +57,7 @@ function Drawer({
             <S.DrawerContent ref={backdropRef} data-testid="drawer-content">
               {isClosable && (
                 <S.CloseButton onClick={onClose}>
-                  <Icon name="close" size={32} color="#504F53" />
+                  <Icon name="close" size={32} color="var(--color-white)" />
                 </S.CloseButton>
               )}
               {children}

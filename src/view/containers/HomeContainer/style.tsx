@@ -10,7 +10,7 @@ const Article = styled.div`
   flex-grow: 1;
 
   &:not(:last-child) {
-    border-bottom: 1px solid #87878d;
+    border-bottom: 1px solid var(--color-gray-dark);
   }
 `
 const ArticleBody = styled.div`
@@ -25,7 +25,7 @@ const ArticleBody = styled.div`
 `
 const ArticleDate = styled.div`
   width: 10rem;
-  color: #87878d;
+  color: var(--color-gray-dark);
   font-size: var(--font-size-s);
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
@@ -61,7 +61,7 @@ const ArticleTitle = styled.a`
       top: 10px;
       left: 0;
       height: 20px;
-      background-color: #e9b258;
+      background-color: var(--color-primary);
       z-index: -1;
       transform: rotateZ(-2deg);
       animation: expansing 0.5s ease-in-out forwards;
@@ -75,11 +75,11 @@ const ArticleGo = styled.div`
     0% {
     }
     100% {
-      border: 1px solid #e9b258;
+      border: 1px solid var(--color-primary);
     }
   }
 
-  color: #e9b258;
+  color: var(--color-primary);
   cursor: pointer;
 `
 
@@ -111,7 +111,7 @@ const Section = styled.div`
 `
 const SectionType = styled(Title)`
   font-size: var(--font-size-l);
-  color: #87878d;
+  color: var(--color-gray-dark);
   margin-bottom: 1rem;
 `
 const Articles = styled.div`
@@ -136,7 +136,7 @@ const SectionTitle = styled.div`
   }
 `
 const SectionDescription = styled.div`
-  color: #9f9fa5;
+  color: var(--color-gray);
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     font-size: var(--font-size-s);
@@ -145,7 +145,7 @@ const SectionDescription = styled.div`
 const SectionButton = styled.div`
   margin-top: auto;
   font-size: var(--font-size-2xl);
-  color: #e9b258;
+  color: var(--color-primary);
   cursor: pointer;
   position: relative;
   width: max-content;
@@ -168,7 +168,7 @@ const SectionButton = styled.div`
     left: 0;
     width: 2rem;
     height: 2px;
-    background-color: #e9b258;
+    background-color: var(--color-primary);
     transition: all 0.3s ease-in-out;
   }
 
@@ -201,7 +201,7 @@ const ContentTitle = styled.div`
   }
 `
 const ContentDescription = styled.div`
-  color: #9f9fa5;
+  color: var(--color-gray);
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     margin-bottom: 1rem;
@@ -232,7 +232,7 @@ const ContentDetailsItem = styled.div`
 `
 const ContentDetailsNumber = styled.div`
   font-size: var(--font-size-5xl);
-  color: #e9b258;
+  color: var(--color-primary);
   line-height: 100%;
   font-weight: 500;
 `

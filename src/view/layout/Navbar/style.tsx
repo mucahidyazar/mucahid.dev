@@ -28,7 +28,7 @@ const NavbarBrandText = styled.div`
   align-items: center;
 `
 const NavbarBrandColor = styled.div`
-  color: #e9b258;
+  color: var(--color-primary);
 `
 const NavbarBrand = styled.div`
   font-size: var(--font-size-2xl);
@@ -62,7 +62,7 @@ const NavbarMenuItem = styled.li<INavbarMenuItem>`
             transform: translateX(-50%);
             width: 70%;
             height: 4px;
-            background: #e9b258;
+            background: var(--color-primary);
           }
         `
       : css`
@@ -75,7 +75,7 @@ const NavbarMenuItem = styled.li<INavbarMenuItem>`
               transform: translateX(-50%);
               width: 70%;
               height: 4px;
-              background: #e9b258;
+              background: var(--color-primary);
             }
           }
         `}
@@ -166,7 +166,7 @@ const NavbarMenuToggler = styled.input`
 const NavbarLogoGradientBorder = styled.div`
   width: 46px;
   height: 46px;
-  background: #e9b258;
+  background: var(--color-primary);
   border-radius: 2px;
   display: flex;
   align-items: center;
@@ -221,7 +221,7 @@ const DrawerNavbarMenuItem = styled.li`
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #e9b258;
+    background-color: var(--color-primary);
     transition: all 0.3s ease-in-out;
   }
 

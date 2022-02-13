@@ -4,7 +4,7 @@ export const socialMedias = [
   //   name: 'Facebook',
   //   url: 'https://www.facebook.com/mucahidyazar',
   //   icon: 'facebook',
-  //   color: '#3b5998',
+  //   color: 'var(--color-facebook)',
   //   type: 'icon',
   // },
   {
@@ -12,7 +12,7 @@ export const socialMedias = [
     name: 'Twitter',
     url: 'https://twitter.com/mucahidyazar',
     icon: 'twitter',
-    color: '#1da1f2',
+    color: 'var(--color-twitter)',
     type: 'icon',
   },
   {
@@ -20,7 +20,7 @@ export const socialMedias = [
     name: 'Instagram',
     url: 'https://instagram.com/mucahidyazar',
     icon: 'instagram',
-    color: '#e1306c',
+    color: 'var(--color-instagram)',
     type: 'icon',
   },
   {
@@ -28,7 +28,7 @@ export const socialMedias = [
     name: 'Linkedin',
     url: 'https://www.linkedin.com/in/mucahidyazar/',
     icon: 'linkedin',
-    color: '#0077b5',
+    color: 'var(--color-linkedin)',
     type: 'icon',
   },
   {
@@ -36,7 +36,7 @@ export const socialMedias = [
     name: 'Medium',
     url: 'https://medium.com/@mucahidyazar',
     icon: 'medium',
-    color: '#00ab6c',
+    color: 'var(--color-medium)',
     type: 'button',
   },
   {
@@ -44,7 +44,7 @@ export const socialMedias = [
     name: 'Github',
     url: 'https://github.com/mucahidyazar',
     icon: 'github',
-    color: '#333',
+    color: 'var(--color-github)',
     type: 'icon',
   },
   {
@@ -52,7 +52,7 @@ export const socialMedias = [
     name: 'Codepen',
     url: 'https://codepen.io/mucahidyazar',
     icon: 'codepen',
-    color: '#000000',
+    color: 'var(--color-black)',
     type: 'icon',
   },
   {
@@ -60,7 +60,7 @@ export const socialMedias = [
     name: 'Steam',
     url: 'https://steamcommunity.com/id/mucahidyazar',
     icon: 'steam',
-    color: '#000000',
+    color: 'var(--color-steam)',
     type: 'icon',
   },
   {
@@ -68,7 +68,7 @@ export const socialMedias = [
     name: 'Discord',
     url: 'https://discord.gg/mucahidyazar',
     icon: 'discord',
-    color: '#7289da',
+    color: 'var(--color-discord)',
     type: 'button',
   },
   {
@@ -76,7 +76,7 @@ export const socialMedias = [
     name: 'Stackoverflow',
     url: 'https://stackoverflow.com/users/8291849/mucahidyazar',
     icon: 'stackoverflow',
-    color: '#f48024',
+    color: 'var(--color-stackoverflow)',
     type: 'icon',
   },
 ]

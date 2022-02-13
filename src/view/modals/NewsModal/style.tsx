@@ -6,10 +6,10 @@ import {MainNews} from '@/components'
 const NewsHeader = styled.div`
   box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.1);
   padding: 10px 0;
-  background: #f9f7f1;
+  background: var(--color-newspaper);
   padding: 1rem 3rem 0;
-  border-bottom: 1px solid #2f2f2f;
-  color: #2f2f2f;
+  border-bottom: 1px solid var(--color-black-light);
+  color: var(--color-black-light);
 `
 const NewsHeaderImage = styled.div`
   position: relative;
@@ -30,8 +30,8 @@ const NewsHeaderMainTheme = styled.p`
 `
 const NewsHeaderTotalNews = styled.p``
 const ModalNews = styled.div`
-  background: #f9f7f1;
-  color: #2f2f2f;
+  background: var(--color-newspaper);
+  color: var(--color-black-light);
   padding: 2rem 3rem 2rem;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {

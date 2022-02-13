@@ -18,7 +18,7 @@ const CardImage = styled.div`
   transition: all 0.15s ease-in-out;
 
   &:hover {
-    outline: 3px solid #e9b258;
+    outline: 3px solid var(--color-primary);
     outline-offset: 3px;
   }
 

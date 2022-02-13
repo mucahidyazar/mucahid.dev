@@ -14,7 +14,11 @@ const ImageWrapperLayout = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0.25rem;
-  background: linear-gradient(225deg, #e9b258 0%, #00af90 100%);
+  background: linear-gradient(
+    225deg,
+    var(--color-primary) 0%,
+    var(--color-pastel3) 100%
+  );
   border-radius: 0.25rem;
   margin-bottom: 1rem;
 

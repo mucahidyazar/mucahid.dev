@@ -25,7 +25,7 @@ const Card = styled.div<ICard>`
   ${({type}) =>
     type === 2 &&
     css`
-      background: rgba(62, 76, 103, 0.5);
+      background: var(--color-blue-transparent);
       padding: 20px;
 
       ${CardImage} {

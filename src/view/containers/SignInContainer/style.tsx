@@ -5,7 +5,7 @@ import {BreakpointSize} from '@/constants'
 
 const SignInContainer = styled.div`
   width: 400px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-white);
   border-radius: 4px;
   padding: 2.5rem;
   margin: 10rem auto;
@@ -22,7 +22,7 @@ const SignInForm = styled.form`
     display: block;
     width: 60%;
     height: 1px;
-    background-color: #ccc;
+    background-color: var(--color-white);
     margin: 1.25rem auto;
   }
 `
@@ -66,7 +66,7 @@ const SignedInImage = styled.img`
   position: relative;
   width: 100%;
   height: 320px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-white);
   margin-bottom: 1rem;
 `
 const SignedInSignOutButton = styled(Button)`
