@@ -55,7 +55,7 @@ const MainLayout: React.FC<IMainLayout> = ({
 
   useEffect(() => {
     dispatch(setTheme())
-  }, [])
+  }, [dispatch])
 
   return (
     <S.MainLayout>

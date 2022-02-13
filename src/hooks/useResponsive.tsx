@@ -3,7 +3,7 @@ import {useMediaQuery} from 'react-responsive'
 
 import {BreakpointSize} from '@/constants'
 
-import useIsomorphicLayoutEffect from './useIsoMorphicLayoutEffect'
+import {useIsomorphicLayoutEffect} from './useIsoMorphicLayoutEffect'
 
 export function useResponsive() {
   const [isClient, setIsClient] = useState(false)
