@@ -2,10 +2,10 @@ import {createSelector} from 'reselect'
 
 import {Article, State} from '@/types'
 
-const settingsSelector = (state: State) => state.blog
+const blogSelector = (state: State) => state.blog
 
 export const makeArticlesSelector = createSelector(
-  settingsSelector,
+  blogSelector,
   ({articles}) => {
     // if articles.filters object is empty, return articles.data
     if (Object.keys(articles.filters).length === 0) {
@@ -52,36 +52,41 @@ export const makeArticlesSelector = createSelector(
 )
 
 export const makeSelectCategories = createSelector(
-  settingsSelector,
+  blogSelector,
   ({articles}) => articles.categories,
 )
 
 export const makeSelectYears = createSelector(
-  settingsSelector,
+  blogSelector,
   ({articles}) => articles.years,
 )
 
 export const makeSelectFilters = createSelector(
-  settingsSelector,
+  blogSelector,
   ({articles}) => articles.filters,
 )
 
 export const makeArticlesStatusSelector = createSelector(
-  settingsSelector,
+  blogSelector,
   ({articles}) => articles.status,
 )
 
 export const makeArticleSelector = createSelector(
-  settingsSelector,
+  blogSelector,
   ({article}) => article.data,
 )
 
 export const makeArticleStatusSelector = createSelector(
-  settingsSelector,
+  blogSelector,
   ({article}) => article.status,
 )
 
 export const makeSelectComments = createSelector(
-  settingsSelector,
+  blogSelector,
   ({article}) => article.comments.data,
+)
+
+export const makeSelectCommentStatus = createSelector(
+  blogSelector,
+  ({comment}) => comment.status,
 )

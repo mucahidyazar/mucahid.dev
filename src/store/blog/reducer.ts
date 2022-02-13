@@ -35,6 +35,9 @@ const INITIAL_STATE: BlogState = {
     },
     error: null,
   },
+  comment: {
+    status: Status.INIT,
+  },
 }
 
 export const reducer = produce((draft, action) => {
@@ -73,6 +76,15 @@ export const reducer = produce((draft, action) => {
     case types.GET_ARTICLES_FAILED:
       draft.articles.status = Status.ERROR
       draft.articles.error = action.error
+      break
+    case types.ADD_COMMENT_REQUEST:
+      draft.comment.status = Status.LOADING
+      break
+    case types.ADD_COMMENT_SUCCESS:
+      draft.comment.status = Status.OK
+      break
+    case types.ADD_COMMENT_FAILED:
+      draft.comment.status = Status.ERROR
       break
 
     case types.SET_FILTERS:

@@ -48,6 +48,9 @@ export type BlogState = {
     }
     error: any
   }
+  comment: {
+    status: Status
+  }
 }
 
 export type AuthState = {
@@ -69,6 +72,13 @@ export type ContactState = {
   email: {
     status: Status
     data: Comment[]
+    error: any
+  }
+  stats: {
+    status: Status
+    totalMessages: number
+    totalGiveaways: number
+    totalCoffee: number
     error: any
   }
 }

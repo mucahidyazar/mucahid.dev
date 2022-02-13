@@ -4,11 +4,16 @@ import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
 import {useRouter} from 'next/router'
 
-import {SectionHeader} from '@/components'
+import {LoadingWrapper, SectionHeader} from '@/components'
 import {Badge, Card, Textarea, Button, Title, Subtitle} from '@/ui'
-import {makeArticleSelector, makeSelectComments} from '@/store/blog/selectors'
+import {
+  makeArticleSelector,
+  makeSelectComments,
+  makeSelectCommentStatus,
+} from '@/store/blog/selectors'
 import {makeSelectUser} from '@/store/auth'
 import {addComment} from '@/store/blog'
+import {Status} from '@/constants'
 
 import * as S from './style'
 
@@ -17,6 +22,7 @@ const ArticleContainer: NextComponentType = () => {
   const dispatch = useDispatch()
   const article = useSelector(makeArticleSelector)
   const comments = useSelector(makeSelectComments)
+  const addCommentStatus = useSelector(makeSelectCommentStatus)
   const user = useSelector(makeSelectUser)
   const formRef = useRef({} as HTMLFormElement)
 
@@ -94,6 +100,7 @@ const ArticleContainer: NextComponentType = () => {
         <S.CommentsForm onSubmit={sendCommentHandler} ref={formRef}>
           <Textarea name="comment" />
           <Button primary>Send</Button>
+          <LoadingWrapper isLoading={addCommentStatus === Status.LOADING} />
         </S.CommentsForm>
       )}
     </>
