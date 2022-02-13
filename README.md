@@ -1,34 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <img src="public/github-brand.png" alt="mucahid.dev" width="200">
+</div>
+<h4 align="center">Modern Full-Stack Next.js Personal Portfolio Project</h4>
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+[![release](https://img.shields.io/github/release/mucahidyazar/mucahid.dev/all.svg?style=flat-square)](https://github.com/mucahidyazar/mucahid.dev/releases)
+[![release](https://img.shields.io/github/workflow/status/mucahidyazar/mucahid.dev/Go?style=flat-square)](https://github.com/mucahidyazar/mucahid.dev/releases)
+[![license](https://img.shields.io/github/license/zhiqwang/yolov5-rt-stack?color=dfd)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-pink.svg)](https://github.com/jinfagang/yolov7/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
+
+[Demo](https://mucahid.dev) •
+[Documentation](https://github.com/jinfagang/yolov7) •
+[Installation Instructions](https://github.com/jinfagang/yolov7) •
+[Deployment](#deploy) • [Contributing](.github/CONTRIBUTING.md) •
+[Reporting Issues](https://github.com/jinfagang/yolov7/issues/new?assignees=&labels=&template=bug-report.yml)
+
+</div>
+
+<br />
+
+## 🚀 Installation
+
+<hr />
+
+1. Add all environment variables
+2. Run the codes on terminal
 
 ```bash
-npm run dev
-# or
-yarn dev
+yarn && yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Go localhost:3000
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<br />
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## ⭐️ Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<hr />
 
-## Learn More
+1. Multi-language support
+2. DEFAULT/LIGHT theme
+3. Authentication system
+4. Amazing github-actions flows
+5. You can show your resume as a website page /about
+6. You can show your portfolio as a website page /projects
+7. You can create a link tree as a website page /links
+8. You can share your posts on medium and you can show them on your website
+   /blog, also we have a authentication system so the users can sign-in and they
+   can comment your posts on your blog
+9. Anyone can send mail messages by using contact page. /contacts
+10. It is also an DAP which means decentralized applications. The users or your
+    fans can donate for you by sending BOARD or NORMAL messages. I wrote a smart
+    contact and share it in the source code of this repository.
+11. This project is a Full-Stack Next.js project. You can also use this
+    project's code as a boilerplate for any project
 
-To learn more about Next.js, take a look at the following resources:
+<br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎉 Credits
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [riobard/go-shadowsocks2](https://github.com/riobard/go-shadowsocks2)
 
-## Deploy on Vercel
+<br />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<h2 align="center">Previews</h2>
+<hr />
+<div align="center">
+  <img src="public/images/projects/mucahid.png" alt="mucahid.dev" width="500">
+</div>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br />
+
+## License
+
+<hr />
+
+Code released under GPL license. Please pull request to this source repo before
+you make your changes public or commercial usage. All rights reserved by Lucas
+Jin.
