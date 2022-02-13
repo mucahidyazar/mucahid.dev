@@ -42,3 +42,20 @@ export const sendEmail =
       })
     }
   }
+
+export const getStats = () => async (dispatch: Dispatch) => {
+  try {
+    dispatch({type: types.GET_STATS_REQUEST})
+    const {data} = await axios.get(`/api/general/get-stats`)
+
+    dispatch({
+      type: types.GET_STATS_SUCCESS,
+      data,
+    })
+  } catch (error) {
+    dispatch({
+      type: types.GET_STATS_FAILED,
+      error,
+    })
+  }
+}

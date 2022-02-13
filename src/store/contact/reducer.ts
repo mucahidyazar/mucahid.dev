@@ -21,6 +21,13 @@ const INITIAL_STATE: ContactState = {
     data: [],
     error: null,
   },
+  stats: {
+    status: Status.INIT,
+    totalMessages: 0,
+    totalGiveaways: 0,
+    totalCoffee: 0,
+    error: null,
+  },
 }
 
 export const reducer = produce((draft, action) => {
@@ -34,6 +41,20 @@ export const reducer = produce((draft, action) => {
     case types.SEND_EMAIL_FAILED:
       draft.email.status = Status.ERROR
       draft.email.error = action.error
+      break
+
+    case types.GET_STATS_REQUEST:
+      draft.stats.status = Status.LOADING
+      break
+    case types.GET_STATS_SUCCESS:
+      draft.stats.status = Status.OK
+      draft.stats.totalMessages = action.data.totalMessages
+      draft.stats.totalGiveaways = action.data.totalGiveaways
+      draft.stats.totalCoffee = action.data.totalCoffee
+      break
+    case types.GET_STATS_FAILED:
+      draft.stats.status = Status.ERROR
+      draft.stats.error = action.error
       break
     default:
       break

@@ -7,9 +7,11 @@ import {Sections, Section, LoadingWrapper} from '@/components'
 import {Card, Icon} from '@/ui'
 import {socialMedias} from '@/data'
 import {
+  getStats,
   makeSelectBoard,
   makeSelectEmailStatus,
   makeSelectMessages,
+  makeSelectStats,
   sendEmail,
 } from '@/store/contact'
 import {ContactType, Status} from '@/constants'
@@ -25,6 +27,7 @@ import * as S from './style'
 
 const ContactContainer: NextComponentType = () => {
   const [type, setType] = useState(ContactType.EMAIL)
+  const stats = useSelector(makeSelectStats)
   const contract = useSelector(makeSelectBlockchainContract)
   const blockChainStatus = useSelector(makeSelectBlockchainStatus)
   const blockChainAccount = useSelector(makeSelectBlockchainAccount)
@@ -76,20 +79,29 @@ const ContactContainer: NextComponentType = () => {
     dispatch(getAllMessages())
   }, [dispatch, contract])
 
+  useEffect(() => {
+    dispatch(getStats())
+  }, [dispatch])
+
   return (
-    <>
-      <S.ConnectionsContainer>
-        {socialMedias.map(({id, icon, url, color}) => (
-          <S.ConnectionIcon
-            key={id}
-            backgroundColor={color}
-            href={url}
-            target="_blank"
-          >
-            <Icon name={icon} size={24} />
-          </S.ConnectionIcon>
-        ))}
-      </S.ConnectionsContainer>
+    <S.ContactContainer>
+      <S.Stats>
+        <S.Stat>
+          <S.StatIcon name="send" size={48} />
+          <S.StatTitle level={5}>{stats.totalMessages}</S.StatTitle>
+          <S.StatDescription>Total messages</S.StatDescription>
+        </S.Stat>
+        <S.Stat>
+          <S.StatIcon name="dollar" size={48} />
+          <S.StatTitle level={5}>{stats.totalGiveaways}$</S.StatTitle>
+          <S.StatDescription>Total giveaways</S.StatDescription>
+        </S.Stat>
+        <S.Stat>
+          <S.StatIcon name="coffee" size={48} />
+          <S.StatTitle level={5}>{stats.totalCoffee}</S.StatTitle>
+          <S.StatDescription>Total coffee</S.StatDescription>
+        </S.Stat>
+      </S.Stats>
       {blockChainStatus !== Status.OK && (
         <S.ConnectMetamaskButtonContainer>
           <S.ConnectMetamaskButton>
@@ -135,6 +147,12 @@ const ContactContainer: NextComponentType = () => {
         <S.ContactForm onSubmit={onSubmitHandler} ref={contactFormRef}>
           <S.ContactFormType>
             <S.ContactFormTypeItem
+              onClick={() => setType(ContactType.EMAIL)}
+              isSelected={ContactType.EMAIL === type}
+            >
+              Email
+            </S.ContactFormTypeItem>
+            <S.ContactFormTypeItem
               onClick={() => setType(ContactType.MESSAGE)}
               isSelected={ContactType.MESSAGE === type}
             >
@@ -145,12 +163,6 @@ const ContactContainer: NextComponentType = () => {
               isSelected={ContactType.BOARD === type}
             >
               Board
-            </S.ContactFormTypeItem>
-            <S.ContactFormTypeItem
-              onClick={() => setType(ContactType.EMAIL)}
-              isSelected={ContactType.EMAIL === type}
-            >
-              Email
             </S.ContactFormTypeItem>
           </S.ContactFormType>
           {type !== ContactType.EMAIL && (
@@ -168,8 +180,21 @@ const ContactContainer: NextComponentType = () => {
           </S.ContactFormButton>
           <LoadingWrapper isLoading={emailStatus === Status.LOADING} />
         </S.ContactForm>
+
+        <S.ConnectionsContainer>
+          {socialMedias.map(({id, icon, url, color}) => (
+            <S.ConnectionIcon
+              key={id}
+              backgroundColor={color}
+              href={url}
+              target="_blank"
+            >
+              <Icon name={icon} size={24} />
+            </S.ConnectionIcon>
+          ))}
+        </S.ConnectionsContainer>
       </S.ContactFormContainer>
-    </>
+    </S.ContactContainer>
   )
 }
 

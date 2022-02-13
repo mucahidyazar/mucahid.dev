@@ -35,6 +35,12 @@ const ArticleTags = styled.div`
 `
 const ArticleContent = styled.div`
   line-height: var(--line-height-xl);
+
+  & * {
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
+  }
 `
 const Divider = styled.div`
   height: 2px;
@@ -67,6 +73,8 @@ const Comments = styled.div`
 `
 
 const CommentsForm = styled.form`
+  position: relative;
+
   ${Textarea.S.Textarea} {
     margin-bottom: 1rem;
   }

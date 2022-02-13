@@ -28,3 +28,5 @@ export const makeSelectEmailStatus = createSelector(
   selectContact,
   ({email}) => email?.status,
 )
+
+export const makeSelectStats = createSelector(selectContact, ({stats}) => stats)

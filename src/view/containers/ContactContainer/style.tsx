@@ -1,10 +1,32 @@
 import styled, {css} from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {Button, Input, Textarea} from '@/ui'
+import {Button, Input, Textarea, Title, Icon} from '@/ui'
 
-const SummarySection = styled.div`
-  max-width: 100%;
+import {Sections} from '../../components/Sections/style'
+
+const Stats = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 10rem;
+`
+const Stat = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+const StatIcon = styled(Icon)`
+  transform: translateX(2px);
+`
+const StatTitle = styled(Title)`
+  font-size: var(--font-size-2xl);
+  font-weight: 200;
+  margin: 1.5rem 0;
+`
+const StatDescription = styled.p`
+  text-transform: uppercase;
+  color: var(--color-gray);
 `
 
 const ConnectionsContainer = styled.div`
@@ -13,7 +35,7 @@ const ConnectionsContainer = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 5rem;
+  margin-top: 10rem;
   overflow-y: auto;
 `
 interface IConnectionIcon {
@@ -39,7 +61,7 @@ const ConnectMetamaskButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 5rem 0;
+  margin-bottom: 10rem;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -50,8 +72,8 @@ const ConnectMetamaskButtonContainer = styled.div`
 const ConnectMetamaskButton = styled(Button)`
   background: linear-gradient(
     88.54deg,
-    var(--metamask-dark) 0%,
-    var(--metamask-light) 100%
+    var(--color-metamask-dark) 0%,
+    var(--color-metamask-light) 100%
   );
   display: flex;
   align-items: center;
@@ -142,13 +164,25 @@ const ContactFormTypeItem = styled.div<IContactFormTypeItemProps>`
     `}
 `
 
+const ContactContainer = styled.div`
+  ${Sections} {
+    margin-top: 0;
+  }
+`
+
 export {
-  SummarySection,
+  ContactContainer,
+  Stats,
+  Stat,
+  StatIcon,
+  StatTitle,
+  StatDescription,
   ConnectionsContainer,
   ConnectionIcon,
   ConnectMetamaskButtonContainer,
   ConnectMetamaskButton,
   ConnectMetamaskButtonText,
+  Sections,
   MessagesContainer,
   BoardContainer,
   BoardItem,
