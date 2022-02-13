@@ -1,6 +1,7 @@
 import produce from 'immer'
 
 import {SettingsState} from '@/types'
+import {Theme} from '@/constants'
 
 // import {Status} from '@/constants'
 
@@ -10,7 +11,7 @@ const INITIAL_STATE: SettingsState = {
   isLoadingVisible: false,
   activeRoute: '/',
   modalType: null,
-  theme: 'default',
+  theme: Theme.DEFAULT,
   language: 'en',
 }
 
