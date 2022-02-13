@@ -65,8 +65,9 @@ const Navbar: NextComponentType = () => {
           </S.NavbarMenuItem>
         ))}
       </S.NavbarMenu>
-      <S.NavbarUser>
-        <S.NavbarLanguages>
+
+      <S.NavbarControlPanel>
+        <S.Languages>
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={language}
@@ -75,13 +76,14 @@ const Navbar: NextComponentType = () => {
               }
               classNames="fade"
             >
-              <S.NavbarLanguage onClick={changeLanguageHandler}>
+              <S.Language onClick={changeLanguageHandler}>
                 {language}
-              </S.NavbarLanguage>
+              </S.Language>
             </CSSTransition>
           </SwitchTransition>
-        </S.NavbarLanguages>
-        <S.NavbarTheme onClick={changeThemeHandler}>
+        </S.Languages>
+
+        <S.Themes onClick={changeThemeHandler}>
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={theme === Theme.LIGHT ? Theme.DEFAULT : Theme.LIGHT}
@@ -90,39 +92,41 @@ const Navbar: NextComponentType = () => {
               }
               classNames="fade"
             >
-              <S.NavbarIconWrapper>
-                <S.NavbarIcon
+              <S.Theme>
+                <S.ThemeIcon
                   size={24}
                   name={theme === Theme.DEFAULT ? 'sun' : 'moon'}
                 />
-              </S.NavbarIconWrapper>
+              </S.Theme>
             </CSSTransition>
           </SwitchTransition>
-        </S.NavbarTheme>
-        <S.NavbarMenuIconWrapper onClick={handleToggleMenu}>
-          <S.NavbarMenuToggler type="checkbox" checked={toggleMenu} />
-          <S.NavbarMenuIcon>
-            <S.NavbarMenuIconBar />
-          </S.NavbarMenuIcon>
-        </S.NavbarMenuIconWrapper>
+        </S.Themes>
+
+        <S.Menu onClick={handleToggleMenu}>
+          <S.MenuToggler type="checkbox" checked={toggleMenu} />
+          <S.MenuIcon>
+            <S.MenuIconBar />
+          </S.MenuIcon>
+        </S.Menu>
+
         {user.image ? (
-          <S.NavbarLogoGradientBorder onClick={handleToggleMenu}>
-            <S.NavbarLogo>
-              <S.NavbarImage
+          <Link href="/sign-in" passHref>
+            <S.UserImage>
+              <S.UserImageSource
                 src={user?.image ? user.image : '/gif/profile/gif-1.gif'}
                 alt="logo"
                 className="bg-black"
               />
-            </S.NavbarLogo>
-          </S.NavbarLogoGradientBorder>
+            </S.UserImage>
+          </Link>
         ) : (
-          <S.NavbarUserIconWrapper>
+          <S.UserIcon>
             <Link href="/sign-in" passHref>
-              <S.NavbarUserIcon size={24} name="user" />
+              <S.UserIconSource size={24} name="user" />
             </Link>
-          </S.NavbarUserIconWrapper>
+          </S.UserIcon>
         )}
-      </S.NavbarUser>
+      </S.NavbarControlPanel>
       <S.Drawer
         isVisible={toggleMenu}
         onClose={() => setToggleMenu(false)}
@@ -130,13 +134,13 @@ const Navbar: NextComponentType = () => {
         isClosable={true}
         size="80%"
       >
-        <S.DrawerNavbarMenu>
+        <S.DrawerMenu>
           {routes.map(({id, name, route}) => (
             <Link href={route} passHref key={id}>
-              <S.DrawerNavbarMenuItem>{name}</S.DrawerNavbarMenuItem>
+              <S.DrawerMenuItem>{name}</S.DrawerMenuItem>
             </Link>
           ))}
-        </S.DrawerNavbarMenu>
+        </S.DrawerMenu>
       </S.Drawer>
     </S.Navbar>
   )

@@ -23,6 +23,7 @@ const Navbar = styled.div`
   }
 `
 
+//! NavbarBrand
 const NavbarBrandText = styled.div`
   display: flex;
   align-items: center;
@@ -34,6 +35,8 @@ const NavbarBrand = styled.div`
   font-size: var(--font-size-2xl);
   font-weight: 700;
 `
+
+//! NavbarMenu
 interface INavbarMenuItem {
   isActive: boolean
   key?: string
@@ -91,35 +94,37 @@ const NavbarMenu = styled.ul`
   }
 `
 
-const NavbarLanguages = styled.div``
-const NavbarLanguage = styled.div`
+//! NavbarControlPanel
+//? LANGUAGES
+const Languages = styled.div``
+const Language = styled.div`
   text-transform: uppercase;
 `
-const NavbarTheme = styled.div``
-const NavbarIconWrapper = styled.div`
+
+//? THEMES
+const Themes = styled.div``
+const Theme = styled.div`
   width: 46px;
   height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
 `
-const NavbarIcon = styled(Icon)``
-const NavbarUserIconWrapper = styled.div`
-  height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-const NavbarUserIcon = styled(Icon)``
+const ThemeIcon = styled(Icon)``
 
-const NavbarMenuIconWrapper = styled.div`
+//? MENU
+const Menu = styled.div`
   display: none;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     display: block;
   }
 `
-const NavbarMenuIconBar = styled.div`
+const MenuIcon = styled.div`
+  height: 21px;
+  cursor: pointer;
+`
+const MenuIconBar = styled.div`
   position: relative;
   top: 10px;
   left: 0;
@@ -143,72 +148,84 @@ const NavbarMenuIconBar = styled.div`
     top: 7px;
   }
 `
-const NavbarMenuIcon = styled.div`
-  height: 21px;
-  cursor: pointer;
-`
-const NavbarMenuToggler = styled.input`
+const MenuToggler = styled.input`
   display: none;
 
-  &:checked + ${NavbarMenuIcon} ${NavbarMenuIconBar} {
+  &:checked + ${MenuIcon} ${MenuIconBar} {
     background: transparent;
   }
-  &:checked + ${NavbarMenuIcon} ${NavbarMenuIconBar}:before {
+  &:checked + ${MenuIcon} ${MenuIconBar}:before {
     top: 0;
     transform: rotate(45deg);
   }
-  &:checked + ${NavbarMenuIcon} ${NavbarMenuIconBar}:after {
+  &:checked + ${MenuIcon} ${MenuIconBar}:after {
     top: 0;
     transform: rotate(135deg);
   }
 `
 
-const NavbarLogoGradientBorder = styled.div`
+//? USERIMAGE
+const UserImage = styled.div`
   width: 46px;
   height: 46px;
   background: var(--color-primary);
   border-radius: 2px;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
 `
-const NavbarLogo = styled.div`
-  width: 44px;
-  height: 44px;
-  background-color: black;
-  border-radius: 2px;
-`
-const NavbarImage = styled.img`
+const UserImageSource = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 `
-const NavbarUser = styled.div`
+
+//? USERICON
+const UserIcon = styled.div`
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+const UserIconSource = styled(Icon)``
+
+//? NAVBARCONTROLPANEL
+const NavbarControlPanel = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
 
-  ${NavbarUserIconWrapper} {
+  /* ${UserIcon} {
     order: 3;
-  }
+  } */
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
 
-    ${NavbarUserIconWrapper} {
+    /* ${UserIcon} {
       order: 2;
     }
 
-    ${NavbarLanguages} {
+    ${Languages} {
       order: 4;
     }
-    ${NavbarTheme} {
+    ${Themes} {
       order: 3;
-    }
+    } */
   }
 `
 
-const DrawerNavbarMenuItem = styled.li`
+const Drawer = styled(StyledDrawer)`
+  ${StyledDrawer.S.CloseButton} {
+    display: none;
+  }
+
+  ${StyledDrawer.S.DrawerContent} {
+    justify-content: center;
+  }
+`
+const DrawerMenuItem = styled.li`
   position: relative;
   cursor: pointer;
   filter: blur(1px);
@@ -231,28 +248,17 @@ const DrawerNavbarMenuItem = styled.li`
     }
   }
 `
-const Drawer = styled(StyledDrawer)`
-  ${StyledDrawer.S.CloseButton} {
-    display: none;
-  }
-
-  ${StyledDrawer.S.DrawerContent} {
-    justify-content: center;
-  }
-`
-const DrawerNavbarMenu = styled(NavbarMenu)`
+const DrawerMenu = styled(NavbarMenu)`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
   width: 100%;
   margin-top: 0 auto;
+  font-size: var(--font-size-2xl);
 
-  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
-    ${DrawerNavbarMenuItem} {
-      font-size: var(--font-size-2xl);
-      filter: blur(0);
-    }
+  ${DrawerMenuItem} {
+    filter: blur(0);
   }
 `
 
@@ -263,22 +269,21 @@ export {
   NavbarBrandColor,
   NavbarMenu,
   NavbarMenuItem,
-  NavbarUser,
-  NavbarUserIcon,
-  NavbarUserIconWrapper,
-  NavbarMenuIconWrapper,
-  NavbarMenuIcon,
-  NavbarMenuToggler,
-  NavbarMenuIconBar,
-  NavbarLanguages,
-  NavbarLanguage,
-  NavbarTheme,
-  NavbarIcon,
-  NavbarIconWrapper,
-  NavbarLogoGradientBorder,
-  NavbarLogo,
-  NavbarImage,
+  NavbarControlPanel,
+  Languages,
+  Language,
+  Themes,
+  Theme,
+  ThemeIcon,
+  Menu,
+  MenuIcon,
+  MenuToggler,
+  MenuIconBar,
+  UserImage,
+  UserImageSource,
+  UserIcon,
+  UserIconSource,
   Drawer,
-  DrawerNavbarMenu,
-  DrawerNavbarMenuItem,
+  DrawerMenu,
+  DrawerMenuItem,
 }
