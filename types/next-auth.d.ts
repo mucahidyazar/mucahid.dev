@@ -1,3 +1,5 @@
+declare var window: any
+
 // eslint-disable-next-line no-unused-vars
 import NextAuth from 'next-auth'
 
