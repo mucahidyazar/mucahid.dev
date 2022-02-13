@@ -1,6 +1,6 @@
 import {createGlobalStyle, keyframes} from 'styled-components'
 
-import {Theme} from '@/constants'
+import {Theme, ZIndex} from '@/constants'
 
 import {defaultColors, lightColors} from './colors'
 import {fontSizes} from './font-sizes'
@@ -152,7 +152,7 @@ export const BackDropStyle = createGlobalStyle`
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 99;
+    z-index: ${ZIndex.BACKDROP};
     background-color: rgba(24, 17, 45, 0.72);
     animation: ${fade} 0.2s linear alternate;
   }

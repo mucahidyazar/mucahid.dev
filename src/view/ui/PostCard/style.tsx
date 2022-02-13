@@ -34,12 +34,26 @@ const CardImageHeader = styled.div`
   padding: 0.5rem;
 `
 
+const Tags = styled.div`
+  width: calc(75%);
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  z-index: ${ZIndex.ONE};
+
+  ${Tag.S.Tag} {
+    padding: 0.2rem 0.8rem;
+    font-size: var(--font-size-s);
+  }
+`
+
 const Links = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
-  z-index: 1;
   height: 40px;
+  z-index: ${ZIndex.ONE};
 `
 const Link = styled.a`
   background-color: rgba(0, 0, 0, 0.5);
@@ -55,22 +69,7 @@ const Link = styled.a`
     background-color: rgba(0, 0, 0, 0.8);
   }
 `
-
 const CopyIcon = styled(Link).attrs({as: 'div'})``
-
-const Tags = styled.div`
-  width: calc(75%);
-  display: flex;
-  gap: 4px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  z-index: ${ZIndex.POST_CARD_TAG};
-
-  ${Tag.S.Tag} {
-    padding: 0.2rem 0.8rem;
-    font-size: var(--font-size-s);
-  }
-`
 
 const CardContent = styled.div``
 const CardContentTitle = styled(Title)`

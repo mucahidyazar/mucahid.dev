@@ -2,6 +2,7 @@ import styled, {css} from 'styled-components'
 
 import {DrawerPlacement} from '@/constants'
 import {EDrawerPlacement} from '@/types'
+import {ZIndex} from '@/constants'
 
 import {Button} from '../'
 
@@ -63,7 +64,7 @@ interface IDrawerWrapper {
 }
 const DrawerWrapper = styled.div<IDrawerWrapper>`
   position: fixed;
-  z-index: 100;
+  z-index: ${ZIndex.DRAWER};
 
   ${props => placementStyle[props.placement]}
 

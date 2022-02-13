@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import {ZIndex} from '@/constants'
+
 const PageLoadingContainer = styled.div`
   position: fixed;
   top: 0;
@@ -10,6 +12,7 @@ const PageLoadingContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.8);
+  z-index: ${ZIndex.PAGE_LOADING};
 `
 
 const PageLoading = styled.div`

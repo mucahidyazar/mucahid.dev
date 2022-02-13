@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import {ZIndex} from '@/constants'
+
 const SectionContainer = styled.div``
 const BadgeContainer = styled.div`
   display: flex;
@@ -25,7 +27,7 @@ const PrevArrow = styled.div`
   position: absolute;
   top: 20px;
   right: 52px;
-  z-index: 1;
+  z-index: ${ZIndex.ONE};
   cursor: pointer;
 `
 const NextArrow = styled.div`
@@ -39,7 +41,7 @@ const NextArrow = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 1;
+  z-index: ${ZIndex.ONE};
   cursor: pointer;
 `
 
