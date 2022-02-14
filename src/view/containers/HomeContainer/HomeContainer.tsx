@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 import {Introduction} from '@/components'
 import {makeArticlesSelector} from '@/store/blog/selectors'
+import {dataTestTarget} from '@/utilities'
 
 import * as S from './style'
 
@@ -23,7 +24,7 @@ const HomeContainer: NextComponentType = () => {
   return (
     <>
       <S.Logos>
-        <S.Logo>
+        <S.Logo {...dataTestTarget('company-logo')}>
           <Image
             src="/images/logos/granobra.png"
             alt="getir logo"
@@ -31,7 +32,7 @@ const HomeContainer: NextComponentType = () => {
             objectFit="cover"
           />
         </S.Logo>
-        <S.Logo>
+        <S.Logo {...dataTestTarget('company-logo')}>
           <Image
             src="/images/logos/getir.png"
             alt="getir logo"
@@ -39,7 +40,7 @@ const HomeContainer: NextComponentType = () => {
             objectFit="cover"
           />
         </S.Logo>
-        <S.Logo>
+        <S.Logo {...dataTestTarget('company-logo')}>
           <Image
             src="/images/logos/maxithings.png"
             alt="getir logo"
@@ -52,17 +53,27 @@ const HomeContainer: NextComponentType = () => {
       <S.SectionWrapper>
         <S.Section>
           <S.SectionHeader>
-            <S.SectionType>- Articles</S.SectionType>
-            <S.SectionTitle>Last Articles</S.SectionTitle>
-            <S.SectionDescription>
+            <S.SectionType {...dataTestTarget('section-article-type')}>
+              - Articles
+            </S.SectionType>
+            <S.SectionTitle {...dataTestTarget('section-article-title')}>
+              Last Articles
+            </S.SectionTitle>
+            <S.SectionDescription
+              {...dataTestTarget('section-article-description')}
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </S.SectionDescription>
           </S.SectionHeader>
-          <S.SectionButton>Daha fazla</S.SectionButton>
+          <Link href="/blog" passHref>
+            <S.SectionButton {...dataTestTarget('section-article-button')}>
+              Daha fazla
+            </S.SectionButton>
+          </Link>
         </S.Section>
-        <S.Articles>
+        <S.Articles {...dataTestTarget('section-articles')}>
           {latestArticles.map(article => (
-            <S.Article key={article.id}>
+            <S.Article key={article.id} {...dataTestTarget('section-article')}>
               <S.ArticleBody>
                 <S.ArticleDate>{article.date} - Blog</S.ArticleDate>
                 <Link href={`/blog/${article.slug}`} passHref>
@@ -77,14 +88,20 @@ const HomeContainer: NextComponentType = () => {
         </S.Articles>
       </S.SectionWrapper>
 
-      <Introduction rightContent />
+      <Introduction rightContent {...dataTestTarget('introduction')} />
 
       <S.SectionWrapper>
         <S.Section>
           <S.SectionHeader>
-            <S.SectionType>- About</S.SectionType>
-            <S.SectionTitle>Me, Companies and Projects</S.SectionTitle>
-            <S.SectionDescription>
+            <S.SectionType {...dataTestTarget('section-about-type')}>
+              - About
+            </S.SectionType>
+            <S.SectionTitle {...dataTestTarget('section-about-title')}>
+              Me, Companies and Projects
+            </S.SectionTitle>
+            <S.SectionDescription
+              {...dataTestTarget('section-article-description')}
+            >
               Let me show you a quick summary about me, my experiences and my
               projects.
             </S.SectionDescription>
@@ -105,11 +122,13 @@ const HomeContainer: NextComponentType = () => {
             quae, inventore et nam fuga nostrum commodi?
           </S.ContentDescription>
           <S.ContentDetails>
-            <S.ContentDetailsItem>
+            <S.ContentDetailsItem
+              {...dataTestTarget('section-about-companies')}
+            >
               <S.ContentDetailsNumber>3</S.ContentDetailsNumber>
               <S.ContentDetailsText>Companies</S.ContentDetailsText>
             </S.ContentDetailsItem>
-            <S.ContentDetailsItem>
+            <S.ContentDetailsItem {...dataTestTarget('section-about-projects')}>
               <S.ContentDetailsNumber>14</S.ContentDetailsNumber>
               <S.ContentDetailsText>Projects</S.ContentDetailsText>
             </S.ContentDetailsItem>

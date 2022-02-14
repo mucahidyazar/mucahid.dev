@@ -15,6 +15,7 @@ import {
   makeSelectLanguage,
   makeSelectTheme,
 } from '@/store/settings'
+import {dataTestTarget} from '@/utilities'
 
 import * as S from './style'
 
@@ -60,9 +61,14 @@ const Navbar: NextComponentType = () => {
       </S.NavbarBrand>
       <S.NavbarMenu>
         {routes.map(({id, name, route, source}) => (
-          <S.NavbarMenuItem key={id} isActive={router.route === source}>
-            <Link href={route}>{name}</Link>
-          </S.NavbarMenuItem>
+          <Link key={id} href={route} passHref>
+            <S.NavbarMenuItem
+              isActive={router.route === source}
+              {...dataTestTarget(`navbar-menu-item-${name}`)}
+            >
+              {name}
+            </S.NavbarMenuItem>
+          </Link>
         ))}
       </S.NavbarMenu>
 
@@ -76,14 +82,20 @@ const Navbar: NextComponentType = () => {
               }
               classNames="fade"
             >
-              <S.Language onClick={changeLanguageHandler}>
+              <S.Language
+                onClick={changeLanguageHandler}
+                {...dataTestTarget('change-language')}
+              >
                 {language}
               </S.Language>
             </CSSTransition>
           </SwitchTransition>
         </S.Languages>
 
-        <S.Themes onClick={changeThemeHandler}>
+        <S.Themes
+          onClick={changeThemeHandler}
+          {...dataTestTarget('change-theme')}
+        >
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={theme === Theme.DEFAULT ? Theme.DEFAULT : Theme.LIGHT}

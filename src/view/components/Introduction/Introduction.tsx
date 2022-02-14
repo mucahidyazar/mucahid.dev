@@ -8,9 +8,9 @@ interface IIntroduction {
   rightContent?: boolean
 }
 
-const Introduction: React.FC<IIntroduction> = ({rightContent}) => {
+const Introduction: React.FC<IIntroduction> = ({rightContent, ...props}) => {
   return (
-    <S.IntroductionContainer>
+    <S.IntroductionContainer {...props}>
       <S.IntroductionContent rightContent={rightContent}>
         <S.IntroductionContentItem>
           <S.IntroductionContentTitle level={6}>
