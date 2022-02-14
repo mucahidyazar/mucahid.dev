@@ -1,4 +1,7 @@
 <div align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <img src="public/github-brand.png" alt="mucahid.dev" width="200">
 </div>
 <h4 align="center">Modern Full-Stack Next.js Personal Portfolio Project</h4>
@@ -79,3 +82,23 @@ yarn && yarn dev
 Code released under GPL license. Please pull request to this source repo before
 you make your changes public or commercial usage. All rights reserved by Lucas
 Jin.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://mucahid.dev"><img src="https://avatars.githubusercontent.com/u/52811808?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mucahid Yazar</b></sub></a><br /><a href="#maintenance-mucahidyazar" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
