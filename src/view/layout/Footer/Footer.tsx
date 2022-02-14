@@ -51,6 +51,21 @@ const Footer: NextComponentType = () => {
           </S.FooterMenuItem>
         </S.FooterMenuGroup>
         <S.FooterMenuGroup>
+          <S.FooterMenuHeader>Help</S.FooterMenuHeader>
+          <S.FooterMenuItem>
+            <Link href="/help#faq">FAQ</Link>
+          </S.FooterMenuItem>
+          <S.FooterMenuItem>
+            <Link href="/help#terms">Terms</Link>
+          </S.FooterMenuItem>
+          <S.FooterMenuItem>
+            <Link href="/help#privacy">Privacy Policy</Link>
+          </S.FooterMenuItem>
+          <S.FooterMenuItem>
+            <Link href="/help#cookie">Cookie Policy</Link>
+          </S.FooterMenuItem>
+        </S.FooterMenuGroup>
+        <S.FooterMenuGroup>
           <S.FooterMenuHeader>Pages</S.FooterMenuHeader>
           <S.FooterMenuItem>
             <Link href="/">Home</Link>

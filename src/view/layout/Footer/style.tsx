@@ -99,20 +99,29 @@ const FooterMenu = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: ${BreakpointSize.TABLET.MIN}px) {
-    width: 100%;
+  ${FooterMenuItem}:not(:last-child) {
+    margin-bottom: 12px;
   }
 
-  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     justify-content: space-evenly;
+    width: 100%;
+    flex-wrap: wrap;
 
-    ${FooterMenuItem} {
+    ${FooterMenuItem},
+    ${FooterMenuHeader} {
       text-align: center;
     }
   }
 
-  ${FooterMenuItem}:not(:last-child) {
-    margin-bottom: 12px;
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    ${FooterMenuHeader} {
+      font-size: var(--font-size);
+    }
+
+    ${FooterMenuItem} {
+      font-size: var(--font-size-s);
+    }
   }
 `
 
