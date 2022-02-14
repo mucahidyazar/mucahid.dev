@@ -103,7 +103,10 @@ const Language = styled.div`
 
 //? THEMES
 const Themes = styled.div`
+  margin-left: 1rem;
+
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-left: 0;
     margin-bottom: 1rem;
   }
 `
@@ -119,11 +122,13 @@ const ThemeIcon = styled(Icon)``
 //? MENU
 const Menu = styled.div`
   display: none;
+  margin-left: 1rem;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     display: block;
   }
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-left: 0;
     margin-bottom: 1rem;
   }
 `
@@ -181,6 +186,12 @@ const UserImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 1rem;
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
 `
 const UserImageSource = styled.img`
   width: 100%;
@@ -194,8 +205,10 @@ const UserIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 1rem;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    margin-left: 0;
     margin-bottom: 1rem;
   }
 `
