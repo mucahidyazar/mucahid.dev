@@ -30,14 +30,16 @@
 
 <hr />
 
-1. Add all environment variables
-2. Run the codes on terminal
+1. Install [Node.js](https://nodejs.org/en/)
+2. Add all environment variables (Which env for what I described them in
+   .env.example)
+3. After you add your env variables then run the codes on terminal
 
 ```bash
 yarn && yarn dev
 ```
 
-3. Go localhost:3000
+4. Go localhost:3000
 
 <br />
 
@@ -66,7 +68,36 @@ yarn && yarn dev
 
 ## 🎉 Credits
 
-- [riobard/go-shadowsocks2](https://github.com/riobard/go-shadowsocks2)
+### Tools
+
+#### Github Actions
+
+- [https://github.com/MarceloPrado/has-changed-path](https://github.com/MarceloPrado/has-changed-path)
+  (Used)
+
+- [https://github.com/marvinpinto/action-automatic-releases](https://github.com/marvinpinto/action-automatic-releases)
+  (Used)
+
+- [https://github.com/marvinpinto/actions](https://github.com/marvinpinto/actions)
+
+#### Npm
+
+- [https://github.com/commitizen/cz-cli](https://github.com/commitizen/cz-cli)
+  (Used)
+
+#### Packages
+
+- [https://www.prisma.io/](https://www.prisma.io/)
+
+- [https://www.cypress.io/](https://www.cypress.io/)
+
+### Articles
+
+- [https://www.eliostruyf.com/deploy-site-vercel-github-actions-releases/](https://www.eliostruyf.com/deploy-site-vercel-github-actions-releases/)
+
+- [https://aaronfrancis.com/2021/the-perfect-vercel-github-actions-deployment-pipeline](https://aaronfrancis.com/2021/the-perfect-vercel-github-actions-deployment-pipeline)
+
+- [https://lzomedia.com/blog/automatic-release-new-version-and-notify-your-followers-about-it-using-github-workflows/](https://lzomedia.com/blog/automatic-release-new-version-and-notify-your-followers-about-it-using-github-workflows/)
 
 <br />
 
