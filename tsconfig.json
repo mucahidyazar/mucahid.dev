@@ -31,7 +31,8 @@
       "@/ui": ["src/view/ui/index.ts"],
       "@/utilities": ["src/utilities/index.ts"]
     },
-    "isolatedModules": true
+    "isolatedModules": true,
+    "types": ["cypress"]
   },
   "include": [
     "next-env.d.ts",
