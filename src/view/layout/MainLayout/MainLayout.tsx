@@ -2,12 +2,12 @@ import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 // import io, {Socket} from 'socket.io-client'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 
 import {ActiveUsers, SubscribeBanner, Welcome} from '@/components'
 import {Navbar, Footer} from '@/layout'
 // import {addActiveUser, removeActiveUser} from '@/store/general'
-import {setTheme} from '@/store/settings'
+import {makeSelectActivePage, setTheme} from '@/store/settings'
 
 import * as S from './style'
 
@@ -25,6 +25,7 @@ const MainLayout: React.FC<IMainLayout> = ({
   hasWelcome,
 }) => {
   const dispatch = useDispatch()
+  const activePage = useSelector(makeSelectActivePage)
 
   // const initSocket = useCallback(() => {
   //   let socket = io({
@@ -59,9 +60,15 @@ const MainLayout: React.FC<IMainLayout> = ({
   return (
     <S.MainLayout>
       <Head>
-        <title>{title}</title>
+        <title>
+          {title} | {activePage} | mucahid.dev
+        </title>
         <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta name="author" content="Mucahid Yazar" />
+        <meta name="copyright" content="Mucahid Yazar" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://mucahid.dev" />
       </Head>
       <Navbar />
       {hasWelcome && (

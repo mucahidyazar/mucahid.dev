@@ -138,3 +138,11 @@ export type CardData = {
 }
 
 export type Query = {[key: string]: string | string[]}
+
+export type RouteModel = {
+  id: string
+  key?: string
+  name: string
+  route: string
+  source: string
+}
