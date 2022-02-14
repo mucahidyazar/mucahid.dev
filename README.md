@@ -1,7 +1,5 @@
 <div align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
   <img src="public/github-brand.png" alt="mucahid.dev" width="200">
 </div>
 <h4 align="center">Modern Full-Stack Next.js Personal Portfolio Project</h4>
@@ -13,7 +11,7 @@
 [![release](https://img.shields.io/github/release/mucahidyazar/mucahid.dev/all.svg?style=flat-square)](https://github.com/mucahidyazar/mucahid.dev/releases)
 [![release](https://img.shields.io/github/workflow/status/mucahidyazar/mucahid.dev/Go?style=flat-square)](https://github.com/mucahidyazar/mucahid.dev/releases)
 [![license](https://img.shields.io/github/license/zhiqwang/yolov5-rt-stack?color=dfd)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-pink.svg)](https://github.com/mucahidyazar/mucahid.dev/README.md)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 
 [Demo](https://mucahid.dev) •
 [Documentation](https://github.com/mucahidyazar/mucahid.dev) •
@@ -87,7 +85,8 @@ Jin.
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people
+([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -103,4 +102,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the
+[all-contributors](https://github.com/all-contributors/all-contributors)
+specification. Contributions of any kind welcome!
