@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "mucahidyazar",
+      "name": "Mucahid Yazar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/52811808?v=4",
+      "profile": "http://mucahid.dev",
+      "contributions": [
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "mucahid.dev",
+  "projectOwner": "mucahidyazar",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
