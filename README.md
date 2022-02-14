@@ -10,8 +10,11 @@
 
 [![release](https://img.shields.io/github/release/mucahidyazar/mucahid.dev/all.svg?style=flat-square)](https://github.com/mucahidyazar/mucahid.dev/releases)
 [![release](https://img.shields.io/github/workflow/status/mucahidyazar/mucahid.dev/Go?style=flat-square)](https://github.com/mucahidyazar/mucahid.dev/releases)
-[![license](https://img.shields.io/github/license/zhiqwang/yolov5-rt-stack?color=dfd)](LICENSE)
+[![license](https://img.shields.io/github/license/mucahidyazar/mucahid.dev?color=dfd)](LICENSE)
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+![](https://img.shields.io/github/repo-size/mucahidyazar/mucahid.dev?label=Repo%20size&style=flat-square)
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+![GitHub CI](https://github.com/mucahidyazar/mucahid.dev/actions/workflows/release.yml/badge.svg)
 
 [Demo](https://mucahid.dev) •
 [Documentation](https://github.com/mucahidyazar/mucahid.dev) •
@@ -75,7 +78,7 @@ yarn && yarn dev
 
 <br />
 
-## License
+## ⚡️ License
 
 <hr />
 
@@ -83,7 +86,11 @@ Code released under GPL license. Please pull request to this source repo before
 you make your changes public or commercial usage. All rights reserved by Lucas
 Jin.
 
-## Contributors ✨
+<br />
+
+## ✨ Contributors
+
+<hr />
 
 Thanks goes to these wonderful people
 ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
