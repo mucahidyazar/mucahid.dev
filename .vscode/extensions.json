@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "naumovs.color-highlight",
+    "mikestead.dotenv",
+    "dbaeumer.vscode-eslint",
+    "cschleiden.vscode-github-actions",
+    "wix.vscode-import-cost",
+    "xabikos.JavaScriptSnippets",
+    "Orta.vscode-jest",
+    "andys8.jest-snippets",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "Prisma.prisma",
+    "JuanBlanco.solidity",
+    "wayou.vscode-todo-highlight",
+    "KnisterPeter.vscode-commitizen",
+    "jonkwheeler.styled-components-snippets"
+  ]
+}

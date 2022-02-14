@@ -1,9 +1,16 @@
 {
   "files": [
-    "README.md"
+    "README.md",
+    "CONTRIBUTORS.md"
   ],
   "imageSize": 100,
   "commit": false,
+  "contributorsPerLine": 7,
+  "projectName": "mucahid.dev",
+  "projectOwner": "mucahidyazar",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true,
   "contributors": [
     {
       "login": "mucahidyazar",
@@ -14,11 +21,5 @@
         "maintenance"
       ]
     }
-  ],
-  "contributorsPerLine": 7,
-  "projectName": "mucahid.dev",
-  "projectOwner": "mucahidyazar",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "skipCi": true
+  ]
 }

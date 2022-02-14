@@ -8,16 +8,18 @@
 
 <div align="center">
 
+---
+
 [![release](https://img.shields.io/github/release/mucahidyazar/mucahid.dev/all.svg?style=flat-square)](https://github.com/mucahidyazar/mucahid.dev/releases)
 [![release](https://img.shields.io/github/workflow/status/mucahidyazar/mucahid.dev/Go?style=flat-square)](https://github.com/mucahidyazar/mucahid.dev/releases)
 [![license](https://img.shields.io/github/license/zhiqwang/yolov5-rt-stack?color=dfd)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-pink.svg)](https://github.com/jinfagang/yolov7/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-pink.svg)](https://github.com/mucahidyazar/mucahid.dev/README.md)
 
 [Demo](https://mucahid.dev) •
-[Documentation](https://github.com/jinfagang/yolov7) •
-[Installation Instructions](https://github.com/jinfagang/yolov7) •
+[Documentation](https://github.com/mucahidyazar/mucahid.dev) •
+[Installation Instructions](https://github.com/mucahidyazar/mucahid.dev) •
 [Deployment](#deploy) • [Contributing](.github/CONTRIBUTING.md) •
-[Reporting Issues](https://github.com/jinfagang/yolov7/issues/new?assignees=&labels=&template=bug-report.yml)
+[Reporting Issues](https://github.com/mucahidyazar/mucahid.dev/pulls)
 
 </div>
 
