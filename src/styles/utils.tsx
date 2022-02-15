@@ -33,3 +33,24 @@ export const titleHover = css`
     animation: expansing 0.5s ease-in-out forwards;
   }
 `
+
+export const titleHover2 = css`
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 2rem;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+`

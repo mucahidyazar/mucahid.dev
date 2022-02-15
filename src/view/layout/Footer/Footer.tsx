@@ -38,7 +38,7 @@ const Footer: NextComponentType = () => {
         <S.FooterMenuGroup>
           <S.FooterMenuHeader>Info</S.FooterMenuHeader>
           <S.FooterMenuItem>
-            <Link href="/">Changelog</Link>
+            <Link href="/changelogs">Changelogs</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
             <Link href="/sitemap-0.xml">Sitemap.xml</Link>

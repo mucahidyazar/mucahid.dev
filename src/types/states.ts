@@ -2,9 +2,10 @@ import {Status} from './enums'
 import {Article, Comment, User, News, API, Starred, Query} from './models'
 
 export interface State {
+  auth: AuthState
   blockchain: BlockchainState
   blog: BlogState
-  auth: AuthState
+  changelogs: ChangelogsState
   contact: ContactState
   general: GeneralState
   home: HomeState
@@ -50,6 +51,14 @@ export type BlogState = {
   }
   comment: {
     status: Status
+  }
+}
+
+export type ChangelogsState = {
+  changelogs: {
+    status: Status
+    data: any
+    error: string | null
   }
 }
 
