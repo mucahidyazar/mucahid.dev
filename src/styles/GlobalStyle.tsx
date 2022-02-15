@@ -52,6 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     font-size: 16px;
     color: var(--color-white);
+    scroll-behavior: smooth;
   }
 
   body {
