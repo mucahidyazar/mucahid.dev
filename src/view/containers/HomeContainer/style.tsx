@@ -257,7 +257,7 @@ const Logos = styled.div`
   }
 `
 const Logo = styled.div`
-  filter: blur(4px) saturate(0.5);
+  filter: blur(1px) saturate(0.5);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   position: relative;
