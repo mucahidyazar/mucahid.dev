@@ -5,6 +5,7 @@ import * as S from './style'
 
 interface ITitle {
   children: React.ReactNode
+  id?: string
   level: number | string
 }
 
