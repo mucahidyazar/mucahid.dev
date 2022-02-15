@@ -38,7 +38,7 @@ const Footer: NextComponentType = () => {
         <S.FooterMenuGroup>
           <S.FooterMenuHeader>Info</S.FooterMenuHeader>
           <S.FooterMenuItem>
-            <Link href="/">Updates</Link>
+            <Link href="/">Changelog</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
             <Link href="/sitemap-0.xml">Sitemap.xml</Link>
@@ -53,9 +53,6 @@ const Footer: NextComponentType = () => {
         <S.FooterMenuGroup>
           <S.FooterMenuHeader>Help</S.FooterMenuHeader>
           <S.FooterMenuItem>
-            <Link href="/help#faq">FAQ</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
             <Link href="/help#terms">Terms</Link>
           </S.FooterMenuItem>
           <S.FooterMenuItem>
@@ -63,6 +60,9 @@ const Footer: NextComponentType = () => {
           </S.FooterMenuItem>
           <S.FooterMenuItem>
             <Link href="/help#cookie">Cookie Policy</Link>
+          </S.FooterMenuItem>
+          <S.FooterMenuItem>
+            <Link href="/help#faq">FAQ</Link>
           </S.FooterMenuItem>
         </S.FooterMenuGroup>
         <S.FooterMenuGroup>

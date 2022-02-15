@@ -95,7 +95,7 @@ const FooterMenuItem = styled.div`
 `
 
 const FooterMenu = styled.div`
-  width: 362px;
+  width: 480px;
   display: flex;
   justify-content: space-between;
 
