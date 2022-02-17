@@ -115,7 +115,7 @@ const Navbar: NextComponentType = () => {
         </S.Themes>
 
         <S.Menu onClick={handleToggleMenu}>
-          <S.MenuToggler type="checkbox" checked={toggleMenu} />
+          <S.MenuToggler type="checkbox" checked={toggleMenu} readOnly />
           <S.MenuIcon>
             <S.MenuIconBar />
           </S.MenuIcon>
