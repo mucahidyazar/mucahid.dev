@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react'
 import type {NextComponentType} from 'next'
 import {useRouter} from 'next/router'
 import {useDispatch, useSelector} from 'react-redux'
+import {motion} from 'framer-motion'
 
 import {Badge, PostCard, Button} from '@/ui'
 import {
@@ -83,16 +84,25 @@ const BlogContainer: NextComponentType = () => {
         {articles.map((article, index) => {
           if (index < pagination) {
             return (
-              <PostCard
+              <motion.div
                 key={article.guid}
-                title={article.title}
-                subtitle={article.description}
-                date={article.pubDate}
-                tags={article.categories}
-                // article.guid = https://medium.com/p/e2d129b93d4c
-                link={`/blog/${article.slug}`}
-                imageUrl={article.thumbnail}
-              />
+                initial={{opacity: 0}}
+                whileInView={{
+                  opacity: 1,
+                  transition: {delay: 0.5 * (index % 6)},
+                }}
+                viewport={{once: false}}
+              >
+                <PostCard
+                  title={article.title}
+                  subtitle={article.description}
+                  date={article.pubDate}
+                  tags={article.categories}
+                  // article.guid = https://medium.com/p/e2d129b93d4c
+                  link={`/blog/${article.slug}`}
+                  imageUrl={article.thumbnail}
+                />
+              </motion.div>
             )
           }
         })}
