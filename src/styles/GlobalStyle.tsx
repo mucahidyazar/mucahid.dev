@@ -108,7 +108,7 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
-  
+  // For drawer
   .fade-enter{
     opacity: 0;
     transform: translateY(-32px);
