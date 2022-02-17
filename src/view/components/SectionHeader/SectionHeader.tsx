@@ -22,7 +22,7 @@ const SectionHeader: React.FC<ISectionHeader> = ({
     <S.SectionHeader {...rest}>
       <S.SectionHeaderTop>
         <Title level={5}>{title}</Title>
-        {link && <Link href="">See All</Link>}
+        {link && <Link href={link}>See All</Link>}
       </S.SectionHeaderTop>
       {subtitle && <Subtitle>{subtitle}</Subtitle>}
     </S.SectionHeader>
