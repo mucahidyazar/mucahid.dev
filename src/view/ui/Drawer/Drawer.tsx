@@ -51,7 +51,12 @@ function Drawer({
         unmountOnExit
         timeout={500}
       >
-        <S.Wrapper data-testid="drawer" placement={placement} {...props}>
+        <S.Wrapper
+          data-testid="drawer"
+          placement={placement}
+          // eslint-disabled-next-line
+          {...props}
+        >
           <BackDropStyle />
           <S.DrawerWrapper size={size} placement={placement}>
             <S.DrawerContent ref={backdropRef} data-testid="drawer-content">
@@ -69,7 +74,7 @@ function Drawer({
     )
   }
 
-  return <div></div>
+  return null
 }
 
 Drawer.propTypes = {
