@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 // import io, {Socket} from 'socket.io-client'
 import {useDispatch, useSelector} from 'react-redux'
+import {i18n} from 'next-i18next'
 
 import {ActiveUsers, SubscribeBanner, Welcome} from '@/components'
 import {Navbar, Footer} from '@/layout'
@@ -26,6 +27,7 @@ const MainLayout: React.FC<IMainLayout> = ({
 }) => {
   const dispatch = useDispatch()
   const activePage = useSelector(makeSelectActivePage)
+  const language = i18n?.language
 
   // const initSocket = useCallback(() => {
   //   let socket = io({
@@ -69,6 +71,11 @@ const MainLayout: React.FC<IMainLayout> = ({
         <meta name="copyright" content="Mucahid Yazar" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://mucahid.dev" />
+        <link
+          rel="alternate"
+          hrefLang={language}
+          href={`https://mucahid.dev/${language === 'en' ? '' : language}`}
+        />
       </Head>
       <Navbar />
       {hasWelcome && (
