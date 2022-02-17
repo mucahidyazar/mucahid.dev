@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import type {NextComponentType} from 'next'
 import {useDispatch, useSelector} from 'react-redux'
+import {motion} from 'framer-motion'
 
 import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
 import {Button} from '@/ui'
@@ -16,6 +17,7 @@ import * as S from './style'
 import {SectionCard} from './SectionCard'
 
 const ProjectsContainer: NextComponentType = () => {
+  const [pagination, setPagination] = useState(6)
   const dispatch = useDispatch()
   const starreds = useSelector(makeSelectStarreds)
   const apis = useSelector(makeSelectApis)
@@ -74,22 +76,36 @@ const ProjectsContainer: NextComponentType = () => {
         />
 
         <S.WorkshopsList>
-          {workshops.map((item, index) => {
-            if (index < 6) {
+          {workshops.map((workshop, index) => {
+            if (index < pagination) {
               return (
-                <S.PostCard
-                  title={item.title}
-                  subtitle={item.description}
-                  tags={item.technologies}
-                  imageUrl={item.image}
-                  link="https://www.google.com"
-                  links={item.links}
-                />
+                <motion.div
+                  key={workshop.id}
+                  initial={{opacity: 0}}
+                  whileInView={{
+                    opacity: 1,
+                    transition: {delay: 0.5 * (index % 6)},
+                  }}
+                  viewport={{once: false}}
+                >
+                  <S.PostCard
+                    title={workshop.title}
+                    subtitle={workshop.description}
+                    tags={workshop.technologies}
+                    imageUrl={workshop.image}
+                    link="https://www.google.com"
+                    links={workshop.links}
+                  />
+                </motion.div>
               )
             }
           })}
         </S.WorkshopsList>
-        <Button outline>Load more</Button>
+        {pagination < workshops.length && (
+          <Button outline onClick={() => setPagination(prev => prev + 6)}>
+            Load more
+          </Button>
+        )}
       </S.WorkshopsSection>
     </>
   )
