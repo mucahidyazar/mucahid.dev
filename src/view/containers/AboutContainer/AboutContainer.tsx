@@ -51,7 +51,7 @@ const AboutContainer: NextComponentType = () => {
         <SectionHeader
           title="Projects"
           subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
-          link="https://www.google.com"
+          link="/projects"
         />
         <S.ProjectCards>
           {projects.map(project => (
