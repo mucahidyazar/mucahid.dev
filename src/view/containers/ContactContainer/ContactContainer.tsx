@@ -72,7 +72,6 @@ const ContactContainer: NextComponentType = () => {
     dispatch(getStats())
   }, [dispatch])
 
-  console.log({messages, board})
   return (
     <S.ContactContainer>
       <S.Stats>

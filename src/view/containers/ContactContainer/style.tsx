@@ -12,9 +12,44 @@ const Stats = styled.div`
   margin-bottom: 10rem;
 `
 const Stat = styled.div`
+  width: 200px;
+  height: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background: rgba(144, 19, 254, 0.15);
+  box-shadow: 0 8px 32px 8px rgba(144, 19, 254, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  animation: statAnimation 10s ease-in-out infinite alternate;
+
+  // keyframes box-shadow, background, backdrop-filter and -webkit-backdrop-filter
+  @keyframes statAnimation {
+    0% {
+      box-shadow: 0 4px 24px 6px rgba(181, 72, 69, 0.2);
+      background: rgba(181, 72, 69, 0.15);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+    25% {
+      box-shadow: 0 4px 32px 8px rgba(181, 72, 69, 0.3);
+      background: rgba(181, 72, 69, 0.25);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+    }
+    50% {
+      box-shadow: 0 4px 24px 6px rgba(144, 19, 254, 0.2);
+      background: rgba(144, 19, 254, 0.15);
+    }
+    75% {
+      box-shadow: 0 4px 32px 8px rgba(144, 19, 254, 0.3);
+      background: rgba(144, 19, 254, 0.25);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+  }
 `
 const StatIcon = styled(Icon)``
 const StatTitle = styled(Title)`
@@ -25,6 +60,7 @@ const StatTitle = styled(Title)`
 const StatDescription = styled.p`
   text-transform: uppercase;
   color: var(--color-gray);
+  text-align: center;
 `
 
 const ConnectionsContainer = styled.div`
