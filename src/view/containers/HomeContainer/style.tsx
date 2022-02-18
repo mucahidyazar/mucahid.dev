@@ -247,6 +247,7 @@ const Logos = styled.div`
   gap: 4rem;
   overflow-x: auto;
   margin-bottom: 10rem;
+  padding: 1.25rem 0;
 
   &::-webkit-scrollbar {
     display: none;
