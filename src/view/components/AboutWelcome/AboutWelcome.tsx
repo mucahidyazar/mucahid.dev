@@ -1,15 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
 import type {NextComponentType} from 'next'
-import {useRouter} from 'next/router'
 
-import {Button, Icon} from '@/ui'
+import {Button} from '@/ui'
 
 import * as S from './style'
 
 const AboutWelcome: NextComponentType = () => {
-  const router = useRouter()
-
   return (
     <S.AboutWelcomeContainer>
       <S.AboutWelcomeProfile>
