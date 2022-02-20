@@ -1,29 +1,33 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
 
 import {makeSelectUser, setNewsletter} from '@/store/auth'
+import {dataTestTarget} from '@/utilities'
 
 import * as S from './style'
 
 const SubscribeBanner = () => {
   const dispatch = useDispatch()
   const user = useSelector(makeSelectUser)
+  const newsletterForm = useRef({} as HTMLFormElement)
 
   // event type
-  const submitHandler = (e: React.FormEvent) => {
+  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const form = new FormData(e.currentTarget as any)
-    const data = {
-      email: form.get('email'),
-      name: form.get('name'),
+    const form = new FormData(e.currentTarget)
+    const name = String(form.get('name'))
+    const email = String(form.get('email'))
+
+    if (name && email) {
+      dispatch(setNewsletter({email, name}))
     }
 
-    dispatch(setNewsletter(data as any))
+    newsletterForm?.current?.reset()
   }
 
   return (
-    <S.SubscribeBannerContainer>
+    <S.SubscribeBannerContainer {...dataTestTarget('subscribe-banner')}>
       <S.SubscribeBannerLeft>
         <S.SubscribeBannerTopTitle level={6}>
           BOOST YOUR FRONTEND CAREER
@@ -33,7 +37,7 @@ const SubscribeBanner = () => {
         </S.SubscribeBannerBottomTitle>
       </S.SubscribeBannerLeft>
 
-      <S.SubscribeBannerForm onSubmit={submitHandler}>
+      <S.SubscribeBannerForm onSubmit={submitHandler} ref={newsletterForm}>
         {!user?.name && (
           <S.SubscribeBannerInput name="name" placeholder="Name" />
         )}

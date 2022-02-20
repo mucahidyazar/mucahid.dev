@@ -7,6 +7,7 @@ import Link from 'next/link'
 import {Introduction} from '@/components'
 import {makeArticlesSelector} from '@/store/blog/selectors'
 import {dataTestTarget} from '@/utilities'
+import {companies, projects} from '@/data'
 
 import * as S from './style'
 
@@ -53,15 +54,9 @@ const HomeContainer: NextComponentType = () => {
       <S.SectionWrapper>
         <S.Section>
           <S.SectionHeader>
-            <S.SectionType {...dataTestTarget('section-article-type')}>
-              - Articles
-            </S.SectionType>
-            <S.SectionTitle {...dataTestTarget('section-article-title')}>
-              Last Articles
-            </S.SectionTitle>
-            <S.SectionDescription
-              {...dataTestTarget('section-article-description')}
-            >
+            <S.SectionType>- Articles</S.SectionType>
+            <S.SectionTitle>Last Articles</S.SectionTitle>
+            <S.SectionDescription>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </S.SectionDescription>
           </S.SectionHeader>
@@ -125,11 +120,13 @@ const HomeContainer: NextComponentType = () => {
             <S.ContentDetailsItem
               {...dataTestTarget('section-about-companies')}
             >
-              <S.ContentDetailsNumber>3</S.ContentDetailsNumber>
+              <S.ContentDetailsNumber>
+                {companies.length}
+              </S.ContentDetailsNumber>
               <S.ContentDetailsText>Companies</S.ContentDetailsText>
             </S.ContentDetailsItem>
             <S.ContentDetailsItem {...dataTestTarget('section-about-projects')}>
-              <S.ContentDetailsNumber>14</S.ContentDetailsNumber>
+              <S.ContentDetailsNumber>{projects.length}</S.ContentDetailsNumber>
               <S.ContentDetailsText>Projects</S.ContentDetailsText>
             </S.ContentDetailsItem>
           </S.ContentDetails>

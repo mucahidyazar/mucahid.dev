@@ -14,8 +14,8 @@ export default async function handle(
   const data = {
     name: session?.user?.name,
     email: session?.user?.email,
-    newsletter: true,
   }
+
   if (body.name) {
     data.name = body.name
   }

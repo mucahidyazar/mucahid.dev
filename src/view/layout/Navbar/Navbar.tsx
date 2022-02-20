@@ -64,7 +64,7 @@ const Navbar: NextComponentType = () => {
           <Link key={id} href={route} passHref>
             <S.NavbarMenuItem
               isActive={router.route === source}
-              {...dataTestTarget(`navbar-menu-item-${name}`)}
+              {...dataTestTarget(`navbar-menu-item-${id}`)}
             >
               {name}
             </S.NavbarMenuItem>

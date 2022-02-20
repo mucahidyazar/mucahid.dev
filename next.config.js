@@ -12,6 +12,9 @@ module.exports = withPlugins([
     experimental: {
       styledComponents: true,
     },
+    future: {
+      webpack5: true,
+    },
     reactStrictMode: true,
     images: {
       domains: [
@@ -19,7 +22,7 @@ module.exports = withPlugins([
         'images.unsplash.com',
         'avatars.githubusercontent.com',
         'cdn-images-1.medium.com',
-        'instagram.fist4-1.fna.fbcdn.net',
+        'instagram.fist13-1.fna.fbcdn.net',
         'i.giphy.com',
       ],
     },

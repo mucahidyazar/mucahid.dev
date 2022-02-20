@@ -91,6 +91,14 @@ yarn && yarn dev
 
 - [https://www.cypress.io/](https://www.cypress.io/)
 
+#### Media Tools
+
+- [freeconvert - GIF & Image Compressor](https://www.freeconvert.com/)
+
+- [compressgif - GIF & Image Compressor](https://compressgif.com/tr/)
+
+- [tinypng - Image Compressor](https://tinypng.com/)
+
 ### Articles
 
 - [https://www.eliostruyf.com/deploy-site-vercel-github-actions-releases/](https://www.eliostruyf.com/deploy-site-vercel-github-actions-releases/)
@@ -98,6 +106,18 @@ yarn && yarn dev
 - [https://aaronfrancis.com/2021/the-perfect-vercel-github-actions-deployment-pipeline](https://aaronfrancis.com/2021/the-perfect-vercel-github-actions-deployment-pipeline)
 
 - [https://lzomedia.com/blog/automatic-release-new-version-and-notify-your-followers-about-it-using-github-workflows/](https://lzomedia.com/blog/automatic-release-new-version-and-notify-your-followers-about-it-using-github-workflows/)
+
+#### About SEO
+
+- [8 Meta Tags That Improve SEO ](https://clutch.co/seo-firms/resources/meta-tags-that-improve-seo)
+
+- [Canonical URL Nedir?](https://www.ayhankaraman.com/canonical-url-nedir-canonical-etiketi-nasil-kullanilir/)
+
+- [10 Most Important Meta Tags You Need to Know for SEO](https://www.searchenginejournal.com/important-tags-seo/156440/#close)
+
+- [Meta tags that Google understands](https://developers.google.com/search/docs/advanced/crawling/special-tags)
+
+- [The essential meta tags at a glance](https://www.ionos.com/digitalguide/websites/web-development/the-most-important-meta-tags-and-their-functions/)
 
 <br />
 

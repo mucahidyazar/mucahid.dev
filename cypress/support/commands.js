@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+// Cypress.Commands.add('getArticles', () => {
+//   cy.task('mockServer', {
+//     interceptUrl:
+//       'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mucahidyazar',
+//     fixture: 'articles.json',
+//   })
+//   cy.visit('/')
+// })
