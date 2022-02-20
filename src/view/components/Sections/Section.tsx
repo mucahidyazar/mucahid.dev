@@ -12,7 +12,7 @@ interface ISection {
   link?: string
 }
 
-const SectionTwo: React.FC<ISection> = ({children, title, subtitle, link}) => {
+const Section: React.FC<ISection> = ({children, title, subtitle, link}) => {
   return (
     <S.SectionWrapper>
       <SectionHeader title={title} subtitle={subtitle} link={link} />
@@ -21,15 +21,15 @@ const SectionTwo: React.FC<ISection> = ({children, title, subtitle, link}) => {
   )
 }
 
-SectionTwo.propTypes = {
+Section.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   link: PropTypes.string,
 }
 
-SectionTwo.defaultProps = {
+Section.defaultProps = {
   link: '',
 }
 
-export default SectionTwo
+export default Section

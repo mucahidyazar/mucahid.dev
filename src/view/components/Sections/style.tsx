@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import {Card} from '@/ui'
 import {BreakpointSize} from '@/constants'
 
-const SectionWrapper = styled.div``
+const SectionWrapper = styled.div`
+  max-height: 60rem;
+  overflow-y: auto;
+`
 const SectionCards = styled.div`
-  max-height: 600px;
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

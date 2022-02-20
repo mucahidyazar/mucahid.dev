@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import type {NextComponentType} from 'next'
 import {useDispatch, useSelector} from 'react-redux'
 import {motion} from 'framer-motion'
+import {useTranslation} from 'next-i18next'
 
 import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
 import {Button} from '@/ui'
@@ -17,6 +18,7 @@ import * as S from './style'
 import {SectionCard} from './SectionCard'
 
 const ProjectsContainer: NextComponentType = () => {
+  const {t} = useTranslation()
   const [pagination, setPagination] = useState(6)
   const dispatch = useDispatch()
   const starreds = useSelector(makeSelectStarreds)
@@ -32,8 +34,8 @@ const ProjectsContainer: NextComponentType = () => {
       <Sections
         sectionOne={
           <Section
-            title="Contributions, Open-sources"
-            subtitle="These are my projects that I have contributed and created."
+            title={t('contributionsSectionTitle')}
+            subtitle={t('contributionsSectionDescription')}
             link="https://www.github.com/mucahidyazar"
           >
             <S.SectionCards>
@@ -45,8 +47,8 @@ const ProjectsContainer: NextComponentType = () => {
         }
         sectionTwo={
           <Section
-            title="Favorite repositories"
-            subtitle="Some of my favorite repositories on github."
+            title={t('favoriteRepositoriesSectionTitle')}
+            subtitle={t('favoriteRepositoriesSectionDescription')}
             link="https://www.github.com/mucahidyazar"
           >
             <S.SectionCards>
@@ -64,15 +66,15 @@ const ProjectsContainer: NextComponentType = () => {
       />
 
       <S.ExperiencesSection>
-        <SectionHeader title="Random APIs" subtitle="" />
+        <SectionHeader title={t('randomAPIs')} subtitle="" />
 
         <SectionSlider data={apis} hasArrow type={2} />
       </S.ExperiencesSection>
 
       <S.WorkshopsSection>
         <SectionHeader
-          title="Workshops"
-          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
+          title={t('workshopsSectionTitle')}
+          subtitle={t('workshopsSectionDescription')}
         />
 
         <S.WorkshopsList>
@@ -103,7 +105,7 @@ const ProjectsContainer: NextComponentType = () => {
         </S.WorkshopsList>
         {pagination < workshops.length && (
           <Button outline onClick={() => setPagination(prev => prev + 6)}>
-            Load more
+            {t('loadMore')}
           </Button>
         )}
       </S.WorkshopsSection>

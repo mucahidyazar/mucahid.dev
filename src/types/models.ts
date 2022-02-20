@@ -146,3 +146,15 @@ export type RouteModel = {
   route: string
   source: string
 }
+
+export type TFooterMenuItem = {
+  id: string
+  title: string
+  url: string
+}
+
+export type TFooterMenu = {
+  id: string | number
+  title: string
+  items: TFooterMenuItem[]
+}

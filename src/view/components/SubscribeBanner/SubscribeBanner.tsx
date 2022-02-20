@@ -1,13 +1,15 @@
 import React, {useRef} from 'react'
-import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
+import {useTranslation} from 'next-i18next'
 
 import {makeSelectUser, setNewsletter} from '@/store/auth'
 import {dataTestTarget} from '@/utilities'
+import {Icon} from '@/ui'
 
 import * as S from './style'
 
 const SubscribeBanner = () => {
+  const {t} = useTranslation('common')
   const dispatch = useDispatch()
   const user = useSelector(makeSelectUser)
   const newsletterForm = useRef({} as HTMLFormElement)
@@ -30,29 +32,26 @@ const SubscribeBanner = () => {
     <S.SubscribeBannerContainer {...dataTestTarget('subscribe-banner')}>
       <S.SubscribeBannerLeft>
         <S.SubscribeBannerTopTitle level={6}>
-          BOOST YOUR FRONTEND CAREER
+          {t('newsletterSlogan')}
         </S.SubscribeBannerTopTitle>
         <S.SubscribeBannerBottomTitle level={6}>
-          THE FRONTEND DEVELOPER
+          {t('newsletterHeading')}
         </S.SubscribeBannerBottomTitle>
       </S.SubscribeBannerLeft>
 
       <S.SubscribeBannerForm onSubmit={submitHandler} ref={newsletterForm}>
         {!user?.name && (
-          <S.SubscribeBannerInput name="name" placeholder="Name" />
+          <S.SubscribeBannerInput name="name" placeholder={t('name')} />
         )}
         {!user?.email && (
-          <S.SubscribeBannerInput name="email" placeholder="Email" />
+          <S.SubscribeBannerInput name="email" placeholder={t('email')} />
         )}
         {!user?.newsletter && (
           <S.SubscribeBannerButton>
-            <S.SubscribeBannerButtonText>Subscribe</S.SubscribeBannerButtonText>
-            <Image
-              src="/svgs/mail-icon.svg"
-              alt="mail-icon"
-              width={24}
-              height={24}
-            />
+            <S.SubscribeBannerButtonText>
+              {t('subscribe')}
+            </S.SubscribeBannerButtonText>
+            <Icon name="send" size={20} />
           </S.SubscribeBannerButton>
         )}
       </S.SubscribeBannerForm>

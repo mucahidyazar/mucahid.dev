@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import type {NextComponentType} from 'next'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
+import {useTranslation} from 'next-i18next'
 
 import {Sections, Section, LoadingWrapper} from '@/components'
 import {Card, Icon} from '@/ui'
@@ -27,6 +28,7 @@ import {getUserMetamasks} from '@/store/auth'
 import * as S from './style'
 
 const ContactContainer: NextComponentType = () => {
+  const {t} = useTranslation()
   const [type, setType] = useState(ContactType.EMAIL)
   const stats = useSelector(makeSelectStats)
   const contract = useSelector(makeSelectBlockchainContract)
@@ -78,17 +80,17 @@ const ContactContainer: NextComponentType = () => {
         <S.Stat>
           <S.StatIcon name="send" size={48} />
           <S.StatTitle level={5}>{stats.totalMessages}</S.StatTitle>
-          <S.StatDescription>Total messages</S.StatDescription>
+          <S.StatDescription>{t('totalMessages')}</S.StatDescription>
         </S.Stat>
         <S.Stat>
           <S.StatIcon name="ethereum" size={48} />
           <S.StatTitle level={5}>{stats.totalGiveaways}</S.StatTitle>
-          <S.StatDescription>Total giveaways</S.StatDescription>
+          <S.StatDescription>{t('totalGiveaways')}</S.StatDescription>
         </S.Stat>
         <S.Stat>
           <S.StatIcon name="coffee" size={48} />
           <S.StatTitle level={5}>{stats.totalCoffee}</S.StatTitle>
-          <S.StatDescription>Total coffee</S.StatDescription>
+          <S.StatDescription>{t('totalCoffee')}</S.StatDescription>
         </S.Stat>
       </S.Stats>
       {blockChainStatus !== Status.OK && (
@@ -101,7 +103,7 @@ const ContactContainer: NextComponentType = () => {
               height={60}
             />
             <S.ConnectMetamaskButtonText onClick={connectMetaMaskHandler}>
-              Connect Metamask
+              {t('connectMetamask')}
             </S.ConnectMetamaskButtonText>
           </S.ConnectMetamaskButton>
         </S.ConnectMetamaskButtonContainer>
@@ -109,8 +111,8 @@ const ContactContainer: NextComponentType = () => {
       <Sections
         sectionOne={
           <Section
-            title="Messages"
-            subtitle="You can put your message here and you can support me :) I will also support someone who is supporting me :)"
+            title={t('messagesSectionTitle')}
+            subtitle={t('messagesSectionDescription')}
           >
             <S.MessagesContainer>
               {messages?.map((item: any) => (
@@ -125,8 +127,8 @@ const ContactContainer: NextComponentType = () => {
         }
         sectionTwo={
           <Section
-            title="Board"
-            subtitle="This is the board message section. You messages will be shown more clear here."
+            title={t('boardSectionTitle')}
+            subtitle={t('boardSectionDescription')}
           >
             <S.BoardContainer>
               {board?.map((item: any) => (
@@ -143,37 +145,35 @@ const ContactContainer: NextComponentType = () => {
               onClick={() => setType(ContactType.EMAIL)}
               isSelected={ContactType.EMAIL === type}
             >
-              Email
+              {t('email')}
             </S.ContactFormTypeItem>
             <S.ContactFormTypeItem
               onClick={() => setType(ContactType.MESSAGE)}
               isSelected={ContactType.MESSAGE === type}
             >
-              Message
+              {t('message')}
             </S.ContactFormTypeItem>
             <S.ContactFormTypeItem
               onClick={() => setType(ContactType.BOARD)}
               isSelected={ContactType.BOARD === type}
             >
-              Board
+              {t('board')}
             </S.ContactFormTypeItem>
           </S.ContactFormType>
           {type === ContactType.MESSAGE && (
             <S.ContactFormWarning>
-              This will cost 0.002 ETH. And also you need to connect with your
-              Metamask.
+              {t('messageSupportWarning')}
             </S.ContactFormWarning>
           )}
           {type === ContactType.BOARD && (
             <S.ContactFormWarning>
-              This will cost 0.004 ETH. And also you need to connect with your
-              Metamask.
+              {t('boardSupportWarning')}
             </S.ContactFormWarning>
           )}
           <S.ContactFormInput name="title" placeholder="Title" />
           <S.ContactFormTextarea name="content" placeholder="Message" />
           <S.ContactFormButton>
-            {emailStatus === Status.LOADING ? 'Loading' : 'Send'}
+            {emailStatus === Status.LOADING ? t('loading') : t('send')}
           </S.ContactFormButton>
           <LoadingWrapper isLoading={emailStatus === Status.LOADING} />
         </S.ContactForm>

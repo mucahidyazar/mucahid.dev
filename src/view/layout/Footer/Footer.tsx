@@ -1,13 +1,18 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
 import Link from 'next/link'
+import {useTranslation} from 'next-i18next'
 
 import {socialLinks} from '@/data'
+import {TFooterMenu} from '@/types'
 import {Icon} from '@/ui'
 
 import * as S from './style'
 
 const Footer: NextComponentType = () => {
+  const {t} = useTranslation('common')
+  const footerMenu = t('footerMenu', {returnObjects: true}) as TFooterMenu[]
+
   return (
     <S.Footer>
       <S.FooterInfo>
@@ -22,12 +27,7 @@ const Footer: NextComponentType = () => {
             </S.SocialLink>
           ))}
         </S.SocialLinks>
-        <S.FooterInfoDescription>
-          I am a Fronend developer. I am working by this profession for almost 3
-          years. And I love design and coding. In my spare time, I play video
-          games, spends time with my family, and I love to trekking. And lastly
-          'Love Javascript guys!' and Let's study more!
-        </S.FooterInfoDescription>
+        <S.FooterInfoDescription>{t('aboutMeShort')}</S.FooterInfoDescription>
         <S.FooterSubscribe>
           <S.FooterSubscribeInput placeholder="your@email.com" />
           <S.FooterSubscribeButton>Subscribe</S.FooterSubscribeButton>
@@ -35,63 +35,16 @@ const Footer: NextComponentType = () => {
       </S.FooterInfo>
 
       <S.FooterMenu>
-        <S.FooterMenuGroup>
-          <S.FooterMenuHeader>Info</S.FooterMenuHeader>
-          <S.FooterMenuItem>
-            <Link href="/changelogs">Changelogs</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/sitemap-0.xml">Sitemap.xml</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/rss.xml">RSS.xml</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/contact">Email ME</Link>
-          </S.FooterMenuItem>
-        </S.FooterMenuGroup>
-        <S.FooterMenuGroup>
-          <S.FooterMenuHeader>Help</S.FooterMenuHeader>
-          <S.FooterMenuItem>
-            <Link href="/help#privacy">Privacy Policy</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/help#cookie">Cookie Policy</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/help#interpretation">Interpretation</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/help#definitions">Definitions</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/help#faq">FAQ</Link>
-          </S.FooterMenuItem>
-        </S.FooterMenuGroup>
-        <S.FooterMenuGroup>
-          <S.FooterMenuHeader>Pages</S.FooterMenuHeader>
-          <S.FooterMenuItem>
-            <Link href="/">Home</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/about">About</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/blog">Blog</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/media">Media</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/contact">Contact</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/projects">Projects</Link>
-          </S.FooterMenuItem>
-          <S.FooterMenuItem>
-            <Link href="/links">Links</Link>
-          </S.FooterMenuItem>
-        </S.FooterMenuGroup>
+        {footerMenu.map((footerMenu: TFooterMenu) => (
+          <S.FooterMenuGroup key={footerMenu.id}>
+            <S.FooterMenuHeader>{footerMenu.title}</S.FooterMenuHeader>
+            {footerMenu.items.map(footerMenuItem => (
+              <S.FooterMenuItem key={footerMenuItem.id}>
+                <Link href={footerMenuItem.url}>{footerMenuItem.title}</Link>
+              </S.FooterMenuItem>
+            ))}
+          </S.FooterMenuGroup>
+        ))}
       </S.FooterMenu>
     </S.Footer>
   )

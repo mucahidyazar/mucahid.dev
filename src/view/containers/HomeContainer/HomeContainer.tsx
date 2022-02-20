@@ -3,6 +3,7 @@ import type {NextComponentType} from 'next'
 import {useSelector} from 'react-redux'
 import Image from 'next/image'
 import Link from 'next/link'
+import {useTranslation} from 'next-i18next'
 
 import {Introduction} from '@/components'
 import {makeArticlesSelector} from '@/store/blog/selectors'
@@ -12,6 +13,7 @@ import {companies, projects} from '@/data'
 import * as S from './style'
 
 const HomeContainer: NextComponentType = () => {
+  const {t} = useTranslation('common')
   const articles = useSelector(makeArticlesSelector)
   const articlesForCard = articles.map(article => ({
     id: article.guid,
@@ -54,15 +56,15 @@ const HomeContainer: NextComponentType = () => {
       <S.SectionWrapper>
         <S.Section>
           <S.SectionHeader>
-            <S.SectionType>- Articles</S.SectionType>
-            <S.SectionTitle>Last Articles</S.SectionTitle>
+            <S.SectionType>- {t('articles')}</S.SectionType>
+            <S.SectionTitle>{t('lastArticlesSectionTitle')}</S.SectionTitle>
             <S.SectionDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              {t('lastArticlesSectionDescription')}
             </S.SectionDescription>
           </S.SectionHeader>
           <Link href="/blog" passHref>
             <S.SectionButton {...dataTestTarget('section-article-button')}>
-              Daha fazla
+              {t('showMore')}
             </S.SectionButton>
           </Link>
         </S.Section>
@@ -89,32 +91,23 @@ const HomeContainer: NextComponentType = () => {
         <S.Section>
           <S.SectionHeader>
             <S.SectionType {...dataTestTarget('section-about-type')}>
-              - About
+              - {t('about')}
             </S.SectionType>
             <S.SectionTitle {...dataTestTarget('section-about-title')}>
-              Me, Companies and Projects
+              {t('aboutSectionTitle')}
             </S.SectionTitle>
             <S.SectionDescription
               {...dataTestTarget('section-article-description')}
             >
-              Let me show you a quick summary about me, my experiences and my
-              projects.
+              {t('aboutSectionDescription')}
             </S.SectionDescription>
           </S.SectionHeader>
-          <S.SectionButton>Daha fazla</S.SectionButton>
+          <S.SectionButton>{t('showMore')}</S.SectionButton>
         </S.Section>
         <S.Content>
-          <S.ContentTitle>
-            Let's add a new project here and start a new journey. Lets make our
-            dream project come true.
-          </S.ContentTitle>
+          <S.ContentTitle>{t('aboutSectionTitle2')}</S.ContentTitle>
           <S.ContentDescription>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum
-            excepturi, a sapiente officiis eaque facilis odio deleniti
-            temporibus nostrum placeat error magni modi libero omnis
-            reprehenderit dignissimos nihil id. Quod in porro modi tempore illum
-            earum incidunt repellat rem consectetur ut aspernatur accusantium
-            quae, inventore et nam fuga nostrum commodi?
+            {t('aboutSectionDescription2')}
           </S.ContentDescription>
           <S.ContentDetails>
             <S.ContentDetailsItem
@@ -123,11 +116,11 @@ const HomeContainer: NextComponentType = () => {
               <S.ContentDetailsNumber>
                 {companies.length}
               </S.ContentDetailsNumber>
-              <S.ContentDetailsText>Companies</S.ContentDetailsText>
+              <S.ContentDetailsText>{t('companies')}</S.ContentDetailsText>
             </S.ContentDetailsItem>
             <S.ContentDetailsItem {...dataTestTarget('section-about-projects')}>
               <S.ContentDetailsNumber>{projects.length}</S.ContentDetailsNumber>
-              <S.ContentDetailsText>Projects</S.ContentDetailsText>
+              <S.ContentDetailsText>{t('projects')}</S.ContentDetailsText>
             </S.ContentDetailsItem>
           </S.ContentDetails>
         </S.Content>

@@ -5,6 +5,7 @@ import type {NextComponentType} from 'next'
 import {useRouter} from 'next/router'
 import {useDispatch, useSelector} from 'react-redux'
 import {motion} from 'framer-motion'
+import {useTranslation} from 'next-i18next'
 
 import {Badge, PostCard, Button} from '@/ui'
 import {
@@ -18,6 +19,7 @@ import {setFilter} from '@/store/blog'
 import * as S from './style'
 
 const BlogContainer: NextComponentType = () => {
+  const {t} = useTranslation()
   const router = useRouter()
   const dispatch = useDispatch()
   const [pagination, setPagination] = useState(6)
@@ -54,7 +56,7 @@ const BlogContainer: NextComponentType = () => {
   return (
     <>
       <S.FiltersSection>
-        <S.FilterByLabel>Search article by topic</S.FilterByLabel>
+        <S.FilterByLabel>{t('searchArticleByTopic')}</S.FilterByLabel>
         <S.FiltersTags>
           {categories?.map(item => (
             <Badge
@@ -66,7 +68,7 @@ const BlogContainer: NextComponentType = () => {
             </Badge>
           ))}
         </S.FiltersTags>
-        <S.FilterByLabel>Search article by topic</S.FilterByLabel>
+        <S.FilterByLabel>{t('searchArticleByYear')}</S.FilterByLabel>
         <S.FiltersTags>
           {years.map(item => (
             <Badge
@@ -109,7 +111,7 @@ const BlogContainer: NextComponentType = () => {
       </S.ArticlesSection>
       {pagination < articles.length && (
         <Button outline onClick={() => setPagination(prev => prev + 6)}>
-          Load more
+          {t('loadMore')}
         </Button>
       )}
       {/* <S.QuotesSection>

@@ -1,5 +1,6 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
+import {useTranslation} from 'next-i18next'
 
 import {AboutWelcome, SectionHeader, SectionSlider} from '@/components'
 import {Badge, ProjectCard} from '@/ui'
@@ -8,6 +9,8 @@ import {companies, projects, technologies} from '@/data'
 import * as S from './style'
 
 const AboutContainer: NextComponentType = () => {
+  const {t} = useTranslation()
+
   const quotesMockData = [
     {
       id: '0',
@@ -30,16 +33,16 @@ const AboutContainer: NextComponentType = () => {
       <AboutWelcome />
       <S.ExperiencesSection>
         <SectionHeader
-          title="Experiences"
-          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
+          title={t('experiences')}
+          subtitle={t('experiencesSectionDescription')}
         />
         <SectionSlider data={companies} hasBadge hasArrow />
       </S.ExperiencesSection>
 
       <S.TechnologiesSection>
         <SectionHeader
-          title="Technologies"
-          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
+          title={t('technologies')}
+          subtitle={t('technologiesSectionDescription')}
         />
         <S.TechnologiesTags>
           {technologies.map(item => (
@@ -50,8 +53,8 @@ const AboutContainer: NextComponentType = () => {
 
       <S.ProjectCardsSection>
         <SectionHeader
-          title="Projects"
-          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
+          title={t('projects')}
+          subtitle={t('projectsSectionDescription')}
           link="/projects"
         />
         <S.ProjectCards>
@@ -63,8 +66,8 @@ const AboutContainer: NextComponentType = () => {
 
       <S.QuotesSection>
         <SectionHeader
-          title="Quotes"
-          subtitle="Let me show you what summary of my website is :) Click which you want or just wait."
+          title={t('quotes')}
+          subtitle={t('quotesSectionDescription')}
         />
         <SectionSlider data={quotesMockData} hasArrow type={2} />
       </S.QuotesSection>
