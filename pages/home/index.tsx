@@ -1,29 +1,18 @@
 import React from 'react'
-import type {GetServerSideProps, NextPage} from 'next'
-import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
+import type {NextPage} from 'next'
+import {useTranslation} from 'next-i18next'
 
-import {wrapper} from '@/store/index'
 import {MainLayout} from '@/layout'
 import {HomeContainer} from '@/containers'
 
-const Home: NextPage = () => (
-  <MainLayout
-    title="&#128075; Hey, Passanger! Welcome!"
-    description="This is my Home page. You will find a quict introduction about me. I am Mucahid. I have been working at Getir nowadays. And I am trying to be a fullstack developer. I love to learn new things and I am always trying to do that. And I have been trying to learn Blockchain thecknologies and smart contracts nowadays. And lastly I want to tell you, 'Love Javascript' guys!"
-  >
-    <HomeContainer />
-  </MainLayout>
-)
+const Home: NextPage = () => {
+  const {t} = useTranslation('meta')
 
-export const getServerSideProps: GetServerSideProps =
-  wrapper.getServerSideProps(() => async ctx => {
-    const {locale}: any = ctx
-
-    return {
-      props: {
-        ...(await serverSideTranslations(locale, ['common'])),
-      },
-    }
-  })
+  return (
+    <MainLayout title={t('homeTitle')} description={t('homeDescription')}>
+      <HomeContainer />
+    </MainLayout>
+  )
+}
 
 export default Home

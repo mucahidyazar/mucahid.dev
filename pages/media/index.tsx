@@ -1,20 +1,22 @@
 import React from 'react'
 import type {GetServerSideProps, NextPage} from 'next'
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
+import {useTranslation} from 'next-i18next'
 
 import {wrapper} from '@/store/index'
 import {getInstagram} from '@/store/media'
 import {MediaContainer} from '@/containers'
 import {MainLayout} from '@/layout'
 
-const Media: NextPage = () => (
-  <MainLayout
-    title="Equipments, Tools and medias"
-    description="You will find and catch what my tools, requipments and medias are, here. What is my computer specs.? What tool Am I using? What hardware Does my computer has? and more. I hope I can give you some inspriration by my experience and setup. Have a enjoy!"
-  >
-    <MediaContainer />
-  </MainLayout>
-)
+const Media: NextPage = () => {
+  const {t} = useTranslation('meta')
+
+  return (
+    <MainLayout title={t('mediaTitle')} description={t('mediaDescription')}>
+      <MediaContainer />
+    </MainLayout>
+  )
+}
 
 export const getServerSideProps: GetServerSideProps =
   wrapper.getServerSideProps(store => async ctx => {
@@ -23,7 +25,7 @@ export const getServerSideProps: GetServerSideProps =
 
     return {
       props: {
-        ...(await serverSideTranslations(locale, ['common'])),
+        ...(await serverSideTranslations(locale, ['common', 'meta'])),
       },
     }
   })

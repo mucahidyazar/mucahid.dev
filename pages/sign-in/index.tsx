@@ -4,6 +4,7 @@ import {getCsrfToken, useSession} from 'next-auth/react'
 import {getProviders} from 'next-auth/react'
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
 import Head from 'next/head'
+import {useTranslation} from 'next-i18next'
 
 import {wrapper} from '@/store/index'
 import {MainLayout} from '@/layout'
@@ -11,11 +12,12 @@ import {SignInContainer} from '@/containers'
 
 const SignIn: NextPage = ({csrfToken, providers}: any) => {
   const {data: session} = useSession()
+  const {t} = useTranslation('meta')
 
   return (
     <MainLayout
-      title="Signed In"
-      description="You can add comment and find some easter egg if you signed in :)"
+      title={t('signInTitle')}
+      description={t('signInDescription')}
       hasWelcome={false}
     >
       {!session && (
@@ -39,7 +41,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
       props: {
         csrfToken,
         providers,
-        ...(await serverSideTranslations(locale, ['common'])),
+        ...(await serverSideTranslations(locale, ['common', 'meta'])),
       },
     }
   },

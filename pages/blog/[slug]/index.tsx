@@ -1,21 +1,26 @@
 import React from 'react'
 import type {NextPage} from 'next'
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations'
+import {useTranslation} from 'next-i18next'
 
 import {wrapper} from '@/store/index'
 import {ArticleContainer} from '@/containers'
 import {getArticle, getComments} from '@/store/blog'
 import {MainLayout} from '@/layout'
 
-const Article: NextPage = () => (
-  <MainLayout
-    hasWelcome={false}
-    title="Read, study, code and learn..."
-    description="Practise all the time, read, study, code and learn..."
-  >
-    <ArticleContainer />
-  </MainLayout>
-)
+const Article: NextPage = () => {
+  const {t} = useTranslation('meta')
+
+  return (
+    <MainLayout
+      hasWelcome={false}
+      title={t('articleTitle')}
+      description={t('articleDescription')}
+    >
+      <ArticleContainer />
+    </MainLayout>
+  )
+}
 
 export const getServerSideProps = wrapper.getServerSideProps(
   store =>
@@ -30,7 +35,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
 
       return {
         props: {
-          ...(await serverSideTranslations(locale, ['common'])),
+          ...(await serverSideTranslations(locale, ['common', 'meta'])),
         },
       }
     },
