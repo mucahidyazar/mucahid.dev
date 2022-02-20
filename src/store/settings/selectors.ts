@@ -1,7 +1,8 @@
 import {createSelector} from 'reselect'
-import {i18n} from 'next-i18next'
 
-import {RouteModel, State} from '@/types'
+import {State} from '@/types'
+
+import routes from '../../../config/routes.json'
 
 const selectSettings = (state: State) => state.settings
 
@@ -18,8 +19,9 @@ export const makeSelectActiveRoute = createSelector(
 export const makeSelectActivePage = createSelector(
   selectSettings,
   ({activeRoute}) => {
-    const routes = i18n?.t('navbar', {returnObjects: true}) as RouteModel[]
-    const activePage = routes?.find(item => item.route === activeRoute)?.name
+    const activePage = routes?.find(
+      item => item.filePath === activeRoute,
+    )?.activePage
     return activePage
   },
 )

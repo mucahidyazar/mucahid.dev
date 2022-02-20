@@ -11,7 +11,7 @@ import {ToastContainer} from 'react-toastify'
 import {PageLoading} from '@/components'
 import {GlobalStyle} from '@/styles'
 import {saveAuth} from '@/store/auth'
-import {changeLanguage, makeSelectTheme} from '@/store/settings'
+import {changeLanguage, makeSelectTheme, setActiveRoute} from '@/store/settings'
 
 import {wrapper} from '../src/store'
 
@@ -35,7 +35,9 @@ WrappedApp.getInitialProps = wrapper.getInitialAppProps(
     async ({ctx}): Promise<any> => {
       const data = await getSession(ctx)
       const {locale} = ctx
+
       await store.dispatch(changeLanguage(locale as string) as any)
+      await store.dispatch(setActiveRoute(ctx.pathname as string) as any)
 
       if (data) {
         await store.dispatch(saveAuth(data as any))
