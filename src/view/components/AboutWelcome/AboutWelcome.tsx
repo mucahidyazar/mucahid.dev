@@ -3,7 +3,7 @@ import Image from 'next/image'
 import type {NextComponentType} from 'next'
 import {useRouter} from 'next/router'
 
-import {Button} from '@/ui'
+import {Button, Icon} from '@/ui'
 
 import * as S from './style'
 
@@ -15,33 +15,12 @@ const AboutWelcome: NextComponentType = () => {
       <S.AboutWelcomeProfile>
         <S.AboutWelcomeImage>
           <Image
-            src="/images/introduction-image-1.jpg"
+            src="/images/profile.jpg"
             layout="fill"
             objectFit="cover"
             alt="Profile Photo"
           />
         </S.AboutWelcomeImage>
-        <S.AboutWelcomeSocials>
-          <Image
-            src="/svgs/codepen-icon.svg"
-            width={20}
-            height={20}
-            alt="Codepen"
-          />
-          <Image
-            src="/svgs/instagram-icon.svg"
-            width={20}
-            height={20}
-            alt="Instagram"
-          />
-          <Image src="/svgs/mail-icon.svg" width={20} height={20} alt="mail" />
-          <Image
-            src="/svgs/linkedin-icon.svg"
-            width={20}
-            height={20}
-            alt="linkedin"
-          />
-        </S.AboutWelcomeSocials>
       </S.AboutWelcomeProfile>
 
       <S.AboutWelcomeContent>
@@ -70,16 +49,12 @@ const AboutWelcome: NextComponentType = () => {
           trying to improve myself and learn some new technologies.
         </S.AboutWelcomeContentDescription>
         <S.AboutWelcomeButtons>
-          <Button
-            onClick={() => {
-              window.open('/resume.pdf', '_blank')
-            }}
-          >
-            Download Resume
-          </Button>
-          <Button outline onClick={() => router.push('/contact')}>
-            Hire Me
-          </Button>
+          <S.AboutWelcomeLink href="/resume.pdf" target="_blank">
+            <Button>Download Resume</Button>
+          </S.AboutWelcomeLink>
+          <S.AboutWelcomeLink href="mailto: mucahidyazar@gmail.com">
+            <Button outline>Hire Me</Button>
+          </S.AboutWelcomeLink>
         </S.AboutWelcomeButtons>
       </S.AboutWelcomeContent>
     </S.AboutWelcomeContainer>

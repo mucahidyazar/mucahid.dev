@@ -11,7 +11,7 @@ const WelcomeSection = styled.section`
   ${container}
   gap: 40px;
   position: relative;
-  min-height: 500px;
+  margin-bottom: 100px;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;
@@ -112,10 +112,9 @@ const WelcomeContainer = styled.div`
   align-items: center;
   color: var(--color-white);
   width: 100%;
-  min-height: 500px;
-  margin-bottom: 10rem;
   position: relative;
-  padding: 5rem 0;
+  height: calc(100vh - 210px);
+  min-height: 500px;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     ${WelcomeIllustration} {

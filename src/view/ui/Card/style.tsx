@@ -57,7 +57,7 @@ const CardContentSubtitle = styled(Subtitle)``
 const CardContent = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: calc(100% - 320px);
   overflow: hidden;
 
   ${CardContentSubtitle} {

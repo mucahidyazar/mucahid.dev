@@ -6,11 +6,11 @@ import {Icon} from '@/ui'
 import {Drawer as StyledDrawer} from '@/ui'
 
 const Navbar = styled.div`
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: var(--color-white);
-  padding: 80px 0;
   position: relative;
   cursor: pointer;
   ${container};

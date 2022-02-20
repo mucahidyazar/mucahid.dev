@@ -1,7 +1,7 @@
 import React from 'react'
 import type {NextComponentType} from 'next'
 
-import {SectionHeader, SectionSlider} from '@/components'
+import {AboutWelcome, SectionHeader, SectionSlider} from '@/components'
 import {Badge, ProjectCard} from '@/ui'
 import {companies, projects, technologies} from '@/data'
 
@@ -27,6 +27,7 @@ const AboutContainer: NextComponentType = () => {
 
   return (
     <>
+      <AboutWelcome />
       <S.ExperiencesSection>
         <SectionHeader
           title="Experiences"

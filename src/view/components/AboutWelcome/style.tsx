@@ -6,7 +6,7 @@ import {Title} from '@/ui'
 const AboutWelcomeContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 220px;
+  margin-bottom: 5rem;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;
@@ -24,19 +24,16 @@ const AboutWelcomeImage = styled.div`
   width: 440px;
   height: 440px;
   position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  filter: grayscale(1);
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     width: 100%;
     height: 200px;
   }
 `
-const AboutWelcomeSocials = styled.div`
-  margin-top: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-`
+
 const AboutWelcomeContent = styled.div`
   width: calc(100% - 500px);
 
@@ -56,14 +53,15 @@ const AboutWelcomeButtons = styled.div`
   align-items: center;
   gap: 1rem;
 `
+const AboutWelcomeLink = styled.a``
 
 export {
   AboutWelcomeContainer,
   AboutWelcomeProfile,
   AboutWelcomeImage,
-  AboutWelcomeSocials,
   AboutWelcomeContent,
   AboutWelcomeContentTitle,
   AboutWelcomeContentDescription,
   AboutWelcomeButtons,
+  AboutWelcomeLink,
 }
