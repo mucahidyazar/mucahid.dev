@@ -1,24 +1,145 @@
 {
-  "navbar": [
+  "showMore": "Show more",
+  "company": "Company",
+  "project": "Project",
+  "article": "Article",
+  "companies": "Companies",
+  "projects": "Projects",
+  "articles": "Articles",
+  "about": "About",
+  "name": "Name",
+  "email": "Email",
+  "subscribe": "Subscribe",
+  "experiences": "Experiences",
+  "technologies": "Technologies",
+  "quotes": "Quotes",
+  "seeAll": "See all",
+  "loadMore": "Load more",
+  "computer": "Computer",
+  "desk": "Desk",
+  "funkoPops": "Funko Pops",
+  "personal": "Personal",
+  "message": "Message",
+  "board": "Board",
+  "title": "Title",
+  "send": "Send",
+  "loading": "Loading",
+
+  "lastArticlesSectionTitle": "Last articles",
+  "lastArticlesSectionDescription": "Here are the last articles from my blog",
+
+  "aboutSectionTitle": "Me, Companies and Projects",
+  "aboutSectionDescription": "Here are some of the things I do and I did so far. It is just a quick summary",
+  "aboutSectionTitle2": "Let's add a new project here and start a new journey. Lets make our dream project come true.",
+  "aboutSectionDescription2": "I worked for lots of amazing companies and built lots of SASS projects. The numbers wich are below are just some numbers. Once I look at my behind the most important things are lots of experience and skills which I gain. So there is not a stop yet for me. I can't wait add another skills and experiences for myself.",
+
+  "ComponentQA": "#####",
+  "introductionQuestion1": "What do you like?",
+  "introductionAnswer1": "I like to play video games(especially RPG games), trekking, travelling. And I like cooking when I have enough time for it. As you know I am a Turkish guy so we have lots of delicious foods. I think it is the best and last thing about Turkey.",
+  "introductionQuestion2": "What is your purpose? What do you want to do?",
+  "introductionAnswer2": "Firstly being a good man. After that, I want to improve my soft skills. Trying to be a good engineer. By this mission I am the one of them who is thinking studying during the life.",
+
+  "newsletterSlogan": "BOOST YOUR FRONTEND CAREER",
+  "newsletterHeading": "THE FRONTEND DEVELOPER",
+
+  "aboutMeTitle": "Hi there, hope you having a fun time here.",
+  "aboutMeShort": "I am a Fronend developer. I am working by this profession for almost 3 years. And I love design and coding. In my spare time, I play video games, spends time with my family, and I love to trekking. And lastly 'Love Javascript guys!' and Let's study more!",
+  "aboutMeLong": "I am working for 3 years as a Frontend developer and I am trying to improve myself to be a good FullStack developer. I can design Restful API with NodeJS, GraphQL and Prisma, I am comfortable with Javascript. I can manage your project by myself and to create what you want. Currently, I am interesting in blockchain technologies and I want to improve myself in these areas. And I also love creating beautiful designs on Figma. And I am writing articles on Medium and my blog. I like to share and learn some new stuff in this way. I love and like HTML and CSS. As you know they really make beautiful and give pleasure for us and users. And I can design and built with my codes what you need. I can design Figma/XD/Zeplin to Html/Css/Js/React/Next. I can tell easily what I know so I can teach and share my experience with my teammates. And I am also a good RPG gamer. I think being a good RPG gamer is really important for developing. Because I think this means you know what you want. Because RPG gamers want more options and interactives in-game and they want this game not to be too complicated and bad design as the game is doing this. And I can build and design like this application. Doing this is very enjoyable for me. I am still trying to improve myself and learn some new technologies.",
+
+  "aboutWelcomeTitle": "Do you want to know me better?",
+  "downloadResume": "Download Resume",
+  "hireMe": "Hire Me",
+
+  "experiencesSectionDescription": "Here are the great companies which I worked for so far.",
+  "technologiesSectionDescription": "Here are the technologies which I have used on the projects.",
+  "projectsSectionDescription": "Here are the projects which I have worked on it so far.",
+  "quotesSectionDescription": "Here are what my clients and my friends say about me.",
+  "contributionsSectionTitle": "Contributions, Open-sources",
+  "contributionsSectionDescription": "These are my projects that I have contributed and created.",
+  "favoriteRepositoriesSectionTitle": "Favorite Repositories",
+  "favoriteRepositoriesSectionDescription": "These are my favorite and starred repositories on github.",
+  "workshopsSectionTitle": "Workshops",
+  "workshopsSectionDescription": "These are my workshops which I have prepared on internet.",
+  "randomStuffsSectionTitle": "Random Stuffs",
+  "randomStuffsSectionDescription": "These are some random stuffs which I am using on my setup.",
+  "instagramFeedSectionTitle": "Instagram Feed",
+  "instagramFeedSectionDescription": "Here are some of my instagram feed.",
+  "twitterFeedSectionTitle": "Twitter Feed",
+  "twitterFeedSectionDescription": "Here are some of my tweets, retweets and likes.",
+  "equipmentsSectionTitle": "Equipments",
+  "equipmentsSectionDescription": "Here are some of my equipments.",
+  "messagesSectionTitle": "Messages",
+  "messagesSectionDescription": "You can put your message here and you can support me :) I will also support someone who is supporting me :)",
+  "boardSectionTitle": "Board",
+  "boardSectionDescription": "This is the board message section. You messages will be shown more clear here.",
+
+  "randomAPIs": "Random APIs",
+
+  "searchArticleByTopic": "Search article by topic",
+  "searchArticleByYear": "Search article by year",
+
+  "totalMessages": "Total Messages",
+  "totalGiveaways": "Total Giveaways",
+  "totalCoffee": "Total Coffee",
+  "connectMetamask": "Connect Metamask",
+  "messageSupportWarning": "This will cost 0.002 ETH. And also you need to connect with your Metamask.",
+  "boardSupportWarning": "This will cost 0.004 ETH. And also you need to connect with your Metamask.",
+
+  "footerMenu": [
     {
-      "id": "0",
-      "ket": "home",
-      "name": "Ana Sayfa",
-      "route": "/",
-      "source": "/"
+      "id": "info",
+      "title": "Info",
+      "items": [
+        {"id": "0", "title": "Changelogs", "url": "/changelogs"},
+        {"id": "1", "title": "Sitemap.xml", "url": "/sitemap.xml"},
+        {"id": "2", "title": "RSS.xml", "url": "/rss.xml"},
+        {
+          "id": "3",
+          "title": "Email ME",
+          "url": "mailto:mucahidyazar@gmail.com"
+        }
+      ]
     },
+    {
+      "id": "help",
+      "title": "Help",
+      "items": [
+        {"id": "0", "title": "Privacy", "url": "/help#privacy"},
+        {"id": "1", "title": "Cookie Policy", "url": "/help#cookie"},
+        {"id": "2", "title": "Interpretation", "url": "/help#interpretation"},
+        {"id": "3", "title": "Definitions", "url": "/help#definitions"},
+        {"id": "4", "title": "FAQ", "url": "/help#faq"}
+      ]
+    },
+    {
+      "id": "pages",
+      "title": "Pages",
+      "items": [
+        {"id": "0", "title": "Home", "url": "/"},
+        {"id": "1", "title": "About", "url": "/about"},
+        {"id": "2", "title": "Blog", "url": "/blog"},
+        {"id": "3", "title": "Media", "url": "/media"},
+        {"id": "4", "title": "Contact", "url": "/contact"},
+        {"id": "5", "title": "Projects", "url": "/projects"},
+        {"id": "6", "title": "Links", "url": "/links"}
+      ]
+    }
+  ],
+
+  "navbar": [
+    {"id": "0", "ket": "home", "name": "Home", "route": "/", "source": "/"},
     {
       "id": "1",
       "ket": "about",
-      "name": "Hakkında",
-      "route": "/hakkinda",
+      "name": "About",
+      "route": "/about",
       "source": "/about"
     },
     {
       "id": "2",
       "ket": "projects",
-      "name": "Projeler",
-      "route": "/projeler",
+      "name": "Projects",
+      "route": "/projects",
       "source": "/projects"
     },
     {
@@ -31,22 +152,22 @@
     {
       "id": "4",
       "ket": "media",
-      "name": "Medya",
-      "route": "/medya",
+      "name": "Media",
+      "route": "/media",
       "source": "/media"
     },
     {
       "id": "5",
       "ket": "contact",
-      "name": "İletişim",
-      "route": "/iletisim",
+      "name": "Contact",
+      "route": "/contact",
       "source": "/contact"
     },
     {
       "id": "6",
       "ket": "links",
-      "name": "Linkler",
-      "route": "/linkler",
+      "name": "Links",
+      "route": "/links",
       "source": "/links"
     }
   ]

@@ -2,6 +2,7 @@ import React, {useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useRouter} from 'next/router'
 import Lottie from 'react-lottie'
+import {motion} from 'framer-motion'
 
 import {AllNewsModal, NewsModal} from '@/modals'
 
@@ -65,19 +66,36 @@ const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
       <S.WelcomeSection>
         <S.WelcomeContent>
           {/* <S.WelcomeTest>HELLO</S.WelcomeTest> */}
-          <S.WelcomeContentTitle>{title}</S.WelcomeContentTitle>
-          <S.WelcomeContentDescription>
-            {description}
-          </S.WelcomeContentDescription>
+
+          <motion.div
+            animate={{x: [-300, 0], opacity: [0, 1]}}
+            transition={{duration: 1, delay: 0.5}}
+          >
+            <S.WelcomeContentTitle>{title}</S.WelcomeContentTitle>
+          </motion.div>
+
+          <motion.div
+            animate={{x: [-300, 0], opacity: [0, 1]}}
+            transition={{duration: 1, delay: 1}}
+          >
+            <S.WelcomeContentDescription>
+              {description}
+            </S.WelcomeContentDescription>
+          </motion.div>
         </S.WelcomeContent>
         {animation && (
-          <Lottie
-            options={defaultOptions}
-            height={500}
-            width="auto"
-            isStopped={false}
-            isPaused={false}
-          />
+          <motion.div
+            animate={{x: [300, 0], opacity: [0, 1]}}
+            transition={{duration: 1}}
+          >
+            <Lottie
+              options={defaultOptions}
+              height={500}
+              width="auto"
+              isStopped={false}
+              isPaused={false}
+            />
+          </motion.div>
         )}
         {/* <S.WelcomeIllustration>
           <Image
