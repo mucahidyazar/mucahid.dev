@@ -63,11 +63,12 @@ const SectionSlider: React.FC<ISectionSlider> = ({
             <Badge
               key={item.id}
               imagePath={item.image}
-              text={item.name}
               cool
               isActive={String(activeSlide) == item.id}
               onClick={() => handleChangeSlide(item.id)}
-            />
+            >
+              {item.name}
+            </Badge>
           ))}
         </S.BadgeContainer>
       )}

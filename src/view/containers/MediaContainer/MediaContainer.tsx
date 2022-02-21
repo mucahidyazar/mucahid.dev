@@ -73,7 +73,6 @@ const MediaContainer: NextComponentType = () => {
         }
       />
 
-      {/* TODO: Links ve Mediadaki bu Badge bloklarini bir component yap  */}
       <SectionHeader
         title={t('equipmentsSectionTitle')}
         subtitle={t('equipmentsSectionDescription')}

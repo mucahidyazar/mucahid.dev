@@ -7,17 +7,16 @@ import * as S from './style'
 interface IBadge {
   children?: React.ReactNode
   imagePath?: string
-  text?: string
   cool?: boolean
   isActive?: boolean
   onClick?: () => void
 }
 
-const Badge = ({children, imagePath, text, ...titleProps}: IBadge) => {
+const Badge = ({children, imagePath, ...titleProps}: IBadge) => {
   return (
     <S.Badge data-testid="badge" {...titleProps}>
       {imagePath && <Image src={imagePath} width={40} height={40} alt="text" />}
-      {children || text}
+      {children}
     </S.Badge>
   )
 }
@@ -25,7 +24,6 @@ const Badge = ({children, imagePath, text, ...titleProps}: IBadge) => {
 Badge.propTypes = {
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   imagePath: PropTypes.string,
-  text: PropTypes.string,
   cool: PropTypes.bool,
   isActive: PropTypes.bool,
   onClick: PropTypes.func,
@@ -34,7 +32,6 @@ Badge.propTypes = {
 Badge.defaultProps = {
   children: null,
   imagePath: null,
-  text: null,
   cool: false,
   isActive: false,
   onClick: null,

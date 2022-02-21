@@ -1,3 +1,5 @@
+/// <reference types="@types/jest" />;
+
 declare var window: any
 
 // eslint-disable-next-line no-unused-vars
