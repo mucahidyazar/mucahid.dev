@@ -33,7 +33,7 @@ const Navbar: NextComponentType = () => {
   const dispatch = useDispatch()
   const router = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)
-  const routes = t('navbar', {returnObjects: true}) as RouteModel[]
+  const navbarMenu = t('navbarMenu', {returnObjects: true}) as RouteModel[]
 
   const theme = useSelector(makeSelectTheme)
   const language = useSelector(makeSelectLanguage)
@@ -60,7 +60,7 @@ const Navbar: NextComponentType = () => {
         </Link>
       </S.NavbarBrand>
       <S.NavbarMenu>
-        {routes.map(({id, name, route, source}) => (
+        {navbarMenu.map(({id, name, route, source}) => (
           <Link key={id} href={route} passHref>
             <S.NavbarMenuItem
               isActive={router.route === source}
@@ -147,7 +147,7 @@ const Navbar: NextComponentType = () => {
         size="80%"
       >
         <S.DrawerMenu>
-          {routes.map(({id, name, route}) => (
+          {navbarMenu.map(({id, name, route}) => (
             <Link href={route} passHref key={id}>
               <S.DrawerMenuItem>{name}</S.DrawerMenuItem>
             </Link>

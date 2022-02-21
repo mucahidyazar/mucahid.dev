@@ -40,7 +40,7 @@ const Footer: NextComponentType = () => {
             <S.FooterMenuHeader>{footerMenu.title}</S.FooterMenuHeader>
             {footerMenu.items.map(footerMenuItem => (
               <S.FooterMenuItem key={footerMenuItem.id}>
-                <Link href={footerMenuItem.url}>{footerMenuItem.title}</Link>
+                <Link href={footerMenuItem.route}>{footerMenuItem.title}</Link>
               </S.FooterMenuItem>
             ))}
           </S.FooterMenuGroup>

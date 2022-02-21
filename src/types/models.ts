@@ -150,7 +150,7 @@ export type RouteModel = {
 export type TFooterMenuItem = {
   id: string
   title: string
-  url: string
+  route: string
 }
 
 export type TFooterMenu = {

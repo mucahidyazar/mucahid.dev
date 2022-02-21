@@ -23,7 +23,7 @@
   "board": "Board",
   "title": "Title",
   "send": "Send",
-  "loading": "Loading",
+  "loading": "Loading...",
 
   "lastArticlesSectionTitle": "Last articles",
   "lastArticlesSectionDescription": "Here are the last articles from my blog",
@@ -31,7 +31,7 @@
   "aboutSectionTitle": "Me, Companies and Projects",
   "aboutSectionDescription": "Here are some of the things I do and I did so far. It is just a quick summary",
   "aboutSectionTitle2": "Let's add a new project here and start a new journey. Lets make our dream project come true.",
-  "aboutSectionDescription2": "I worked for lots of amazing companies and built lots of SASS projects. The numbers wich are below are just some numbers. Once I look at my behind the most important things are lots of experience and skills which I gain. So there is not a stop yet for me. I can't wait add another skills and experiences for myself.",
+  "aboutSectionDescription2": "I worked for lots of amazing companies and built lots of SASS projects. The numbers which are below are just some numbers. Once I look at the behind, the most important things are lots of experience and skills which I gain. So there is not a stop yet for me. I can't wait to add another skills and experiences for myself.",
 
   "ComponentQA": "#####",
   "introductionQuestion1": "What do you like?",
@@ -90,13 +90,13 @@
       "id": "info",
       "title": "Info",
       "items": [
-        {"id": "0", "title": "Changelogs", "url": "/changelogs"},
-        {"id": "1", "title": "Sitemap.xml", "url": "/sitemap.xml"},
-        {"id": "2", "title": "RSS.xml", "url": "/rss.xml"},
+        {"id": "0", "title": "Changelogs", "route": "/changelogs"},
+        {"id": "1", "title": "Sitemap.xml", "route": "/sitemap.xml"},
+        {"id": "2", "title": "RSS.xml", "route": "/rss.xml"},
         {
           "id": "3",
           "title": "Email ME",
-          "url": "mailto:mucahidyazar@gmail.com"
+          "route": "mailto:mucahidyazar@gmail.com"
         }
       ]
     },
@@ -104,29 +104,29 @@
       "id": "help",
       "title": "Help",
       "items": [
-        {"id": "0", "title": "Privacy", "url": "/help#privacy"},
-        {"id": "1", "title": "Cookie Policy", "url": "/help#cookie"},
-        {"id": "2", "title": "Interpretation", "url": "/help#interpretation"},
-        {"id": "3", "title": "Definitions", "url": "/help#definitions"},
-        {"id": "4", "title": "FAQ", "url": "/help#faq"}
+        {"id": "0", "title": "Privacy", "route": "/help#privacy"},
+        {"id": "1", "title": "Cookie Policy", "route": "/help#cookie"},
+        {"id": "2", "title": "Interpretation", "route": "/help#interpretation"},
+        {"id": "3", "title": "Definitions", "route": "/help#definitions"},
+        {"id": "4", "title": "FAQ", "route": "/help#faq"}
       ]
     },
     {
       "id": "pages",
       "title": "Pages",
       "items": [
-        {"id": "0", "title": "Home", "url": "/"},
-        {"id": "1", "title": "About", "url": "/about"},
-        {"id": "2", "title": "Blog", "url": "/blog"},
-        {"id": "3", "title": "Media", "url": "/media"},
-        {"id": "4", "title": "Contact", "url": "/contact"},
-        {"id": "5", "title": "Projects", "url": "/projects"},
-        {"id": "6", "title": "Links", "url": "/links"}
+        {"id": "0", "title": "Home", "route": "/"},
+        {"id": "1", "title": "About", "route": "/about"},
+        {"id": "2", "title": "Blog", "route": "/blog"},
+        {"id": "3", "title": "Media", "route": "/media"},
+        {"id": "4", "title": "Contact", "route": "/contact"},
+        {"id": "5", "title": "Projects", "route": "/projects"},
+        {"id": "6", "title": "Links", "route": "/links"}
       ]
     }
   ],
 
-  "navbar": [
+  "navbarMenu": [
     {"id": "0", "ket": "home", "name": "Home", "route": "/", "source": "/"},
     {
       "id": "1",

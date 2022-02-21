@@ -20,7 +20,7 @@ const combinedReducers = combineReducers({
 
 const bindMiddleware = (middleware: Middleware[]) => {
   if (process.env.NODE_ENV !== 'production') {
-    const {composeWithDevTools} = require('redux-devtools-extension')
+    const {composeWithDevTools} = require('@redux-devtools/extension')
     return composeWithDevTools(applyMiddleware(...middleware))
   }
   return applyMiddleware(...middleware)

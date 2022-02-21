@@ -16,7 +16,7 @@ describe('General tests', () => {
     })
 
     it('Make sure routes can be visited', () => {
-      const routers = i18n.t('navbar', {returnObjects: true})
+      const routers = i18n.t('navbarMenu', {returnObjects: true})
       cy.wrap(routers).each((router: any) => {
         cy.intercept(router.route).as(router.route)
         cy.visit(router.route)
@@ -26,7 +26,7 @@ describe('General tests', () => {
     })
 
     it('Make sure navigation buttons are working', () => {
-      const routers = i18n.t('navbar', {returnObjects: true})
+      const routers = i18n.t('navbarMenu', {returnObjects: true})
       cy.wrap(routers).each((router: any) => {
         // cy.intercept(router.route).as(router.route)
         // cy.visit(router.route)
@@ -43,7 +43,7 @@ describe('General tests', () => {
       cy.url().should('include', '/tr')
       i18n.changeLanguage('tr')
       cy.get('[data-cy=change-language]').should('have.text', 'tr')
-      const routers = i18n.t('navbar', {returnObjects: true})
+      const routers = i18n.t('navbarMenu', {returnObjects: true})
 
       cy.wrap(routers).each((router: any) => {
         cy.get(`[data-cy=navbar-menu-item-${router.id}]`).as('navbar-menu-item')
