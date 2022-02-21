@@ -1,24 +1,58 @@
 name: 'Release on tag @mucahid.dev'
 on:
-  push:
+  pull_request:
     branches:
-      - 'main'
+      - master
+    types:
+      - closed
 
 jobs:
   vercel:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
     steps:
+      - name: Extract version from branch name (for release branches)
+        if: startsWith(github.event.pull_request.head.ref, 'release/')
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          VERSION=${BRANCH_NAME#release/}
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+      - name: Extract version from branch name (for hotfix branches)
+        if: startsWith(github.event.pull_request.head.ref, 'hotfix/')
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          VERSION=${BRANCH_NAME#hotfix/}
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+      - name: Create Release
+        uses: thomaseizinger/create-release@1.0.0
+        env:
+          RELEASE_SECRET: ${{ secrets.RELEASE_SECRET }}
+        with:
+          target_commitish: ${{ github.event.pull_request.merge_commit_sha }}
+          tag_name: ${{ env.RELEASE_VERSION }}
+          name: ${{ env.RELEASE_VERSION }}
+          draft: false
+          prerelease: false
+
+      - name: Merge master into dev branch
+        uses: thomaseizinger/create-pull-request@1.0.0
+        env:
+          RELEASE_SECRET: ${{ secrets.RELEASE_SECRET }}
+        with:
+          head: master
+          base: dev
+          title: Merge master into dev branch
+          body: |
+            This PR merges the master branch back into dev.
+            This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the dev branch.
+      # if needed, you can checkout the latest master here, build artifacts and publish / deploy them somewhere
+      # the create-release action has an output `upload_url` output that you can use to upload assets
+
       # Checkout source code
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           fetch-depth: 100
-
-      # Set the user as Github Action for release manager
-      - name: Initialize mandatory git config
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email noreply@github.com
 
       # Cache dependencies for faster build time in future
       - name: Get yarn cache directory path
