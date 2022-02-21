@@ -10,7 +10,7 @@ const {rewrites} = require('./config')
 module.exports = withPlugins([
   [withBundleAnalyzer],
   {
-    experimental: {
+    compiler: {
       styledComponents: true,
     },
     future: {
