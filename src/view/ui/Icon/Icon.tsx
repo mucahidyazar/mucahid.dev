@@ -14,18 +14,25 @@ interface IIcon {
   version?: string
   xmlns?: string
   viewBox?: string
-  format: 'none' | 'small' | 'medium' | 'large' | 'xlarge'
+  format?: any
+  childRef?: React.Ref<any>
 }
 
-function Icon({name, format, spinning, ...props}: IIcon) {
+function Icon({name, format, spinning, childRef, ...props}: IIcon) {
   return (
-    <S.Wrapper format={format} {...props}>
+    <S.Wrapper format={format} ref={childRef} {...props}>
       <S.Icon data-testid="icon" name={name} spinning={spinning} {...props}>
         <S.Path d={icons[name]} />
       </S.Icon>
     </S.Wrapper>
   )
 }
+
+const MainIcon = React.forwardRef<HTMLDivElement, IIcon>((props, ref) => (
+  <Icon {...props} childRef={ref} />
+))
+
+MainIcon.displayName = 'MainIcon'
 
 Icon.propTypes = {
   size: PropTypes.number,
@@ -35,7 +42,7 @@ Icon.propTypes = {
   version: PropTypes.string,
   xmlns: PropTypes.string,
   viewBox: PropTypes.string,
-  format: PropTypes.oneOf(Object.values(IconSize)),
+  format: PropTypes.oneOf([...Object.values(IconSize), 'none']),
 }
 
 Icon.defaultProps = {
@@ -50,4 +57,4 @@ Icon.defaultProps = {
 
 Icon.S = S
 
-export default Icon
+export default MainIcon

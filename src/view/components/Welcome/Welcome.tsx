@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useCallback, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {useRouter} from 'next/router'
 import {motion} from 'framer-motion'
@@ -20,7 +20,7 @@ const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
   // const dispatch = useDispatch()
   // const allNews = useSelector(makeSelectAllNews)
   const router = useRouter()
-  const [animation, setAnimation] = useState()
+  const [animationData, setAnimationData] = React.useState()
 
   // const openModalHandler = () => {
   //   dispatch(setModalType(ModalType.ALL_NEWS_MODAL))
@@ -37,17 +37,18 @@ const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
   }, [router.route])
 
   useEffect(() => {
-    dynamicAnimation().then(animation => setAnimation(animation))
+    dynamicAnimation().then(animation => setAnimationData(animation))
   }, [dynamicAnimation])
 
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: animation,
+    animationData,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
   }
+
   return (
     <S.WelcomeContainer>
       {/* <S.WelcomeBackgroundWrapper>
@@ -85,20 +86,20 @@ const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
             </S.WelcomeContentDescription>
           </motion.div>
         </S.WelcomeContent>
-        {animation && (
-          <motion.div
-            animate={{x: [300, 0], opacity: [0, 1]}}
-            transition={{duration: 1}}
-          >
-            <DynamicLottie
-              options={defaultOptions}
-              height={500}
-              width="auto"
-              isStopped={false}
-              isPaused={false}
-            />
-          </motion.div>
-        )}
+
+        <motion.div
+          animate={{x: [300, 0], opacity: [0, 1]}}
+          transition={{duration: 1}}
+        >
+          <DynamicLottie
+            options={defaultOptions}
+            height={500}
+            width="auto"
+            isStopped={false}
+            isPaused={false}
+          />
+        </motion.div>
+
         {/* <S.WelcomeIllustration>
           <Image
             src="/gif/welcome/home.gif"
