@@ -1,12 +1,15 @@
 name: 'Release on tag @mucahid.dev'
 on:
-  push:
+  pull_request:
     branches:
-      - 'main'
+      - main
+    types:
+      - closed
 
 jobs:
   vercel:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
     steps:
       # Checkout source code
       - name: Checkout Code
@@ -14,11 +17,31 @@ jobs:
         with:
           fetch-depth: 100
 
-      # Set the user as Github Action for release manager
-      - name: Initialize mandatory git config
+      - name: Extract version from branch name (for release branches)
+        if: startsWith(github.event.pull_request.head.ref, 'release/')
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email noreply@github.com
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          VERSION=${BRANCH_NAME#release/}
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Extract version from branch name (for hotfix branches)
+        if: startsWith(github.event.pull_request.head.ref, 'hotfix/')
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          VERSION=${BRANCH_NAME#hotfix/}
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
+      # - name: Merge master into dev branch
+      #   uses: thomaseizinger/create-pull-request@1.0.0
+      #   env:
+      #     RELEASE_SECRET: ${{ secrets.RELEASE_SECRET }}
+      #   with:
+      #     head: master
+      #     base: dev
+      #     title: Merge master into dev branch
+      #     body: |
+      #       This PR merges the master branch back into dev.
+      #       This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the dev branch.
 
       # Cache dependencies for faster build time in future
       - name: Get yarn cache directory path
@@ -73,11 +96,15 @@ jobs:
       - name: Prepare release files
         run: |
           cd BUILD && tar -zcf ../release-$GITHUB_REF_NAME.tar.gz . && cd .. && ls -la
+          echo '${{ env.RELEASE_VERSION }}'
+          echo ${{ env.RELEASE_VERSION }}
+          echo env.RELEASE_VERSION
 
       # then create a release
       - uses: 'marvinpinto/action-automatic-releases@latest'
         with:
           repo_token: '${{ secrets.RELEASE_SECRET }}'
+          automatic_release_tag: '${{ env.RELEASE_VERSION }}'
           prerelease: false
           title: 'Production Build'
           files: |
