@@ -110,13 +110,12 @@ jobs:
       - name: Prepare release files
         run: |
           cd BUILD && tar -zcf ../release-$GITHUB_REF_NAME.tar.gz . && cd .. && ls -la
-
-      # then create a release
-      - uses: 'marvinpinto/action-automatic-releases@latest'
-        run: |
           echo '${{ env.RELEASE_VERSION }}'
           echo ${{ env.RELEASE_VERSION }}
           echo env.RELEASE_VERSION
+
+      # then create a release
+      - uses: 'marvinpinto/action-automatic-releases@latest'
         with:
           repo_token: '${{ secrets.RELEASE_SECRET }}'
           automatic_release_tag: '${{ env.RELEASE_VERSION }}'
