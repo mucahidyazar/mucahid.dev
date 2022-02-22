@@ -1,8 +1,8 @@
-import React, {useCallback, useEffect} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import {useRouter} from 'next/router'
-import Lottie from 'react-lottie'
 import {motion} from 'framer-motion'
+import dynamic from 'next/dynamic'
 
 import {AllNewsModal, NewsModal} from '@/modals'
 
@@ -14,11 +14,13 @@ interface IWelcomeProps {
   illustration: string
 }
 
+const DynamicLottie = dynamic(() => import('react-lottie'))
+
 const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
   // const dispatch = useDispatch()
   // const allNews = useSelector(makeSelectAllNews)
   const router = useRouter()
-  const [animation, setAnimation] = React.useState()
+  const [animation, setAnimation] = useState()
 
   // const openModalHandler = () => {
   //   dispatch(setModalType(ModalType.ALL_NEWS_MODAL))
@@ -30,7 +32,7 @@ const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
 
   const dynamicAnimation = useCallback(async () => {
     const route = router.route === '/' ? '/home' : router.route
-    const animation = await import(`./lotties${route}.json`)
+    const animation = await import(`../../../../public/lotties${route}.json`)
     return animation
   }, [router.route])
 
@@ -88,7 +90,7 @@ const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
             animate={{x: [300, 0], opacity: [0, 1]}}
             transition={{duration: 1}}
           >
-            <Lottie
+            <DynamicLottie
               options={defaultOptions}
               height={500}
               width="auto"
