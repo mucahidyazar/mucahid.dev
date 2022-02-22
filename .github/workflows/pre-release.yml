@@ -94,7 +94,10 @@ jobs:
             pre-release.tar.gz
 
       - name: Create release branch
-        run: git checkout -b release/${{ github.event.inputs.version }}
+        run: |
+          echo ${{ github.ref }}
+          git checkout -b release/${{ github.event.inputs.version }}
+          echo ${{ github.ref }}
       # In order to make a commit, we need to initialize a user.
       # You may choose to write something less generic here if you want, it doesn't matter functionality wise.
 
