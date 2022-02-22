@@ -2,7 +2,7 @@ name: 'Release on tag @mucahid.dev'
 on:
   pull_request:
     branches:
-      - master
+      - main
     types:
       - closed
 
