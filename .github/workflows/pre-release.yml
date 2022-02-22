@@ -94,7 +94,8 @@ jobs:
             pre-release.tar.gz
 
       - name: Create release branch
-        run: git checkout -b release/${{ github.event.inputs.version }}
+        run: |
+          git checkout -b release/${{ github.event.inputs.version }}
       # In order to make a commit, we need to initialize a user.
       # You may choose to write something less generic here if you want, it doesn't matter functionality wise.
 
@@ -129,7 +130,11 @@ jobs:
           echo "::set-output name=commit::$(git rev-parse HEAD)"
 
       - name: Push new branch
-        run: git push origin release/${{ github.event.inputs.version }}
+        run: |
+          git push origin release/${{ github.event.inputs.version }}
+          GITHUB_REF=$(echo $GITHUB_REF | sed -e "s#refs/heads/##g")
+          git branch -D $GITHUB_REF
+          git push origin --delete $GITHUB_REF
 
       - name: Create Pull Request
         uses: repo-sync/pull-request@v2
