@@ -113,9 +113,13 @@ jobs:
 
       # then create a release
       - uses: 'marvinpinto/action-automatic-releases@latest'
+        run: |
+          echo '${{ env.RELEASE_VERSION }}'
+          echo ${{ env.RELEASE_VERSION }}
+          echo env.RELEASE_VERSION
         with:
           repo_token: '${{ secrets.RELEASE_SECRET }}'
-          automatic_release_tag: ${{ env.RELEASE_VERSION }}
+          automatic_release_tag: '${{ env.RELEASE_VERSION }}'
           prerelease: false
           title: 'Production Build'
           files: |
