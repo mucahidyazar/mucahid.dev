@@ -21,6 +21,8 @@
     "build": "next build",
     "build:analyze": "cross-env ANALYZE=true next build",
     "start": "next start",
+    "dev:up": "docker-compose -f docker-compose.dev.yml up",
+    "prod:up": "docker-compose -f docker-compose.prod.yml up",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ext js,jsx,ts,tsx .",
     "test": "jest --watch",
     "test:ci": "jest --ci",

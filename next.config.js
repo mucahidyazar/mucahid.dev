@@ -43,5 +43,8 @@ module.exports = withPlugins([
     },
     i18n,
     rewrites: async () => rewrites,
+    experimental: {
+      outputStandalone: true,
+    },
   },
 ])
