@@ -1,6 +1,7 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 
 import {ContactType} from '@/constants'
+import {TMessage} from '@/types'
 
 import prisma from '../../../lib/prisma'
 
@@ -9,7 +10,7 @@ export default async function handle(
   res: NextApiResponse,
 ) {
   try {
-    const allMessages = await prisma.message.findMany()
+    const allMessages = (await prisma.message.findMany()) as TMessage[]
     const boardMessages = allMessages.filter(
       message => message.type === ContactType.BOARD,
     )

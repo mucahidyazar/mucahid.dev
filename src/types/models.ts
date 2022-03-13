@@ -1,3 +1,5 @@
+import {EMessageType} from '.'
+
 export type MetaMask = {
   id: string | number
   walletId: string
@@ -157,4 +159,26 @@ export type TFooterMenu = {
   id: string | number
   title: string
   items: TFooterMenuItem[]
+}
+
+// enum MessageType {
+//   EMAIL
+//   MESSAGE
+//   BOARD
+// }
+
+// model Message {
+//   id        Int     @id @default(autoincrement())
+//   title     String
+//   type      MessageType
+//   content   String
+//   author    User?   @relation(fields: [authorId], references: [id])
+//   authorId  Int?
+// }
+
+export type TMessage = {
+  id: string | number
+  title: string
+  type: EMessageType
+  content: string
 }
