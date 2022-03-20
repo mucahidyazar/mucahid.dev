@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {Title, Input, Button} from '@/ui'
+import {Input, Button} from '@/ui'
 import {container} from '@/styles'
 
 const SubscribeBannerContainer = styled.div`
@@ -29,11 +29,11 @@ const SubscribeBannerLeft = styled.div`
     width: 100%;
   }
 `
-const SubscribeBannerTopTitle = styled(Title)`
+const SubscribeBannerTopTitle = styled.p`
   font-size: var(--font-size);
   font-weight: 100;
 `
-const SubscribeBannerBottomTitle = styled(Title)`
+const SubscribeBannerBottomTitle = styled.p`
   font-size: var(--font-size-4xl);
   line-height: 80%;
   font-weight: 800;
@@ -53,6 +53,11 @@ const SubscribeBannerForm = styled.form`
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;
     gap: 0.5rem;
+    width: 50%;
+  }
+
+  @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
+    width: 100%;
   }
 `
 const SubscribeBannerInput = styled(Input)`

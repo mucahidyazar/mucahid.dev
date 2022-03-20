@@ -24,21 +24,27 @@ const ArticleBody = styled.div`
   }
 `
 const ArticleDate = styled.div`
-  width: 10rem;
+  width: 5rem;
+  min-width: 5rem;
+  margin-right: 1rem;
   color: var(--color-gray-dark);
   font-size: var(--font-size-s);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     order: 2;
     width: auto;
+    min-width: auto;
   }
 `
 const ArticleTitle = styled.a`
   font-size: var(--font-size-xl);
   transition: all 0.3s ease;
-  width: 100%;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 

@@ -1,3 +1,8 @@
+# This workflow;
+# creates your docker image on github-actions,
+# push it to AWS ECR hub service
+# then after push to ECR, ECS detect the changes and creates a new EC2 instance
+# and by the Elastic IP prod catch the changes immediately
 name: 'Release on tag @mucahid.dev'
 on:
   pull_request:
@@ -5,6 +10,10 @@ on:
       - main
     types:
       - closed
+
+env:
+  AWS_REGION: eu-central-1
+  ECR_REPOSITORY: mucahid-dev
 
 jobs:
   vercel:
@@ -119,3 +128,25 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
           scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@13d241b293754004c80624b5567555c4a39ffbe3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRES_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # DOCKERIZE
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@aaf69d68aa3fb14c1d5a6be9ac61fe15b48453a2
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.prod .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f Dockerfile.prod .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest

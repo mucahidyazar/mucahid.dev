@@ -31,10 +31,10 @@ const SubscribeBanner = () => {
   return (
     <S.SubscribeBannerContainer {...dataTestTarget('subscribe-banner')}>
       <S.SubscribeBannerLeft>
-        <S.SubscribeBannerTopTitle level={6}>
+        <S.SubscribeBannerTopTitle>
           {t('newsletterSlogan')}
         </S.SubscribeBannerTopTitle>
-        <S.SubscribeBannerBottomTitle level={6}>
+        <S.SubscribeBannerBottomTitle>
           {t('newsletterHeading')}
         </S.SubscribeBannerBottomTitle>
       </S.SubscribeBannerLeft>

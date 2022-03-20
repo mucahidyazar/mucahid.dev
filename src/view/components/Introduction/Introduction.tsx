@@ -13,7 +13,7 @@ const Introduction: React.FC<IIntroduction> = ({rightContent, ...props}) => {
     <S.IntroductionContainer {...props}>
       <S.IntroductionContent rightContent={rightContent}>
         <S.IntroductionContentItem>
-          <S.IntroductionContentTitle level={6}>
+          <S.IntroductionContentTitle>
             <S.QA>Q.</S.QA> What do you like?
           </S.IntroductionContentTitle>
           <S.IntroductionContentDescription>
@@ -24,7 +24,7 @@ const Introduction: React.FC<IIntroduction> = ({rightContent, ...props}) => {
           </S.IntroductionContentDescription>
         </S.IntroductionContentItem>
         <S.IntroductionContentItem>
-          <S.IntroductionContentTitle level={6}>
+          <S.IntroductionContentTitle>
             <S.QA>Q.</S.QA> What is your purpose? What do you want to do?
           </S.IntroductionContentTitle>
           <S.IntroductionContentDescription>

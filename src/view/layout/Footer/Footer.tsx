@@ -22,7 +22,7 @@ const Footer: NextComponentType = () => {
         </S.FooterInfoSubtitle>
         <S.SocialLinks>
           {socialLinks.map(socialLink => (
-            <S.SocialLink key={socialLink.id}>
+            <S.SocialLink key={socialLink.id} href={socialLink.url}>
               <Icon name={socialLink.icon} size={20} />
             </S.SocialLink>
           ))}
