@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const {i18n} = require('./next-i18next.config')
-const {rewrites} = require('./config')
+const {rewrites, securityHeaders} = require('./config')
 
 module.exports = withPlugins([
   [withBundleAnalyzer],
@@ -40,6 +40,16 @@ module.exports = withPlugins([
       SMTP_FROM: process.env.SMTP_FROM,
       SECRET: process.env.SECRET,
       PORT: process.env.PORT,
+    },
+    async headers() {
+      return [
+        {
+          // Apply these headers to all routes in your application.
+          // https://nextjs.org/docs/advanced-features/security-headers
+          source: '/:path*',
+          headers: securityHeaders,
+        },
+      ]
     },
     i18n,
     rewrites: async () => rewrites,

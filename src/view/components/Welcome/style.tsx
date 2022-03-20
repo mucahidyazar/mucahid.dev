@@ -16,6 +16,7 @@ const WelcomeSection = styled.section`
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     flex-direction: column;
+    justify-content: center;
   }
 
   & > div:nth-child(2) {
@@ -115,7 +116,6 @@ const WelcomeContainer = styled.div`
   width: 100%;
   position: relative;
   height: calc(100vh - 210px);
-  overflow-x: hidden;
 
   @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
     ${WelcomeIllustration} {
@@ -125,6 +125,7 @@ const WelcomeContainer = styled.div`
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     margin-bottom: 0;
+    height: auto;
   }
 `
 

@@ -1,7 +1,6 @@
 import styled, {css} from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {Title} from '@/ui'
 
 const IntroductionContainer = styled.div`
   display: flex;
@@ -40,8 +39,9 @@ const IntroductionContent = styled.div<IntroductionContent>`
     `}
 `
 
-const IntroductionContentTitle = styled(Title)`
+const IntroductionContentTitle = styled.div`
   font-weight: 500;
+  font-size: var(--font-size-l);
 `
 
 const IntroductionContentDescription = styled.p`
