@@ -1,6 +1,6 @@
 {
   "name": "mucahid.dev",
-  "version": "v2.0.0-rc.12",
+  "version": "v2.0.0-rc.13",
   "engines": {
     "node": ">=14",
     "npm": ">=7"
