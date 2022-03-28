@@ -70,9 +70,7 @@ const ArticleContainer: NextComponentType = () => {
           </S.ShareBy>
         </S.BottomHeader>
       </S.Header>
-      <S.ArticleImage>
-        <Image width={1440} height={540} src="/images/article.jpg" alt="mail" />
-      </S.ArticleImage>
+      <S.ArticleImage src={article.thumbnail} alt={article.title} />
       <S.ArticleTags>
         {article?.categories?.map(item => (
           <Badge key={item}>{item}</Badge>

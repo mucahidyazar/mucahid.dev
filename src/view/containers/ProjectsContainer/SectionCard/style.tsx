@@ -1,14 +1,10 @@
 import styled from 'styled-components'
 
-import {Title, Subtitle} from '@/ui'
+import {Title, Subtitle, Icon} from '@/ui'
 import {titleHover} from '@/styles'
 
-const SectionCardImage = styled.div`
-  position: relative;
-  width: 40px;
+const SectionCardIcon = styled(Icon)`
   min-width: 40px;
-  height: 40px;
-  transform: translateY(10px);
 `
 const SectionCardContent = styled.div``
 const SectionCardTitle = styled(Title)`
@@ -36,8 +32,8 @@ const SectionCard = styled.a`
 `
 
 export {
+  SectionCardIcon,
   SectionCard,
-  SectionCardImage,
   SectionCardContent,
   SectionCardTitle,
   SectionCardSubtitle,
