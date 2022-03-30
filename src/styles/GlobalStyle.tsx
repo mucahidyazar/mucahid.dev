@@ -108,6 +108,22 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 
+  @font-face {
+    font-family: 'ProximaNovaLight';
+    src: url('/fonts/Proxima Nova Light.otf');
+    font-style: light;
+    font-weight: 100;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'ProximaNovaCond-Thin';
+    src: url('/fonts/ProximaNovaCond-Thin.otf');
+    font-style: thin;
+    font-weight: 100;
+    font-display: swap;
+  }
+
   // For drawer
   .fade-enter{
     opacity: 0;

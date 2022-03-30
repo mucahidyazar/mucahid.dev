@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
+import Image from 'next/image'
 // import io, {Socket} from 'socket.io-client'
 import {useDispatch, useSelector} from 'react-redux'
 import {i18n} from 'next-i18next'
 
+import {getAllNews, makeSelectAllNews} from '@/store/home'
 import {ActiveUsers} from '@/components'
 import {makeSelectActivePage, setTheme} from '@/store/settings'
 
@@ -23,10 +25,13 @@ const LinksLayout: React.FC<ILinksLayout> = ({
 }) => {
   const dispatch = useDispatch()
   const activePage = useSelector(makeSelectActivePage)
+  const news = useSelector(makeSelectAllNews)
   const language = i18n?.language
+  const [isOpen, setIsOpen] = React.useState(false)
 
   useEffect(() => {
     dispatch(setTheme())
+    dispatch(getAllNews())
   }, [dispatch])
 
   return (
@@ -49,6 +54,40 @@ const LinksLayout: React.FC<ILinksLayout> = ({
       </Head>
       <S.LinksLayoutContent>{children}</S.LinksLayoutContent>
       <ActiveUsers />
+      <S.NewsIcon onClick={() => setIsOpen(prev => !prev)}>
+        <Image
+          src={`/images/others/${isOpen ? 'closed' : 'open'}-newspaper.png`}
+          alt="news"
+          width={32}
+          height={32}
+        />
+      </S.NewsIcon>
+      {isOpen && (
+        <S.News>
+          {news.length ? (
+            <S.NewsList>
+              {news.map(item => (
+                <S.NewsItem key={item.id}>
+                  <S.NewsItemTitle>{item.title}</S.NewsItemTitle>
+                  <S.NewsItemDate>{item.createdAt}</S.NewsItemDate>
+                </S.NewsItem>
+              ))}
+            </S.NewsList>
+          ) : (
+            <S.NoNews>
+              <S.NoNewsImage>
+                <Image
+                  src="/images/others/open-newspaper.png"
+                  alt="news"
+                  width={60}
+                  height={60}
+                />
+              </S.NoNewsImage>
+              <S.NoNewsText>There is no news at the moment.</S.NoNewsText>
+            </S.NoNews>
+          )}
+        </S.News>
+      )}
     </S.LinksLayout>
   )
 }
