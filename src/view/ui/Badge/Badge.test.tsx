@@ -1,4 +1,4 @@
-import {render} from '@testing-library/react'
+import {screen, render} from '@testing-library/react'
 import UserEvent from '@testing-library/user-event'
 
 import {Badge} from './'
@@ -35,19 +35,20 @@ describe('Badge', () => {
     expect(container.querySelector('img')).toBeTruthy()
   })
 
-  it('should click and run an event', () => {
+  it('should click and run an event', async () => {
+    const user = UserEvent.setup()
     const mockOnClick = jest.fn()
     const {container} = render(<Badge onClick={mockOnClick}>Test Badge</Badge>)
 
     expect(container.textContent).toBe('Test Badge')
 
-    const badge = container.querySelector('[data-testid="badge"]') as Element
-    UserEvent.click(badge)
+    const badge = screen.getByTestId('badge')
+    await user.click(badge)
     expect(mockOnClick).toHaveBeenCalled()
     expect(mockOnClick).toHaveBeenCalledTimes(1)
-    UserEvent.click(badge)
-    UserEvent.click(badge)
-    UserEvent.click(badge)
+    await user.click(badge)
+    await user.click(badge)
+    await user.click(badge)
     expect(mockOnClick).toHaveBeenCalledTimes(4)
   })
 })
