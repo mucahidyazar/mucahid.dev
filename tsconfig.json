@@ -32,7 +32,7 @@
       "@/utilities": ["src/utilities/index.ts"]
     },
     "isolatedModules": true,
-    "types": ["cypress", "jest", "@types/jest"]
+    "types": ["jest", "@types/jest"]
   },
   "include": [
     "next-env.d.ts",
@@ -47,6 +47,7 @@
     "server.ts",
     "next-i18next.config.ts",
     "__tests__/runner.ts",
-    "others/generate-rss.ts"
+    "others/generate-rss.ts",
+    "cypress"
   ]
 }

@@ -8,6 +8,13 @@
     "import/order": [
       "error",
       {
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
         "groups": [
           "builtin", // import { join } from 'path';
           "external", // import chalk from 'chalk';

@@ -1,5 +1,4 @@
 import React from 'react'
-import type {NextComponentType} from 'next'
 import {useTranslation} from 'next-i18next'
 
 import {AboutWelcome, SectionHeader, SectionSlider} from '@/components'
@@ -8,7 +7,7 @@ import {companies, projects, technologies} from '@/data'
 
 import * as S from './style'
 
-const AboutContainer: NextComponentType = () => {
+const AboutContainer: React.FC = () => {
   const {t} = useTranslation()
 
   const quotesMockData = [

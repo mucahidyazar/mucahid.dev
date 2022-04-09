@@ -1,7 +1,6 @@
 import {ParsedUrlQuery} from 'querystring'
 
 import React, {useEffect, useState} from 'react'
-import type {NextComponentType} from 'next'
 import {useRouter} from 'next/router'
 import {useDispatch, useSelector} from 'react-redux'
 import {motion} from 'framer-motion'
@@ -18,7 +17,7 @@ import {setFilter} from '@/store/blog'
 
 import * as S from './style'
 
-const BlogContainer: NextComponentType = () => {
+const BlogContainer: React.FC = () => {
   const {t} = useTranslation()
   const router = useRouter()
   const dispatch = useDispatch()

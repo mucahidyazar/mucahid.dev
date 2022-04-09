@@ -1,5 +1,4 @@
 import React from 'react'
-import type {NextComponentType} from 'next'
 import {useSelector} from 'react-redux'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,7 +11,7 @@ import {companies, projects} from '@/data'
 
 import * as S from './style'
 
-const HomeContainer: NextComponentType = () => {
+const HomeContainer: React.FC = () => {
   const {t} = useTranslation('common')
   const articles = useSelector(makeArticlesSelector)
   const articlesForCard = articles.map(article => ({

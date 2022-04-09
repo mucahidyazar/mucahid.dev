@@ -1,5 +1,4 @@
 import React, {useRef} from 'react'
-import type {NextComponentType} from 'next'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
 import {useRouter} from 'next/router'
@@ -17,7 +16,7 @@ import {Status} from '@/constants'
 
 import * as S from './style'
 
-const ArticleContainer: NextComponentType = () => {
+const ArticleContainer: React.FC = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const article = useSelector(makeArticleSelector)

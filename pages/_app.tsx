@@ -2,7 +2,6 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import 'react-toastify/dist/ReactToastify.css'
 import React from 'react'
-import type {AppProps} from 'next/app'
 import {getSession, SessionProvider} from 'next-auth/react'
 import {useSelector} from 'react-redux'
 import {appWithTranslation} from 'next-i18next'
@@ -15,7 +14,7 @@ import {changeLanguage, makeSelectTheme, setActiveRoute} from '@/store/settings'
 
 import {wrapper} from '../src/store'
 
-const WrappedApp = ({Component, pageProps}: AppProps) => {
+const WrappedApp = ({Component, pageProps}: any) => {
   const theme = useSelector(makeSelectTheme)
 
   return (

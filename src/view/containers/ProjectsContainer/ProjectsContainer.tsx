@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import type {NextComponentType} from 'next'
 import {useDispatch, useSelector} from 'react-redux'
 import {motion} from 'framer-motion'
 import {useTranslation} from 'next-i18next'
@@ -17,7 +16,7 @@ import {
 import * as S from './style'
 import {SectionCard} from './SectionCard'
 
-const ProjectsContainer: NextComponentType = () => {
+const ProjectsContainer: React.FC = () => {
   const {t} = useTranslation()
   const [pagination, setPagination] = useState(6)
   const dispatch = useDispatch()

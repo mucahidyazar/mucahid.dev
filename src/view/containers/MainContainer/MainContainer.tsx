@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/inline-script-id */
 import React from 'react'
-import type {NextComponentType} from 'next'
 import {useSelector} from 'react-redux'
 import Link from 'next/link'
 import Script from 'next/script'
@@ -13,7 +12,7 @@ import {
 
 import * as S from './style'
 
-const MainContainer: NextComponentType = () => {
+const MainContainer: React.FC = () => {
   const articles = useSelector(makeArticlesSelector)
   const categories = useSelector(makeSelectCategories)
 
@@ -28,14 +27,15 @@ const MainContainer: NextComponentType = () => {
       </S.Brand>
 
       <S.Slogan>
-        I specialize in leading large zero-to-one initiatives that define
-        products and shape organizations.
+        I specialize in leading large zero-to-one SASS projects that develop
+        products and design patterns.
       </S.Slogan>
       <S.Intro>
         <S.IntroText>
-          As a hybrid designer and product leader, I have 15 years of experience
-          solving complex business problems through design. To better build
-          great companies, I am earning my MBA from Berkeley.
+          As a frontend developer, I have 4 years of experience solving complex
+          frontend and interface challenges. To better build great companies, I
+          am trying to improve my cloud skill with AWS and microservices with
+          Node.js.
         </S.IntroText>
         <S.IntroText>
           I currently live in Istanbul / Turkey, where you'll find me on the

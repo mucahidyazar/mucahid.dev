@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import type {NextComponentType} from 'next'
 import {useSelector} from 'react-redux'
 import Script from 'next/script'
 import {useTranslation} from 'next-i18next'
@@ -12,7 +11,7 @@ import {computerData, personalData, funkoPopsData, deskData} from '@/data'
 
 import * as S from './style'
 
-const MediaContainer: NextComponentType = () => {
+const MediaContainer: React.FC = () => {
   const {t} = useTranslation()
   const instagramPhotos = useSelector(makeInstagramSelector)
   const firstSixPhotos = instagramPhotos?.slice(0, 6)

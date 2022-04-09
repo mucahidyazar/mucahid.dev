@@ -1,13 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
-import type {NextComponentType} from 'next'
 import {useTranslation} from 'next-i18next'
 
 import {Button} from '@/ui'
 
 import * as S from './style'
 
-const AboutWelcome: NextComponentType = () => {
+const AboutWelcome: React.FC = () => {
   const {t} = useTranslation()
 
   return (
