@@ -1,13 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react'
-import type {NextComponentType} from 'next'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
 import * as S from './style'
 
-const DynamicLottie = dynamic(() => import('react-lottie'))
+const DynamicLottie: any = dynamic((): any => import('react-lottie'))
 
-const NotFoundContainer: NextComponentType = () => {
+const NotFoundContainer: React.FC = () => {
   const [animationData, setAnimationData] = useState()
 
   const dynamicAnimation = useCallback(async () => {

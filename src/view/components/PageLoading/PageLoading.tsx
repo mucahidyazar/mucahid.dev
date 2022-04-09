@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import type {NextComponentType} from 'next'
 import {useRouter} from 'next/router'
 import {useSelector} from 'react-redux'
 
@@ -8,7 +7,7 @@ import {useIsomorphicLayoutEffect} from '@/hooks'
 
 import * as S from './style'
 
-const PageLoading: NextComponentType = () => {
+const PageLoading: React.FC = () => {
   const router = useRouter()
   const [isPageLoading, setIsPageLoading] = useState(false)
   const isLoadingVisible = useSelector(makeSelectIsLoadingVisible)

@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, useState} from 'react'
-import type {NextComponentType} from 'next'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
 import {useTranslation} from 'next-i18next'
@@ -27,7 +26,7 @@ import {getUserMetamasks} from '@/store/auth'
 
 import * as S from './style'
 
-const ContactContainer: NextComponentType = () => {
+const ContactContainer: React.FC = () => {
   const {t} = useTranslation()
   const [type, setType] = useState(ContactType.EMAIL)
   const stats = useSelector(makeSelectStats)

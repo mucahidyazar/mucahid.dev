@@ -14,7 +14,7 @@ interface IWelcomeProps {
   illustration: string
 }
 
-const DynamicLottie = dynamic(() => import('react-lottie'))
+const DynamicLottie: any = dynamic((): any => import('react-lottie'))
 
 const Welcome: React.FC<IWelcomeProps> = ({title, description}) => {
   // const dispatch = useDispatch()

@@ -76,6 +76,18 @@ const MainLayout: React.FC<IMainLayout> = ({
           hrefLang={language}
           href={`https://mucahid.dev/${language === 'en' ? '' : language}`}
         />
+        <link
+          rel="preload"
+          href="/fonts/Proxima Nova Light.otf"
+          as="font"
+          crossOrigin=""
+        />
+        <link
+          rel="preload"
+          href="/fonts/ProximaNovaCond-Thin.otf"
+          as="font"
+          crossOrigin=""
+        />
       </Head>
       <Navbar />
       {hasWelcome && (

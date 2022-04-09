@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import type {NextComponentType} from 'next'
 
 import {Icon} from '@/ui'
 import {socialMedias} from '@/data'
@@ -9,7 +8,7 @@ import {dataTestTarget} from '@/utilities'
 
 import * as S from './style'
 
-const LinksContainer: NextComponentType = () => {
+const LinksContainer: React.FC = () => {
   const buttons = socialMedias.filter(({type}) => type === 'button')
   const icons = socialMedias.filter(({type}) => type === 'icon')
 

@@ -7,7 +7,7 @@ import {makeSelectModalType, setModalType} from '@/store/settings'
 
 interface IModalProps {
   name: string
-  children: React.ReactNode
+  children: React.ReactNode | any
 }
 
 const Modal: React.FC<IModalProps> = ({name, children, ...rest}) => {

@@ -1,5 +1,4 @@
 import React, {useRef} from 'react'
-import type {NextComponentType} from 'next'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
 import {useRouter} from 'next/router'
@@ -17,7 +16,7 @@ import {Status} from '@/constants'
 
 import * as S from './style'
 
-const ArticleContainer: NextComponentType = () => {
+const ArticleContainer: React.FC = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const article = useSelector(makeArticleSelector)
@@ -70,9 +69,7 @@ const ArticleContainer: NextComponentType = () => {
           </S.ShareBy>
         </S.BottomHeader>
       </S.Header>
-      <S.ArticleImage>
-        <Image width={1440} height={540} src="/images/article.jpg" alt="mail" />
-      </S.ArticleImage>
+      <S.ArticleImage src={article.thumbnail} alt={article.title} />
       <S.ArticleTags>
         {article?.categories?.map(item => (
           <Badge key={item}>{item}</Badge>

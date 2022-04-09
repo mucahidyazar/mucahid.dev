@@ -30,19 +30,10 @@ const PrevArrow = styled.div`
   z-index: ${ZIndex.ONE};
   cursor: pointer;
 `
-const NextArrow = styled.div`
-  background-color: var(--color-blue-transparent);
+const NextArrow = styled(PrevArrow)`
   border-radius: 0 2px 2px 0;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 20px;
   right: 20px;
-  z-index: ${ZIndex.ONE};
-  cursor: pointer;
+  transform: rotateZ(180deg);
 `
 
 export {

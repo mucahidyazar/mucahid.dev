@@ -16,12 +16,7 @@ const PrevArrow = ({onClick}: IArrow) => (
 
 const NextArrow = ({onClick}: IArrow) => (
   <S.NextArrow onClick={onClick}>
-    <Image
-      src="/svgs/right-arrow.svg"
-      width={12}
-      height={12}
-      alt="Next Arrow"
-    />
+    <Image src="/svgs/left-arrow.svg" width={12} height={12} alt="Next Arrow" />
   </S.NextArrow>
 )
 

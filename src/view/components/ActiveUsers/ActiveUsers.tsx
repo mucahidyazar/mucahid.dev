@@ -1,13 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
-import type {NextComponentType} from 'next'
 import {useSelector} from 'react-redux'
 
 import {makeSelectActiveUsers} from '@/store/general'
 
 import * as S from './style'
 
-const ActiveUsers: NextComponentType = () => {
+const ActiveUsers: React.FC = () => {
   const activeUsers = useSelector(makeSelectActiveUsers)
   // get a random between 1 and 7
   const randomNumber = Math.floor(Math.random() * 7) + 1

@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import PropTypes from 'prop-types'
 
 import * as S from './style'
@@ -13,13 +12,7 @@ interface ISectionCard {
 const SectionCard: React.FC<ISectionCard> = ({title, description, url}) => {
   return (
     <S.SectionCard href={url} target="_blank">
-      <S.SectionCardImage>
-        <Image
-          src="/images/github-icon.png"
-          alt="Project Source Image"
-          layout="fill"
-        />
-      </S.SectionCardImage>
+      <S.SectionCardIcon name="github" size={40} />
       <S.SectionCardContent>
         <S.SectionCardTitle level={6}>{title}</S.SectionCardTitle>
         <S.SectionCardSubtitle>{description}</S.SectionCardSubtitle>

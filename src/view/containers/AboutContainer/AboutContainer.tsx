@@ -1,5 +1,4 @@
 import React from 'react'
-import type {NextComponentType} from 'next'
 import {useTranslation} from 'next-i18next'
 
 import {AboutWelcome, SectionHeader, SectionSlider} from '@/components'
@@ -8,23 +7,21 @@ import {companies, projects, technologies} from '@/data'
 
 import * as S from './style'
 
-const AboutContainer: NextComponentType = () => {
+const AboutContainer: React.FC = () => {
   const {t} = useTranslation()
 
   const quotesMockData = [
     {
       id: '0',
-      name: 'Getir',
-      image: '/images/introduction-image-2.jpg',
-      title: 'Getir',
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
+      name: 'Mack D. Johnson',
+      image: '/images/avatars/avatar-1.jpg',
+      text: "He has been a very good mentor to me. He's always there to help me when I need it. I'm glad I found him.",
     },
     {
       id: '1',
-      name: 'MaxiThings',
-      image: '/images/introduction-image-2.jpg',
-      title: 'MaxiThings',
-      text: "Granobra'da çalışırken full time olarak çalıştığım turizm e-ticaret sitesidir. React, Next.js, Redux, Sass gibi teklonojiler kullanarak geliştirdim. Figma, XD ve Zeplin üzerinden gelen tasarımları pixelperfect olarak hayata geçiriyordum. Fakat pandemiden dolayı projeyi tamamlayamadan ayrılmak zorunda kaldım.",
+      name: 'Maria Jane',
+      image: '/images/avatars/avatar-2.jpg',
+      text: "He is the best mentor I've ever had. When I need help, he's always there to help me. Especially in JavaScript, he has amazing knowledge. I am happy to get mentorship from him.",
     },
   ]
 

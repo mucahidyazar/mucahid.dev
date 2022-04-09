@@ -25,7 +25,11 @@ const BottomHeader = styled.div`
     gap: 1rem;
   }
 `
-const ArticleImage = styled.div``
+const ArticleImage = styled.img`
+  max-height: 540px;
+  width: 100%;
+  object-fit: cover;
+`
 const ArticleTags = styled.div`
   display: flex;
   align-items: center;

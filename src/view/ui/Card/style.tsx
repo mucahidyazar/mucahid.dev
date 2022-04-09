@@ -63,6 +63,10 @@ const CardContent = styled.div`
   ${CardContentSubtitle} {
     margin-bottom: 8px;
   }
+
+  @media (max-width: ${BreakpointSize.TABLET_MINI.MAX}px) {
+    width: 100%;
+  }
 `
 const CardContentText = styled.div`
   display: -webkit-box;

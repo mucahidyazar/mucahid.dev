@@ -1,5 +1,4 @@
 import React from 'react'
-import type {NextComponentType} from 'next'
 import Link from 'next/link'
 import {useState} from 'react'
 import {useRouter} from 'next/router'
@@ -27,7 +26,7 @@ type RouteModel = {
   source: string
 }
 
-const Navbar: NextComponentType = () => {
+const Navbar: React.FC = () => {
   const {t, i18n} = useTranslation('common')
   const user = useSelector(makeSelectUser)
   const dispatch = useDispatch()

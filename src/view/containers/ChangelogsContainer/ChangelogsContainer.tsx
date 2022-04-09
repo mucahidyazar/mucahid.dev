@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-import type {NextComponentType} from 'next'
 import {useDispatch, useSelector} from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 
@@ -7,7 +6,7 @@ import {getChangelogs, makeSelectChangelogs} from '@/store/changelogs'
 
 import * as S from './style'
 
-const ChangelogsContainer: NextComponentType = () => {
+const ChangelogsContainer: React.FC = () => {
   const dispatch = useDispatch()
   const changelogs = useSelector(makeSelectChangelogs)
 

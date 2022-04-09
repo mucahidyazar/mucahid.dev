@@ -1,5 +1,4 @@
 import React from 'react'
-import type {NextComponentType} from 'next'
 import Link from 'next/link'
 import {useTranslation} from 'next-i18next'
 
@@ -9,7 +8,7 @@ import {Icon} from '@/ui'
 
 import * as S from './style'
 
-const Footer: NextComponentType = () => {
+const Footer: React.FC = () => {
   const {t} = useTranslation('common')
   const footerMenu = t('footerMenu', {returnObjects: true}) as TFooterMenu[]
 

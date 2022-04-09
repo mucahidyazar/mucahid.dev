@@ -261,6 +261,7 @@ const Logos = styled.div`
 
   @media (max-width: ${BreakpointSize.MOBILE.MAX}px) {
     gap: 2rem;
+    justify-content: flex-start;
   }
 `
 const Logo = styled.div`

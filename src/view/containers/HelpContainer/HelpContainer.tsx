@@ -1,9 +1,8 @@
 import React from 'react'
-import type {NextComponentType} from 'next'
 
 import * as S from './style'
 
-const HelpContainer: NextComponentType = () => {
+const HelpContainer: React.FC = () => {
   return (
     <S.HelpContainer>
       <S.HelpContainerSection>
