@@ -54,7 +54,7 @@ const LinksLayout: React.FC<ILinksLayout> = ({
       </Head>
       <S.LinksLayoutContent>{children}</S.LinksLayoutContent>
       <ActiveUsers />
-      <S.NewsIcon onClick={() => setIsOpen(prev => !prev)}>
+      <S.NewsIcon onClick={() => setIsOpen(prev => !prev)} isOpen={isOpen}>
         <Image
           src={`/images/others/${isOpen ? 'closed' : 'open'}-newspaper.png`}
           alt="news"
