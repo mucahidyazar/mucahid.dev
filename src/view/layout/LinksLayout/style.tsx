@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 import {container} from '@/styles'
 
@@ -13,7 +13,10 @@ const LinksLayoutContent = styled.div`
   ${container}
 `
 
-const NewsIcon = styled.div`
+interface INewsIcon {
+  isOpen: boolean
+}
+const NewsIcon = styled.div<INewsIcon>`
   position: fixed;
   bottom: 40px;
   right: 40px;
@@ -31,6 +34,12 @@ const NewsIcon = styled.div`
   &:hover {
     opacity: 1;
   }
+
+  ${({isOpen}) =>
+    isOpen &&
+    css`
+      opacity: 1;
+    `}
 `
 
 const News = styled.div`

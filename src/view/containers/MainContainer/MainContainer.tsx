@@ -1,20 +1,30 @@
 /* eslint-disable @next/next/inline-script-id */
 import React from 'react'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import Link from 'next/link'
 import Script from 'next/script'
-// import {useTranslation} from 'next-i18next'
+import {useTranslation} from 'next-i18next'
+import Image from 'next/image'
 
 import {
   makeArticlesSelector,
   makeSelectCategories,
 } from '@/store/blog/selectors'
+import {changeLanguage, makeSelectLanguage} from '@/store/settings'
 
 import * as S from './style'
 
 const MainContainer: React.FC = () => {
+  const {t, i18n} = useTranslation()
+  const dispatch = useDispatch()
+  const language = useSelector(makeSelectLanguage)
   const articles = useSelector(makeArticlesSelector)
   const categories = useSelector(makeSelectCategories)
+
+  const changeLanguageHandler = () => {
+    const nextLanguage = i18n.language === 'en' ? 'tr' : 'en'
+    dispatch(changeLanguage(nextLanguage))
+  }
 
   return (
     <S.MainContainer>
@@ -26,39 +36,34 @@ const MainContainer: React.FC = () => {
         </Link>
       </S.Brand>
 
-      <S.Slogan>
-        I specialize in leading large zero-to-one SASS projects that develop
-        products and design patterns.
-      </S.Slogan>
+      <S.Slogan>{t('slogan')}</S.Slogan>
       <S.Intro>
-        <S.IntroText>
-          As a frontend developer, I have 4 years of experience solving complex
-          frontend and interface challenges. To better build great companies, I
-          am trying to improve my cloud skill with AWS and microservices with
-          Node.js.
-        </S.IntroText>
-        <S.IntroText>
-          I currently live in Istanbul / Turkey, where you'll find me on the
-          mountain hiking or snowboarding. 🏔 🍁 🏂
-        </S.IntroText>
+        <S.IntroText>{t('intro1')}</S.IntroText>
+        <S.IntroText>{t('intro2')}</S.IntroText>
       </S.Intro>
 
       <S.FindMeOn>
-        <S.FindMeOnText>Find me on</S.FindMeOnText>
+        <S.FindMeOnText>{t('findMeOn')}</S.FindMeOnText>
         <S.SocialLinks>
-          <S.SocialLink>
+          <S.SocialLink
+            href="https://www.linkedin.com/in/mucahidyazar/"
+            target="_blank"
+          >
             <S.SocialLinkText>Linkedin</S.SocialLinkText>
             <S.SocialLinkIcon name="right-up-arrow" size={6} />
           </S.SocialLink>
-          <S.SocialLink>
+          <S.SocialLink href="https://github.com/mucahidyazar" target="_blank">
             <S.SocialLinkText>Github</S.SocialLinkText>
             <S.SocialLinkIcon name="right-up-arrow" size={6} />
           </S.SocialLink>
-          <S.SocialLink>
+          <S.SocialLink href="https://twitter.com/mucahidyazar" target="_blank">
             <S.SocialLinkText>Twitter</S.SocialLinkText>
             <S.SocialLinkIcon name="right-up-arrow" size={6} />
           </S.SocialLink>
-          <S.SocialLink>
+          <S.SocialLink
+            href="https://www.instagram.com/mucahidyazar"
+            target="_blank"
+          >
             <S.SocialLinkText>Instagram</S.SocialLinkText>
             <S.SocialLinkIcon name="right-up-arrow" size={6} />
           </S.SocialLink>
@@ -93,7 +98,7 @@ const MainContainer: React.FC = () => {
         }}
       />
       <S.BookMe>
-        <S.BookMeTitle>Book me</S.BookMeTitle>
+        <S.BookMeTitle>{t('bookMe')}</S.BookMeTitle>
         <S.BookMeCalender
           id="SOIDIV_MucahidYazar"
           data-so-page="MucahidYazar"
@@ -113,6 +118,21 @@ const MainContainer: React.FC = () => {
           <Link href="/contact">Contact</Link>
         </S.PagesLink>
       </S.PagesLinks>
+
+      <S.Divider />
+
+      <S.Copyright>
+        <S.CopyrightLanguage onClick={changeLanguageHandler}>
+          <Image
+            src={`/images/${language}.png`}
+            alt="language"
+            width={16}
+            height={16}
+          />
+        </S.CopyrightLanguage>{' '}
+        Made with <S.CopyrightHeart>❤</S.CopyrightHeart> by
+        <S.CopyrightName>Mucahid Yazar</S.CopyrightName>
+      </S.Copyright>
     </S.MainContainer>
   )
 }
