@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -27,7 +27,7 @@ const LinksLayout: React.FC<ILinksLayout> = ({
   const activePage = useSelector(makeSelectActivePage)
   const news = useSelector(makeSelectAllNews)
   const language = i18n?.language
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     dispatch(setTheme())
