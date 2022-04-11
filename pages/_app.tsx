@@ -18,14 +18,12 @@ const WrappedApp = ({Component, pageProps}: any) => {
   const theme = useSelector(makeSelectTheme)
 
   return (
-    <React.StrictMode>
-      <SessionProvider session={pageProps.session}>
-        <Component {...pageProps} />
-        <GlobalStyle theme={theme} />
-        <PageLoading />
-        <ToastContainer />
-      </SessionProvider>
-    </React.StrictMode>
+    <SessionProvider session={pageProps.session}>
+      <Component {...pageProps} />
+      <GlobalStyle theme={theme} />
+      <PageLoading />
+      <ToastContainer />
+    </SessionProvider>
   )
 }
 
