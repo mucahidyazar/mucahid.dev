@@ -10,13 +10,6 @@ const {rewrites, securityHeaders} = require('./config')
 module.exports = withPlugins([
   [withBundleAnalyzer],
   {
-    compiler: {
-      styledComponents: true,
-    },
-    future: {
-      webpack5: true,
-    },
-    reactStrictMode: true,
     images: {
       domains: [
         'picsum.photos',
@@ -53,8 +46,9 @@ module.exports = withPlugins([
     },
     i18n,
     rewrites: async () => rewrites,
-    experimental: {
-      outputStandalone: true,
+    compiler: {
+      styledComponents: true,
     },
+    reactStrictMode: true,
   },
 ])
