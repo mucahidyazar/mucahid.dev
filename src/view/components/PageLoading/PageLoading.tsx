@@ -1,16 +1,16 @@
 import React, {useState} from 'react'
 import {useRouter} from 'next/router'
-import {useSelector} from 'react-redux'
 
 import {makeSelectIsLoadingVisible} from '@/store/settings'
 import {useIsomorphicLayoutEffect} from '@/hooks'
+import {useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const PageLoading: React.FC = () => {
   const router = useRouter()
   const [isPageLoading, setIsPageLoading] = useState(false)
-  const isLoadingVisible = useSelector(makeSelectIsLoadingVisible)
+  const isLoadingVisible = useTypedSelector(makeSelectIsLoadingVisible)
 
   useIsomorphicLayoutEffect(() => {
     const handleRouteChangeStart = (/* url, {shallow} */) => {

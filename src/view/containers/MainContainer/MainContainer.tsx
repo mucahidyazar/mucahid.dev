@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/inline-script-id */
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
 import Link from 'next/link'
 import Script from 'next/script'
 import {useTranslation} from 'next-i18next'
@@ -11,15 +10,16 @@ import {
   makeSelectCategories,
 } from '@/store/blog/selectors'
 import {changeLanguage, makeSelectLanguage} from '@/store/settings'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const MainContainer: React.FC = () => {
   const {t, i18n} = useTranslation()
-  const dispatch = useDispatch()
-  const language = useSelector(makeSelectLanguage)
-  const articles = useSelector(makeArticlesSelector)
-  const categories = useSelector(makeSelectCategories)
+  const dispatch = useTypedDispatch()
+  const language = useTypedSelector(makeSelectLanguage)
+  const articles = useTypedSelector(makeArticlesSelector)
+  const categories = useTypedSelector(makeSelectCategories)
 
   const changeLanguageHandler = () => {
     const nextLanguage = i18n.language === 'en' ? 'tr' : 'en'

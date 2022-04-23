@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 
 import {getChangelogs, makeSelectChangelogs} from '@/store/changelogs'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const ChangelogsContainer: React.FC = () => {
-  const dispatch = useDispatch()
-  const changelogs = useSelector(makeSelectChangelogs)
+  const dispatch = useTypedDispatch()
+  const changelogs = useTypedSelector(makeSelectChangelogs)
 
   useEffect(() => {
     dispatch(getChangelogs())

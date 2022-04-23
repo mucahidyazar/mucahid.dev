@@ -1,13 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
-import {useSelector} from 'react-redux'
 
 import {makeSelectActiveUsers} from '@/store/general'
+import {useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const ActiveUsers: React.FC = () => {
-  const activeUsers = useSelector(makeSelectActiveUsers)
+  const activeUsers = useTypedSelector(makeSelectActiveUsers)
   // get a random between 1 and 7
   const randomNumber = Math.floor(Math.random() * 7) + 1
   const randomDefaultImage = `/gif/profile/gif-${randomNumber}.gif`

@@ -7,10 +7,13 @@ interface ITitle {
   children: React.ReactNode
   id?: string
   level: number | string
+  'data-testid'?: string
 }
 
+type ITitleItem = Omit<ITitle, 'level'>
+
 const Title = ({children, level, ...titleProps}: ITitle) => {
-  const Titles = S as {[key: string]: React.FunctionComponent}
+  const Titles = S as {[key: string]: React.FunctionComponent<ITitleItem>}
   const TitleItem = Titles[`Title${level}`]
 
   return (
