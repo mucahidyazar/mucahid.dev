@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'next/link'
 import {useState} from 'react'
 import {useRouter} from 'next/router'
-import {useDispatch, useSelector} from 'react-redux'
 import {CSSTransition, SwitchTransition} from 'react-transition-group'
 import {useTranslation} from 'next-i18next'
 
@@ -15,6 +14,7 @@ import {
   makeSelectTheme,
 } from '@/store/settings'
 import {dataTestTarget} from '@/utilities'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
@@ -28,14 +28,14 @@ type RouteModel = {
 
 const Navbar: React.FC = () => {
   const {t, i18n} = useTranslation('common')
-  const user = useSelector(makeSelectUser)
-  const dispatch = useDispatch()
+  const user = useTypedSelector(makeSelectUser)
+  const dispatch = useTypedDispatch()
   const router = useRouter()
   const [toggleMenu, setToggleMenu] = useState(false)
   const navbarMenu = t('navbarMenu', {returnObjects: true}) as RouteModel[]
 
-  const theme = useSelector(makeSelectTheme)
-  const language = useSelector(makeSelectLanguage)
+  const theme = useTypedSelector(makeSelectTheme)
+  const language = useTypedSelector(makeSelectLanguage)
 
   const handleToggleMenu = () => {
     setToggleMenu(prev => !prev)

@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
 import Image from 'next/image'
-import {useDispatch, useSelector} from 'react-redux'
 import {useTranslation} from 'next-i18next'
 
 import {Sections, Section, LoadingWrapper} from '@/components'
@@ -23,19 +22,20 @@ import {
   makeSelectBlockchainStatus,
 } from '@/store/blockchain'
 import {getUserMetamasks} from '@/store/auth'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const ContactContainer: React.FC = () => {
   const {t} = useTranslation()
   const [type, setType] = useState(ContactType.EMAIL)
-  const stats = useSelector(makeSelectStats)
-  const contract = useSelector(makeSelectBlockchainContract)
-  const blockChainStatus = useSelector(makeSelectBlockchainStatus)
-  const messages = useSelector(makeSelectBlockchainMessageMessages)
-  const board = useSelector(makeSelectBlockchainBoardMessages)
-  const emailStatus = useSelector(makeSelectEmailStatus)
-  const dispatch = useDispatch()
+  const stats = useTypedSelector(makeSelectStats)
+  const contract = useTypedSelector(makeSelectBlockchainContract)
+  const blockChainStatus = useTypedSelector(makeSelectBlockchainStatus)
+  const messages = useTypedSelector(makeSelectBlockchainMessageMessages)
+  const board = useTypedSelector(makeSelectBlockchainBoardMessages)
+  const emailStatus = useTypedSelector(makeSelectEmailStatus)
+  const dispatch = useTypedDispatch()
   const contactFormRef = useRef({} as HTMLFormElement)
 
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {

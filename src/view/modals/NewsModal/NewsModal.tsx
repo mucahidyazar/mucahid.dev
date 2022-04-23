@@ -1,17 +1,17 @@
 import React from 'react'
 import Image from 'next/image'
-import {useSelector} from 'react-redux'
 
 import {Modal} from '@/ui'
 import {ModalType} from '@/constants'
 import {makeSelectSelectedNews} from '@/store/home'
+import {useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 interface INewsModalProps {}
 
 const NewsModal: React.FC<INewsModalProps> = () => {
-  const selectedNews = useSelector(makeSelectSelectedNews)
+  const selectedNews = useTypedSelector(makeSelectSelectedNews)
 
   return (
     <Modal name={ModalType.NEWS_MODAL}>

@@ -1,17 +1,17 @@
 import React, {useRef} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
 import {useTranslation} from 'next-i18next'
 
 import {makeSelectUser, setNewsletter} from '@/store/auth'
 import {dataTestTarget} from '@/utilities'
 import {Icon} from '@/ui'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const SubscribeBanner = () => {
   const {t} = useTranslation('common')
-  const dispatch = useDispatch()
-  const user = useSelector(makeSelectUser)
+  const dispatch = useTypedDispatch()
+  const user = useTypedSelector(makeSelectUser)
   const newsletterForm = useRef({} as HTMLFormElement)
 
   // event type

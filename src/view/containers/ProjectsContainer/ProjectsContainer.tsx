@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
 import {motion} from 'framer-motion'
 import {useTranslation} from 'next-i18next'
 
@@ -12,6 +11,7 @@ import {
   makeSelectApis,
   makeSelectStarreds,
 } from '@/store/projects'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 import {SectionCard} from './SectionCard'
@@ -19,9 +19,9 @@ import {SectionCard} from './SectionCard'
 const ProjectsContainer: React.FC = () => {
   const {t} = useTranslation()
   const [pagination, setPagination] = useState(6)
-  const dispatch = useDispatch()
-  const starreds = useSelector(makeSelectStarreds)
-  const apis = useSelector(makeSelectApis)
+  const dispatch = useTypedDispatch()
+  const starreds = useTypedSelector(makeSelectStarreds)
+  const apis = useTypedSelector(makeSelectApis)
 
   useEffect(() => {
     dispatch(getStarreds())

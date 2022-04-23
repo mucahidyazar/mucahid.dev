@@ -3,7 +3,6 @@ import 'slick-carousel/slick/slick-theme.css'
 import 'react-toastify/dist/ReactToastify.css'
 import React from 'react'
 import {getSession, SessionProvider} from 'next-auth/react'
-import {useSelector} from 'react-redux'
 import {appWithTranslation} from 'next-i18next'
 import {ToastContainer} from 'react-toastify'
 
@@ -12,10 +11,10 @@ import {GlobalStyle} from '@/styles'
 import {saveAuth} from '@/store/auth'
 import {changeLanguage, makeSelectTheme, setActiveRoute} from '@/store/settings'
 
-import {wrapper} from '../src/store'
+import {useTypedSelector, wrapper} from '../src/store'
 
 const WrappedApp = ({Component, pageProps}: any) => {
-  const theme = useSelector(makeSelectTheme)
+  const theme = useTypedSelector(makeSelectTheme)
 
   return (
     <SessionProvider session={pageProps.session}>

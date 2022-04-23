@@ -2,13 +2,13 @@ import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 // import io, {Socket} from 'socket.io-client'
-import {useDispatch, useSelector} from 'react-redux'
 import {i18n} from 'next-i18next'
 
 import {ActiveUsers, SubscribeBanner, Welcome} from '@/components'
 import {Navbar, Footer} from '@/layout'
 // import {addActiveUser, removeActiveUser} from '@/store/general'
 import {makeSelectActivePage, setTheme} from '@/store/settings'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
@@ -25,8 +25,8 @@ const MainLayout: React.FC<IMainLayout> = ({
   description,
   hasWelcome,
 }) => {
-  const dispatch = useDispatch()
-  const activePage = useSelector(makeSelectActivePage)
+  const dispatch = useTypedDispatch()
+  const activePage = useTypedSelector(makeSelectActivePage)
   const language = i18n?.language
 
   // const initSocket = useCallback(() => {
@@ -113,7 +113,6 @@ MainLayout.propTypes = {
 }
 
 MainLayout.defaultProps = {
-  children: PropTypes.node,
   hasWelcome: true,
 }
 

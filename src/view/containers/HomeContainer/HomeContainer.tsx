@@ -1,5 +1,4 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useTranslation} from 'next-i18next'
@@ -8,12 +7,13 @@ import {Introduction} from '@/components'
 import {makeArticlesSelector} from '@/store/blog/selectors'
 import {dataTestTarget} from '@/utilities'
 import {companies, projects} from '@/data'
+import {useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const HomeContainer: React.FC = () => {
   const {t} = useTranslation('common')
-  const articles = useSelector(makeArticlesSelector)
+  const articles = useTypedSelector(makeArticlesSelector)
   const articlesForCard = articles.map(article => ({
     id: article.guid,
     name: article.title,

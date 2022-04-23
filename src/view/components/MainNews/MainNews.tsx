@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import {useDispatch} from 'react-redux'
 
+import {useTypedDispatch} from '@/store/index'
 import {setNews} from '@/store/home'
 import {News} from '@/types'
 
@@ -14,7 +14,7 @@ interface IMainNewsProps {
 }
 
 const MainNews = ({news, onClick, isModal, ...rest}: IMainNewsProps) => {
-  const dispatch = useDispatch()
+  const dispatch = useTypedDispatch()
   const openNewsHandler = () => {
     if (!isModal) {
       dispatch(setNews(news))

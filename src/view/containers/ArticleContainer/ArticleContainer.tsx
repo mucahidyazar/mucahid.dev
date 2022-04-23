@@ -1,6 +1,5 @@
 import React, {useRef} from 'react'
 import Image from 'next/image'
-import {useDispatch, useSelector} from 'react-redux'
 import {useRouter} from 'next/router'
 
 import {LoadingWrapper, SectionHeader} from '@/components'
@@ -13,16 +12,17 @@ import {
 import {makeSelectUser} from '@/store/auth'
 import {addComment} from '@/store/blog'
 import {Status} from '@/constants'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const ArticleContainer: React.FC = () => {
   const router = useRouter()
-  const dispatch = useDispatch()
-  const article = useSelector(makeArticleSelector)
-  const comments = useSelector(makeSelectComments)
-  const addCommentStatus = useSelector(makeSelectCommentStatus)
-  const user = useSelector(makeSelectUser)
+  const dispatch = useTypedDispatch()
+  const article = useTypedSelector(makeArticleSelector)
+  const comments = useTypedSelector(makeSelectComments)
+  const addCommentStatus = useTypedSelector(makeSelectCommentStatus)
+  const user = useTypedSelector(makeSelectUser)
   const formRef = useRef({} as HTMLFormElement)
 
   const sendCommentHandler = (e: React.FormEvent) => {

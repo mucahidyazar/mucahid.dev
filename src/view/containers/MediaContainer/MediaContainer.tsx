@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import {useSelector} from 'react-redux'
 import Script from 'next/script'
 import {useTranslation} from 'next-i18next'
 
@@ -8,12 +7,13 @@ import {SectionHeader, SectionSlider, Sections, Section} from '@/components'
 import {Card} from '@/ui'
 import {makeInstagramSelector} from '@/store/media'
 import {computerData, personalData, funkoPopsData, deskData} from '@/data'
+import {useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const MediaContainer: React.FC = () => {
   const {t} = useTranslation()
-  const instagramPhotos = useSelector(makeInstagramSelector)
+  const instagramPhotos = useTypedSelector(makeInstagramSelector)
   const firstSixPhotos = instagramPhotos?.slice(0, 6)
   const randomDatas = [
     ...computerData,

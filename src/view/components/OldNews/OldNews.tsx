@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
-import {useDispatch} from 'react-redux'
 
 import {setNews} from '@/store/home'
 import {News} from '@/types'
+import {useTypedDispatch} from '@/store/index'
 
 import * as S from './style'
 
@@ -14,7 +14,7 @@ interface IOldNewsProps {
 }
 
 const OldNews = ({news, onClick, isModal, ...rest}: IOldNewsProps) => {
-  const dispatch = useDispatch()
+  const dispatch = useTypedDispatch()
   const openNewsHandler = () => {
     if (!isModal) {
       dispatch(setNews(news))

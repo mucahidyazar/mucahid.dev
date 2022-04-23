@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 import Image from 'next/image'
 // import io, {Socket} from 'socket.io-client'
-import {useDispatch, useSelector} from 'react-redux'
 import {i18n} from 'next-i18next'
 
 import {getAllNews, makeSelectAllNews} from '@/store/home'
 import {ActiveUsers} from '@/components'
 import {makeSelectActivePage, setTheme} from '@/store/settings'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
@@ -23,9 +23,9 @@ const LinksLayout: React.FC<ILinksLayout> = ({
   title,
   description,
 }) => {
-  const dispatch = useDispatch()
-  const activePage = useSelector(makeSelectActivePage)
-  const news = useSelector(makeSelectAllNews)
+  const dispatch = useTypedDispatch()
+  const activePage = useTypedSelector(makeSelectActivePage)
+  const news = useTypedSelector(makeSelectAllNews)
   const language = i18n?.language
   const [isOpen, setIsOpen] = useState(false)
 
@@ -98,8 +98,6 @@ LinksLayout.propTypes = {
   description: PropTypes.string.isRequired,
 }
 
-LinksLayout.defaultProps = {
-  children: PropTypes.node,
-}
+LinksLayout.defaultProps = {}
 
 export default LinksLayout

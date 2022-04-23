@@ -2,7 +2,6 @@ import {ParsedUrlQuery} from 'querystring'
 
 import React, {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
-import {useDispatch, useSelector} from 'react-redux'
 import {motion} from 'framer-motion'
 import {useTranslation} from 'next-i18next'
 
@@ -14,18 +13,19 @@ import {
   makeSelectYears,
 } from '@/store/blog/selectors'
 import {setFilter} from '@/store/blog'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 import * as S from './style'
 
 const BlogContainer: React.FC = () => {
   const {t} = useTranslation()
   const router = useRouter()
-  const dispatch = useDispatch()
+  const dispatch = useTypedDispatch()
   const [pagination, setPagination] = useState(6)
-  const articles = useSelector(makeArticlesSelector)
-  const categories = useSelector(makeSelectCategories)
-  const years = useSelector(makeSelectYears)
-  const filters = useSelector(makeSelectFilters)
+  const articles = useTypedSelector(makeArticlesSelector)
+  const categories = useTypedSelector(makeSelectCategories)
+  const years = useTypedSelector(makeSelectYears)
+  const filters = useTypedSelector(makeSelectFilters)
 
   const handleFilter = (key: string, value: string) => {
     const query: ParsedUrlQuery = {...router.query}

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ReactModal from 'react-modal'
-import {useDispatch, useSelector} from 'react-redux'
 
 import {makeSelectModalType, setModalType} from '@/store/settings'
+import {useTypedDispatch, useTypedSelector} from '@/store/index'
 
 interface IModalProps {
   name: string
@@ -11,8 +11,8 @@ interface IModalProps {
 }
 
 const Modal: React.FC<IModalProps> = ({name, children, ...rest}) => {
-  const dispatch = useDispatch()
-  const modalType = useSelector(makeSelectModalType)
+  const dispatch = useTypedDispatch()
+  const modalType = useTypedSelector(makeSelectModalType)
 
   const closeModalHandler = () => dispatch(setModalType(null))
 
