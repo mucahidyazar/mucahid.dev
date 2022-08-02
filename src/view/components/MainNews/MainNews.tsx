@@ -49,6 +49,4 @@ MainNews.propTypes = {}
 
 MainNews.defaultProps = {}
 
-MainNews.S = S
-
 export default MainNews

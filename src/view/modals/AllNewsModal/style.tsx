@@ -2,7 +2,14 @@ import styled from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
 import {Title} from '@/ui'
-import {MainNews} from '@/components'
+
+import {
+  MainNews,
+  MainNewsTitle,
+  MainNewsDate,
+  MainNewsImage,
+  MainNewsContent,
+} from 'src/view/components/MainNews/style'
 
 const NewsHeader = styled.div`
   box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.1);
@@ -48,7 +55,7 @@ const ModalNews = styled.div`
     grid-template-columns: 1fr;
   }
 
-  ${MainNews.S.MainNews} {
+  ${MainNewsContent} {
     padding: 0;
     padding-right: 1rem;
     border-right: 1px solid var(--color-black-light);
@@ -62,21 +69,21 @@ const ModalNews = styled.div`
       grid-column: 1 / span 1;
     }
 
-    ${MainNews.S.MainNewsTitle} {
+    ${MainNewsTitle} {
       font-size: 60px;
     }
 
-    ${MainNews.S.MainNewsDate} {
+    ${MainNewsDate} {
       font-size: 20px;
       margin-bottom: 1rem;
     }
-    ${MainNews.S.MainNewsImage} {
+    ${MainNewsImage} {
       width: 100%;
       height: 200px;
       float: none;
       margin-bottom: 1rem;
     }
-    ${MainNews.S.MainNewsContent} {
+    ${MainNewsContent} {
       font-size: 1rem;
       font-weight: 400;
 

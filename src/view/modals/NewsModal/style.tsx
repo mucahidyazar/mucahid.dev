@@ -1,7 +1,15 @@
 import styled from 'styled-components'
 
 import {BreakpointSize} from '@/constants'
-import {MainNews} from '@/components'
+import {News} from '@/types'
+
+import {
+  MainNews,
+  MainNewsTitle,
+  MainNewsDate,
+  MainNewsImage,
+  MainNewsContent,
+} from 'src/view/components/MainNews/style'
 
 const NewsHeader = styled.div`
   box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.1);
@@ -41,26 +49,26 @@ const ModalNews = styled.div`
     grid-template-columns: 1fr;
   }
 
-  ${MainNews?.S.MainNews} {
+  ${MainNews} {
     padding: 0;
     padding-right: 1rem;
 
-    ${MainNews.S.MainNewsTitle} {
+    ${MainNewsTitle} {
       font-size: 60px;
     }
 
-    ${MainNews.S.MainNewsDate} {
+    ${MainNewsDate} {
       font-size: 20px;
       margin-bottom: 1rem;
     }
-    ${MainNews.S.MainNewsImage} {
+    ${MainNewsImage} {
       width: 100%;
       height: 280px;
       float: none;
       margin-bottom: 1rem;
       max-width: 100%;
     }
-    ${MainNews.S.MainNewsContent} {
+    ${MainNewsContent} {
       font-size: 1rem;
       font-weight: 400;
 
@@ -79,7 +87,10 @@ const ModalNews = styled.div`
   }
 `
 
-const ModalMainNews = styled(MainNews)``
+const ModalMainNews = styled(MainNews)<{
+  news: News
+  isModal?: boolean
+}>``
 
 export {
   NewsHeader,
