@@ -16,7 +16,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       */}
       <head />
       <body className={`${inter.className} text-gray-300`}>
-        <header className="mx-auto w-fit my-20">
+        <header className="mx-auto w-fit my-20 p-4 sm:p-0">
           <Image src="/svg/full-logo.svg" alt="logo" width={400} height={80} />
         </header>
         <main className="max-w-4xl mx-auto lg:p-0 px-4">
@@ -29,29 +29,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                 @smartgift
               </a>
             </p>
-
-            <p>
-              Creator of{' '}
-              <a
-                className="link"
-                href="https://github.com/mucahidyazar/icomoon-generator"
-              >
-                icomoon-generator
-              </a>
-              ,{' '}
-              <a
-                className="link"
-                href="https://github.com/mucahidyazar/html-css-boilerplate"
-              >
-                html-css-boilerplate
-              </a>
-            </p>
-            {/* <p>
-        Team member of ...
-      </p>
-      <p>
-        Core team member of ...
-      </p> */}
           </div>
           <Navbar />
           {children}
