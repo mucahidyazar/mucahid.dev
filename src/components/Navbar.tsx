@@ -15,28 +15,26 @@ export default function Navbar() {
       path: '/blog',
     },
     {
-      label: 'Media',
-      path: '/media',
-    },
-    {
       label: 'Room',
       path: '/room',
+    },
+    {
+      label: 'Links',
+      path: '/links',
     },
   ]
 
   return (
     <nav className="mx-auto mb-8">
-      <ul className="flex items-center justify-center gap-8">
+      <ul className="flex items-center gap-4 sm:gap-8 text-lg sm:text-3xl font-semibold font-sans">
         {NAV_ITEMS.map(item => (
           <li
             key={item.label}
-            className={`text-2xl
-            ${
+            className={
               path === item.path
                 ? 'text-white after:content after:w-full after:h-[1px] after:bg-white after:block after:-translate-y-1'
-                : ''
+                : 'opacity-20 hover:opacity-50 duration-200'
             }
-          `}
           >
             <Link href={item.path}>{item.label}</Link>
           </li>
