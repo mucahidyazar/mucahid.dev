@@ -19,10 +19,6 @@ export default function Navbar() {
       path: '/room',
     },
     {
-      label: 'Links',
-      path: '/links',
-    },
-    {
       label: 'Feeds',
       path: '/feeds',
     },
@@ -30,7 +26,7 @@ export default function Navbar() {
 
   return (
     <nav className="mx-auto mb-8">
-      <ul className="flex items-center justify-center gap-4 text-lg sm:text-xl font-semibold font-sans px-4 py-2">
+      <ul className="flex items-center justify-center gap-4 text-lg sm:text-xl font-semibold font-sans">
         {NAV_ITEMS.map(item => (
           <li
             key={item.label}

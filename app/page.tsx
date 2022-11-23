@@ -139,7 +139,9 @@ export default function Home() {
     <div id="home">
       <section id="about" className="w-3/4 my-4 flex flex-col gap-2">
         <p>
-          Creator of{' '}
+          <span className="inline-block font-medium italic underline mr-4">
+            Creator of
+          </span>
           <a
             className="link"
             href="https://github.com/mucahidyazar/icomoon-generator"
@@ -155,7 +157,9 @@ export default function Home() {
           </a>
         </p>
         <p>
-          Writer at
+          <span className="inline-block font-medium italic underline mr-4">
+            Writer at
+          </span>
           <a className="link" href="https://javascript.plainenglish.io/">
             {' '}
             Javascript Plainenglish{' '}
