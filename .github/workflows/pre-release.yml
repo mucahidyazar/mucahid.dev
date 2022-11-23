@@ -29,10 +29,10 @@ jobs:
             ${{ runner.os }}-yarn-
 
       # Setup Node.js
-      - name: Setup Node 14
-        uses: actions/setup-node@v2
+      - name: Setup Node 16
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
 
       # Check is there changes which is need to build
       - name: Check is there any necessary changes for build
