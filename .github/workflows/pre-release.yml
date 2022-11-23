@@ -112,7 +112,8 @@ jobs:
           git-user-name: 'Github Action'
           git-user-email: 'github@actions.com'
           tag-prefix: 'v'
-          output-file: 'CHANGELOG.md'
+          output-file: 'CHANGELOG.md'    
+          skip-git-pull: "true"
       # This step will differ depending on your project setup
       # Fortunately, yarn has a built-in command for doing this!
 
