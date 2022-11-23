@@ -218,7 +218,7 @@ export default function Home() {
                       {typeof value === 'string' ? (
                         <p>{value}</p>
                       ) : (
-                        value.map(v => (
+                        value.map((v: any) => (
                           <p key={v} className="leading-3">
                             {v},
                           </p>
@@ -263,7 +263,7 @@ export default function Home() {
                       {typeof value === 'string' ? (
                         <p>{value}</p>
                       ) : (
-                        value.map(v => (
+                        value.map((v: any) => (
                           <p key={v} className="leading-3">
                             {v},
                           </p>
