@@ -1,3 +1,5 @@
+import Script from 'next/script'
+
 export const LINKS = [
   {
     label: 'Twitter',
