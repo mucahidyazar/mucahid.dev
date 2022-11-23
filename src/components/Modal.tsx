@@ -3,7 +3,7 @@ import {Fragment} from 'react'
 
 interface IModal {
   isOpen?: boolean
-  setIsOpen: (isOpen: boolean) => void
+  setIsOpen: () => void
   title?: string
   children?: React.ReactNode
 }
