@@ -1,13 +1,16 @@
 import {Dialog, Transition} from '@headlessui/react'
-import {Fragment, useState} from 'react'
+import {Fragment} from 'react'
 
-export default function Modal({isOpen, setIsOpen, title, children}) {
+interface IModal {
+  isOpen?: boolean
+  setIsOpen: (isOpen: boolean) => void
+  title?: string
+  children?: React.ReactNode
+}
+
+export default function Modal({isOpen, setIsOpen, title, children}: IModal) {
   function closeModal() {
     setIsOpen(false)
-  }
-
-  function openModal() {
-    setIsOpen(true)
   }
 
   return (
