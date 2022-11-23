@@ -54,9 +54,9 @@ jobs:
           mv .next BUILD/.next
 
       # If there is changes then let the tests runs
-      - name: Run Tests Locally
-        if: steps.has-changed.outputs.changed == 'true'
-        run: yarn test:ci
+      # - name: Run Tests Locally
+      #   if: steps.has-changed.outputs.changed == 'true'
+      # run: yarn test:ci
 
       # If there is changes then deploy to stagging on vercel
       - name: Deploy to Staging
@@ -70,11 +70,11 @@ jobs:
           scope: ${{ secrets.VERCEL_ORG_ID }}
 
       # If there is changes then run the tests against vercel
-      - name: Run Tests Against Vercel
-        if: steps.has-changed.outputs.changed == 'true'
-        env:
-          VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
-        run: yarn test:ci
+      # - name: Run Tests Against Vercel
+      #   if: steps.has-changed.outputs.changed == 'true'
+      #   env:
+      #     VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
+      #   run: yarn test:ci
 
       # Prepare pre-release files from BUILD directory
       - name: Prepare pre-release files
@@ -112,8 +112,8 @@ jobs:
           git-user-name: 'Github Action'
           git-user-email: 'github@actions.com'
           tag-prefix: 'v'
-          output-file: 'CHANGELOG.md'    
-          skip-git-pull: "true"
+          output-file: 'CHANGELOG.md'
+          skip-git-pull: 'true'
       # This step will differ depending on your project setup
       # Fortunately, yarn has a built-in command for doing this!
 
