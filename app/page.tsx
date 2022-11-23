@@ -276,14 +276,7 @@ export default function Home() {
             }
             key={project.label}
           >
-            <a
-              href="https://github.com/mucahidyazar"
-              className="link"
-              data-tip
-              data-for="hero-dashboard"
-            >
-              {project.label}
-            </a>
+            <SectionLink key={project.label} text={project.label} />
           </Tooltip>
         ))}
       </section>

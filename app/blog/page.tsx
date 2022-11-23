@@ -11,7 +11,7 @@ export default function Blog() {
           <aside className="group cursor-pointer">
             <Link
               className="font-semibold link group-hover:text-white"
-              href="/"
+              href="/blog/123"
             >
               Dev SSR on Next with Vite
             </Link>
