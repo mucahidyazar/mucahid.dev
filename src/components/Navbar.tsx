@@ -22,17 +22,21 @@ export default function Navbar() {
       label: 'Links',
       path: '/links',
     },
+    {
+      label: 'Feeds',
+      path: '/feeds',
+    },
   ]
 
   return (
     <nav className="mx-auto mb-8">
-      <ul className="flex items-center gap-4 sm:gap-8 text-lg sm:text-3xl font-semibold font-sans">
+      <ul className="flex items-center justify-center gap-4 text-lg sm:text-xl font-semibold font-sans px-4 py-2">
         {NAV_ITEMS.map(item => (
           <li
             key={item.label}
             className={
               path === item.path
-                ? 'text-white after:content after:w-full after:h-[1px] after:bg-white after:block after:-translate-y-1'
+                ? 'text-white'
                 : 'opacity-20 hover:opacity-50 duration-200'
             }
           >
