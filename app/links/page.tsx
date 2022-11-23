@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-export const LINKS = [
+const LINKS = [
   {
     label: 'Twitter',
     url: 'https://twitter.com/mucahidyazar',
