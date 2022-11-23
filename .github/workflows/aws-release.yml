@@ -61,7 +61,7 @@ jobs:
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
@@ -79,7 +79,7 @@ jobs:
           mkdir BUILD
           cp -r public BUILD/public
           cp -r package.json BUILD/package.json
-          cp -r yarn.lock BUILD/yarn.lock
+          cp -r pnpm-lock.yaml BUILD/pnpm-lock.yaml
           mv .next BUILD/.next
 
       # If there is changes then let the tests runs
