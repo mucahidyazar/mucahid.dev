@@ -19,8 +19,8 @@ export default function Navbar() {
       path: '/room',
     },
     {
-      label: 'Feeds',
-      path: '/feeds',
+      label: 'Feedbacks',
+      path: '/feedbacks',
     },
   ]
 
