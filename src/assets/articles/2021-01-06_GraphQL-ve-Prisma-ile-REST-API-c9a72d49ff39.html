@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>GraphQL ve Prisma ile REST API</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">GraphQL ve Prisma ile REST API</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Bu yazı serim 2–3 parça veya daha uzun olacaktır. GraphQL ve Prisma’nın ne olduğunu burada size anlatmaktansa adım adım neyi ne için…
+</section>
+<section data-field="body" class="e-content">
+<section name="5687" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure name="689d" id="689d" class="graf graf--figure graf--leading"><img class="graf-image" data-image-id="1*yM-trHqaij-Vb2C6aY6DCw.jpeg" data-width="750" data-height="422" src="https://cdn-images-1.medium.com/max/800/1*yM-trHqaij-Vb2C6aY6DCw.jpeg"></figure><h3 name="245d" id="245d" class="graf graf--h3 graf-after--figure graf--title">GraphQL ve Prisma ile REST API - Part 1</h3><p name="0207" id="0207" class="graf graf--p graf-after--h3">Bu yazı serim 2–3 parça veya daha uzun olacaktır. GraphQL ve Prisma’nın ne olduğunu burada size anlatmaktansa adım adım neyi ne için yaptığımı açıklayarak 0&#39;dan Önce GraphQL servisimizi oluşturacağız daha sonra Prisma servisimizi oluşturacağız.</p><p name="c8a0" id="c8a0" class="graf graf--p graf-after--p">İlk önce Proje klasörümüzü oluşturuyoruz. Bu klasörün içine root dizini diyeceğim zaman zaman. Örnek olarak ben graphql-prisma adında bir klasör oluşturdum. Ve aşağıda ki komutla projemizin package.json’unu oluşturuyoruz.</p><blockquote name="2a03" id="2a03" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">npm init -y</strong></blockquote><p name="cbe0" id="cbe0" class="graf graf--p graf-after--blockquote">Önce aşağıdaki modülleri yüklüyoruz.</p><blockquote name="12c5" id="12c5" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">npm install babel-cli<br></strong>babel-cli =&gt; Babel komutlarını çalıştırır</blockquote><blockquote name="d7fd" id="d7fd" class="graf graf--blockquote graf-after--blockquote"><strong class="markup--strong markup--blockquote-strong">npm install babel-preset-env<br></strong>babel-preset-env =&gt; Babel’a ne değişmesi gerektiğini söyler. Yani ES6&#39;i aktif eder ve böylelikle import/export gibi modern Javascript özelliklerini kullanabiliriz.<br>Ve root dizininde <strong class="markup--strong markup--blockquote-strong">.babelrc</strong> adında dosya oluşturuyoruz ve içine aşağıda ki kodu yazıyoruz.</blockquote><figure name="d3cc" id="d3cc" class="graf graf--figure graf--iframe graf-after--blockquote"><script src="https://gist.github.com/mucahidyazar/d11b5797f16602d57d27aabb23968af1.js.js"></script><figcaption class="imageCaption"><strong class="markup--strong markup--figure-strong">/root/.babelrc</strong></figcaption></figure><blockquote name="c520" id="c520" class="graf graf--blockquote graf-after--figure"><strong class="markup--strong markup--blockquote-strong">npm install babel-node<br></strong>babel-node =&gt; Terminalden babel-node komutunun çalışmasını sağlamak için gereklidir.</blockquote><blockquote name="7684" id="7684" class="graf graf--blockquote graf-after--blockquote"><strong class="markup--strong markup--blockquote-strong">npm install babel-plugin-transform-object-rest-spread<br></strong>babel-plugin-transform-object-rest-spread =&gt; Javascript’teki … spread operatörlerinin nodejs tarafından anlaşılması ve tanınması için kuruyoruz.<br>Ve root dizininde <strong class="markup--strong markup--blockquote-strong">.babelrc</strong> adında dosya oluşturuyoruz ve içine aşağıda ki kodu ekliyoruz.</blockquote><figure name="70a0" id="70a0" class="graf graf--figure graf--iframe graf-after--blockquote"><script src="https://gist.github.com/mucahidyazar/19b29b5bf64fa59c0a44315d807fc6d7.js"></script><figcaption class="imageCaption"><strong class="markup--strong markup--figure-strong">/root/.babelrc</strong></figcaption></figure><blockquote name="c34a" id="c34a" class="graf graf--blockquote graf-after--figure graf--trailing">Ve package.json’a aşağıdaki scripti ekleyerek artık çalıştırabiliriz.<br><strong class="markup--strong markup--blockquote-strong">“start”: “babel-node src/index.js”</strong></blockquote></div></div></section><section name="baf2" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><p name="0682" id="0682" class="graf graf--p graf--leading"><strong class="markup--strong markup--p-strong">LIVE RELOAD</strong></p><p name="2ef9" id="2ef9" class="graf graf--p graf-after--p">Tabi serverımızı bu şekilde başalatırsak her değişiklikte kapatıp tekrar çalıştırmamız gerekecek. Bunun yerine nodemon’u yükleyerek çalıştıracağız ve dosyalarımızda her değişiklikte nodemon bizim için live-reload yapacaktır.</p><p name="7b7b" id="7b7b" class="graf graf--p graf-after--p">— exec ile neyin izleneceğini nodemon’a söylüyoruz.</p><blockquote name="c8fa" id="c8fa" class="graf graf--blockquote graf-after--p graf--trailing"><strong class="markup--strong markup--blockquote-strong">npm install nodemon<br>“start”: “nodemon src/index.js --exec babel-node”</strong></blockquote></div></div></section><section name="e4a2" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="42e9" id="42e9" class="graf graf--h3 graf--leading"><strong class="markup--strong markup--h3-strong">GRAPHQL</strong></h3><p name="116c" id="116c" class="graf graf--p graf-after--h3">Şimdi GraphQL servisimizi yazmaya başlayabiliriz. Bunun için önce graphql-yoga modülünü aşağıdaki kod ile yükleyerek projemize dahil edeceğiz. Graphql-yoga Graphql servisi kurarken bir çok şeyi bize kolaylaştırarak sunuyor. Authentication işlemi ve Subscriptionlarda özellikle. Ve servisimizide ayağa kaldırıyor. O yüzden bu modülü tercih ediyoruz.</p><blockquote name="6c47" id="6c47" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">npm install graphql-yoga</strong></blockquote><p name="f624" id="f624" class="graf graf--p graf-after--blockquote">Şimdi de dosya yapımızı kuralım. src adında bir klasör oluşturalım root dizininde. Ve bu src klasörü içerisin de, schema.graphql ve resolvers klasörü oluşturalım.</p><p name="b917" id="b917" class="graf graf--p graf-after--p">schema.graphql içinde Graphql Typelarımız, Inputlarımız, Enumlarımız, Querylerimiz Mutationlarımız bulunacak.</p><p name="2f80" id="2f80" class="graf graf--p graf-after--p"><strong class="markup--strong markup--p-strong">Scalar Types</strong></p><p name="fe0d" id="fe0d" class="graf graf--p graf-after--p">GraphQL’de 5 çeşit scalar type çeşidimiz bulunmaktadır. Bunlar String, Boolean, Int, Float ve ID dir.</p><p name="67ac" id="67ac" class="graf graf--p graf-after--p">Bunlar ile tanımladığımız Queryler, Mutationlar veya diğer şeyler için sınırlar belirleriz. Örnek olarak bir Product Modeli üretelim aşağıda</p><figure name="e621" id="e621" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/mucahidyazar/3ad4fa181644d6773b263e8f5fb30896.js"></script><figcaption class="imageCaption"><strong class="markup--strong markup--figure-strong">/root/src/schema.graphql</strong></figcaption></figure><p name="194d" id="194d" class="graf graf--p graf-after--figure">Yukarıda Product adında bir type belirledik. Bunu bir Database modeli olarak düşünebilirsiniz.</p><p name="3e91" id="3e91" class="graf graf--p graf-after--p">Karşılarına verdiğimiz değer o key’in ne olacağını söylemek anlamına gelir. ! işareti ise o verinin sorgulandığında kesinlikle null dönmemesi gerektiğini yani nullable olduğunu söyler. Yani Product adında bir modelimiz var ve bu product’un title’ı bir string olacak ve kesinlikle bir title dönecek buradan.</p><p name="4617" id="4617" class="graf graf--p graf-after--p">Ve daha sonra şimdi resolvers klasörümüzün <strong class="markup--strong markup--p-strong">(Query.js, Mutation.js, Subscription.js)</strong> bu isimlerde içinde 3 tane dosya oluşturuyoruz. Ve bu dosyaların içerisi şimdilik sadece aşağıdaki gibi olsun yeterlidir.</p><figure name="6bb4" id="6bb4" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/mucahidyazar/5c6749bd0241cbc160f49270a16872f3.js"></script><figcaption class="imageCaption"><strong class="markup--strong markup--figure-strong">/root/src/resolvers/Query.js</strong></figcaption></figure><p name="b08e" id="b08e" class="graf graf--p graf-after--figure">Daha sonra <strong class="markup--strong markup--p-strong">src </strong>klasörü içerisinde <strong class="markup--strong markup--p-strong">index.js</strong> dosyamızı oluşturuyoruz.</p><p name="40ef" id="40ef" class="graf graf--p graf-after--p">Ve buraya oluşturduğumuz resolvers dosyalarını <strong class="markup--strong markup--p-strong">(Query.js, Mutation.js, Subscription.js) </strong>ve GraphQLServer’ı graphql-yoga’dan index.js içerisine aşağıdaki gibi import ediyoruz</p><figure name="c3a1" id="c3a1" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/mucahidyazar/38be9d3b23868cd83818ba6869d8933f.js.js"></script><figcaption class="imageCaption"><strong class="markup--strong markup--figure-strong">/root/src/index.js</strong></figcaption></figure><p name="5570" id="5570" class="graf graf--p graf-after--figure">daha sonra server adında bir değişken oluşturuyoruz ve dahil ettiğimiz GraphQLServer ı new ile çağırarak GraphQL servisimizin ayarlarını içerisine aşağıdaki gibi yapıyoruz.</p><figure name="dab1" id="dab1" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/mucahidyazar/4c65953f3cc41dcbd65cb1f73c24ab63.js"></script><figcaption class="imageCaption"><strong class="markup--strong markup--figure-strong">/root/src/index.js</strong></figcaption></figure><p name="a0f1" id="a0f1" class="graf graf--p graf-after--figure">import ettiğimiz 3 resolver dosyasını new GraphQLServer ile içerisindeki resolvers objesine gönderiyoruz ve typeDefs’ede oluşturduğumuz schema.graphql dosyasının yolunu veriyoruz.</p><p name="056b" id="056b" class="graf graf--p graf-after--p">Ve daha sonrada aşağıdaki gibi new GraphQLServer’ı atadığımız değişkeni kullanarak servisimizi ayağa kaldıracak fonksiyonu çalışır hale getirmek için hazırlıyoruz.</p><figure name="0626" id="0626" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/mucahidyazar/5b664274ec600ff8504e708fc6cc031c.js"></script><figcaption class="imageCaption"><strong class="markup--strong markup--figure-strong">/root/src/index.js</strong></figcaption></figure><p name="4f38" id="4f38" class="graf graf--p graf-after--figure">Ve final olarak index.js dosyamız aşağıda ki gibi olacaktır.</p><figure name="e822" id="e822" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/mucahidyazar/727ee553f394167240b07033f969badb.js"></script></figure><p name="9876" id="9876" class="graf graf--p graf-after--figure">Ve son olarak GraphQL servisimizi çalıştırabilmek için aşağıdaki scripti package.json’a tanımlıyoruz.</p><blockquote name="4297" id="4297" class="graf graf--blockquote graf--startsWithDoubleQuote graf-after--p"><strong class="markup--strong markup--blockquote-strong">“dev”: “nodemon src/index.js --ext js,graphql --exec babel-node”</strong></blockquote><p name="ce36" id="ce36" class="graf graf--p graf-after--blockquote">Burada tanımladığımız --ext js,graphql ile schema.graphql içerisindeki değişikleride izlemesini nodemon’a söylüyoruz.</p><p name="4859" id="4859" class="graf graf--p graf-after--p">Ve şimdi <strong class="markup--strong markup--p-strong">npm run dev</strong> diyerek GraphQL servisimizi çalıştırarak ayağa kaldırmış olacağız.</p><p name="8dc4" id="8dc4" class="graf graf--p graf-after--p graf--trailing">Bir sonraki yazımda GraphQL servisimizde çalıştıracağımız Query ve Mutationlara değineceğim. O zamana dek hoşçakalın.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@mucahidyazar" class="p-author h-card">Mucahid Yazar</a> on <a href="https://medium.com/p/c9a72d49ff39"><time class="dt-published" datetime="2021-01-06T19:53:18.699Z">January 6, 2021</time></a>.</p><p><a href="https://medium.com/@mucahidyazar/graphql-ve-prisma-ile-rest-api-c9a72d49ff39" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 24, 2022.</p></footer></article></body></html>

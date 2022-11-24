@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>NPM - Package Publishing Notes &amp; Policy</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">NPM - Package Publishing Notes &amp; Policy</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Bu sefer NPM’de package publishing yaparken yaptığım hatalar, karşılaştığım sorunlar ve bulduğum çözümleri anlattığım bir yazı yazmak…
+</section>
+<section data-field="body" class="e-content">
+<section name="abb7" class="section section--body section--first"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="c0dd" id="c0dd" class="graf graf--h3 graf--leading graf--title">NPM - Package Publishing Notes &amp; Policy</h3><figure name="4d68" id="4d68" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*-_8rJAQ9c9JTizPGCX8Cyg.png" data-width="2400" data-height="1256" data-is-featured="true" src="https://cdn-images-1.medium.com/max/800/1*-_8rJAQ9c9JTizPGCX8Cyg.png"></figure><p name="85cd" id="85cd" class="graf graf--p graf-after--figure graf--trailing">Bu sefer NPM’de package publishing yaparken yaptığım hatalar, karşılaştığım sorunlar ve bulduğum çözümleri anlattığım bir yazı yazmak istiyorum. Aslında burada anlatacaklarımın bir çoğunu sizde merak edip araştırıp düşünmek ve challenge yaşamak zorunda kalacaksınız eğer günün birince bu işe deep dive girişecek olursanız.</p></div></div></section><section name="17a3" class="section section--body"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="0f20" id="0f20" class="graf graf--h3 graf--leading">Yaptığım hatalar</h3><h4 name="b8e8" id="b8e8" class="graf graf--h4 graf-after--h3">Özel isimle publish etmek &amp; Version numarası kullanmak</h4><p name="59b4" id="59b4" class="graf graf--p graf-after--h4">Diyelim ki icon-generator diye özel ve güzel bir isime sahip bir library oluşturacağım. Bu libraryi npm’e direk olarak bu isimle pushlamak yerine daha sıradan icon-test-generator adıyla göndermek daha doğru olurdu. Ve ayrıca ben 1.0.0 gibi bir version numarası kullanmıştım package.json içinde. Buda bu özel isimle oluşturduğum packagenin bir daha asla bu version numarası ile yeniden publish edemeyeceğim anlamına geliyordu. Yani eğer oluşturduğunuz packageA kütüphanesini npm’e 1.0.0 version numarasıyla veya herhangi bir version numarası ile npm’e gönderirseniz bir daha bu packageyi npmden silseniz dahi aynı version numarası ile npme publish edemeyeceğiniz anlamına gelir. Yani version numarasını değişip tekrar publish etmeliyiz demek oluyor bu. :(</p><h4 name="3567" id="3567" class="graf graf--h4 graf-after--p">Test publishleri npm üzerinde yapmak</h4><p name="0260" id="0260" class="graf graf--p graf-after--h4">Evet buda işin bir diğer acı tarafı. Test publishlerimi aşağıdaki şu toolu bilene kadar hep npm üzerinde yaptım buda bana fazlaca maliyetli oldu nihayetinde. Siz bu hatayı yapmayın ve <strong class="markup--strong markup--p-strong">Verdaccio </strong>isimli local npm publish toolunu kullanarak oluşturduğunuz packageleri önce localde publsih edip sonuçlarını gözlemleyin.</p><h4 name="f9c0" id="f9c0" class="graf graf--h4 graf-after--p">Alpha - Beta - RC Releaseleri Yapmamak</h4><p name="4362" id="4362" class="graf graf--p graf-after--h4">İlla paketinizi npm’e veya bir bulut ortamına publish edecekseniz paketlerinizin çalışırlığından emin olmadan önce paketlerinizi kesinlikle alpha, beta, rc gibi stabil olmayan sürümlerle çıkartmalısınız. Bu hem bu sürümlerin halen test edildiğini hem bazı özelliklerinin çalışmıyor olabileceğini anlattığı için yanlış publishlerde bu versionlarla birlikte sorun olmayacaktır. Tabi ki eğer ufak tefek buglar yoksa major problemler varsa stabil veya fix versionları çıktıktan sonra bu sürümleri unpublish yapın yapamıyorsanızda deprecated yapın.</p><div name="43eb" id="43eb" class="graf graf--mixtapeEmbed graf-after--p"><a href="https://docs.npmjs.com/cli/v7/commands/npm-version" data-href="https://docs.npmjs.com/cli/v7/commands/npm-version" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://docs.npmjs.com/cli/v7/commands/npm-version"><strong class="markup--strong markup--mixtapeEmbed-strong">npm-version | npm Docs</strong><br><em class="markup--em markup--mixtapeEmbed-em">Prevents throwing an error when npm version is used to set the new version to the same value as the current version…</em>docs.npmjs.com</a><a href="https://docs.npmjs.com/cli/v7/commands/npm-version" class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="c6446d7741fbed040e0d9711d84b6e25" data-thumbnail-img-id="0*Xmzaj8y9yRBVAz2g" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*Xmzaj8y9yRBVAz2g);"></a></div><h4 name="1602" id="1602" class="graf graf--h4 graf-after--mixtapeEmbed">Summary</h4><ul class="postList"><li name="82c5" id="82c5" class="graf graf--li graf-after--h4">npm’e sadece bir kere aynı versionu publish edebilirsiniz, unpublish etseniz dahi daha önce publish edilmiş bir versionu tekrar npm’e publish edemezsiniz.</li><li name="fb78" id="fb78" class="graf graf--li graf-after--li">npm’e publish etmeden önce Verdaccio gibi local package managerlere publish ediniz.</li><li name="d334" id="d334" class="graf graf--li graf-after--li graf--trailing">çalıştığına tam olarak emin olmadığınız packageleri alpha, beta veya rc gibi sürüm adları ile çıkınız.</li></ul></div></div></section><section name="85fe" class="section section--body section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="9208" id="9208" class="graf graf--h3 graf--leading">Notes &amp; Important Things</h3><ul class="postList"><li name="804d" id="804d" class="graf graf--li graf-after--h3">unpublish policy’ye dikkat edin. Özetle bu yazının yazıldığı tarih itibari ile: (Değişebilir burası bu yüzden documentation tavsiye edilir)<br>- İlk publishden 72 saat içinde her hangi bir zaman<br>- Eğer 72 saat önceden publish edildiyse:<br> * son hafta 300 den az download edildiyse<br> * sadece 1 tane owner veya maintainera sahipse<br> * npmdeki diğer paketler bu pakete bağlı değilse<br>unpublish edilebilir.</li><li name="6c92" id="6c92" class="graf graf--li graf-after--li">Bu şartlar dışındakiler unpublish edilemez fakat profilinizde illada bu paketleri görmek istemiyorsanız, npm i maintainer olarak ekleyerek kendinizide maintainerlardan çıkartarak bu paketi npm’e devrederek profilinizden kaldırabilirsiniz. Böylece paket yine var olur ama en azından sizin üzerinizden ve profilinizden kalkmış olur.</li><li name="6194" id="6194" class="graf graf--li graf-after--li">Belirli bir pacakge versionunu unpublish yapmak.<br><code class="markup--code markup--li-code">npm unpublish packageName@version</code></li><li name="366f" id="366f" class="graf graf--li graf-after--li">Bütün packageyi unpublish yapmak. (-f force anlamında)<br><code class="markup--code markup--li-code">npm unpublish -f packageName@version</code></li><li name="3035" id="3035" class="graf graf--li graf-after--li">Npm’i maintainer olarak pakete eklemek:<br><code class="markup--code markup--li-code">npm owner add npm package</code></li><li name="f3e7" id="f3e7" class="graf graf--li graf-after--li">Paketten kendinizi maintainerlar arasından çıkartmak<br><code class="markup--code markup--li-code">npm owner rm username package</code></li><li name="ecc0" id="ecc0" class="graf graf--li graf-after--li">Bütün bir paketi depracated yapmak.<br><code class="markup--code markup--li-code">npm deprecate packageName &quot;message&quot;</code></li><li name="2a13" id="2a13" class="graf graf--li graf-after--li graf--trailing">Belirli bir paketi deprecated yapmak.<br><code class="markup--code markup--li-code">npm deprecate packageName@version &quot;message&quot;</code></li></ul></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@mucahidyazar" class="p-author h-card">Mucahid Yazar</a> on <a href="https://medium.com/p/3b7d4be9f1fb"><time class="dt-published" datetime="2021-07-30T07:02:36.497Z">July 30, 2021</time></a>.</p><p><a href="https://medium.com/@mucahidyazar/npm-package-publishing-notes-policy-3b7d4be9f1fb" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 24, 2022.</p></footer></article></body></html>
