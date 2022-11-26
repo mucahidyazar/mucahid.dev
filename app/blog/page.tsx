@@ -43,37 +43,36 @@ export default function Blog() {
     byYears: {},
   })
 
-  console.log('§')
-  console.log({x: posts})
   useQuery(GET_POSTS, {
     onCompleted: (data: any) => {
-      console.log({posts})
-      setPosts((prev: any) => {
-        const prevPostByYears = prev?.byYears
-        data.user.publication.posts?.map((post: any) => {
-          const postYear = post.dateAdded.split('-')[0]
-          if (prevPostByYears?.[postYear]) {
-            prevPostByYears[postYear].push(post)
-          } else {
-            prevPostByYears[postYear] = [post]
-          }
-        })
-
-        return {
-          ...prev,
-          numPosts: data.user.numPosts,
-          data: [...prev.data, ...data.user.publication.posts],
-          byYears: prevPostByYears,
+      const prevPostByYears = posts?.byYears
+      data.user.publication.posts?.map((post: any) => {
+        const postYear = post.dateAdded.split('-')[0]
+        if (prevPostByYears?.[postYear]) {
+          prevPostByYears[postYear].push(post)
+        } else {
+          prevPostByYears[postYear] = [post]
         }
       })
+
+      setPosts((prev: any) => ({
+        ...prev,
+        numPosts: data.user.numPosts,
+        data: [...prev.data, ...data.user.publication.posts],
+        byYears: prevPostByYears,
+      }))
     },
   })
+
+  const postsByYears = Object.entries(posts?.byYears || {}).sort(
+    (a: any, b: any) => b[0] - a[0],
+  )
 
   return (
     <div id="blog">
       <section id="year-2022">
-        {Object.entries(posts.byYears).map(([year, yearPosts]: any) => (
-          <aside key={year}>
+        {postsByYears?.map(([year, yearPosts]: any) => (
+          <aside key={year} className="[&:not(:first-child)]:-translate-y-10">
             <h2 className="text-8xl font-black opacity-10 sm:-translate-x-10">
               {year}
             </h2>
@@ -96,7 +95,7 @@ export default function Blog() {
         ))}
         {posts?.data?.length < posts?.numPosts - 6 && (
           <button
-            className="italic font-bold uppercase line-through hover:underline duration-150 hover:scale-110"
+            className="italic font-bold uppercase line-through hover:underline duration-150 hover:scale-110 -translate-y-20"
             onClick={() => setPage(page + 1)}
           >
             Show more

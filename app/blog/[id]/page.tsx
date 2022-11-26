@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {synthwave84} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import {CodeProps} from 'react-markdown/lib/ast-to-react'
 
 export default function BlogDetail({params}: {params: {id: string}}) {
   const postId = params?.id
@@ -84,15 +85,23 @@ export default function BlogDetail({params}: {params: {id: string}}) {
               {...props}
             />
           ),
-          code(props) {
+          code({
+            node,
+            inline,
+            className,
+            children,
+            style,
+            ...props
+          }: CodeProps) {
             return (
               <SyntaxHighlighter
+                style={synthwave84}
                 language="javascript"
                 PreTag="div"
-                showLineNumbers
-                style={synthwave84}
                 {...props}
-              />
+              >
+                {String(children).replace(/\n$/, '')}
+              </SyntaxHighlighter>
             )
           },
           pre: props => (
@@ -104,18 +113,6 @@ export default function BlogDetail({params}: {params: {id: string}}) {
           table: props => (
             <table
               className="table-auto border-collapse border border-gray-200"
-              {...props}
-            />
-          ),
-          th: props => (
-            <th
-              className="border border-gray-200 px-2 py-1 text-left text-gray-500"
-              {...props}
-            />
-          ),
-          td: props => (
-            <td
-              className="border border-gray-200 px-2 py-1 text-left text-gray-700"
               {...props}
             />
           ),
