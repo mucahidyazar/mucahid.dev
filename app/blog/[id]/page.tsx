@@ -5,11 +5,13 @@ import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {synthwave84} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
-export default function BlogDetail() {
+export default function BlogDetail({params}: {params: {id: string}}) {
+  const postId = params?.id
+
   const GET_POST = gql`
     query {
       post(
-        slug: "react-query-you-do-not-need-a-global-state-manager"
+        slug: "${postId}"
         hostname: "mucahid.dev"
       ) {
         sourcedFromGithub
