@@ -1,4 +1,4 @@
-# 4.0.0 (2022-11-23)
+# 4.0.0 (2022-11-26)
 
 
 ### Bug Fixes
@@ -18,8 +18,13 @@
 * fix the hover effect for company logos on home page ([5d4d296](https://github.com/mucahidyazar/mucahid.dev/commit/5d4d2967f9707dc9c64e5d985cf7055305420409))
 * for blinking on home page, remove strict mode ([5b5d9ac](https://github.com/mucahidyazar/mucahid.dev/commit/5b5d9ac0b5e0fbd776d80b3718360bd9705686f7))
 * for build errors ([bf3d11e](https://github.com/mucahidyazar/mucahid.dev/commit/bf3d11eae63b60de7445ae4624dba2b8ce62763e))
+* for building step ([eec647d](https://github.com/mucahidyazar/mucahid.dev/commit/eec647dc7527a100e6bf7c4c0720268bd313339f))
+* for companies logos on home page ([e0c0eb4](https://github.com/mucahidyazar/mucahid.dev/commit/e0c0eb4874ce0097e68e5ff85d9548fceb0796d1))
+* for deploy to production ([faf36f4](https://github.com/mucahidyazar/mucahid.dev/commit/faf36f4f0722b4b4a9a29d521d40e28f367c5fc1))
 * for first load and fix the styling problem of first loading without css ([63714ce](https://github.com/mucahidyazar/mucahid.dev/commit/63714ce16eaa3a6a517c464af69b1c63278b0d78))
 * for footer ([7cb42b6](https://github.com/mucahidyazar/mucahid.dev/commit/7cb42b68da445f39c0acae6c0502bbd29d6ae8fe))
+* for footer menu item alignment problem ([3a74f2c](https://github.com/mucahidyazar/mucahid.dev/commit/3a74f2cf3de7eff659f7bb3c83f710dae24e07e1))
+* for github action yml ([47751d6](https://github.com/mucahidyazar/mucahid.dev/commit/47751d6cbf37f7588afc6a8f9bf2c9bc445d30ea))
 * for messages and boardmessages ([f45db6a](https://github.com/mucahidyazar/mucahid.dev/commit/f45db6aecd7e5e0b39293c7352a14a79022cc792))
 * for navbar control panel alignment ([b423f39](https://github.com/mucahidyazar/mucahid.dev/commit/b423f39be11141b3c6246e4cb3ebe9bb1794aa49))
 * for navbar control panel margins ([a06f6b6](https://github.com/mucahidyazar/mucahid.dev/commit/a06f6b6e7a272cd6a8090637777ab9e261c06c8e))
@@ -32,7 +37,11 @@
 * for welcome component and icon component the ref problem ([31e286e](https://github.com/mucahidyazar/mucahid.dev/commit/31e286e82b35d14a0f84293374dc6123d81076a5))
 * husky commit lint error ([426954f](https://github.com/mucahidyazar/mucahid.dev/commit/426954ffd78959b03e9d638db07697eec2320585))
 * remove cypress tests from jest ([515f44c](https://github.com/mucahidyazar/mucahid.dev/commit/515f44c3d4405b2ae0df892cb743b8df0e7504a4))
+* remove if from release process ([af37c7e](https://github.com/mucahidyazar/mucahid.dev/commit/af37c7efab87a103375337de487adfd180192de2))
+* remove unused lines ([6b95703](https://github.com/mucahidyazar/mucahid.dev/commit/6b95703a6d78c54a50dd310adbb6cac11df74e90))
+* test1 ([701b1eb](https://github.com/mucahidyazar/mucahid.dev/commit/701b1eb0a6333fea5d1f01822418b300b89f6e40))
 * the problem of dynamic meta title ([4322e44](https://github.com/mucahidyazar/mucahid.dev/commit/4322e44165acd1aff1769cc54af1249865696975))
+* type errors ([894b4f4](https://github.com/mucahidyazar/mucahid.dev/commit/894b4f4a12b8724c9f48ab4e40da497b8a172c3e))
 * zindex hotfix ([6f2dab3](https://github.com/mucahidyazar/mucahid.dev/commit/6f2dab357df5bb55e33b9fce9a9bb6d682a3967d))
 
 
@@ -51,6 +60,7 @@
 * add bundle analyzer to next config ([6d5b5de](https://github.com/mucahidyazar/mucahid.dev/commit/6d5b5def288d452c79c37c9f749ca27a2ce0ab8d))
 * add changelog page ([2df7914](https://github.com/mucahidyazar/mucahid.dev/commit/2df7914c6a227e8b403a7ee4b1ea02886a321d2c))
 * add docker files ([fdf71a1](https://github.com/mucahidyazar/mucahid.dev/commit/fdf71a14814f97a373f09523c8ae2c150a3f9d95))
+* add favicon and heads ([2a672e8](https://github.com/mucahidyazar/mucahid.dev/commit/2a672e8f44d1cdd7102da9038ea48e8d2ad7a006))
 * add feed and room pages ([b200b33](https://github.com/mucahidyazar/mucahid.dev/commit/b200b33d8fdf9dca2e9fd44faa7f5ba569ee0b64))
 * add framer motion and add animations for blog posts ([4699057](https://github.com/mucahidyazar/mucahid.dev/commit/46990575fa9f6ca0d95103981640cf94d0cae210))
 * add generators ([f73f7cd](https://github.com/mucahidyazar/mucahid.dev/commit/f73f7cd8d4b4d4ed7ec24d07436c877e573aafe8))
@@ -63,12 +73,14 @@
 * add necessary packages ([df548c6](https://github.com/mucahidyazar/mucahid.dev/commit/df548c647fedc20e7fa11f313f26f9f8c78ff5ed))
 * add new readme logo ([31c8310](https://github.com/mucahidyazar/mucahid.dev/commit/31c8310a43e133a0f11dcfb2344d0122a6cea585))
 * add old README.md and it will be edited soon ([8560ca3](https://github.com/mucahidyazar/mucahid.dev/commit/8560ca3161a01ebfa1f504773dbcd3021389fd61))
+* add posts by years ([539a8cf](https://github.com/mucahidyazar/mucahid.dev/commit/539a8cfc9b0b1fdcdac33c1efbfc8a3e665f1710))
 * add prettier configs ([1b51f25](https://github.com/mucahidyazar/mucahid.dev/commit/1b51f253bdfdb5184c5880c5009fa447e841fe45))
 * add recommended extensions to the projects by adding .vscode/extensions.json ([1e19cb1](https://github.com/mucahidyazar/mucahid.dev/commit/1e19cb19ac93336a51186c685cb1b8de1016238d))
 * add translated locales files of turkish language ([62e6c82](https://github.com/mucahidyazar/mucahid.dev/commit/62e6c82a25f5b2622fc11bccf827f0fea8e8e77f))
 * cypress init ([5d03136](https://github.com/mucahidyazar/mucahid.dev/commit/5d03136f0ab0d942d4a7dd9d4181e62a882cfa6f))
 * dockerize mucahid.dev ([5b87555](https://github.com/mucahidyazar/mucahid.dev/commit/5b875551aaca98437fa1ddfab8e03abe01bdc94e))
 * dynnamic multi language title and description for metas ([24e7be0](https://github.com/mucahidyazar/mucahid.dev/commit/24e7be0f6f9e257b5db754ad56e839b354a7ec18))
+* edit layout and add social links ([9f38217](https://github.com/mucahidyazar/mucahid.dev/commit/9f38217057d95c36e010425f5af31222299a4c60))
 * edit new release workflows ([b0e7882](https://github.com/mucahidyazar/mucahid.dev/commit/b0e7882cefea8cea140fead318ce0338f5420f4b))
 * **index.tsx:** add new main landing page ([40dbf00](https://github.com/mucahidyazar/mucahid.dev/commit/40dbf00839f23aaa93732885bfcd09d9efa14d63))
 * loading spinner for adding comment ([1638fb5](https://github.com/mucahidyazar/mucahid.dev/commit/1638fb5ae2c9a2ca3d8bd6c2c4fd610e8264e26c))
@@ -81,6 +93,7 @@
 * update all packages to the latest ones ([b8da33f](https://github.com/mucahidyazar/mucahid.dev/commit/b8da33f1d2279b89f1d81289785ef90d8f8ebe46))
 * update lock.yaml file ([a6aecb5](https://github.com/mucahidyazar/mucahid.dev/commit/a6aecb5587fe595188f4be8f354324abacbbdebc))
 * upgrade all packages to latest version ([d589830](https://github.com/mucahidyazar/mucahid.dev/commit/d5898306a7e81c791dc1e2098ce1678e377a1b84))
+* use hashnode to get your blog posts ([912f5e7](https://github.com/mucahidyazar/mucahid.dev/commit/912f5e701abfa723df057b30ff1297b8ed45039f))
 
 
 ### Performance Improvements

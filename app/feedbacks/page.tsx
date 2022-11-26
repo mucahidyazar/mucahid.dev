@@ -22,7 +22,7 @@ const comments = [
   },
 ]
 
-export default function Feeds() {
+export default function Feedbacks() {
   return (
     <div id="feeds">
       <section
@@ -56,17 +56,20 @@ export default function Feeds() {
                 key={comment.id}
                 className="p-4 bg-gray-400 bg-opacity-20 rounded-md hover:bg-opacity-30"
               >
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gray-300 rounded-full font-bold text-purple-500 grid place-content-center">
-                    MY
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 min-w-[32px] min-h-[32px] bg-gray-300 rounded font-bold text-purple-500 grid place-content-center">
+                        MY
+                      </div>
+                      <p className="font-semibold">{comment.name}</p>
+                    </div>
+                    <p className="text-gray-400 text-sm">
+                      {comment.date.toString()}
+                    </p>
                   </div>
                   <div className="flex flex-col">
-                    <div className="flex items-center gap-2">
-                      <p className="font-semibold">{comment.name}</p>
-                      <p className="text-gray-400 text-sm">
-                        {comment.date.toString()}
-                      </p>
-                    </div>
+                    <div className="flex items-center gap-2"></div>
                     <p className="text-gray-400 text-sm">{comment.text}</p>
                   </div>
                 </div>
@@ -79,17 +82,17 @@ export default function Feeds() {
           <form className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
               <input
-                className="w-full h-8 px-2 rounded-md bg-gray-400 bg-opacity-20 text-gray-300"
+                className="w-full p-2 bg-transparent bg-opacity-20 text-gray-300 border border-solid border-white border-opacity-10 rounded placeholder-white placeholder-opacity-20 focus:border-none"
                 type="text"
                 placeholder="Your name"
               />
             </div>
             <textarea
-              className="w-full h-32 px-2 rounded-md bg-gray-400 bg-opacity-20 text-gray-300"
+              className="w-full min-h-[120px] p-2 bg-transparent bg-opacity-20 text-gray-300 border border-solid border-white border-opacity-10 rounded placeholder-white placeholder-opacity-20 focus:border-none"
               placeholder="Your comment"
             />
             <button
-              className="w-24 h-8 rounded-md bg-purple-500 text-white ml-auto"
+              className="w-full p-2 rounded bg-purple-500 text-white ml-auto"
               type="submit"
             >
               Send

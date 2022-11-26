@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>NPM Package Oluşturmak / NPM Package Versionları Nedir?</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">NPM Package Oluşturmak / NPM Package Versionları Nedir?</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Bu yazımda sizler kendi npm packagelerinizi nasıl oluşturacağınızı ve nasıl npm’e yükleyeceğinizi anlatmaya çalışacağım.
+</section>
+<section data-field="body" class="e-content">
+<section name="c09b" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="ca4b" id="ca4b" class="graf graf--h3 graf--leading graf--title">NPM Package Oluşturmak / Package Versionları Nedir?</h3><figure name="f6a4" id="f6a4" class="graf graf--figure graf-after--h3"><img class="graf-image" data-image-id="1*ZL0hrfDvxH8ZpmQ1FqI0Jg.jpeg" data-width="970" data-height="526" src="https://cdn-images-1.medium.com/max/800/1*ZL0hrfDvxH8ZpmQ1FqI0Jg.jpeg"></figure><p name="e33f" id="e33f" class="graf graf--p graf-after--figure">Bu yazımda sizler kendi npm packagelerinizi nasıl oluşturacağınızı ve nasıl npm’e yükleyeceğinizi anlatmaya çalışacağım.</p><p name="1d37" id="1d37" class="graf graf--p graf-after--p">NPM nedir?<br>Npm, Node.js ile birlikte gelen Node Package Manager’dir.</p><p name="a517" id="a517" class="graf graf--p graf-after--p">Oluşturduğumuz react, vue gibi Node.js uygulamaları, projeleri için bizde kendi package lerimizi oluşturabiliriz.</p><blockquote name="8bf3" id="8bf3" class="graf graf--blockquote graf-after--p">Gerekli Environment Kurulumları</blockquote><ul class="postList"><li name="310d" id="310d" class="graf graf--li graf-after--blockquote">Node.js</li></ul><blockquote name="407a" id="407a" class="graf graf--blockquote graf-after--li"><strong class="markup--strong markup--blockquote-strong">Step 1:</strong></blockquote><ul class="postList"><li name="7c64" id="7c64" class="graf graf--li graf-after--blockquote">Önce npm’in web adresine gidiyoruz ve bir üyelik oluşturuyoruz. <a href="https://www.npmjs.com/" data-href="https://www.npmjs.com/" class="markup--anchor markup--li-anchor" rel="nofollow noopener" target="_blank"><strong class="markup--strong markup--li-strong">https://www.npmjs.com/</strong></a></li></ul><blockquote name="f190" id="f190" class="graf graf--blockquote graf-after--li"><strong class="markup--strong markup--blockquote-strong">Step 2:</strong></blockquote><ul class="postList"><li name="98fb" id="98fb" class="graf graf--li graf-after--blockquote">Daha sonra terminalden aşağıda ki komutla npm’e login oluyoruz.</li></ul><p name="eab6" id="eab6" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">npm login</strong></p><p name="7e13" id="7e13" class="graf graf--p graf-after--p">(npm’e giriş için bizden username, password ve email isteyecektir. Npmjs’e kayıt olurken kullandığımız bilgileri gireceğiz.)</p><blockquote name="7e76" id="7e76" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">Step 3:</strong></blockquote><ul class="postList"><li name="1308" id="1308" class="graf graf--li graf-after--blockquote">Daha npm init ile yarattığımız Node.js projesinin içine geliyoruz.</li><li name="9cf0" id="9cf0" class="graf graf--li graf-after--li">Burada ki package.json içinde ki “name” kısmı unique yani eşsiz olmalıdır. Yani burada ki name kısmındaki aynı isimle başka bir npm kütüphanesi olmamalıdır. Bunuda en iyi npm’de search edip kontrol ederek görebilirsiniz.</li></ul><blockquote name="18b2" id="18b2" class="graf graf--blockquote graf-after--li"><strong class="markup--strong markup--blockquote-strong">Step 4:</strong></blockquote><ul class="postList"><li name="357e" id="357e" class="graf graf--li graf-after--blockquote">Unique bir npm module name seçtikten sonra package.json içinden, projemiz dizininden terminali açarak, sonrada <strong class="markup--strong markup--li-strong">npm publish</strong> yaparak projemizi npm library’e gönderebiliriz.</li></ul><p name="c280" id="c280" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">npm publish</strong></p><h3 name="95b1" id="95b1" class="graf graf--h3 graf-after--p"><strong class="markup--strong markup--h3-strong">NPM PACKAGE VERSİONs</strong></h3><ul class="postList"><li name="4d45" id="4d45" class="graf graf--li graf-after--h3">Bildiğiniz gibi bir module yüklediğimizde package.json içerisinde dependencies veya devDependencies olarak, yüklediğimiz moduller kayıt edilir. Bunların yanındada aşağıda ki gibi version numaraları bulunmaktadır.</li></ul><figure name="6bbe" id="6bbe" class="graf graf--figure graf--iframe graf-after--li"><script src="https://gist.github.com/mucahidyazar/3a97a111642697b632f81d2a62724981.js"></script></figure><ul class="postList"><li name="86f8" id="86f8" class="graf graf--li graf-after--figure">Hatta istersek bunları aşağıdaki kod ile version numarasıyla indirebiliriz. Bu sayede daha önce ki versiyonlarını veya kullanmak istediğimiz versiyonlarını yükleyebiliriz modullerin.</li></ul><p name="cc51" id="cc51" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">npm install moment@2.25.2</strong></p><blockquote name="b31f" id="b31f" class="graf graf--blockquote graf-after--p"><strong class="markup--strong markup--blockquote-strong">Peki ama ne anlama geliyor bu versioyn numaraları?</strong></blockquote><ul class="postList"><li name="d305" id="d305" class="graf graf--li graf-after--blockquote">3 tip versiyon güncellemesi vardır. Önemliden, önemsize doğru sayarsak, MAJOR-MINOR-PATCH denilir bunlara. Aşağıda anlamanız açısından daha iyi bir örnek bırakıyorum.</li></ul><p name="926b" id="926b" class="graf graf--p graf-after--li">npm version major (<strong class="markup--strong markup--p-strong">X</strong>)<br>npm version minor (x.<strong class="markup--strong markup--p-strong">X</strong>)<br>npm version patch (x.x.<strong class="markup--strong markup--p-strong">X</strong>)</p><p name="9954" id="9954" class="graf graf--p graf-after--p">veya</p><figure name="5967" id="5967" class="graf graf--figure graf--iframe graf-after--p"><script src="https://gist.github.com/mucahidyazar/23c88509dc06c0b09e9991fa84c339fe.js"></script></figure><ul class="postList"><li name="80d5" id="80d5" class="graf graf--li graf-after--figure"><strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">MAJOR</em></strong>, çok büyük güncellemelerde, birden fazla yeni özelliklerde MAJOR yani en önemli versiyon güncellemeleri yapılır.</li><li name="692c" id="692c" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">MINOR</em></strong>, yeni özellikler, modüller veya eklentiler gibi güncellemelerde MINOR versiyon olarak değiştirilir.</li><li name="c961" id="c961" class="graf graf--li graf-after--li"><strong class="markup--strong markup--li-strong"><em class="markup--em markup--li-em">PATCH</em></strong>, hotfixler, küçük değişiklikler için kullanılan versiyon güncellemeleridir.</li></ul><h3 name="8032" id="8032" class="graf graf--h3 graf-after--li"><strong class="markup--strong markup--h3-strong">NPM MODULE GUNCELLEME</strong></h3><ul class="postList"><li name="08db" id="08db" class="graf graf--li graf-after--h3">Diyelim ki bir module oluşturduk ve npm’e publish ettik. Daha sonra modulümüze yeni bir özellik ekledik veya bir hotfix attık, buradan sorna tek yapmamız gereken, yaptığımız güncellemeye göre gerekli versiyon numarasını package.json içerisinden değiştirip, daha sonrada tekrar <strong class="markup--strong markup--li-strong">npm publish</strong> yapmaktır.</li></ul><p name="3138" id="3138" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">npm publish</strong></p><h3 name="e9f4" id="e9f4" class="graf graf--h3 graf-after--p"><strong class="markup--strong markup--h3-strong">HİNT</strong></h3><figure name="77f2" id="77f2" class="graf graf--figure graf--iframe graf-after--h3"><script src="https://gist.github.com/mucahidyazar/77c382aaf1b63dcf7fd3c3aaa0595c7c.js"></script></figure><ul class="postList"><li name="1d6f" id="1d6f" class="graf graf--li graf-after--figure">Burada da konumuzla çok alakası olmasada sizlere package.json içerisinde ki, dependencies’ler kısmında bulunan module’lerin isimlerinin hemen solunda bulunan küçük 2 işaretin (~,^) ne anlamlara geldiğini söyeceğim.</li></ul><p name="4073" id="4073" class="graf graf--p graf-after--li"><strong class="markup--strong markup--p-strong">^ =&gt;</strong> <strong class="markup--strong markup--p-strong">Major, Minor veya Patch</strong> versiyonlarında bir değişiklik olduğun d,a bir sonraki npm install ile birlikte bulunduğu packageleri yeni versiyonlarına günceller.</p><p name="c487" id="c487" class="graf graf--p graf-after--p graf--trailing"><strong class="markup--strong markup--p-strong">~ =&gt;</strong> <strong class="markup--strong markup--p-strong">Minor veya Patch</strong> versiyonlarında bir değişiklik olduğunda bir sonraki npm install ile birlikte bulunduğu packageleri yeni versiyonlarına günceller.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@mucahidyazar" class="p-author h-card">Mucahid Yazar</a> on <a href="https://medium.com/p/a652cf005e5f"><time class="dt-published" datetime="2021-02-19T07:01:05.896Z">February 19, 2021</time></a>.</p><p><a href="https://medium.com/@mucahidyazar/npm-package-olu%C5%9Fturmak-npm-package-versionlar%C4%B1-nedir-a652cf005e5f" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on November 24, 2022.</p></footer></article></body></html>
