@@ -125,8 +125,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             <div className="w-full h-[1px] bg-white opacity-10 my-8"></div>
             {children}
           </main>
-          <footer className="max-w-4xl w-[896px] mx-auto py-8">
-            <div className="flex justify-between items-center">
+          <footer className="max-w-4xl mx-auto py-8 px-4 w-full lg:px-0">
+            <div className="flex justify-between items-center w-full">
               <p className="opacity-40 text-xs">
                 Created in 2022 by Mucahid Yazar
               </p>
