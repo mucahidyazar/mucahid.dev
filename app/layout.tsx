@@ -3,59 +3,13 @@ import './global.css'
 
 import {Inter} from '@next/font/google'
 import Image from 'next/image'
-import Navbar from '../src/components/Navbar'
 import {ApolloProvider} from '@apollo/client'
+import {LINKS} from '../src/mocks'
+
+import Navbar from '../src/components/Navbar'
 import {apolloClient} from '../src/configs'
 
 const inter = Inter({subsets: ['latin']})
-
-const LINKS = [
-  {
-    label: 'Twitter',
-    url: 'https://twitter.com/mucahidyazar',
-    icon: 'twitter-icon',
-  },
-  {
-    label: 'Instagram',
-    url: 'https://instagram.com/mucahidyazar',
-    icon: 'instagram-icon',
-  },
-  {
-    label: 'Linkedin',
-    url: 'https://www.linkedin.com/in/mucahidyazar/',
-    icon: 'linkedin-icon',
-  },
-  {
-    label: 'Medium',
-    url: 'https://medium.com/@mucahidyazar',
-    icon: 'medium-icon',
-  },
-  {
-    label: 'Github',
-    url: 'https://github.com/mucahidyazar',
-    icon: 'github-icon',
-  },
-  {
-    label: 'Codepen',
-    url: 'https://codepen.io/mucahidyazar',
-    icon: 'codepen-icon',
-  },
-  {
-    label: 'Steam',
-    url: 'https://steamcommunity.com/id/mucahidyazar',
-    icon: 'steam-icon',
-  },
-  {
-    label: 'Discord',
-    url: 'https://discord.gg/mucahidyazar',
-    icon: 'discord-icon',
-  },
-  {
-    label: 'Stackoverflow',
-    url: 'https://stackoverflow.com/users/8291849/mucahidyazar',
-    icon: 'stackoverflow-icon',
-  },
-]
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
