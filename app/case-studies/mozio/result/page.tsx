@@ -1,5 +1,4 @@
 'use client'
-import axios from 'axios'
 import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
 import {CITIES_NAME_LAT_LON} from '@/case-studies/mocks'
 import {useSearchParams} from 'next/navigation'
@@ -11,29 +10,14 @@ import {
   useReactTable,
 } from '@tanstack/react-table'
 import {useQueries} from '@tanstack/react-query'
-import {useState} from 'react'
+import {useMemo, useState} from 'react'
+import {getDistance} from '@/case-studies/request'
 
 type TTableItem = {
   origin: string
   destination: string
   coordinates: [string, string]
   distance: number
-}
-
-const getDistance = async ({
-  origin,
-  destination,
-}: {
-  origin: string
-  destination: string
-}) => {
-  const {data} = await axios.get('/api/case-studies/mozio/get-distance', {
-    params: {
-      origin,
-      destination,
-    },
-  })
-  return data
 }
 
 const columnHelper = createColumnHelper<TTableItem>()
@@ -61,32 +45,6 @@ const columns = [
   }),
 ]
 
-const fetchCities = async ({city}: {city: string}) => {
-  const {data} = await axios.get(
-    '/api/case-studies/mozio/cities-name-lat-lon',
-    {
-      params: {
-        city,
-      },
-    },
-  )
-  return data
-}
-
-const containerStyle = {
-  width: '400px',
-  height: '400px',
-}
-
-const center = {
-  lat: -3.745,
-  lng: -38.523,
-}
-
-type TSearchParams = {
-  [key: string]: string
-}
-
 export default function Mozio() {
   const searchParams = useSearchParams()
   const origin = searchParams.get('origin')
@@ -99,14 +57,14 @@ export default function Mozio() {
     destinations.includes(destination[0]),
   )
 
-  const allDatas = [...destinationCoordinates, originCoordinate]
-  const [tableDatas, setTableDatas] = useState<any[]>(
-    allDatas
+  const allDatas = useMemo(() => {
+    const collectedDatas = [...destinationCoordinates, originCoordinate]
+    return collectedDatas
       .map((origin, index) => {
         const originName = origin[0]
         const originLat = origin[1]
         const originLon = origin[2]
-        const destinationDatas = allDatas
+        const destinationDatas = collectedDatas
           .filter(Boolean)
           .filter((_, i) => i !== index)
           .map(destination => {
@@ -121,8 +79,9 @@ export default function Mozio() {
           })
         return destinationDatas
       })
-      .flat(),
-  )
+      .flat()
+  }, [originCoordinate, destinationCoordinates])
+  const [tableDatas, setTableDatas] = useState<any[]>(allDatas)
 
   const table = useReactTable<any>({
     data: tableDatas,
@@ -151,38 +110,25 @@ export default function Mozio() {
     })),
   })
 
+  const informations = [
+    {label: 'Origin', value: origin},
+    {label: 'Destinations', value: destinations.join(', ')},
+    {label: 'Date', value: searchParams.get('date')},
+    {label: 'Passengers', value: searchParams.get('passengers')},
+  ]
+
   return (
     <div id="mozio">
       <div className="flex flex-col gap-2 mb-4">
-        <div>
-          <span className="capitalize font-semibold italic inline-block w-32 underline">
-            Origin
-          </span>
-          {' : '}
-          {origin}
-        </div>
-        <div>
-          <span className="capitalize font-semibold italic inline-block w-32 underline">
-            Destinatinations
-          </span>
-          {' : '}
-          {destinations.join(', ')}
-        </div>
-        <div>
-          <span className="capitalize font-semibold italic inline-block w-32 underline">
-            Date
-          </span>
-          {' : '}
-          {searchParams.get('date')}
-        </div>
-
-        <div>
-          <span className="capitalize font-semibold italic inline-block w-32 underline">
-            Passengers
-          </span>
-          {' : '}
-          {searchParams.get('passengers')}
-        </div>
+        {informations.map(info => (
+          <div key={info.label}>
+            <span className="capitalize font-semibold italic inline-block w-32 underline">
+              {info.label}
+            </span>
+            {' : '}
+            {info.value}
+          </div>
+        ))}
       </div>
 
       <table className="border border-solid border-white border-opacity-10 mx-auto my-12">

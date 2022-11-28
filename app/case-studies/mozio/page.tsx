@@ -2,24 +2,12 @@
 import {Fragment, useState} from 'react'
 import {Combobox} from '@headlessui/react'
 import {useQuery} from '@tanstack/react-query'
-import axios from 'axios'
 import {CheckIcon} from '@heroicons/react/20/solid'
 import {useForm} from 'react-hook-form'
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {useRouter, useSearchParams} from 'next/navigation'
-
-const fetchCities = async ({city}: {city: string}) => {
-  const {data} = await axios.get(
-    '/api/case-studies/mozio/cities-name-lat-lon',
-    {
-      params: {
-        city,
-      },
-    },
-  )
-  return data
-}
+import {getCities} from '@/case-studies/request'
 
 export default function Mozio() {
   const searchParams = useSearchParams()
@@ -33,7 +21,7 @@ export default function Mozio() {
 
   const {data: citiesData} = useQuery<{cities: [string, number, number][]}>(
     ['cities', query],
-    () => fetchCities({city: query}),
+    () => getCities({city: query}),
   )
   const cities = citiesData?.cities
 
