@@ -7,7 +7,7 @@ import {CheckIcon} from '@heroicons/react/20/solid'
 import {useForm} from 'react-hook-form'
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
-import {useRouter} from 'next/navigation'
+import {useRouter, useSearchParams} from 'next/navigation'
 
 const fetchCities = async ({city}: {city: string}) => {
   const {data} = await axios.get(
@@ -21,13 +21,12 @@ const fetchCities = async ({city}: {city: string}) => {
   return data
 }
 
-export default function Mozio({searchParams}: any) {
-  const destinationsFromParams = Object.keys(searchParams)
-    .filter(key => key.includes('destination'))
-    .map(key => searchParams[key])
+export default function Mozio() {
+  const searchParams = useSearchParams()
+  const destinationParams = searchParams.getAll('destination')
 
   const [destinations, setDestinations] = useState<any>(
-    destinationsFromParams?.length ? destinationsFromParams : [{}],
+    destinationParams?.length ? destinationParams : [''],
   )
   const [query, setQuery] = useState('')
   const router = useRouter()
@@ -60,10 +59,10 @@ export default function Mozio({searchParams}: any) {
   } = useForm({
     resolver: yupResolver(validationSchema),
     defaultValues: {
-      origin: searchParams.origin,
-      date: searchParams.date,
-      passengers: searchParams.passengers,
-      ...destinationsFromParams.reduce(
+      origin: searchParams.get('origin') || '',
+      date: searchParams.get('date') || '',
+      passengers: searchParams.get('passengers') || '',
+      ...destinationParams.reduce(
         (acc: any, destination: string, index: number) => {
           acc[`destination${index}`] = destination
           return acc
@@ -76,7 +75,12 @@ export default function Mozio({searchParams}: any) {
   const onSubmit = (data: any) => {
     const query = Object.keys(data)
     const queryString = query
-      .map(key => `${key}=${data[key]}`)
+      .map(key => {
+        if (key.includes('destination')) {
+          return `destination=${data[key]}`
+        }
+        return `${key}=${data[key]}`
+      })
       .join('&')
       .replace(/%2C/g, ',')
     router.push(`/case-studies/mozio/result?${queryString}`)

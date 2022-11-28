@@ -2,7 +2,7 @@
 import axios from 'axios'
 import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
 import {CITIES_NAME_LAT_LON} from '@/case-studies/mocks'
-import {getDistanceBetweenTwoPoints} from '@/utils'
+import {useSearchParams} from 'next/navigation'
 
 import {
   createColumnHelper,
@@ -10,12 +10,30 @@ import {
   getCoreRowModel,
   useReactTable,
 } from '@tanstack/react-table'
+import {useQueries} from '@tanstack/react-query'
+import {useState} from 'react'
 
 type TTableItem = {
   origin: string
   destination: string
   coordinates: [string, string]
   distance: number
+}
+
+const getDistance = async ({
+  origin,
+  destination,
+}: {
+  origin: string
+  destination: string
+}) => {
+  const {data} = await axios.get('/api/case-studies/mozio/get-distance', {
+    params: {
+      origin,
+      destination,
+    },
+  })
+  return data
 }
 
 const columnHelper = createColumnHelper<TTableItem>()
@@ -69,12 +87,10 @@ type TSearchParams = {
   [key: string]: string
 }
 
-export default function Mozio({searchParams}: any) {
-  const origin = searchParams.origin
-
-  const destinations = Object.keys(searchParams)
-    .filter(key => key.includes('destination'))
-    .map(key => searchParams[key])
+export default function Mozio() {
+  const searchParams = useSearchParams()
+  const origin = searchParams.get('origin')
+  const destinations = searchParams.getAll('destination')
 
   const originCoordinate =
     CITIES_NAME_LAT_LON.find(city => city[0] === origin) ||
@@ -84,33 +100,29 @@ export default function Mozio({searchParams}: any) {
   )
 
   const allDatas = [...destinationCoordinates, originCoordinate]
-  const tableDatas = allDatas
-    .map((origin, index) => {
-      const originName = origin[0]
-      const originLat = origin[1]
-      const originLon = origin[2]
-      const destinationDatas = allDatas
-        .filter(Boolean)
-        .filter((_, i) => i !== index)
-        .map(destination => {
-          if (!destination) return
-          const destinationName = destination[0]
-          const destinationLat = destination[1]
-          const destinationLon = destination[2]
-          const distance = getDistanceBetweenTwoPoints(
-            {lat: originLat, lon: originLon},
-            {lat: destinationLat, lon: destinationLon},
-          )
-          return {
-            origin: originName,
-            destination: destinationName,
-            coordinates: [originLat, originLon],
-            distance,
-          }
-        })
-      return destinationDatas
-    })
-    .flat()
+  const [tableDatas, setTableDatas] = useState<any[]>(
+    allDatas
+      .map((origin, index) => {
+        const originName = origin[0]
+        const originLat = origin[1]
+        const originLon = origin[2]
+        const destinationDatas = allDatas
+          .filter(Boolean)
+          .filter((_, i) => i !== index)
+          .map(destination => {
+            if (!destination) return
+            const destinationName = destination[0]
+            return {
+              origin: originName,
+              destination: destinationName,
+              coordinates: [originLat, originLon],
+              distance: 0,
+            }
+          })
+        return destinationDatas
+      })
+      .flat(),
+  )
 
   const table = useReactTable<any>({
     data: tableDatas,
@@ -118,18 +130,59 @@ export default function Mozio({searchParams}: any) {
     getCoreRowModel: getCoreRowModel(),
   })
 
+  useQueries({
+    queries: tableDatas.map(({origin, destination}: any) => ({
+      queryKey: [origin, destination],
+      queryFn: () => getDistance({origin, destination}),
+      onSuccess(data: any) {
+        setTableDatas(prev => {
+          const newData = prev.map(item => {
+            if (item.origin === origin && item.destination === destination) {
+              return {
+                ...item,
+                distance: data.distance,
+              }
+            }
+            return item
+          })
+          return newData
+        })
+      },
+    })),
+  })
+
   return (
     <div id="mozio">
       <div className="flex flex-col gap-2 mb-4">
-        {Object.entries(searchParams).map(([key, value]: any) => (
-          <div key={key}>
-            <span className="capitalize font-semibold italic inline-block w-32 underline">
-              {key}
-            </span>
-            {' : '}
-            {value}
-          </div>
-        ))}
+        <div>
+          <span className="capitalize font-semibold italic inline-block w-32 underline">
+            Origin
+          </span>
+          {' : '}
+          {origin}
+        </div>
+        <div>
+          <span className="capitalize font-semibold italic inline-block w-32 underline">
+            Destinatinations
+          </span>
+          {' : '}
+          {destinations.join(', ')}
+        </div>
+        <div>
+          <span className="capitalize font-semibold italic inline-block w-32 underline">
+            Date
+          </span>
+          {' : '}
+          {searchParams.get('date')}
+        </div>
+
+        <div>
+          <span className="capitalize font-semibold italic inline-block w-32 underline">
+            Passengers
+          </span>
+          {' : '}
+          {searchParams.get('passengers')}
+        </div>
       </div>
 
       <table className="border border-solid border-white border-opacity-10 mx-auto my-12">
