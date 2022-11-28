@@ -69,17 +69,9 @@ type TSearchParams = {
   [key: string]: string
 }
 
-export default function Mozio({
-  searchParams,
-}: {
-  searchParams: {
-    origin: string
-    date: string
-    passangers: string
-    [key: string]: string
-  }
-}) {
+export default function Mozio({searchParams}: any) {
   const origin = searchParams.origin
+
   const destinations = Object.keys(searchParams)
     .filter(key => key.includes('destination'))
     .map(key => searchParams[key])
@@ -186,23 +178,27 @@ export default function Mozio({
         </tfoot>
       </table>
 
-      <div className="w-[512px] h-[512px] border border-solid border-white border-opacity-10 mx-auto rounded overflow-hidden">
-        <MapContainer
-          center={[originCoordinate?.[1], originCoordinate?.[2]]}
-          zoom={2}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {destinationCoordinates?.map(info => (
-            <Marker position={[info[1], info[2]]} key={info[0]}>
-              <Popup>This is {info[0]}</Popup>
-            </Marker>
-          ))}
-        </MapContainer>
-      </div>
+      {originCoordinate?.[1] &&
+        originCoordinate?.[2] &&
+        typeof window !== 'undefined' && (
+          <div className="w-[512px] h-[512px] border border-solid border-white border-opacity-10 mx-auto rounded overflow-hidden">
+            <MapContainer
+              center={[originCoordinate[1], originCoordinate[2]]}
+              zoom={2}
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {destinationCoordinates?.map(info => (
+                <Marker position={[info[1], info[2]]} key={info[0]}>
+                  <Popup>This is {info[0]}</Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          </div>
+        )}
     </div>
   )
 }

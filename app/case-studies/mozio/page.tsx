@@ -21,11 +21,7 @@ const fetchCities = async ({city}: {city: string}) => {
   return data
 }
 
-export default function Mozio({
-  searchParams,
-}: {
-  searchParams: {[key: string]: string}
-}) {
+export default function Mozio({searchParams}: any) {
   const destinationsFromParams = Object.keys(searchParams)
     .filter(key => key.includes('destination'))
     .map(key => searchParams[key])
