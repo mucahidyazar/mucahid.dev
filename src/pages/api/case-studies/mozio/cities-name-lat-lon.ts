@@ -1,6 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 
-import {CITIES_NAME_LAT_LON} from '../../../../mocks/database'
+import {CITIES_NAME_LAT_LON} from '@/case-studies/mocks'
 
 const api = (req: NextApiRequest, res: NextApiResponse) => {
   const params = req.query

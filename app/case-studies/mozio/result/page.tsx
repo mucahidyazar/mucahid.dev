@@ -1,8 +1,8 @@
 'use client'
 import axios from 'axios'
 import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
-import {CITIES_NAME_LAT_LON} from '../../../../src/mocks/database'
-import {getDistanceBetweenTwoPoints} from '../../../../src/utills'
+import {CITIES_NAME_LAT_LON} from '@/case-studies/mocks'
+import {getDistanceBetweenTwoPoints} from '@/utils'
 
 import {
   createColumnHelper,

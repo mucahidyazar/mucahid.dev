@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Tooltip from '../src/components/Tooltip'
-import {EXPERIENCES, LINKS, PROJECTS} from '../src/mocks'
+import {Tooltip} from '@/components'
+import {EXPERIENCES, LINKS, PROJECTS} from '@/mocks'
 
 interface ISectionLink {
   href?: string

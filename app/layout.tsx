@@ -5,10 +5,10 @@ import {Inter} from '@next/font/google'
 import {QueryClientProvider} from '@tanstack/react-query'
 import Image from 'next/image'
 import {ApolloProvider} from '@apollo/client'
-import {LINKS} from '../src/mocks'
 
-import Navbar from '../src/components/Navbar'
-import {apolloClient, tanstackReactQueryClient} from '../src/configs'
+import {LINKS} from '@/mocks'
+import {Navbar} from '@/components'
+import {apolloClient, tanstackReactQueryClient} from '@/configs'
 
 const inter = Inter({subsets: ['latin']})
 
