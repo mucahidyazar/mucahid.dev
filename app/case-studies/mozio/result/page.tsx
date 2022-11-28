@@ -25,25 +25,21 @@ const columns = [
     id: 'origin',
     cell: info => info.getValue(),
     header: () => <span>Origin</span>,
-    footer: info => info.column.id,
   }),
   columnHelper.accessor('destination', {
     id: 'destination',
     cell: info => info.getValue(),
     header: () => <span>Destination</span>,
-    footer: info => info.column.id,
   }),
   columnHelper.accessor('coordinates', {
     id: 'coordinates',
     cell: info => info.getValue(),
     header: () => <span>Coordinates</span>,
-    footer: info => info.column.id,
   }),
   columnHelper.accessor('distance', {
     id: 'distance',
     cell: info => info.getValue().toFixed(2) + 'km',
     header: () => <span>Distance</span>,
-    footer: info => info.column.id,
   }),
 ]
 
