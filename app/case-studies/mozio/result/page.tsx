@@ -65,10 +65,19 @@ const center = {
   lng: -38.523,
 }
 
+type TSearchParams = {
+  [key: string]: string
+}
+
 export default function Mozio({
   searchParams,
 }: {
-  searchParams: {[key: string]: string}
+  searchParams: {
+    origin: string
+    date: string
+    passangers: string
+    [key: string]: string
+  }
 }) {
   const origin = searchParams.origin
   const destinations = Object.keys(searchParams)
