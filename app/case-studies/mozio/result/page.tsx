@@ -2,6 +2,7 @@
 import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
 import {CITIES_NAME_LAT_LON} from '@/case-studies/mocks'
 import {useSearchParams} from 'next/navigation'
+import {toast} from 'react-toastify'
 
 import {
   createColumnHelper,
@@ -15,8 +16,9 @@ import {getDistance} from '@/case-studies/request'
 
 type TTableItem = {
   origin: string
+  originCoords: [string, string]
   destination: string
-  coordinates: [string, string]
+  destinationCoords: [string, string]
   distance: number
 }
 
@@ -25,18 +27,41 @@ const columnHelper = createColumnHelper<TTableItem>()
 const columns = [
   columnHelper.accessor('origin', {
     id: 'origin',
-    cell: info => info.getValue(),
+    cell: info => {
+      const sideInfo = info.row.original.originCoords.join(', ')
+      const isValidSideInfo = sideInfo !== ', '
+
+      return (
+        <div className="flex items-center gap-2">
+          <p>{info.getValue()}</p>
+          {isValidSideInfo && (
+            <span className="text-xs font-light text-gray-400">
+              ({sideInfo})
+            </span>
+          )}
+        </div>
+      )
+    },
     header: () => <span>Origin</span>,
   }),
   columnHelper.accessor('destination', {
     id: 'destination',
-    cell: info => info.getValue(),
+    cell: info => {
+      const sideInfo = info.row.original.destinationCoords.join(', ')
+      const isValidSideInfo = sideInfo !== ', '
+
+      return (
+        <div className="flex items-center gap-2">
+          <p>{info.getValue()}</p>
+          {isValidSideInfo && (
+            <span className="text-xs font-light text-gray-400">
+              ({sideInfo})
+            </span>
+          )}{' '}
+        </div>
+      )
+    },
     header: () => <span>Destination</span>,
-  }),
-  columnHelper.accessor('coordinates', {
-    id: 'coordinates',
-    cell: info => info.getValue(),
-    header: () => <span>Coordinates</span>,
   }),
   columnHelper.accessor('distance', {
     id: 'distance',
@@ -50,9 +75,7 @@ export default function Mozio() {
   const origin = searchParams.get('origin')
   const destinations = searchParams.getAll('destination')
 
-  const originCoordinate =
-    CITIES_NAME_LAT_LON.find(city => city[0] === origin) ||
-    CITIES_NAME_LAT_LON[0]
+  const originCoordinate = CITIES_NAME_LAT_LON.find(city => city[0] === origin)
   const destinationCoordinates = CITIES_NAME_LAT_LON.filter(destination =>
     destinations.includes(destination[0]),
   )
@@ -61,19 +84,21 @@ export default function Mozio() {
     const collectedDatas = [...destinationCoordinates, originCoordinate]
     return collectedDatas
       .map((origin, index) => {
-        const originName = origin[0]
-        const originLat = origin[1]
-        const originLon = origin[2]
+        const originName = origin?.[0] || ''
+        const originLat = origin?.[1] || ''
+        const originLon = origin?.[2] || ''
         const destinationDatas = collectedDatas
           .filter(Boolean)
           .filter((_, i) => i !== index)
           .map(destination => {
-            if (!destination) return
-            const destinationName = destination[0]
+            const destinationName = destination?.[0] || ''
+            const destinationLat = destination?.[1] || ''
+            const destinationLon = destination?.[2] || ''
             return {
               origin: originName,
+              originCoords: [originLat, originLon],
               destination: destinationName,
-              coordinates: [originLat, originLon],
+              destinationCoords: [destinationLat, destinationLon],
               distance: 0,
             }
           })
@@ -106,6 +131,10 @@ export default function Mozio() {
           })
           return newData
         })
+      },
+      onError(error: any) {
+        console.log(error)
+        toast.error(error.message)
       },
     })),
   })
@@ -149,15 +178,21 @@ export default function Mozio() {
           ))}
         </thead>
         <tbody>
-          {table.getRowModel().rows.map(row => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map(cell => (
-                <td key={cell.id} className="py-2 px-4">
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
+          {table.getRowModel().rows.map(row => {
+            const values = row.getAllCells().map(cell => cell.getValue())
+            const isAllValid = values.every(Boolean)
+            const className = isAllValid ? '' : 'bg-red-400 bg-opacity-50'
+
+            return (
+              <tr key={row.id} className={className}>
+                {row.getVisibleCells().map(cell => (
+                  <td key={cell.id} className="py-2 px-4">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            )
+          })}
         </tbody>
         <tfoot>
           {table.getFooterGroups().map(footerGroup => (

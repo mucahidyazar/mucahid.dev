@@ -9,12 +9,18 @@ const api = (req: NextApiRequest, res: NextApiResponse) => {
   const origin = params?.origin as string
   const destination = params?.destination as string
 
-  const originCity: any = CITIES_NAME_LAT_LON.find(cityArray =>
+  if (!origin || !destination) {
+    return res
+      .status(400)
+      .json({message: 'Origin and destination are required'})
+  }
+
+  const originCity = CITIES_NAME_LAT_LON.find(cityArray =>
     cityArray[0].toLocaleLowerCase().includes(origin.toLocaleLowerCase()),
-  )
-  const destinationCity: any = CITIES_NAME_LAT_LON.find(cityArray =>
+  ) as [string, number, number]
+  const destinationCity = CITIES_NAME_LAT_LON.find(cityArray =>
     cityArray[0].toLocaleLowerCase().includes(destination.toLocaleLowerCase()),
-  )
+  ) as [string, number, number]
   const originLat = originCity[1]
   const originLon = originCity[2]
   const destinationLat = destinationCity[1]
@@ -32,7 +38,7 @@ const api = (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   return res.status(400).json({
-    error: 'Invalid origin or destination',
+    message: 'Invalid origin or destination',
   })
 }
 
