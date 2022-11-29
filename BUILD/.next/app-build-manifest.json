@@ -1,0 +1,101 @@
+{
+  "pages": {
+    "/layout": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/d64684d8-2dd94419de8ba50f.js",
+      "static/chunks/372-88fad2afce1888a6.js",
+      "static/chunks/30-c862672b89d316e7.js",
+      "static/chunks/233-40311095f8498b01.js",
+      "static/chunks/115-c2f50643312776aa.js",
+      "static/chunks/304-f8de1e2d4c982f53.js",
+      "static/chunks/136-c2cd467d04cf2b27.js",
+      "static/css/cb359f8cb301cfdc.css",
+      "static/chunks/app/layout-dc590741b1ed300f.js"
+    ],
+    "/head": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/app/head-cb074261f39af406.js"
+    ],
+    "/blog/[id]/page": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/115-c2f50643312776aa.js",
+      "static/chunks/971-2f3d55d4d6791504.js",
+      "static/chunks/418-8d893a09d9f76ed6.js",
+      "static/chunks/app/blog/[id]/page-4b7f345229b46e84.js"
+    ],
+    "/blog/page": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/372-88fad2afce1888a6.js",
+      "static/chunks/115-c2f50643312776aa.js",
+      "static/chunks/971-2f3d55d4d6791504.js",
+      "static/chunks/app/blog/page-f4e7b797606dfb33.js"
+    ],
+    "/case-studies/layout": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/css/53a9169c96cbb4d8.css",
+      "static/chunks/app/case-studies/layout-be3c340aea824c0d.js"
+    ],
+    "/case-studies/mozio/page": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/304-f8de1e2d4c982f53.js",
+      "static/chunks/77-715af2bc0fc6fae2.js",
+      "static/chunks/722-cf10eeef2960b5e9.js",
+      "static/chunks/app/case-studies/mozio/page-84b4e48b7003a612.js"
+    ],
+    "/case-studies/mozio/result/page": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/0b7b90cd-776542794e588813.js",
+      "static/chunks/304-f8de1e2d4c982f53.js",
+      "static/chunks/77-715af2bc0fc6fae2.js",
+      "static/chunks/742-7d6bf1862f38bf52.js",
+      "static/chunks/app/case-studies/mozio/result/page-c1c0db9603d5bd1f.js"
+    ],
+    "/examples/acme-rocket/page": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/30-c862672b89d316e7.js",
+      "static/chunks/app/examples/acme-rocket/page-075b2f5768613216.js"
+    ],
+    "/feedbacks/page": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/app/feedbacks/page-da6c88c60a0475ee.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/d64684d8-2dd94419de8ba50f.js",
+      "static/chunks/372-88fad2afce1888a6.js",
+      "static/chunks/30-c862672b89d316e7.js",
+      "static/chunks/233-40311095f8498b01.js",
+      "static/chunks/app/page-3b212032f0103422.js"
+    ],
+    "/room/page": [
+      "static/chunks/webpack-43aa69eb5a11c3b2.js",
+      "static/chunks/17-f2e5fcbb6d18c1e3.js",
+      "static/chunks/main-app-083a3318162d6642.js",
+      "static/chunks/d64684d8-2dd94419de8ba50f.js",
+      "static/chunks/372-88fad2afce1888a6.js",
+      "static/chunks/30-c862672b89d316e7.js",
+      "static/chunks/233-40311095f8498b01.js",
+      "static/chunks/app/room/page-c95e1eaf716df8e8.js"
+    ]
+  }
+}

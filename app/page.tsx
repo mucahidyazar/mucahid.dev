@@ -1,126 +1,14 @@
 import Image from 'next/image'
-import Tooltip from '../src/components/Tooltip'
-
-const socials = [
-  {
-    label: 'github',
-    href: 'https://github.com/mucahidyazar',
-    logo: '/svg/socials/github-icon.svg',
-    color: '#000',
-  },
-  {
-    label: 'linkedin',
-    href: 'https://www.linkedin.com/in/mucahidyazar/',
-    logo: '/svg/socials/linkedin-icon.svg',
-    color: '#0077b5',
-  },
-  {
-    label: 'medium',
-    href: 'https://medium.com/@mucahidyazar',
-    logo: '/svg/socials/medium-icon.svg',
-    color: '#000',
-  },
-  {
-    label: 'dribble',
-    href: 'https://dribbble.com/mucahidyazar',
-    logo: '/svg/socials/dribble-icon.svg',
-    color: '#ea4c89',
-  },
-  {
-    label: 'twitter',
-    href: 'https://twitter.com/mucahidyazar',
-    logo: '/svg/socials/twitter-icon.svg',
-    color: '#1da1f2',
-  },
-  {
-    label: 'instagram',
-    href: 'https://www.instagram.com/mucahidyazar/',
-    logo: '/svg/socials/instagram-icon.svg',
-    color: '#e1306c',
-  },
-]
-
-const EXPERIENCES = [
-  {
-    label: 'smartgift',
-    href: 'https://github.com/mucahidyazar',
-    logo: '/img/logos/smartgift.png',
-    color: '#000',
-    info: {
-      name: 'Smartgift',
-      location: 'Brooklyn, NY, USA',
-      title: 'Senior',
-      role: 'Frontend Developer',
-      duration: [new Date(2022, 6), new Date()],
-      status: 'Remote',
-      type: 'B2B',
-      time: 'Full-time',
-    },
-  },
-  {
-    label: 'getir',
-    href: 'https://www.linkedin.com/in/mucahidyazar/',
-    logo: '/img/logos/getir.png',
-    color: '#0077b5',
-    info: {
-      name: 'Getir',
-      location: 'Istanbul, Turkey',
-      title: 'Engineer II',
-      role: 'Web Developer',
-      duration: [new Date(2021, 2), new Date(2022, 6)],
-      status: 'Remote',
-      type: 'Employee',
-      time: 'Full-time',
-    },
-  },
-  {
-    label: 'maxithings',
-    href: 'https://medium.com/@mucahidyazar',
-    logo: '/img/logos/maxithings.png',
-    color: '#000',
-    info: {
-      name: 'Maxithings',
-      location: 'Maltepe, Istanbul, Turkey',
-      title: 'Middle',
-      role: 'Frontend Developer',
-      duration: [new Date(2020, 10), new Date(2021, 2)],
-      status: 'Hybrid',
-      type: 'Employee',
-      time: 'Full-time',
-    },
-  },
-  {
-    label: 'granobra',
-    href: 'https://dribbble.com/mucahidyazar',
-    logo: '/img/logos/granobra.png',
-    color: '#ea4c89',
-    info: {
-      name: 'Granobra',
-      location: 'Kartal, Istanbul, Turkey',
-      title: 'Junior',
-      role: 'Frontend Developer',
-      duration: [new Date(2018, 2), new Date(2020, 9)],
-      status: 'Hybrid',
-      type: 'Employee',
-      time: 'Full-time',
-    },
-  },
-]
+import {Tooltip} from '@/components'
+import {EXPERIENCES, LINKS, PROJECTS} from '@/mocks'
 
 interface ISectionLink {
   href?: string
   children?: React.ReactNode
-  color?: string
   logo?: string
   text?: string
 }
-const SectionLink = ({
-  href = '#',
-  color = '',
-  text = '',
-  logo,
-  children,
-}: ISectionLink) => {
+const SectionLink = ({href = '#', text = '', logo, children}: ISectionLink) => {
   return (
     <a href={href} className={`link flex items-center gap-2`}>
       {logo && <Image src={logo} alt={text} width={20} height={20} />}
@@ -190,12 +78,12 @@ export default function Home() {
         <h2 className="font-medium italic border-b border-solid border-gray-400 w-fit">
           Find me on
         </h2>
-        {socials.map(social => (
+        {LINKS.map(link => (
           <SectionLink
-            key={social.label}
-            text={social.label}
-            logo={social.logo}
-            color={social.color}
+            key={link.label}
+            text={link.label}
+            href={link.url}
+            logo={`/svg/socials/${link.icon}.svg`}
           />
         ))}
       </section>
@@ -237,9 +125,9 @@ export default function Home() {
           >
             <SectionLink
               key={experience.label}
+              href={experience.url}
               text={experience.label}
               logo={experience.logo}
-              color={experience.color}
             />
           </Tooltip>
         ))}
@@ -287,98 +175,3 @@ export default function Home() {
     </div>
   )
 }
-
-const PROJECTS = [
-  {
-    label: 'hero-dashboard',
-    href: '',
-    logo: '',
-    color: '',
-    info: {
-      main: 'react',
-      packages: [
-        'react',
-        'redux',
-        'react query',
-        'redux-thunk',
-        'react-router',
-        'styled-components',
-        'formik',
-      ],
-      deploy: 'amplify',
-      ci: 'github actions',
-      company: 'smartgift',
-    },
-  },
-  {
-    label: 'hero-recipient',
-    href: '',
-    logo: '',
-    color: '',
-    info: {
-      main: 'react',
-      packages: [
-        'react',
-        'redux',
-        'react query',
-        'redux-thunk',
-        'react-router',
-        'styled-components',
-        'formik',
-      ],
-      deploy: 'amplify',
-      ci: 'github actions',
-      company: 'smartgift',
-    },
-  },
-  {
-    label: 'smartgift-ui-library',
-    href: '',
-    logo: '',
-    color: '',
-    info: {
-      main: 'react',
-      packages: [
-        'react',
-        'redux',
-        'react query',
-        'redux-thunk',
-        'react-router',
-        'styled-components',
-        'formik',
-      ],
-      other: ['npm', 'storybook', 'nx'],
-      deploy: 'amplify',
-      ci: 'github actions',
-      company: 'smartgift',
-    },
-  },
-  {
-    label: 'smart-checkout-recipient',
-    href: '',
-    logo: '',
-    color: '',
-    info: {
-      main: 'next.js',
-      packages: ['react', 'react-query', 'styled-components', 'formik'],
-      other: ['nx'],
-      deploy: 'amplify',
-      ci: 'github actions',
-      company: 'smartgift',
-    },
-  },
-  {
-    label: 'smart-checkout-dashboard',
-    href: '',
-    logo: '',
-    color: '',
-    info: {
-      main: 'next.js',
-      packages: ['react', 'react query', 'material-ui', 'react-hook-forms'],
-      other: ['nx'],
-      deploy: 'amplify',
-      ci: 'github actions',
-      company: 'smartgift',
-    },
-  },
-]
