@@ -1,0 +1,9 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/api/case-studies/mozio/cities-name-lat-lon": "pages/api/case-studies/mozio/cities-name-lat-lon.js",
+  "/api/case-studies/mozio/get-distance": "pages/api/case-studies/mozio/get-distance.js",
+  "/api/hello": "pages/api/hello.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
