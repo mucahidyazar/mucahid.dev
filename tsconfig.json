@@ -1,53 +1,28 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "downlevelIteration": true, // ti fix ...new Set() errors
-    "baseUrl": ".",
-    "paths": {
-      "@/axios": ["src/axios/index.ts"],
-      "@/components": ["src/view/components/index.ts"],
-      "@/containers": ["src/view/containers/index.ts"],
-      "@/constants": ["src/constants/index.ts"],
-      "@/layout": ["src/view/layout/index.ts"],
-      "@/data": ["src/data/index.ts"],
-      "@/hooks": ["src/hooks/index.ts"],
-      "@/modals": ["src/view/modals/index.ts"],
-      "@/pages/*": ["pages/*"],
-      "@/store/*": ["src/store/*"],
-      "@/styles": ["src/styles/index.ts"],
-      "@/types": ["src/types/index.ts"],
-      "@/ui": ["src/view/ui/index.ts"],
-      "@/utilities": ["src/utilities/index.ts"]
-    },
     "isolatedModules": true,
-    "types": ["jest", "@types/jest"]
+    "noEmit": true,
+    "jsx": "preserve"
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/**/*.ts",
-    "src/store/**/*.ts",
-    "src/view/**/**/*.ts"
+    "src"
   ],
   "exclude": [
-    "node_modules",
-    "server.ts",
-    "next-i18next.config.ts",
-    "__tests__/runner.ts",
-    "others/generate-rss.ts",
-    "cypress"
+    "node_modules"
   ]
 }

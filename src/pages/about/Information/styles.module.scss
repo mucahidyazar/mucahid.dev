@@ -1,0 +1,110 @@
+$color-light: #ffffff;
+$color-blue-1: #0f4c75;
+$color-blue-2: #3282b8;
+$color-blue-3: #3282b8;
+$color-blue-4: #bbe1fa;
+$color-dark: #1b262c;
+
+.outside {
+  color: $color-light;
+}
+
+.information {
+  padding-top: 25rem;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+
+  .photos {
+    position: relative;
+
+    &__photo {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 35rem;
+      overflow: hidden;
+      border: 1rem solid $color-light;
+      transform: translateX(-80%);
+      z-index: 3;
+      transition: all .5s;
+
+      img {
+        width: 100%;
+      }
+
+      &:hover {
+        transform: translateX(-80%) scale(1.1);
+      }
+    }
+    &__photo:nth-child(2) {
+      transform: rotateZ(-15deg) translateX(-80%);
+      z-index: 2;
+      transition: all .5s;
+
+      &:hover {
+        transform: rotateZ(0) translateX(-80%) scale(1.1);
+        z-index: 4;
+      }
+    }
+    &__photo:nth-child(3) {
+      transform: rotateZ(15deg) translateX(-80%);
+      z-index: 1;
+      transition: all .5s;
+
+      &:hover {
+        transform: rotateZ(0) translateX(-80%) scale(1.1);
+        z-index: 4;
+      }
+    }
+  }
+
+  .info {
+    font-size: 1.5rem;
+
+    h3 {
+      font-size: 3rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+    & > p {
+      margin-bottom: 1rem;
+      line-height: 3rem;
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 1rem;
+      margin: 2rem 0;
+
+      span {
+        font-weight: 700;
+        color: $color-blue-3;
+      }
+    }
+
+    &__buttons {
+      margin-top: 5rem;
+      color: $color-light;
+
+      & > a {
+        border: 1px solid rgba($color-light, .1);
+        background-color: rgba($color-light, .1);
+        padding: 1.5rem 4rem;
+        border-radius: .3rem;
+        transition: all .3s;
+
+        &:hover {
+          background-color: $color-blue-3;
+          color: $color-light;
+        }
+      }
+      & > a:first-child {
+        margin-right: 1rem;
+        background-color: $color-blue-3;
+        color: $color-light;
+      }
+    }
+  }
+}

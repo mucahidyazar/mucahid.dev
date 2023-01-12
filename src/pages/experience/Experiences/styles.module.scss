@@ -1,0 +1,64 @@
+$color-light: #ffffff;
+$color-blue-1: #0f4c75;
+$color-blue-2: #3282b8;
+$color-blue-3: #3282b8;
+$color-blue-4: #bbe1fa;
+$color-dark: #1b262c;
+
+.experiences {
+
+  .content {
+
+    .experience {
+      display: flex;
+      background-color: rgba($color-light, .1);
+      transition: all .3s;
+      padding: 2rem 3rem;
+
+      &:hover {
+        background-color: rgba($color-light, .2);
+      }
+
+      &__image {
+        margin-right: 3rem;
+        img { width: 25rem; height: 25rem; }
+      }
+
+      &:nth-of-type(even){
+        .experience__image {
+          order: 2;
+          margin-right: 0;
+          margin-left: 3rem;
+        }
+        .experience__content {
+          order: 1;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+    }
+
+    h4 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    h5 {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $color-blue-3;
+      font-size: 1.8rem;
+      margin-bottom: .5rem;
+    }
+    h6 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}

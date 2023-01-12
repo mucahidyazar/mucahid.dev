@@ -1,0 +1,19 @@
+$color-light: #ffffff;
+$color-blue-1: #0f4c75;
+$color-blue-2: #3282b8;
+$color-blue-3: #3282b8;
+$color-blue-4: #bbe1fa;
+$color-dark: #1b262c;
+
+.title {
+  font-weight: 700;
+  text-align: center;
+  font-size: 4rem;
+  text-transform: uppercase;
+  color: $color-blue-1;
+  padding: 7rem 0;
+
+  span {
+    color: $color-light;
+  }
+}

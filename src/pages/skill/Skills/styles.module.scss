@@ -1,0 +1,38 @@
+$color-light: #ffffff;
+$color-blue-1: #0f4c75;
+$color-blue-2: #3282b8;
+$color-blue-3: #3282b8;
+$color-blue-4: #bbe1fa;
+$color-dark: #1b262c;
+
+.skills {
+
+  &__groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(20rem, 1fr));
+    grid-gap: 4rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-light;
+  }
+
+  .item {
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    &__bar {
+      background-color: $color-blue-1;
+      height: 1.5rem;
+      border-radius: 1rem;
+
+      .full {
+        height: 100%;
+        background-color: $color-light;
+        border-radius: 1rem;
+      }
+    }
+  }
+}
