@@ -1,18 +1,18 @@
 'use client'
 import './global.css'
 
-import {Inter} from '@next/font/google'
-import {QueryClientProvider} from '@tanstack/react-query'
+import { Inter } from '@next/font/google'
+import { QueryClientProvider } from '@tanstack/react-query'
 import Image from 'next/image'
-import {ApolloProvider} from '@apollo/client'
+import { ApolloProvider } from '@apollo/client'
 
-import {LINKS} from '@/mocks'
-import {Navbar} from '@/components'
-import {apolloClient, tanstackReactQueryClient} from '@/configs'
+import { LINKS } from '@/mocks'
+import { Chip, HomeArticle, HomeSection, Navbar } from '@/components'
+import { apolloClient, tanstackReactQueryClient } from '@/configs'
 
-const inter = Inter({subsets: ['latin']})
+const inter = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={tanstackReactQueryClient}>
       <ApolloProvider client={apolloClient}>
@@ -64,19 +64,20 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                   </a>
                 </p>
 
-                <section
-                  id="downloads"
-                  className="flex flex-wrap items-center gap-4 gap-y-1"
-                >
-                  <h2 className="font-medium italic border-b border-solid border-gray-400 w-fit">
-                    Download
-                  </h2>
-                  <h3 className="bg-primary text-white py-1 px-3 w-fit text-xs rounded bg-opacity-60 hover:bg-opacity-70 font-semibold uppercase cursor-pointer">
-                    <a href="/resume.pdf" download>
-                      Resume
-                    </a>
-                  </h3>
-                </section>
+                <HomeSection id="downloads">
+                  <HomeArticle
+                    title='Download'
+                    content={(
+                      <Chip
+                        content={(
+                          <a href="/resume.pdf" download>
+                            Resume
+                          </a>
+                        )}
+                      />
+                    )}
+                  />
+                </HomeSection>
               </div>
               <div className="w-full h-[1px] bg-white opacity-10 my-8"></div>
               {children}
