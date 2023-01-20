@@ -1,3 +1,7 @@
+import moment from 'moment'
+
+const getDate = (date: Date | string) => moment(date).format('MM YYYY')
+
 export const EXPERIENCES: TExperience[] = [
   {
     label: 'smartgift',
@@ -8,7 +12,7 @@ export const EXPERIENCES: TExperience[] = [
       location: 'Brooklyn, NY, USA',
       title: 'Senior',
       role: 'Frontend Developer',
-      duration: [new Date(2022, 6), new Date()],
+      duration: [getDate(new Date(2022, 6)), getDate(new Date())],
       status: 'Remote',
       type: 'B2B',
       time: 'Full-time',
@@ -23,7 +27,7 @@ export const EXPERIENCES: TExperience[] = [
       location: 'Istanbul, Turkey',
       title: 'Engineer II',
       role: 'Web Developer',
-      duration: [new Date(2021, 2), new Date(2022, 6)],
+      duration: [getDate(new Date(2021, 2)), getDate(new Date(2022, 6))],
       status: 'Remote',
       type: 'Employee',
       time: 'Full-time',
@@ -38,7 +42,7 @@ export const EXPERIENCES: TExperience[] = [
       location: 'Maltepe, Istanbul, Turkey',
       title: 'Middle',
       role: 'Frontend Developer',
-      duration: [new Date(2020, 10), new Date(2021, 2)],
+      duration: [getDate(new Date(2020, 10)), getDate(new Date(2021, 2))],
       status: 'Hybrid',
       type: 'Employee',
       time: 'Full-time',
@@ -53,7 +57,7 @@ export const EXPERIENCES: TExperience[] = [
       location: 'Kartal, Istanbul, Turkey',
       title: 'Junior',
       role: 'Frontend Developer',
-      duration: [new Date(2018, 2), new Date(2020, 9)],
+      duration: [getDate(new Date(2018, 2)), getDate(new Date(2020, 9))],
       status: 'Hybrid',
       type: 'Employee',
       time: 'Full-time',
@@ -70,7 +74,7 @@ export type TExperience = {
     location: string
     title: string
     role: string
-    duration: [Date, Date]
+    duration: [string, string]
     status: string
     type: string
     time: string

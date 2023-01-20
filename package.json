@@ -54,6 +54,7 @@
     "graphql": "^16.6.0",
     "husky": "^8.0.2",
     "leaflet": "^1.9.3",
+    "moment": "^2.29.4",
     "next": "^13.0.5",
     "next-sitemap": "^3.1.32",
     "nodemailer": "^6.8.0",
