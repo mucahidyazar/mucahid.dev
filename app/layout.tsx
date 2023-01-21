@@ -54,11 +54,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Navbar />
             </header>
             <main className="max-w-4xl mx-auto lg:p-0 px-4 flex-grow">
-              <div className="sm:w-2/3 flex flex-col gap-2">
+              <div className="sm:w-2/3 flex flex-col gap-4">
                 <p>
-                  Hey, I am Mucahid Yazar, a fanatical middle earth lover, a
-                  passionate software developer, a curious learner and a human
-                  being. Working{' '}
+                  I create accessible, user-friendly web applications with the best efficient solutions and best practices of the frontend world for SAAS projects. I`m currently working{' '}
                   <a className="link" href="https://smartgift.com">
                     @smartgift
                   </a>
