@@ -90,6 +90,7 @@ export const PROJECTS: TProject[] = [
 
 export type TProject = {
   label: string
+  description?: string
   href: string
   logo: string
   info: {

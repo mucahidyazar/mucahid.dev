@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Chip, Tooltip, HomeArticle, HomeSection } from '@/components'
-import { EXPERIENCES, LINKS, PROJECTS } from '@/mocks'
+import { EXPERIENCES, LINKS, PINS, PROJECTS } from '@/mocks'
 
 interface ISectionLink {
   href?: string
@@ -27,23 +27,36 @@ export default function Home() {
         <HomeArticle
           id="creator-of"
           title="Creator of"
-          content={(
-            <p>
-              <a
-                className="link"
-                href="https://github.com/mucahidyazar/icomoon-generator"
-              >
-                icomoon-generator
-              </a>
-              {' and '}
-              <a
-                className="link"
-                href="https://github.com/mucahidyazar/html-css-boilerplate"
-              >
-                html-css-boilerplate
-              </a>
-            </p>
-          )}
+          content={PINS.map(pin => (
+            <Tooltip
+              content={
+                <aside className="flex flex-col gap-1 w-96">
+                  {Object.entries(pin.info).map(([key, value]) => (
+                    <div className="flex flex-wrap items-start" key={key}>
+                      <h2 className="font-medium italic w-20">
+                        {/* if value is not array jsut print it */}
+                        {key}
+                      </h2>
+                      <div className="flex flex-1 flex-wrap gap-2">
+                        {typeof value === 'string' ? (
+                          <p>{value}</p>
+                        ) : (
+                          value.map((v: any) => (
+                            <p key={v} className="leading-3">
+                              {v},
+                            </p>
+                          ))
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </aside>
+              }
+              key={pin.label}
+            >
+              <SectionLink key={pin.label} text={pin.label} />
+            </Tooltip>
+          ))}
         />
 
         <HomeArticle
