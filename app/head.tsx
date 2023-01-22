@@ -13,14 +13,15 @@ export default function Head() {
       <meta property="og:url" content="https://mucahid.dev/" />
       <meta property="og:title" content="Mucahid Yazar - Frontend developer | mucahid.dev" />
       <meta property="og:description" content="I create accessible, user-friendly web applications with the best efficient solutions and best practices of the frontend world for SAAS projects." />
-      <meta property="og:image" content="https://mucahid.dev/link-preview.png" />
+      <meta property="og:image" content="https://mucahid.dev/link-preview.jpg" />
+      <meta property="og:image:alt" content="mucahid.dev link preview" />
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://mucahid.dev/" />
       <meta property="twitter:title" content="Mucahid Yazar - Frontend developer | mucahid.dev" />
       <meta property="twitter:description" content="I create accessible, user-friendly web applications with the best efficient solutions and best practices of the frontend world for SAAS projects." />
-      <meta property="twitter:image" content="https://mucahid.dev/link-preview.png" />
+      <meta property="twitter:image" content="https://mucahid.dev/link-preview.jpg" />
 
       {/* Others */}
       <link
