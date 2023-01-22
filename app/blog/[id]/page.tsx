@@ -1,12 +1,12 @@
-'use client'
-import {useQuery, gql} from '@apollo/client'
+import { gql } from '@apollo/client'
 import remarkGfm from 'remark-gfm'
 import ReactMarkdown from 'react-markdown'
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {synthwave84} from 'react-syntax-highlighter/dist/esm/styles/prism'
-import {CodeProps} from 'react-markdown/lib/ast-to-react'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { synthwave84 } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { CodeProps } from 'react-markdown/lib/ast-to-react'
+import { apolloClient } from '@/configs'
 
-export default function BlogDetail({params}: {params: {id: string}}) {
+export default async function BlogDetail({ params }: { params: { id: string } }) {
   const postId = params?.id
 
   const GET_POST = gql`
@@ -41,7 +41,9 @@ export default function BlogDetail({params}: {params: {id: string}}) {
       }
     }
   `
-  const {loading, error, data} = useQuery(GET_POST)
+  const { data } = await apolloClient.query({
+    query: GET_POST,
+  })
   const post = data?.post
 
   return (
@@ -85,25 +87,25 @@ export default function BlogDetail({params}: {params: {id: string}}) {
               {...props}
             />
           ),
-          code({
-            node,
-            inline,
-            className,
-            children,
-            style,
-            ...props
-          }: CodeProps) {
-            return (
-              <SyntaxHighlighter
-                style={synthwave84}
-                language="javascript"
-                PreTag="div"
-                {...props}
-              >
-                {String(children).replace(/\n$/, '')}
-              </SyntaxHighlighter>
-            )
-          },
+          // code({
+          //   node,
+          //   inline,
+          //   className,
+          //   children,
+          //   style,
+          //   ...props
+          // }: CodeProps) {
+          //   return (
+          //     <SyntaxHighlighter
+          //       style={synthwave84}
+          //       language="javascript"
+          //       PreTag="div"
+          //       {...props}
+          //     >
+          //       {String(children).replace(/\n$/, '')}
+          //     </SyntaxHighlighter>
+          //   )
+          // },
           pre: props => (
             <pre
               {...props}

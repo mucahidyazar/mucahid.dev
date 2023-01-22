@@ -38,7 +38,6 @@
     "@hookform/resolvers": "^2.9.10",
     "@next/bundle-analyzer": "^13.0.5",
     "@next/font": "^13.0.5",
-    "@tanstack/react-query": "^4.18.0",
     "@tanstack/react-table": "^8.7.0",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
@@ -70,7 +69,6 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@types/leaflet": "^1.9.0",
     "@types/react-syntax-highlighter": "^15.5.5",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
