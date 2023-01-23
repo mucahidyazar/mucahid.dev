@@ -37,4 +37,6 @@ next-env.d.ts
 
 # my ignores
 .env
+.env.*
+!.env.example
 BUILD

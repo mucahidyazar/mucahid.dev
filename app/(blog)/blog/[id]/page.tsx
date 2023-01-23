@@ -1,15 +1,9 @@
-import { gql } from '@apollo/client'
 import remarkGfm from 'remark-gfm'
+import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { synthwave84 } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { CodeProps } from 'react-markdown/lib/ast-to-react'
-import { apolloClient } from '@/configs'
 
-export default async function BlogDetail({ params }: { params: { id: string } }) {
-  const postId = params?.id
-
-  const GET_POST = gql`
+async function getPost(postId: string) {
+  const GET_POST = `
     query {
       post(
         slug: "${postId}"
@@ -41,10 +35,16 @@ export default async function BlogDetail({ params }: { params: { id: string } })
       }
     }
   `
-  const { data } = await apolloClient.query({
+
+  const { data } = await axios.post('https://api.hashnode.com', {
     query: GET_POST,
   })
-  const post = data?.post
+  return data.data.post
+}
+
+export default async function BlogDetail({ params }: { params: { id: string } }) {
+  const postId = params?.id
+  const post = await getPost(postId)
 
   return (
     <div id="blog-detail">
