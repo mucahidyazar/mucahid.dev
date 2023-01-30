@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import { Chip, Tooltip, HomeArticle, HomeSection } from '@/components'
+
 import { EXPERIENCES, LINKS, PINS, PROJECTS } from '@/mocks'
+import { Chip, Tooltip, HomeArticle, HomeSection } from '@/components'
 
 interface ISectionLink {
   href?: string
@@ -18,9 +19,6 @@ const SectionLink = ({ href = '#', text = '', logo, children }: ISectionLink) =>
 }
 
 export default function Home() {
-  // const router = useRouter()
-  // console.log(router)
-
   return (
     <div id="home" className='flex flex-col gap-6'>
       <HomeSection id="about">
