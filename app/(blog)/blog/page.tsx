@@ -3,12 +3,7 @@ import Link from 'next/link'
 import { gql } from '@apollo/client'
 import { apolloClient } from '@/configs'
 
-interface IBlogPage {
-  searchParams: {
-    page?: string
-  }
-}
-export default async function BlogPage({ searchParams }: IBlogPage) {
+export default async function BlogPage({ searchParams }: any) {
   const page = searchParams.page || '1'
 
   const GET_POSTS = gql`
@@ -47,7 +42,6 @@ export default async function BlogPage({ searchParams }: IBlogPage) {
   })
 
   const posts: any[] = data.user.publication.posts
-  console.log({ x: Number(page) * 6 })
   const numPosts = data.user.numPosts
 
   return (

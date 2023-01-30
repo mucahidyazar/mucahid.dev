@@ -30,10 +30,10 @@ body {
   font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
-  div[data-nextjs-scroll-focus-boundary] {
-    height: 100%;
-  }
+div[data-nextjs-scroll-focus-boundary] {
+  height: 100%;
 }
 
 body {
