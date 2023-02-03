@@ -13,6 +13,8 @@ import {
 import { useListService } from '@/request/hooks/useListService'
 import { useLinkPreviewService } from '@/request/hooks/useLinkPreviewService'
 import Image from 'next/image'
+import { useGetDebouncedValue } from '@/hooks'
+import { LinkPreviewCard } from '../../../../src/components/cards'
 
 interface IStock {
   _id: string
@@ -22,14 +24,14 @@ interface IStock {
 }
 
 export default function LinkPreviewPage() {
-  const LINK1 = 'https://www.youtube.com/watch?v=2rZ5Y1B5Q2Q'
-  const LINK2 = 'https://www.youtube.com/watch?v=sw40XYpR-rY'
-  const [link, setLink] = useState(LINK2)
+  const LINK = 'https://mucahid.dev'
+  const [link, setLink] = useState(LINK)
+  const debouncedLink = useGetDebouncedValue(link, [link], 1000)
 
   const {
     data: linkPreviewData,
     mutate: linkPreviewMutate,
-  } = useLinkPreviewService(link) as any
+  } = useLinkPreviewService(debouncedLink) as any
 
   return (
     <div className='flex flex-col gap-4 items-center'>
@@ -48,19 +50,11 @@ export default function LinkPreviewPage() {
       </div>
       <div className='border border-solid border-indigo-500 border-opacity-30 w-full rounded-md h-60 bg-indigo-500 bg-opacity-10 overflow-y-auto'>
         {!!linkPreviewData && (
-          <div className='flex gap-4 p-2 hover:bg-indigo-500 hover:bg-opacity-20'>
-            <Image
-              src={linkPreviewData.data?.image}
-              alt={linkPreviewData.data?.title}
-              width={200}
-              height={200}
-              className='rounded-md w-48 h-32'
-            />
-            <div className=''>
-              <h1 className='text-xl font-semibold mb-2'>{linkPreviewData.data?.title}</h1>
-              <p className='text-sm'>{linkPreviewData.data?.description}</p>
-            </div>
-          </div>
+          <LinkPreviewCard
+            title={linkPreviewData.data?.title}
+            description={linkPreviewData.data?.description}
+            image={linkPreviewData.data?.image}
+          />
         )}
       </div>
     </div>
