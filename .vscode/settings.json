@@ -11,5 +11,7 @@
   "search.exclude": {
     "**/node_modules": true,
     "**/.git": true
-  }
+  },
+  "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.3/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
