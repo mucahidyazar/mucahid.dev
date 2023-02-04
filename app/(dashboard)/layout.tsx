@@ -3,8 +3,8 @@ import '../global.css'
 import { Inter } from '@next/font/google'
 import Image from 'next/image'
 
+import { Navbar } from '@/components'
 import { LINKS } from '@/mocks'
-import { Chip, HomeArticle, HomeSection, Navbar } from '@/components'
 
 const inter = Inter({ subsets: ['latin'] })
 

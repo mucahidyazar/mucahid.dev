@@ -1,31 +1,14 @@
 'use client'
 export const revalidate = 10
-import { useState } from 'react'
-import cn from 'classnames'
 import { DocumentDuplicateIcon, EyeIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react'
 
-import {
-  useClearResultsService,
-  useClearService,
-  useCreateService,
-  useStartService,
-  useStopService
-} from '@/request/hooks'
-import { useListService } from '@/request/hooks/useListService'
-import { useLinkPreviewService } from '@/request/hooks/useLinkPreviewService'
-import Image from 'next/image'
-import { useListUrlShortener } from '@/request/hooks/useListUrlShortener'
-import { useCreateUrlShortenerService } from '@/request/hooks/useCreateUrlShortenerService'
-import { useGetDebouncedValue } from '@/hooks'
 import { Tooltip } from '@/components'
-import { LinkPreviewCard } from '../../../../src/components/cards'
+import { useCreateUrlShortenerService } from '@/request/hooks/useCreateUrlShortenerService'
+import { useLinkPreviewService } from '@/request/hooks/useLinkPreviewService'
+import { useListUrlShortener } from '@/request/hooks/useListUrlShortener'
 
-interface IStock {
-  _id: string
-  active: boolean
-  retry: number
-  results: any[]
-}
+import { LinkPreviewCard } from '../../../../src/components/cards'
 
 export default function LinkPreviewPage() {
   const LINK1 = 'https://mucahid.dev'

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import { EXPERIENCES, LINKS, PINS, PROJECTS } from '@/mocks'
 import { Chip, Tooltip, HomeArticle, HomeSection } from '@/components'
+import { EXPERIENCES, LINKS, PINS, PROJECTS } from '@/mocks'
 
 interface ISectionLink {
   href?: string

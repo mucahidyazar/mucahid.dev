@@ -70,6 +70,14 @@ yarn && yarn dev
 
 ### Tools
 
+#### Packages
+
+##### eslint-plugin-unused-imports
+
+##### eslint-plugin-sort-exports
+
+##### @typescript-eslint/eslint-plugin
+
 #### Github Actions
 
 - [https://github.com/MarceloPrado/has-changed-path](https://github.com/MarceloPrado/has-changed-path)

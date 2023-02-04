@@ -1,3 +1,36 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "plugins": ["@typescript-eslint", "unused-imports", "sort-exports"],
+  "rules": {
+    "react-hooks/exhaustive-deps": 0,
+    "no-console": 0,
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "unused-imports/no-unused-imports": "error",
+    "sort-exports/sort-exports": ["error", {"sortDir": "asc"}],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "unknown",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "pathGroups": [
+          {"pattern": "@**", "group": "external", "position": "after"}
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {"order": "asc", "caseInsensitive": true}
+      }
+    ],
+    "react/display-name": 0,
+    "@typescript-eslint/no-empty-function": 0
+  }
 }

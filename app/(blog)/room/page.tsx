@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
+
 import { Modal } from '@/components'
 
 export default function Room() {

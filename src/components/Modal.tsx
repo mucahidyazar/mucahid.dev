@@ -1,15 +1,15 @@
 'use client'
-import {Dialog, Transition} from '@headlessui/react'
-import {Fragment} from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { Dispatch, Fragment, SetStateAction } from 'react'
 
 interface IModal {
   isOpen?: boolean
-  setIsOpen: (value: any) => void
+  setIsOpen: Dispatch<SetStateAction<any>>
   title?: string
   children?: React.ReactNode
 }
 
-export default function Modal({isOpen, setIsOpen, title, children}: IModal) {
+export default function Modal({ isOpen, setIsOpen, title, children }: IModal) {
   function closeModal() {
     setIsOpen(false)
   }

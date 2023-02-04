@@ -1,7 +1,7 @@
 'use client'
 export const revalidate = 10
-import { useState } from 'react'
 import cn from 'classnames'
+import { useState } from 'react'
 
 import {
   useClearResultsService,
