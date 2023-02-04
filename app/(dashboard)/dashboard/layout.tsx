@@ -1,7 +1,7 @@
 'use client'
 import cn from 'classnames'
 
-import { Tab } from '@/components'
+import { Tabs } from '@/components'
 import { useHealthService } from '@/request/hooks/useHealthService'
 import { serviceKill } from '@/request/services/root/services'
 
@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       <div className="h-[1px] w-1/2 bg-gray-400 bg-opacity-20 mx-auto" />
-      <Tab />
+      <Tabs />
       {children}
     </div>
   )

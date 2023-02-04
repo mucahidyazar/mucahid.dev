@@ -32,15 +32,13 @@ export default function LinkPreviewPage() {
           Preview
         </button>
       </div>
-      <div className='border border-solid border-indigo-500 border-opacity-30 w-full rounded-md h-60 bg-indigo-500 bg-opacity-10 overflow-y-auto'>
-        {!!linkPreviewData && (
-          <LinkPreviewCard
-            title={linkPreviewData.data?.title}
-            description={linkPreviewData.data?.description}
-            image={linkPreviewData.data?.image}
-          />
-        )}
-      </div>
+      {!!linkPreviewData && (
+        <LinkPreviewCard
+          title={linkPreviewData.data?.title}
+          description={linkPreviewData.data?.description}
+          image={linkPreviewData.data?.image}
+        />
+      )}
     </div>
   )
 }

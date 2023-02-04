@@ -23,7 +23,10 @@ export function LinkPreviewCard({
 }: ILinkPreviewCard) {
   return (
     <div
-      className={`flex gap-4 p-2 hover:bg-indigo-500 hover:bg-opacity-20 ${SIZE[size]}`}>
+      className={
+        `flex gap-4 p-2 bg-indigo-500 bg-opacity-20 hover:bg-indigo-600 hover:bg-opacity-20 ${SIZE[size]}`
+      }
+    >
       <Image
         src={image}
         alt={title}

@@ -41,7 +41,7 @@ export default function LinkPreviewPage() {
           Convert
         </button>
       </div>
-      <ul className='border border-solid border-indigo-500 border-opacity-30 w-full rounded-md h-60 bg-indigo-500 bg-opacity-10 overflow-y-auto'>
+      <ul className='border border-solid border-indigo-500 border-opacity-30 w-full rounded-md h-60 bg-indigo-500 bg-opacity-10 overflow-y-auto p-1 flex flex-col gap-1'>
         {urlShortenerData?.data.map((data: any) => (
           <UrlShortenerListItem key={data._id} data={data} />
         ))}
@@ -58,9 +58,8 @@ function UrlShortenerListItem({ data }: any) {
     data: linkPreviewData,
   } = useLinkPreviewService(data.full, { enabled: isPreviewing && !!data.full }) as any
 
-  console.log({ isPreviewing })
   return (
-    <li className='border-b border-solid border-indigo-200 border-opacity-20'>
+    <li className='border-b border-solid border-indigo-200 border-opacity-20 bg-indigo-500 bg-opacity-20 rounded'>
       <div className='flex flex-col gap-1 p-2'>
         <div className='flex items-center gap-2'>
           <Tooltip content={hasCopied ? 'Copied' : 'Copy'}>
@@ -90,12 +89,12 @@ function UrlShortenerListItem({ data }: any) {
             />
           </Tooltip>
           <a
-            href={`http://localhost:3000/s/${data.short}`}
+            href={`${window.origin}/s/${data.short}`}
             target="_blank"
             rel="noreferrer"
             className='text-blue-500 font-bold'
           >
-            {`http://localhost:3000/s/${data.short}`}
+            {`${window.origin}/s/${data.short}`}
           </a>
         </div>
         <div className='text-xs text-gray-400'>
