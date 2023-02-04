@@ -1,7 +1,7 @@
 'use client'
+import Cookies from 'js-cookie'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Cookies from 'js-cookie'
 
 export default function Navbar() {
   const path = usePathname()

@@ -1,5 +1,6 @@
-import { rootApi } from '../axios'
 import useSWR from "swr"
+
+import { rootApi } from '../axios'
 
 function query<T>(url: string): Promise<T> {
   return rootApi.get(url).then(res => res.data)

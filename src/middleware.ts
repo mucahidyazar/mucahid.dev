@@ -1,6 +1,11 @@
 // middleware.ts
 import {NextResponse} from 'next/server'
+
 import type {NextRequest} from 'next/server'
+
+export const config = {
+  matcher: '/s/:path*',
+}
 
 export async function middleware(request: NextRequest) {
   const short = request.url.split('/')[4]
@@ -14,8 +19,4 @@ export async function middleware(request: NextRequest) {
   const data = await response.json()
   const urlData = data.data
   return NextResponse.redirect(urlData.full)
-}
-
-export const config = {
-  matcher: '/s/:path*',
 }

@@ -4,7 +4,7 @@ interface ICreateAxios {
   baseURL: string
   headers: Partial<RawAxiosRequestHeaders> | undefined
 }
-export function createAxios({baseURL, headers}: ICreateAxios) {
+function createAxios({baseURL, headers}: ICreateAxios) {
   return axios.create({
     baseURL,
     headers,
@@ -17,16 +17,18 @@ const API_URL =
 const VERSION = process.env.VERSION || 'v1'
 const API_VERSION = `${API_URL}/api/${VERSION}`
 
-export const rootApi = createAxios({
+const rootApi = createAxios({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 })
 
-export const api = createAxios({
+const api = createAxios({
   baseURL: API_VERSION,
   headers: {
     'Content-Type': 'application/json',
   },
 })
+
+export {api, createAxios, rootApi}

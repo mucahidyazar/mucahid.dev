@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 export function useOutsideClick(ref: React.RefObject<HTMLElement>, callback: () => void) {
   const handleClick = (event: MouseEvent) => {
