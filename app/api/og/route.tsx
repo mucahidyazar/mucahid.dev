@@ -25,7 +25,7 @@ export async function GET(request: Request) {
         }}
       >
         <img
-          src="https://instagram.fist4-1.fna.fbcdn.net/v/t51.2885-19/329570020_1642385336240744_1996111653770665053_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fist4-1.fna.fbcdn.net&_nc_cat=108&_nc_ohc=7NVySoWqO-gAX9XCiLU&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfA_EVXPQp_s4AafJqcWk4VWdkWJTiLSLpDLZHS5Y__wnQ&oe=6442A89B&_nc_sid=8fd12b"
+          src="https://mucahid.dev/mucahid.png"
           alt="Picture of the author"
           width={300}
           height={300}

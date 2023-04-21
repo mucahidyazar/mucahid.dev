@@ -31,7 +31,7 @@ export function generateMetadata(): Metadata {
       //   'tailwindcss',
       // ],
       locale: 'en_US',
-      images: 'https://mucahid.dev/og/route',
+      images: 'https://mucahid.dev/api/og',
     },
     twitter: {
       title,
@@ -41,7 +41,7 @@ export function generateMetadata(): Metadata {
       creator: 'Mucahid Yazar',
       siteId: 'mucahid.dev',
       creatorId: 'mucahidyazar',
-      images: 'https://mucahid.dev/link-preview.jpg',
+      images: 'https://mucahid.dev/api/og',
     },
     icons: {icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png'},
     manifest: '/site.webmanifest',
