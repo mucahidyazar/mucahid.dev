@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
-import { useState } from 'react'
+import {useState} from 'react'
 
-import { Modal } from '@/components'
+import {Modal} from '@/components'
 
 export default function Room() {
   const [image, setImage] = useState('')
@@ -24,7 +24,7 @@ export default function Room() {
           alt="Room Image 0"
           width={1000}
           height={1000}
-          className="col-start-1 col-end-10 row-start-1 row-end-2 w-full h-80 object-cover rounded-sm hover:outline-1 hover:outline-primary hover:outline-offset-2 hover:outline duration-150 hover:cursor-zoom-in"
+          className="col-start-1 col-end-10 row-start-1 row-end-2 w-full h-80 object-cover rounded-sm hover:outline-1 hover:scale-[101%] hover:outline-primary hover:outline-offset-4 hover:outline duration-150 hover:cursor-zoom-in"
           onClick={() => setImage('room-0')}
         />
         <Image
@@ -32,7 +32,7 @@ export default function Room() {
           alt="Room Image 0"
           width={1000}
           height={1000}
-          className="col-start-10 col-end-13 row-start-1 row-end-3 h-full w-auto object-cover rounded-sm hover:outline-1 hover:outline-primary hover:outline-offset-2 hover:outline duration-150 hover:cursor-zoom-in"
+          className="col-start-10 col-end-13 row-start-1 row-end-3 h-full w-auto object-cover rounded-sm hover:outline-1 hover:scale-[101%] hover:outline-primary hover:outline-offset-4 hover:outline duration-150 hover:cursor-zoom-in"
           onClick={() => setImage('room-1')}
         />
         <Image
@@ -40,7 +40,7 @@ export default function Room() {
           alt="Room Image 0"
           width={1000}
           height={1000}
-          className="col-start-1 col-end-4 row-start-2 row-end-3 h-full w-full object-cover rounded-sm hover:outline-1 hover:outline-primary hover:outline-offset-2 hover:outline duration-150 hover:cursor-zoom-in"
+          className="col-start-1 col-end-4 row-start-2 row-end-3 h-full w-full object-cover rounded-sm hover:outline-1 hover:scale-[101%] hover:outline-primary hover:outline-offset-4 hover:outline duration-150 hover:cursor-zoom-in"
           onClick={() => setImage('room-2')}
         />
         <Image
@@ -48,7 +48,7 @@ export default function Room() {
           alt="Room Image 0"
           width={1000}
           height={1000}
-          className="col-start-4 col-end-7 row-start-2 row-end-3 h-full w-full object-cover rounded-sm hover:outline-1 hover:outline-primary hover:outline-offset-2 hover:outline duration-150 hover:cursor-zoom-in"
+          className="col-start-4 col-end-7 row-start-2 row-end-3 h-full w-full object-cover rounded-sm hover:outline-1 hover:scale-[101%] hover:outline-primary hover:outline-offset-4 hover:outline duration-150 hover:cursor-zoom-in"
           onClick={() => setImage('room-3')}
         />
         <Image
@@ -56,7 +56,7 @@ export default function Room() {
           alt="Room Image 0"
           width={1000}
           height={1000}
-          className="col-start-7 col-end-10 row-start-2 row-end-3 h-full w-full object-cover rounded-sm hover:outline-1 hover:outline-primary hover:outline-offset-2 hover:outline duration-150 hover:cursor-zoom-in"
+          className="col-start-7 col-end-10 row-start-2 row-end-3 h-full w-full object-cover rounded-sm hover:outline-1 hover:scale-[101%] hover:outline-primary hover:outline-offset-4 hover:outline duration-150 hover:cursor-zoom-in"
           onClick={() => setImage('room-4')}
         />
       </div>

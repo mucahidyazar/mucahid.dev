@@ -1,48 +1,11 @@
 import Link from 'next/link'
 
-import { gql } from '@apollo/client'
-import { apolloClient } from '@/configs'
+import {getPosts} from '@/request/services/posts'
 
-export default async function BlogPage({ searchParams }: any) {
+export default async function BlogPage({searchParams}: any) {
   const page = searchParams.page || '1'
 
-  const GET_POSTS = gql`
-    query {
-      user(username: "mucahidyazar") {
-        username
-        numPosts
-        publication {
-          _id
-          posts(page: ${page}) {
-            followersCount
-            cuid
-            slug
-            title
-            popularity
-            totalReactions
-            partOfPublication
-            isActive
-            replyCount
-            responseCount
-            dateAdded
-            brief
-            isAnonymous
-            dateUpdated
-            dateFeatured
-            contentMarkdown
-            numUniqueUsersWhoReacted
-          }
-        }
-      }
-    }
-  `
-
-  const { data } = await apolloClient.query({
-    query: GET_POSTS,
-  })
-
-  const posts: any[] = data.user.publication.posts
-  const numPosts = data.user.numPosts
+  const {posts, numPosts} = await getPosts(page)
 
   return (
     <div id="blog">
@@ -69,9 +32,7 @@ export default async function BlogPage({ searchParams }: any) {
         </aside>
         {Number(page) * 6 < numPosts && (
           <Link href={`/blog?page=${Number(page) + 1}`}>
-            <button
-              className="italic font-bold uppercase line-through hover:underline duration-150 hover:scale-110 -translate-y-20"
-            >
+            <button className="italic font-bold uppercase line-through hover:underline duration-150 hover:scale-110 -translate-y-20">
               Next page
             </button>
           </Link>

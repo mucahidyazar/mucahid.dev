@@ -1,6 +1,6 @@
-import remarkGfm from 'remark-gfm'
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 async function getPost(postId: string) {
   const GET_POST = `
@@ -36,13 +36,13 @@ async function getPost(postId: string) {
     }
   `
 
-  const { data } = await axios.post('https://api.hashnode.com', {
+  const {data} = await axios.post('https://api.hashnode.com', {
     query: GET_POST,
   })
   return data.data.post
 }
 
-export default async function BlogDetail({ params }: { params: { id: string } }) {
+export default async function BlogDetail({params}: {params: {id: string}}) {
   const postId = params?.id
   const post = await getPost(postId)
 
