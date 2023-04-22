@@ -1,10 +1,8 @@
-import clsx from 'clsx'
-import Cookies from 'js-cookie'
-import {useRouter, usePathname} from 'next/navigation'
+import {cookies} from 'next/headers'
 
-const dashboardCookie = Cookies.get('dashboard')
-const dashboardEnv = String(process.env.NEXT_PUBLIC_DASHBOARD)
-const isAdmin = dashboardCookie === dashboardEnv
+import {Tab} from './Tab'
+
+const dashboardEnv = String(process.env.DASHBOARD)
 
 const TABS = [
   {value: 'stock', label: 'Stock', pathname: '/dashboard/stock', vip: true},
@@ -22,31 +20,15 @@ const TABS = [
 ]
 
 export default function Tabs() {
-  const router = useRouter()
-  const pathname = usePathname()
+  const cookieStore = cookies()
+  const dashboardCookie = cookieStore.get('dashboard')?.value || ''
+  const isAdmin = dashboardCookie === dashboardEnv
 
   return (
-    <div className="flex justify-center my-4">
-      {TABS.map((tab, index) => (
-        <div
-          key={tab.value}
-          className={clsx(
-            'p-2 bg-indigo-600 cursor-pointer relative overflow-hidden',
-            tab.pathname === pathname ? 'bg-opacity-100' : 'bg-opacity-30',
-            index === 0 && 'rounded-tl-md rounded-bl-md',
-            index === TABS.length - 1 && 'rounded-tr-md rounded-br-md',
-            tab.vip &&
-              !isAdmin &&
-              'before:content-["VIP"] before:w-full before:h-full before:bg-red-400 before:text-white before:font-bold before:italic before:absolute before:top-0 before:left-0 before:bg-opacity-80 hover:before:bg-opacity-50 before:flex before:items-center before:justify-center before:cursor-not-allowed',
-          )}
-          onClick={() => {
-            if (tab.vip || isAdmin) router.push(tab.pathname)
-            return
-          }}
-        >
-          {tab.label}
-        </div>
-      ))}
+    <div className="flex justify-center my-4 rounded-md overflow-hidden w-fit mx-auto">
+      {TABS.map(tab => {
+        return <Tab key={tab.pathname} {...tab} isAdmin={isAdmin} />
+      })}
     </div>
   )
 }
