@@ -1,6 +1,35 @@
+import {Metadata} from 'next'
 import Link from 'next/link'
 
 import {getPosts} from '@/request/services/posts'
+
+export function generateMetadata(): Metadata {
+  const title = 'Blog - Mucahid Yazar | mucahid.dev'
+  const description =
+    'Discover the latest articles, tutorials, and insights on frontend development, React, TypeScript, JavaScript, Next.js, and more on my blog.'
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: 'en_US',
+      images: `https://mucahid.dev/api/og?page=blog&title=${title}&description=${description}`,
+    },
+    twitter: {
+      title,
+      description,
+      card: 'summary',
+      site: 'https://mucahid.dev',
+      creator: 'Mucahid Yazar',
+      siteId: 'mucahid.dev',
+      creatorId: 'mucahidyazar',
+      images: `https://mucahid.dev/api/og?page=blog&title=${title}&description=${description}`,
+    },
+  }
+}
 
 export default async function BlogPage({searchParams}: any) {
   const page = searchParams.page || '1'

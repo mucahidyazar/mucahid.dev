@@ -96,3 +96,5 @@ export async function GET(request: Request) {
     },
   )
 }
+
+export const runtime = 'experimental-edge'
