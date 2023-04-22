@@ -1,20 +1,20 @@
-import axios, {RawAxiosRequestHeaders} from 'axios'
+import axios, { RawAxiosRequestHeaders } from 'axios'
+
+import { env } from '@/configs'
 
 interface ICreateAxios {
   baseURL: string
   headers: Partial<RawAxiosRequestHeaders> | undefined
 }
-function createAxios({baseURL, headers}: ICreateAxios) {
+function createAxios({ baseURL, headers }: ICreateAxios) {
   return axios.create({
     baseURL,
     headers,
   })
 }
 
-const DEFAULT_API_URL = 'http://localhost:8001'
-const API_URL =
-  process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || DEFAULT_API_URL
-const VERSION = process.env.VERSION || 'v1'
+const API_URL = env.API_URL
+const VERSION = env.VERSION
 const API_VERSION = `${API_URL}/api/${VERSION}`
 
 const rootApi = createAxios({
@@ -31,4 +31,4 @@ const api = createAxios({
   },
 })
 
-export {api, createAxios, rootApi}
+export { api, createAxios, rootApi }

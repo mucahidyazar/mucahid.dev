@@ -1,8 +1,10 @@
 import {cookies} from 'next/headers'
 
+import {env} from '@/configs'
+
 import {Tab} from './Tab'
 
-const dashboardEnv = String(process.env.DASHBOARD)
+const dashboardEnv = String(env.DASHBOARD)
 
 const TABS = [
   {value: 'stock', label: 'Stock', pathname: '/dashboard/stock', vip: true},

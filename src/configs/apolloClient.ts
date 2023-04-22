@@ -7,7 +7,7 @@ export const apolloClient = new ApolloClient({
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
-      // 'Authorization': `${process.env.HASHNODE_API_TOKEN}`,
+      // 'Authorization': `${env.HASHNODE_API_TOKEN}`,
     },
   }),
   cache: new InMemoryCache(),

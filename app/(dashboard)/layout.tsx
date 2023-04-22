@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import {Navbar} from '@/components'
+import {Navbar} from '@/components/Navbar'
 import {LINKS} from '@/mocks'
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
