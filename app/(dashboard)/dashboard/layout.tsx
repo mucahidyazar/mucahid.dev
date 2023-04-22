@@ -1,5 +1,5 @@
-import {Tabs} from '@/components'
 import {DashboardStatus} from '@/components/organisms'
+import {Tabs} from '@/components/Tabs'
 
 export default function Layout({children}: {children: React.ReactNode}) {
   return (

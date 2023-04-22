@@ -19,7 +19,7 @@ const TABS = [
   },
 ]
 
-export default function Tabs() {
+export function Tabs() {
   const cookieStore = cookies()
   const dashboardCookie = cookieStore.get('dashboard')?.value || ''
   const isAdmin = dashboardCookie === dashboardEnv
