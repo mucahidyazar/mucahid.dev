@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {ImageResponse} from 'next/server'
 
 import {ME_DESCRIPTION_FULL} from '@/constants'
@@ -96,4 +97,4 @@ export async function GET(request: Request) {
   )
 }
 
-export const runtime = 'experimental-edge'
+export const runtime = 'edge'

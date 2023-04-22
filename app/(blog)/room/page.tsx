@@ -1,6 +1,5 @@
+import {RoomTemplate} from '@/templates'
 import {prepareMetadata} from '@/utils'
-
-import RoomTemplate from '@/templates/RoomTemplate'
 
 export function generateMetadata() {
   const title = 'Room'

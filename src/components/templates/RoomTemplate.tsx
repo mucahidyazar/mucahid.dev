@@ -4,7 +4,7 @@ import {useState} from 'react'
 
 import {Modal} from '@/components'
 
-export default function RoomTemplate() {
+export function RoomTemplate() {
   const [image, setImage] = useState('')
 
   return (
