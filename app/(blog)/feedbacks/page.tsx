@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import Script from 'next/script'
 
+import {prepareMetadata} from '@/utils'
+
 const comments = [
   {
     id: '0',
@@ -21,6 +23,18 @@ const comments = [
     text: 'Lorem ipsum dolor sit amet.',
   },
 ]
+
+export function generateMetadata() {
+  const title = 'Feedbacks'
+  const description =
+    'It is all coming from you. I will be share all oof your feedbacks here. I will be fair and honest to you.'
+
+  return prepareMetadata({
+    title,
+    description,
+    page: title,
+  })
+}
 
 export default function Feedbacks() {
   return (

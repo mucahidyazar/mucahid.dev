@@ -1,13 +1,12 @@
 import {ImageResponse} from 'next/server'
 
-const DESCRIPTION =
-  'I create accessible, user-friendly web applications with the best efficient solutions and best practices of the frontend world for SAAS projects.'
+import {ME_DESCRIPTION_FULL} from '@/constants'
 
 export async function GET(request: Request) {
   const {searchParams} = new URL(request.url)
   const page = searchParams.get('page')
   const title = searchParams.get('title')
-  const description = searchParams.get('description') || DESCRIPTION
+  const description = searchParams.get('description') || ME_DESCRIPTION_FULL
 
   return new ImageResponse(
     (

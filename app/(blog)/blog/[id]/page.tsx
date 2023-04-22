@@ -2,8 +2,11 @@ import axios from 'axios'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
+import {prepareMetadata} from '@/utils'
+
 async function getPost(postId: string) {
-  const GET_POST = `
+  try {
+    const GET_POST = `
     query {
       post(
         slug: "${postId}"
@@ -31,15 +34,32 @@ async function getPost(postId: string) {
         content
         brief
         coverImage
-        isAnonymous
       }
     }
   `
 
-  const {data} = await axios.post('https://api.hashnode.com', {
-    query: GET_POST,
+    const {data} = await axios.post('https://api.hashnode.com', {
+      query: GET_POST,
+    })
+    return data.data.post
+  } catch (error) {
+    console.log(error)
+    console.log((error as any)?.response?.data)
+  }
+}
+
+export async function generateMetadata({params}: {params: {id: string}}) {
+  const postId = params?.id
+  const post = await getPost(postId)
+
+  const title = post.title
+  const description = post.brief
+
+  return prepareMetadata({
+    title,
+    description,
+    page: 'Article',
   })
-  return data.data.post
 }
 
 export default async function BlogDetail({params}: {params: {id: string}}) {
