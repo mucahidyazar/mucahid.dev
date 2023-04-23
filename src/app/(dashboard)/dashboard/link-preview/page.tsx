@@ -1,10 +1,9 @@
 'use client'
 import {useState} from 'react'
 
+import {LinkPreviewCard} from '@/components/cards'
 import {useGetDebouncedValue} from '@/hooks'
 import {useLinkPreviewService} from '@/request/hooks/useLinkPreviewService'
-
-import {LinkPreviewCard} from '../../../../src/components/cards'
 
 export const revalidate = 10
 

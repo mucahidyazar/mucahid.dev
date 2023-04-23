@@ -1,0 +1,78 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+enum Status {
+    in_progress
+    active
+}
+
+model Feedback {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    name      String
+    email     String?
+    message   String
+    status    Status   @default(in_progress)
+}
+
+// model Order {
+//     id         String   @id @default(cuid())
+//     createdAt  DateTime @default(now())
+//     updatedAt  DateTime @updatedAt
+//     email      String
+//     usageCount Int      @default(0)
+//     prompts    Prompt[] @relation(name: "promptsAndOrder")
+//     likes      Like[]
+//     images     Image[]  @relation(name: "imagesAndOrder")
+// }
+
+// model Prompt {
+//     id                String   @id @default(cuid())
+//     createdAt         DateTime @default(now())
+//     updatedAt         DateTime @updatedAt
+//     thing             String
+//     background        String
+//     prompt            String
+//     style             String
+//     imageDimensions   String?
+//     numOutputs        Int?
+//     seed              Int?
+//     numInferenceSteps Int?
+//     guidanceScale     Float?
+//     scheduler         String?
+//     order             Order    @relation(name: "promptsAndOrder", fields: [orderId], references: [id], onDelete: Cascade)
+//     orderId           String
+//     images            Image[]  @relation(name: "imagesAndPrompt")
+// }
+
+// model Like {
+//     id        String   @id @default(cuid())
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+//     order     Order    @relation(fields: [orderId], references: [id])
+//     orderId   String
+//     image     Image    @relation(fields: [imageId], references: [id])
+//     imageId   String
+
+//     @@unique([imageId, orderId])
+// }
+
+// model Image {
+//     id         String   @id @default(cuid())
+//     createdAt  DateTime @default(now())
+//     updatedAt  DateTime @updatedAt
+//     prompt     Prompt   @relation(name: "imagesAndPrompt", fields: [promptId], references: [id], onDelete: Cascade)
+//     promptId   String
+//     url        String
+//     visibility String   @default("private")
+//     likes      Like[]
+//     order      Order    @relation(name: "imagesAndOrder", fields: [orderId], references: [id])
+//     orderId    String
+// }

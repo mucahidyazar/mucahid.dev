@@ -2,6 +2,7 @@ import './global.css'
 
 import {Inter} from 'next/font/google'
 
+import {TrpcProvider} from '@/trpc/TrpcProvider'
 import {prepareMetadata} from '@/utils'
 
 const inter = Inter({subsets: ['latin']})
@@ -17,7 +18,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body
         className={`${inter.className} flex flex-col text-gray-300 overflow-x-hidden`}
       >
-        {children}
+        <TrpcProvider>{children}</TrpcProvider>
       </body>
     </html>
   )
