@@ -25,16 +25,10 @@ export default async function Page() {
   const dashboardCookie = cookieStore.get('dashboard')?.value || ''
   const dashboardEnv = String(env.DASHBOARD)
   const isAdmin = dashboardCookie === dashboardEnv
-  //   !isAdmin
-  //     ? {
-  //         where: {status: 'active'},
-  //       }
-  //       :
-  //     {
-  // )
-  // if it is not admin, then it will be only active feedbacks
+
   const feedbacks = await prisma.feedback.findMany({
     where: isAdmin ? {} : {status: 'active'},
+    orderBy: {createdAt: 'desc'},
   })
 
   return (

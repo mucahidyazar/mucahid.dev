@@ -26,12 +26,21 @@ export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
       window.location.reload()
     },
   })
+  const deleteFeedback = trpc.feedback.deleteFeedback.useMutation({
+    onSuccess: () => {
+      window.location.reload()
+    },
+  })
 
   const updateVisibility = (input: {
     id: string
     status: 'in_progress' | 'active'
   }) => {
     updateFeedback.mutate(input)
+  }
+
+  const deleteFeedbackHandler = ({id}: {id: string}) => {
+    deleteFeedback.mutate({id})
   }
 
   return (
@@ -68,7 +77,7 @@ export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
             </div>
           </div>
           {isAdmin && (
-            <div className="text-xs flex justify-end items-center">
+            <div className="text-xs flex justify-end items-center gap-4">
               <button
                 onClick={() => {
                   updateVisibility({
@@ -80,6 +89,15 @@ export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
                 }}
               >
                 {feedback.status === FEEDBACK.in_progress ? 'Show' : 'Hide'}
+              </button>
+              <button
+                onClick={() => {
+                  deleteFeedbackHandler({
+                    id: feedback.id,
+                  })
+                }}
+              >
+                Delete
               </button>
             </div>
           )}
