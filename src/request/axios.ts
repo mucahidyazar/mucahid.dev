@@ -13,7 +13,7 @@ function createAxios({ baseURL, headers }: ICreateAxios) {
   })
 }
 
-const API_URL = env.API_URL || env.NEXT_PUBLIC_API_URL
+const API_URL = env.API_URL
 const VERSION = env.VERSION
 const API_VERSION = `${API_URL}/api/${VERSION}`
 
