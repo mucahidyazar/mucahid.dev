@@ -58,8 +58,9 @@ export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 min-w-[32px] min-h-[32px] bg-gray-300 rounded font-bold text-purple-500 grid place-content-center">
-                  MY
+                <div className="w-8 h-8 min-w-[32px] min-h-[32px] bg-gray-300 rounded font-bold text-purple-500 grid place-content-center uppercase">
+                  {/* {feedback.name[0]}{feedback.name[1]} */}
+                  {feedback.name.slice(0, 2)}
                 </div>
                 <p className="font-semibold">{feedback.name}</p>
               </div>

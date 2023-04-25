@@ -62,3 +62,7 @@ html {
   margin: 0;
   padding: 0;
 }
+
+.react-images__view-image {
+  display: unset;
+}

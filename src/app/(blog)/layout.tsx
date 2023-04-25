@@ -8,7 +8,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <>
       <nav className="fixed top-0 w-full">
-        <ul className="flex items-center justify-center gap-2 gap-x-4 p-2 w-fit mx-auto bg-gray-500 bg-opacity-10 hover:bg-opacity-20 rounded-b-md -translate-y-6 hover:-translate-y-0 duration-150 cursor-pointer">
+        <ul className="flex items-center justify-center gap-2 gap-x-4 p-2 w-fit mx-auto bg-gray-500 bg-opacity-40 hover:bg-opacity-20 rounded-b-md -translate-y-6 hover:-translate-y-0 duration-150 cursor-pointer">
           {LINKS.map(link => (
             <a
               href={link.url}
