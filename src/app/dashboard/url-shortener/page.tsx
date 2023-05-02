@@ -64,7 +64,7 @@ function UrlShortenerListItem({data}: any) {
               className="inline-block w-4 h-4 text-white cursor-pointer"
               onClick={() => {
                 navigator.clipboard.writeText(
-                  `http://localhost:3000/s/${data.short}`,
+                  `${process.env.NEXT_PUBLIC_VERCEL_URL}/s/${data.short}`,
                 )
                 setHasCopied(true)
                 setTimeout(() => setHasCopied(false), 1000)

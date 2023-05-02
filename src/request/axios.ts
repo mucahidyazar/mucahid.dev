@@ -31,4 +31,4 @@ const api = createAxios({
   },
 })
 
-export { api, createAxios, rootApi }
+export { API_VERSION, api, createAxios, rootApi }
