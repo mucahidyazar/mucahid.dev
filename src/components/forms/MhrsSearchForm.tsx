@@ -1,6 +1,8 @@
 'use client'
 
 import {zodResolver} from '@hookform/resolvers/zod'
+import {useMutation} from '@tanstack/react-query'
+import axios from 'axios'
 import {Controller, useForm} from 'react-hook-form'
 import {z} from 'zod'
 
@@ -20,10 +22,12 @@ import {
   polyclinic as polyclinics,
 } from '@/constants'
 
+import {useToast} from '../atoms/use-toast'
+
 const validationSchema = z.object({
-  city: z.string().nonempty('Please select a city'),
-  district: z.string().nonempty('Please select a district'),
-  polyclinic: z.string().nonempty('Please select a polyclinic'),
+  city: z.number(),
+  district: z.number(),
+  polyclinic: z.number(),
   localHospitals: z.boolean().optional(),
   firstExamination: z.boolean().optional(),
   sex: z.string().optional(),
@@ -31,12 +35,48 @@ const validationSchema = z.object({
 
 type TValidationSchema = z.infer<typeof validationSchema>
 
-export function MhrsSearchForm() {
+export function MhrsSearchForm({
+  mhrsToken,
+  userId,
+}: {
+  mhrsToken: string
+  userId: string
+}) {
+  const {toast} = useToast()
+
+  const {mutate} = useMutation({
+    mutationFn: (data: TValidationSchema) =>
+      axios.post(
+        'http://localhost:8001/api/v1/mhrs/search-appointment',
+        {
+          userId,
+          cityId: data.city,
+          districtId: data.district,
+          polyclinicId: data.polyclinic,
+          options: {
+            localHospitals: data.localHospitals,
+            firstExamination: data.firstExamination,
+            sex: data.sex,
+          },
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${mhrsToken}`,
+          },
+        },
+      ),
+    onSuccess: () => {
+      toast({
+        title: 'Appointment created',
+        description: 'Your appointment has been created successfully.',
+      })
+    },
+  })
   const {handleSubmit, formState, control} = useForm<TValidationSchema>({
     defaultValues: {
-      city: '',
-      district: '',
-      polyclinic: '',
+      city: NaN,
+      district: NaN,
+      polyclinic: NaN,
       localHospitals: true,
       firstExamination: false,
       sex: 'both',
@@ -45,7 +85,7 @@ export function MhrsSearchForm() {
   })
 
   const submitHandler = async (data: TValidationSchema) => {
-    console.log({data})
+    mutate(data)
   }
 
   return (

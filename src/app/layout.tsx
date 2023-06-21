@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import {Chip, HomeArticle, HomeSection} from '@/components'
+import {Toaster} from '@/components/molecules/Toaster'
 import {Navbar} from '@/components/Navbar'
 import {LINKS} from '@/mocks'
 import {TrpcProvider} from '@/trpc/TrpcProvider'
@@ -113,6 +114,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             </ul>
           </div>
         </footer>
+
+        <Toaster />
       </body>
     </html>
   )
