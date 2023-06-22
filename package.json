@@ -29,7 +29,8 @@
     "up:dev": "docker-compose -f docker-compose.dev.yml up",
     "up:prod": "docker-compose -f docker-compose.prod.yml up",
     "generate:sitemap": "next-sitemap --config src/configs/next-sitemap.js",
-    "generate:rss": "ts-node src/configs/generate-rss.js"
+    "generate:rss": "ts-node src/configs/generate-rss.js",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
