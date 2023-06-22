@@ -13,9 +13,9 @@ export function generateMetadata() {
   })
 }
 
-export default function Room() {
+export default function Page() {
   return (
-    <div id="room">
+    <div id="media">
       <RoomTemplate />
     </div>
   )

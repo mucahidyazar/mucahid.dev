@@ -8,15 +8,20 @@ interface INavbarItemProps {
   path: string
 }
 export function NavbarItem(item: INavbarItemProps) {
-  const path = usePathname()
+  const pathname = usePathname()
+
+  const isActive = () => {
+    if (item.path === '/' && pathname === '/') return true
+    if (item.path === '/' && pathname !== '/') return false
+
+    return pathname.includes(item.path)
+  }
 
   return (
     <li
       key={item.label}
       className={
-        path === item.path
-          ? 'text-white'
-          : 'opacity-20 hover:opacity-50 duration-200'
+        isActive() ? 'text-white' : 'opacity-20 hover:opacity-50 duration-200'
       }
     >
       <Link href={item.path}>{item.label}</Link>

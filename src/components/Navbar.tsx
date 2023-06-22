@@ -20,8 +20,8 @@ export function Navbar() {
       path: '/blog',
     },
     {
-      label: 'Room',
-      path: '/room',
+      label: 'Media',
+      path: '/media',
     },
     {
       label: 'Feedbacks',
