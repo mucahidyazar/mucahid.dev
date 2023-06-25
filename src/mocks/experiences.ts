@@ -4,6 +4,21 @@ const getDate = (date: Date | string) => moment(date).format('MM YYYY')
 
 export const EXPERIENCES: TExperience[] = [
   {
+    label: '1-800-flowers.com',
+    url: 'https://www.1800flowers.com/',
+    logo: '/img/logos/1-800-flowers.png',
+    info: {
+      name: '1-800-Flowers',
+      location: 'Jericho, NY, USA',
+      title: 'Senior',
+      role: 'Frontend Engineer',
+      duration: [getDate(new Date(2023, 5)), getDate(new Date())],
+      status: 'Remote',
+      type: 'Contractor',
+      time: 'Full-time',
+    },
+  },
+  {
     label: 'smartgift',
     url: 'https://www.smartgiftit.com/',
     logo: '/img/logos/smartgift.png',
@@ -12,7 +27,7 @@ export const EXPERIENCES: TExperience[] = [
       location: 'Brooklyn, NY, USA',
       title: 'Senior',
       role: 'Frontend Developer',
-      duration: [getDate(new Date(2022, 6)), getDate(new Date())],
+      duration: [getDate(new Date(2022, 6)), getDate(new Date(2023, 5))],
       status: 'Remote',
       type: 'B2B',
       time: 'Full-time',
