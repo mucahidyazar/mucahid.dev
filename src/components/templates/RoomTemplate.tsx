@@ -42,13 +42,15 @@ export function RoomTemplate() {
   return (
     <div className="flex flex-col gap-8">
       <Modal isOpen={!!image} setIsOpen={setImage}>
-        <Image
-          src={image}
-          alt="Room Image"
-          width={1000}
-          height={1000}
-          className="w-auto h-full object-contain origin-center rounded-md"
-        />
+        {image && (
+          <Image
+            src={image}
+            alt="Room Image"
+            width={1000}
+            height={1000}
+            className="w-auto h-full object-contain origin-center rounded-md"
+          />
+        )}
       </Modal>
 
       {Object.entries(roomsByOptions)

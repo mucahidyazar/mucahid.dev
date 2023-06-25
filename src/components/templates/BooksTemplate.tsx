@@ -41,13 +41,15 @@ export function BooksTemplate() {
         suggest to others with the year I read them.
       </blockquote>
       <Modal isOpen={!!image} setIsOpen={setImage}>
-        <Image
-          src={image}
-          alt="Book cover"
-          width={1000}
-          height={1000}
-          className="w-auto h-full object-contain origin-center rounded-md"
-        />
+        {image && (
+          <Image
+            src={image}
+            alt="Book cover"
+            width={1000}
+            height={1000}
+            className="w-auto h-full object-contain origin-center rounded-md"
+          />
+        )}
       </Modal>
       {Object.entries(bookByYears)
         .sort(() => -1)

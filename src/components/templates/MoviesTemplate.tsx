@@ -56,13 +56,15 @@ export function MoviesTemplate() {
         you with my personal rating between 1 and 10.
       </blockquote>
       <Modal isOpen={!!image} setIsOpen={setImage}>
-        <Image
-          src={image}
-          alt="Movie poster"
-          width={1000}
-          height={1000}
-          className="w-auto h-full object-contain origin-center rounded-md"
-        />
+        {image && (
+          <Image
+            src={image}
+            alt="Movie poster"
+            width={1000}
+            height={1000}
+            className="w-auto h-full object-contain origin-center rounded-md"
+          />
+        )}
       </Modal>
       {Object.entries(moviesByYears)
         .sort(() => -1)
