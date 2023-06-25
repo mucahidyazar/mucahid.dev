@@ -1,35 +1,12 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import {useState} from 'react'
 
 import {Modal} from '@/components'
+import {bookByYears} from '@/mocks'
 
 import {MediaCard} from '../molecules/MediaCard'
-
-const bookByYears = {
-  2022: [
-    {
-      name: 'Sapiens',
-      src: 'https://m.media-amazon.com/images/I/41yu2qXhXXL._SX324_BO1,204,203,200_.jpg',
-      ry: 2022,
-      point: 8.5,
-    },
-  ],
-  2023: [
-    {
-      name: 'Atomic Habits',
-      src: 'https://m.media-amazon.com/images/I/41E0EMHIKpL._SX258_BO1,204,203,200_QL70_ML2_.jpg',
-      ry: 2023, // 06.2023
-      point: 8.5,
-    },
-    {
-      name: 'Steal Like an Artist',
-      src: 'https://m.media-amazon.com/images/I/61W8un34n4L._AC_UF1000,1000_QL80_.jpg',
-      ry: 2023, // 20.06.2023
-      point: 7.5,
-    },
-  ],
-}
 
 export function BooksTemplate() {
   const [image, setImage] = useState('')
@@ -60,11 +37,9 @@ export function BooksTemplate() {
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
               {books.map(book => (
-                <MediaCard
-                  media={book}
-                  onClick={() => setImage(book.src)}
-                  key={book.name + book.ry}
-                />
+                <Link href={`/media/books/${book.slug}`} key={book.slug}>
+                  <MediaCard media={book} />
+                </Link>
               ))}
             </div>
           </div>
