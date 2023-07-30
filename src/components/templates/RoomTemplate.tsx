@@ -5,6 +5,7 @@ import {useState} from 'react'
 import {Modal} from '@/components'
 
 import {MediaCard} from '../molecules/MediaCard'
+import {SheetTable} from '../tables/SheetTable'
 
 const roomsByOptions = {
   Setup: [
@@ -36,7 +37,17 @@ const roomsByOptions = {
   ],
 }
 
-export function RoomTemplate() {
+interface RoomTemplateProps {
+  sheetData: {
+    coffeeSetupData: {
+      values: string[][]
+    }
+    workspaceData: {
+      values: string[][]
+    }
+  }
+}
+export function RoomTemplate({sheetData}: RoomTemplateProps) {
   const [image, setImage] = useState('')
 
   return (
@@ -52,7 +63,6 @@ export function RoomTemplate() {
           />
         )}
       </Modal>
-
       {Object.entries(roomsByOptions)
         .sort(() => -1)
         .map(([year, rooms]) => (
@@ -71,6 +81,19 @@ export function RoomTemplate() {
             </div>
           </div>
         ))}
+
+      {sheetData && (
+        <>
+          <SheetTable
+            title="Coffee Setup Table"
+            data={sheetData.coffeeSetupData.values as string[][]}
+          />
+          <SheetTable
+            title="Workspace Table"
+            data={sheetData.workspaceData.values as string[][]}
+          />
+        </>
+      )}
     </div>
   )
 }

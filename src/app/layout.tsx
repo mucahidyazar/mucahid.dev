@@ -60,7 +60,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           </Link>
           <Navbar />
         </header>
-        <main className="max-w-4xl mx-auto lg:p-0 px-4 flex-grow">
+        <main className="max-w-full lg:max-w-4xl mx-auto lg:p-0 px-4 flex-grow">
           <div className="sm:w-2/3 flex flex-col gap-4">
             <p>
               I create accessible, user-friendly web applications with the best
