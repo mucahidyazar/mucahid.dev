@@ -55,9 +55,8 @@ export function SheetTable({
               {row.map((cell: string, index: number) => {
                 if (!showLinkAsColumn && index === linkIndex) return null
 
-                if (index === 0) {
-                  const link = row[2]
-
+                const link = row[linkIndex]
+                if (index === 0 && link) {
                   return (
                     <TableCell
                       key={index.toString()}

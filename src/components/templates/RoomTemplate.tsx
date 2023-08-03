@@ -50,6 +50,8 @@ interface RoomTemplateProps {
 export function RoomTemplate({sheetData}: RoomTemplateProps) {
   const [image, setImage] = useState('')
 
+  console.log(sheetData)
+
   return (
     <div className="flex flex-col gap-8">
       <Modal isOpen={!!image} setIsOpen={setImage}>
