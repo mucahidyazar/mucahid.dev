@@ -62,6 +62,18 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
       creatorId: 'mucahidyazar',
       images,
     },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: true,
+        'max-video-preview': -1,
+        'max-snippet': -1,
+      },
+    },
   }
 
   return {
