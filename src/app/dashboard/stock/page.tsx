@@ -49,13 +49,15 @@ export default function AdminPage() {
             key={data._id}
             data={data}
             startTrigger={() =>
-              startTrigger({id: data._id}).then(() => myStockMutate())
+              startTrigger({id: data._id} as any).then(() => myStockMutate())
             }
             stopTrigger={() =>
-              stopTrigger({id: data._id}).then(() => myStockMutate())
+              stopTrigger({id: data._id} as any).then(() => myStockMutate())
             }
             clearResultTrigger={() =>
-              clearResultTrigger({id: data._id}).then(() => myStockMutate())
+              clearResultTrigger({id: data._id} as any).then(() =>
+                myStockMutate(),
+              )
             }
           />
         ))}

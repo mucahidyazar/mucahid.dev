@@ -20,7 +20,7 @@ export default function LinkPreviewPage() {
   const createUrlShortenerHandler = () =>
     createTrigger({
       url: link,
-    }).then(() => myUrlShortenerMutate())
+    } as any).then(() => myUrlShortenerMutate())
 
   return (
     <div className="flex flex-col gap-4 items-center">
