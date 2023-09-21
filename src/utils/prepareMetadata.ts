@@ -37,6 +37,13 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
     icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
     manifest: '/site.webmanifest',
     themeColor: '#ffffff',
+    alternates: {
+      canonical: '/',
+      languages: {
+        'en-US': '/en',
+        'tr-TR': '/tr'
+      },
+    },
     metadataBase: new URL('https://mucahid.dev'),
     openGraph: {
       title,
