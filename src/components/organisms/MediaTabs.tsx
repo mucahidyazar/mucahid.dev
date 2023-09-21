@@ -5,9 +5,10 @@ import {
   BriefcaseIcon,
   FilmIcon,
 } from '@heroicons/react/24/outline'
-import clsx from 'clsx'
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
+
+import {cn} from '@/utils'
 
 export function MediaTabs() {
   const pathname = usePathname()
@@ -21,7 +22,7 @@ export function MediaTabs() {
     <div className="flex w-fit mb-8 gap-4">
       <Link
         href="/media/room"
-        className={clsx(
+        className={cn(
           'border border-gray-500 text-white px-4 py-2 rounded uppercase text-xs font-semibold hover:bg-gray-500 duration-200 flex gap-2 items-center',
           isActive('/media/room') && 'bg-gray-500',
         )}
@@ -31,7 +32,7 @@ export function MediaTabs() {
       </Link>
       <Link
         href="/media/books"
-        className={clsx(
+        className={cn(
           'border border-gray-500 text-white px-4 py-2 rounded uppercase text-xs font-semibold hover:bg-gray-500 duration-200 flex gap-2 items-center',
           isActive('/media/books') && 'bg-gray-500',
         )}
@@ -41,7 +42,7 @@ export function MediaTabs() {
       </Link>
       <Link
         href="/media/movies"
-        className={clsx(
+        className={cn(
           'border border-gray-500 text-white px-4 py-2 rounded uppercase text-xs font-semibold hover:bg-gray-500 duration-200 flex gap-2 items-center',
           isActive('/media/movies') && 'bg-gray-500',
         )}

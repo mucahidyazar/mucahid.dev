@@ -1,7 +1,8 @@
 'use client'
 
-import clsx from 'clsx'
 import {usePathname, useRouter} from 'next/navigation'
+
+import {cn} from '@/utils'
 
 interface ITabProps {
   pathname: string
@@ -17,7 +18,7 @@ export function Tab({pathname, label, value, isAdmin, vip}: ITabProps) {
   return (
     <div
       key={value}
-      className={clsx(
+      className={cn(
         'p-2 bg-indigo-600 cursor-pointer relative overflow-hidden',
         path === pathname ? 'bg-opacity-100' : 'bg-opacity-30',
         vip &&

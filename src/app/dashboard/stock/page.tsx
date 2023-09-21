@@ -1,6 +1,5 @@
 'use client'
 export const revalidate = 10
-import clsx from 'clsx'
 import {useState} from 'react'
 
 import {
@@ -11,6 +10,7 @@ import {
   useStopService,
 } from '@/request/hooks'
 import {useListService} from '@/request/hooks/useListService'
+import {cn} from '@/utils'
 
 interface IStock {
   _id: string
@@ -92,7 +92,7 @@ const Row = ({data, stopTrigger, startTrigger, clearResultTrigger}: IRow) => {
   return (
     <div key={data._id} className="group">
       <div
-        className={clsx(
+        className={cn(
           'flex justify-between p-4 cursor-pointer bg-opacity-30 hover:bg-opacity-20 duration-150 group-[&:not(:last-child)]:border-b border-white border-opacity-10',
           data.active ? 'bg-green-500' : 'bg-red-500',
         )}

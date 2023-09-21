@@ -1,6 +1,5 @@
 'use client'
 
-import clsx from 'clsx'
 import {Check, ChevronsUpDown} from 'lucide-react'
 import {useState} from 'react'
 
@@ -17,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/atoms/popover'
+import {cn} from '@/utils'
 
 interface IData {
   label: string | number
@@ -67,7 +67,7 @@ export function Combobox({data, value, onChange, label}: IComboboxProps) {
                 }}
               >
                 <Check
-                  className={clsx(
+                  className={cn(
                     'mr-2 h-4 w-4',
                     value === String(item?.value) ? 'opacity-100' : 'opacity-0',
                   )}

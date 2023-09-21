@@ -1,8 +1,7 @@
 'use client'
 
-import clsx from 'clsx'
-
 import {trpc} from '@/trpc/trpc'
+import {cn} from '@/utils'
 
 const FEEDBACK = {
   active: 'active',
@@ -51,7 +50,7 @@ export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
           className="p-4 bg-gray-400 bg-opacity-20 rounded-md hover:bg-opacity-30"
         >
           <div
-            className={clsx(
+            className={cn(
               'flex flex-col gap-3',
               feedback.status === FEEDBACK.in_progress && 'opacity-50',
             )}

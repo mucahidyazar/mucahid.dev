@@ -1,9 +1,10 @@
 'use client'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
-import clsx from 'clsx'
 import {Circle} from 'lucide-react'
 import * as React from 'react'
+
+import {cn} from '@/utils'
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
@@ -11,7 +12,7 @@ const RadioGroup = React.forwardRef<
 >(({className, ...props}, ref) => {
   return (
     <RadioGroupPrimitive.Root
-      className={clsx('grid gap-2', className)}
+      className={cn('grid gap-2', className)}
       {...props}
       ref={ref}
     />
@@ -26,7 +27,7 @@ const RadioGroupItem = React.forwardRef<
   return (
     <RadioGroupPrimitive.Item
       ref={ref}
-      className={clsx(
+      className={cn(
         'h-4 w-4 rounded-full border border-input ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
         className,
       )}

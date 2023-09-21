@@ -1,8 +1,8 @@
 'use client'
-import clsx from 'clsx'
 
 import {useHealthService} from '@/request/hooks'
 import {serviceKill} from '@/request/services/root/services'
+import {cn} from '@/utils'
 
 export function DashboardStatus() {
   const {error} = useHealthService()
@@ -15,7 +15,7 @@ export function DashboardStatus() {
         <div className="text-gray-400 flex items-center gap-2">
           <h3 className="block w-40">Stock search</h3>
           <span
-            className={clsx(
+            className={cn(
               'px-4 inline-block rounded-md text-sm text-white',
               !error ? 'bg-green-500' : 'bg-red-500',
             )}
@@ -28,7 +28,7 @@ export function DashboardStatus() {
           <h3 className="block w-40">API /health</h3>
 
           <span
-            className={clsx(
+            className={cn(
               'px-4 inline-block rounded-md text-sm text-white',
               !error ? 'bg-green-500' : 'bg-red-500',
             )}

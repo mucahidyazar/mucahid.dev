@@ -1,8 +1,9 @@
 'use client'
 
 import {cva, VariantProps} from 'class-variance-authority'
-import clsx from 'clsx'
 import {ButtonHTMLAttributes, forwardRef} from 'react'
+
+import {cn} from '@/utils'
 
 const buttonVariants = cva('text-orange-400', {
   variants: {
@@ -26,7 +27,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={clsx(buttonVariants({variant, className}))}
+        className={cn(buttonVariants({variant, className}))}
         aria-label="Subscribe to the newsletter"
       >
         {label ?? 'Subscribe'}
