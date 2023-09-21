@@ -61,7 +61,6 @@
     "@vercel/og": "^0.5.3",
     "axios": "^1.2.0",
     "class-variance-authority": "^0.5.2",
-    "cn": "^1.2.1",
     "cmdk": "^0.2.0",
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
