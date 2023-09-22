@@ -2,7 +2,8 @@
 
 import {useHealthService} from '@/request/hooks'
 import {serviceKill} from '@/request/services/root/services'
-import {cn} from '@/utils'
+
+import {Badge} from '../ui/badge'
 
 export function DashboardStatus() {
   const {error} = useHealthService()
@@ -14,27 +15,23 @@ export function DashboardStatus() {
       <div className="flex flex-col gap-4 w-fit mx-auto">
         <div className="text-gray-400 flex items-center gap-2">
           <h3 className="block w-40">Stock search</h3>
-          <span
-            className={cn(
-              'px-4 inline-block rounded-md text-sm text-white',
-              !error ? 'bg-green-500' : 'bg-red-500',
-            )}
+          <Badge
+            variant="secondary"
+            className={!error ? 'bg-green-500' : 'bg-red-500'}
           >
-            {!error ? 'Active' : 'Inactive'}
-          </span>
+            {!error ? 'Running' : 'Stopped'}
+          </Badge>
         </div>
 
         <div className="text-gray-400 flex items-center gap-2">
           <h3 className="block w-40">API /health</h3>
 
-          <span
-            className={cn(
-              'px-4 inline-block rounded-md text-sm text-white',
-              !error ? 'bg-green-500' : 'bg-red-500',
-            )}
+          <Badge
+            variant="secondary"
+            className={!error ? 'bg-green-500' : 'bg-red-500'}
           >
-            {!error ? 'Up' : 'Down'}
-          </span>
+            {!error ? 'Running' : 'Stopped'}
+          </Badge>
         </div>
       </div>
 

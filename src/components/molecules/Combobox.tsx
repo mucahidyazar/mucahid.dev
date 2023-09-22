@@ -3,19 +3,15 @@
 import {Check, ChevronsUpDown} from 'lucide-react'
 import {useState} from 'react'
 
-import {Button} from '@/components/atoms/button'
+import {Button} from '@/components/ui/button'
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from '@/components/atoms/command'
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/atoms/popover'
+} from '@/components/ui/command'
+import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover'
 import {cn} from '@/utils'
 
 interface IData {

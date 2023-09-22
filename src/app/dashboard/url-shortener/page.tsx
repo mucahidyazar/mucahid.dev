@@ -3,8 +3,13 @@ export const revalidate = 10
 import {DocumentDuplicateIcon, EyeIcon} from '@heroicons/react/24/outline'
 import {useState} from 'react'
 
-import {Tooltip} from '@/components'
 import {LinkPreviewCard} from '@/components/cards'
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipContent,
+} from '@/components/ui/tooltip'
 import {useCreateUrlShortenerService} from '@/request/hooks/useCreateUrlShortenerService'
 import {useLinkPreviewService} from '@/request/hooks/useLinkPreviewService'
 import {useListUrlShortener} from '@/request/hooks/useListUrlShortener'
@@ -59,34 +64,42 @@ function UrlShortenerListItem({data}: any) {
     <li className="border-b border-solid border-indigo-200 border-opacity-20 bg-indigo-500 bg-opacity-20 rounded">
       <div className="flex flex-col gap-1 p-2">
         <div className="flex items-center gap-2">
-          <Tooltip content={hasCopied ? 'Copied' : 'Copy'}>
-            <DocumentDuplicateIcon
-              className="inline-block w-4 h-4 text-white cursor-pointer"
-              onClick={() => {
-                navigator.clipboard.writeText(
-                  `${process.env.NEXT_PUBLIC_VERCEL_URL}/s/${data.short}`,
-                )
-                setHasCopied(true)
-                setTimeout(() => setHasCopied(false), 1000)
-              }}
-            />
-          </Tooltip>
-          <Tooltip
-            content={
-              <LinkPreviewCard
-                title={linkPreviewData?.data?.title}
-                description={linkPreviewData?.data?.description}
-                image={linkPreviewData?.data?.image}
-                size="sm"
-              />
-            }
-          >
-            <EyeIcon
-              className="inline-block w-4 h-4 text-white cursor-pointer"
-              onMouseEnter={() => setIsPreviewing(true)}
-              onMouseLeave={() => setIsPreviewing(false)}
-            />
-          </Tooltip>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <DocumentDuplicateIcon
+                  className="inline-block w-4 h-4 text-white cursor-pointer"
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      `${process.env.NEXT_PUBLIC_VERCEL_URL}/s/${data.short}`,
+                    )
+                    setHasCopied(true)
+                    setTimeout(() => setHasCopied(false), 1000)
+                  }}
+                />{' '}
+              </TooltipTrigger>
+              <TooltipContent>{hasCopied ? 'Copied' : 'Copy'}</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <EyeIcon
+                  className="inline-block w-4 h-4 text-white cursor-pointer"
+                  onMouseEnter={() => setIsPreviewing(true)}
+                  onMouseLeave={() => setIsPreviewing(false)}
+                />{' '}
+              </TooltipTrigger>
+              <TooltipContent>
+                <LinkPreviewCard
+                  title={linkPreviewData?.data?.title}
+                  description={linkPreviewData?.data?.description}
+                  image={linkPreviewData?.data?.image}
+                  size="sm"
+                />
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
           <a
             href={`${window.origin}/s/${data.short}`}
             target="_blank"

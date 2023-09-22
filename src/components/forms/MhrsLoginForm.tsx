@@ -7,8 +7,8 @@ import Cookies from 'js-cookie'
 import {useForm} from 'react-hook-form'
 import {z} from 'zod'
 
-import {Button} from '../atoms/button'
-import {Input} from '../atoms/input'
+import {Button} from '../ui/button'
+import {Input} from '../ui/input'
 
 const validationSchema = z.object({
   username: z

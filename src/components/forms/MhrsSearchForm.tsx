@@ -4,16 +4,16 @@ import {zodResolver} from '@hookform/resolvers/zod'
 import {Controller, useForm} from 'react-hook-form'
 import {z} from 'zod'
 
+import {Combobox} from '@/components/molecules/Combobox'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/atoms/accordion'
-import {Label} from '@/components/atoms/label'
-import {RadioGroup, RadioGroupItem} from '@/components/atoms/radio-group'
-import {Switch} from '@/components/atoms/switch'
-import {Combobox} from '@/components/molecules/Combobox'
+} from '@/components/ui/accordion'
+import {Label} from '@/components/ui/label'
+import {RadioGroup, RadioGroupItem} from '@/components/ui/radio-group'
+import {Switch} from '@/components/ui/switch'
 import {
   city as cities,
   district as districts,

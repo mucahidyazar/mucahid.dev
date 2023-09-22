@@ -5,7 +5,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '../atoms/table'
+} from '../ui/table'
 
 interface SheetTableProps {
   title: string

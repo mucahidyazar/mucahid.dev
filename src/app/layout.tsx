@@ -4,8 +4,9 @@ import {Inter} from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import {Chip, HomeArticle, HomeSection} from '@/components'
+import {HomeArticle, HomeSection} from '@/components'
 import {Navbar} from '@/components/Navbar'
+import {Badge} from '@/components/ui/badge'
 import {LINKS} from '@/mocks'
 import {TrpcProvider} from '@/trpc/TrpcProvider'
 import {prepareMetadata} from '@/utils'
@@ -75,13 +76,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
               <HomeArticle
                 title="Download"
                 content={
-                  <Chip
-                    content={
-                      <a href="/resume.pdf" download>
-                        Resume
-                      </a>
-                    }
-                  />
+                  <Badge variant="secondary">
+                    <a href="/resume.pdf" download>
+                      Resume
+                    </a>
+                  </Badge>
                 }
               />
             </HomeSection>

@@ -2,9 +2,8 @@
 import Image from 'next/image'
 import {useState} from 'react'
 
-import {Modal} from '@/components'
-
 import {MediaCard} from '../molecules/MediaCard'
+import {Dialog, DialogContent, DialogTrigger} from '../ui/dialog'
 
 const moviesByYears = {
   2022: [
@@ -50,13 +49,14 @@ export function MoviesTemplate() {
 
   return (
     <div className="flex flex-col gap-8">
-      <blockquote className="text-xs italic">
-        Not all movies I watched are listed here. I only list movies that I love
-        and suggest to others with the year I watched them.. I also share with
-        you with my personal rating between 1 and 10.
-      </blockquote>
-      <Modal isOpen={!!image} setIsOpen={setImage}>
-        {image && (
+      <Dialog>
+        <blockquote className="text-xs italic">
+          Not all movies I watched are listed here. I only list movies that I
+          love and suggest to others with the year I watched them.. I also share
+          with you with my personal rating between 1 and 10.
+        </blockquote>
+
+        <DialogContent className="w-fit p-0 border-none">
           <Image
             src={image}
             alt="Movie poster"
@@ -64,27 +64,28 @@ export function MoviesTemplate() {
             height={1000}
             className="w-auto h-full object-contain origin-center rounded-md"
           />
-        )}
-      </Modal>
-      {Object.entries(moviesByYears)
-        .sort(() => -1)
-        .map(([year, movies]) => (
-          <div key={year}>
-            <h2 className="text-2xl text-white underline underline-offset-4 mb-4">
-              {year}
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-              {movies.map(movie => (
-                <MediaCard
-                  media={movie}
-                  onClick={() => setImage(movie.src)}
-                  showInfo
-                  key={movie.name + movie.ry}
-                />
-              ))}
+        </DialogContent>
+        {Object.entries(moviesByYears)
+          .sort(() => -1)
+          .map(([year, movies]) => (
+            <div key={year}>
+              <h2 className="text-2xl text-white underline underline-offset-4 mb-4">
+                {year}
+              </h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+                {movies.map(movie => (
+                  <DialogTrigger key={movie.name + movie.ry}>
+                    <MediaCard
+                      media={movie}
+                      onClick={() => setImage(movie.src)}
+                      showInfo
+                    />
+                  </DialogTrigger>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </Dialog>
     </div>
   )
 }
