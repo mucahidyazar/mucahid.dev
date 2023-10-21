@@ -1,5 +1,5 @@
 import {BookTemplate} from '@/templates'
-import {prepareMetadata} from '@/utils'
+import {prepareMetadata} from '@/utils/prepareMetadata'
 
 export function generateMetadata() {
   const title = 'Book Detail'

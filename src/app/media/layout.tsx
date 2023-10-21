@@ -1,5 +1,5 @@
 import {MediaTabs} from '@/components/organisms'
-import {prepareMetadata} from '@/utils'
+import {prepareMetadata} from '@/utils/prepareMetadata'
 
 export function generateMetadata() {
   const title = 'Media'

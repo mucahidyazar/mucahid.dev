@@ -6,7 +6,7 @@ import {Feedbacks} from '@/components/molecules/Feedbacks'
 import {FeedbacksForm} from '@/components/molecules/FeedbacksForm'
 import {env} from '@/configs'
 import {prisma} from '@/trpc/db'
-import {prepareMetadata} from '@/utils'
+import {prepareMetadata} from '@/utils/prepareMetadata'
 
 export function generateMetadata() {
   const title = 'Feedbacks'

@@ -9,7 +9,7 @@ import {Navbar} from '@/components/Navbar'
 import {Badge} from '@/components/ui/badge'
 import {LINKS} from '@/mocks'
 import {TrpcProvider} from '@/trpc/TrpcProvider'
-import {prepareMetadata} from '@/utils'
+import {prepareMetadata} from '@/utils/prepareMetadata'
 
 const inter = Inter({subsets: ['latin']})
 

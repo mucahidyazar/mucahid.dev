@@ -1,6 +1,7 @@
 import { Metadata } from "next"
+import { headers } from "next/headers"
 
-import { ME_DESCRIPTION_FULL } from "@/constants"
+import { ME_DESCRIPTION } from "@/constants"
 
 type TPrepareMetadata = Metadata & {
   title?: string
@@ -8,16 +9,20 @@ type TPrepareMetadata = Metadata & {
   page?: string
 }
 export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
+  const host = headers().get('host')
+  const protocal = process?.env.NODE_ENV === 'development' ? 'http' : 'https'
+  const domain = `${protocal}://${host}`
+
   const DEFAULT_TITLE = {
     default: 'Mucahid Yazar',
-    template: '%s - Frontend developer | mucahid.dev',
+    template: `%s - Painter | ${domain}`,
   }
   const title = metadata.title || DEFAULT_TITLE
-  const description = metadata.description || ME_DESCRIPTION_FULL
+  const description = metadata.description || ME_DESCRIPTION
 
   const { authors, openGraph, twitter, ...rest } = metadata
 
-  const imagesUrl = new URL('https://mucahid.dev/api/og')
+  const imagesUrl = new URL(`${domain}/api/og`)
   if (metadata.title) {
     imagesUrl.searchParams.set('title', metadata.title)
   }
@@ -33,7 +38,7 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
     title,
     description,
     viewport: 'width=device-width, initial-scale=1',
-    authors: [{ name: 'Mucahid Yazar', url: 'https://mucahid.dev' }],
+    authors: [{ name: 'Mucahid Yazar', url: `${domain}` }],
     icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
     manifest: '/site.webmanifest',
     themeColor: '#ffffff',
@@ -44,7 +49,7 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
         'tr-TR': '/tr'
       },
     },
-    metadataBase: new URL('https://mucahid.dev'),
+    metadataBase: new URL(`${domain}`),
     openGraph: {
       title,
       description,
@@ -56,9 +61,9 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
       title,
       description,
       card: 'summary',
-      site: 'https://mucahid.dev',
+      site: `${domain}`,
       creator: 'Mucahid Yazar',
-      siteId: 'mucahid.dev',
+      siteId: `${domain}`,
       creatorId: 'mucahidyazar',
       images,
     },

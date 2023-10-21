@@ -1,13 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
+import {headers} from 'next/headers'
 import {ImageResponse} from 'next/server'
 
-import {ME_DESCRIPTION_FULL} from '@/constants'
+import {ME_DESCRIPTION} from '@/constants'
 
 export async function GET(request: Request) {
   const {searchParams} = new URL(request.url)
   const page = searchParams.get('page')
   const title = searchParams.get('title')
-  const description = searchParams.get('description') || ME_DESCRIPTION_FULL
+  const description = searchParams.get('description') || ME_DESCRIPTION
+  const host = headers().get('host')
+  const protocal = process?.env.NODE_ENV === 'development' ? 'http' : 'https'
+  const domain = `${protocal}://${host}`
 
   return new ImageResponse(
     (
@@ -25,7 +29,7 @@ export async function GET(request: Request) {
         }}
       >
         <img
-          src="https://mucahid.dev/mucahid.png"
+          src={`${domain}/me.jpg`}
           alt="Picture of the author"
           width={300}
           height={300}
@@ -50,7 +54,7 @@ export async function GET(request: Request) {
             }}
           >
             <img
-              src="https://mucahid.dev/svg/full-logo.svg"
+              src={`${domain}/svg/full-logo.svg`}
               alt="Picture of the author"
               height={60}
             />

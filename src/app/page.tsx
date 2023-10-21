@@ -9,7 +9,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import {EXPERIENCES, LINKS, PINS, PROJECTS} from '@/mocks'
-import {prepareMetadata} from '@/utils'
+import {prepareMetadata} from '@/utils/prepareMetadata'
 
 interface ISectionLink {
   href?: string
