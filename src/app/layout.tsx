@@ -22,7 +22,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
     <html lang="en">
       <head />
       <body
-        className={`${inter.className} flex flex-col text-gray-300 overflow-x-hidden`}
+        className={`${inter.className} flex flex-col text-gray-300 overflow-x-hidden h-full`}
       >
         <nav className="fixed top-0 w-full">
           <ul className="flex items-center justify-center gap-2 gap-x-4 p-2 w-fit mx-auto bg-gray-500 bg-opacity-40 hover:bg-opacity-20 rounded-b-md -translate-y-6 hover:-translate-y-0 duration-150 cursor-pointer hover:z-10 relative">
