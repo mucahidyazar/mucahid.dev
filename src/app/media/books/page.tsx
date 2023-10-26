@@ -15,7 +15,7 @@ export function generateMetadata() {
 
 export default function Page() {
   return (
-    <div id="media">
+    <div id="books">
       <BooksTemplate />
     </div>
   )

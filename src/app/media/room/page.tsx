@@ -44,7 +44,7 @@ export default async function Page() {
   const sheetData = await getData()
 
   return (
-    <div id="media">
+    <div id="room">
       <RoomTemplate sheetData={sheetData} />
     </div>
   )

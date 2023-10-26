@@ -28,7 +28,7 @@ export default async function Page() {
   })
 
   return (
-    <div id="feeds">
+    <div id="feedbacks">
       <section
         id="comments"
         className="flex flex-col md:justify-between md:flex-row gap-5 w-full"

@@ -36,7 +36,7 @@ export function generateMetadata() {
   })
 }
 
-export default function Home() {
+export default function Page() {
   return (
     <div id="home" className="flex flex-col gap-6">
       <HomeSection id="about">

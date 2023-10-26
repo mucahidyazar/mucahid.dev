@@ -20,7 +20,7 @@ interface PageProps {
 }
 export default function Page({params: {slug}}: PageProps) {
   return (
-    <div id="media">
+    <div id="book-detail">
       <BookTemplate slug={slug} />
     </div>
   )
