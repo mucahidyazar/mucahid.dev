@@ -8,6 +8,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+import {ME} from '@/constants'
 import {EXPERIENCES, LINKS, PINS, PROJECTS} from '@/mocks'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
@@ -28,12 +29,9 @@ const SectionLink = ({href = '#', text = '', logo, children}: ISectionLink) => {
 
 export function generateMetadata() {
   const title = '👋🏼 Home'
-  const description =
-    '👋🏼 Hi, it is Mucahid. I am a frontend developer and creator of some open source projects since 2017. I am h'
 
   return prepareMetadata({
     title,
-    description,
     page: title,
   })
 }
@@ -88,7 +86,10 @@ export default function Home() {
                 Javascript Plainenglish
               </a>{' '}
               on{' '}
-              <a className="link" href="https://medium.com/@mucahidyazar">
+              <a
+                className="link"
+                href={`https://medium.com/@${ME.social.medium}`}
+              >
                 Medium
               </a>
             </p>

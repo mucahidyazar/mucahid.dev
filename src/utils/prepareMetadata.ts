@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import { headers } from "next/headers"
 
 import { configs } from "@/configs"
-import { ME_DESCRIPTION } from "@/constants"
+import { ME } from "@/constants"
 
 type TPrepareMetadata = Metadata & {
   title?: string
@@ -15,11 +15,11 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
   const domain = `${protocal}://${host}`
 
   const DEFAULT_TITLE = {
-    default: 'Mucahid Yazar',
-    template: `%s - Painter | ${domain}`,
+    default: ME.fullName,
+    template: `%s - ${ME.job} | ${domain}`,
   }
   const title = metadata.title || DEFAULT_TITLE
-  const description = metadata.description || ME_DESCRIPTION
+  const description = metadata.description || ME.descriptionFull
 
   const { authors, openGraph, twitter, ...rest } = metadata
 
@@ -39,7 +39,7 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
     title,
     description,
     viewport: 'width=device-width, initial-scale=1',
-    authors: [{ name: 'Mucahid Yazar', url: `${domain}` }],
+    authors: [{ name: ME.fullName, url: `${domain}` }],
     icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
     manifest: '/site.webmanifest',
     themeColor: '#ffffff',
@@ -63,7 +63,7 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
       description,
       card: 'summary',
       site: `${domain}`,
-      creator: 'Mucahid Yazar',
+      creator: ME.fullName,
       siteId: `${domain}`,
       creatorId: 'mucahidyazar',
       images,

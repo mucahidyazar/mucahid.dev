@@ -3,6 +3,7 @@ import Script from 'next/script'
 
 import {Feedbacks} from '@/components/molecules/Feedbacks'
 import {FeedbacksForm} from '@/components/molecules/FeedbacksForm'
+import {ME} from '@/constants'
 import {prisma} from '@/trpc/db'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
@@ -41,7 +42,7 @@ export default async function Page() {
               className="twitter-timeline w-80 max-h-96"
               data-lang="en"
               data-theme="light"
-              href="https://twitter.com/MucahidYazar?ref_src=twsrc%5Etfw"
+              href={`https://twitter.com/${ME.social.twitter}?ref_src=twsrc%5Etfw`}
             />
 
             <Script async src="https://platform.twitter.com/widgets.js" />
@@ -75,7 +76,7 @@ export default async function Page() {
         data-name="BMC-Widget"
         data-cfasync="false"
         src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-        data-id="mucahidyazar"
+        data-id={ME.social.bmc}
         data-description="Support me on Buy me a coffee!"
         data-message=""
         data-color="#FF813F"

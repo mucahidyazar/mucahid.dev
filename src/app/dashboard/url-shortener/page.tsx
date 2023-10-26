@@ -16,8 +16,7 @@ import {useLinkPreviewService} from '@/request/hooks/useLinkPreviewService'
 import {useListUrlShortener} from '@/request/hooks/useListUrlShortener'
 
 export default function LinkPreviewPage() {
-  const LINK1 = 'https://mucahid.dev'
-  const [link, setLink] = useState(LINK1)
+  const [link, setLink] = useState(env.NEXT_PUBLIC_APP_URL)
 
   const {data: urlShortenerData, mutate: myUrlShortenerMutate} =
     useListUrlShortener() as any

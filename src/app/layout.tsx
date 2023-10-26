@@ -7,6 +7,7 @@ import Link from 'next/link'
 import {HomeArticle, HomeSection} from '@/components'
 import {Navbar} from '@/components/Navbar'
 import {Badge} from '@/components/ui/badge'
+import {ME} from '@/constants'
 import {LINKS} from '@/mocks'
 import {TrpcProvider} from '@/trpc/TrpcProvider'
 import {prepareMetadata} from '@/utils/prepareMetadata'
@@ -43,7 +44,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             <div className="w-fit p-1 bg-gray-500 rounded-b opacity-40 hover:opacity-100 absolute top-0 translate-y-[35px]">
               <div className="box-border flex cursor-pointer rounded-[9px] bg-gradient-to-br from-primary to-sky-500 p-[2px] antialiased">
                 <span className="box-border flex w-full items-center justify-center rounded-[8px] bg-white bg-opacity-[.96] text-sm overflow-hidden font-light transition-colors duration-300 hover:bg-sky-100">
-                  <Image src="/mucahid.png" alt="logo" width={40} height={40} />
+                  <Image src="/me.png" alt="logo" width={40} height={40} />
                 </span>
               </div>
             </div>
@@ -91,7 +92,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <footer className="max-w-4xl mx-auto py-8 px-4 w-full lg:px-0">
           <div className="flex justify-between items-center w-full">
             <p className="opacity-40 text-xs">
-              Created in 2022 by Mucahid Yazar
+              Created in 2022 by {ME.fullName}
             </p>
 
             <ul className="flex gap-2">

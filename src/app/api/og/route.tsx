@@ -3,13 +3,13 @@ import {headers} from 'next/headers'
 import {ImageResponse} from 'next/server'
 
 import {configs} from '@/configs'
-import {ME_DESCRIPTION} from '@/constants'
+import {ME} from '@/constants'
 
 export async function GET(request: Request) {
   const {searchParams} = new URL(request.url)
   const page = searchParams.get('page')
   const title = searchParams.get('title')
-  const description = searchParams.get('description') || ME_DESCRIPTION
+  const description = searchParams.get('description') || ME.descriptionFull
   const host = headers().get('host')
   const protocal = configs.isDevelopment ? 'http' : 'https'
   const domain = `${protocal}://${host}`
