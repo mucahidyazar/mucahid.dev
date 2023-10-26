@@ -1,10 +1,8 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import {cookies} from 'next/headers'
 import Script from 'next/script'
 
 import {Feedbacks} from '@/components/molecules/Feedbacks'
 import {FeedbacksForm} from '@/components/molecules/FeedbacksForm'
-import {env} from '@/configs'
 import {prisma} from '@/trpc/db'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
@@ -21,10 +19,7 @@ export function generateMetadata() {
 }
 
 export default async function Page() {
-  const cookieStore = cookies()
-  const dashboardCookie = cookieStore.get('dashboard')?.value || ''
-  const dashboardEnv = String(env.DASHBOARD)
-  const isAdmin = dashboardCookie === dashboardEnv
+  const isAdmin = false
 
   const feedbacks = await prisma.feedback.findMany({
     where: isAdmin ? {} : {status: 'active'},

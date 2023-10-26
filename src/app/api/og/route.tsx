@@ -2,6 +2,7 @@
 import {headers} from 'next/headers'
 import {ImageResponse} from 'next/server'
 
+import {configs} from '@/configs'
 import {ME_DESCRIPTION} from '@/constants'
 
 export async function GET(request: Request) {
@@ -10,7 +11,7 @@ export async function GET(request: Request) {
   const title = searchParams.get('title')
   const description = searchParams.get('description') || ME_DESCRIPTION
   const host = headers().get('host')
-  const protocal = process?.env.NODE_ENV === 'development' ? 'http' : 'https'
+  const protocal = configs.isDevelopment ? 'http' : 'https'
   const domain = `${protocal}://${host}`
 
   return new ImageResponse(

@@ -1,6 +1,6 @@
 import axios, { RawAxiosRequestHeaders } from 'axios'
 
-import { env } from '@/configs'
+import { env } from '@/configs/env.mjs'
 
 interface ICreateAxios {
   baseURL: string

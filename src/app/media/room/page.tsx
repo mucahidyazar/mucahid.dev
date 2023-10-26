@@ -1,4 +1,4 @@
-import {env} from '@/configs'
+import {env} from '@/configs/env.mjs'
 import {RoomTemplate} from '@/templates'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 

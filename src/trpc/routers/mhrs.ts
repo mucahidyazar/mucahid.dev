@@ -1,6 +1,8 @@
 import axios from "axios";
 import { z } from "zod";
 
+import { env } from '@/configs/env.mjs'
+
 import {
   createTRPCRouter,
   publicProcedure,
@@ -20,7 +22,7 @@ export const mhrsRouter = createTRPCRouter({
       password: z.string(),
     }))
     .mutation(async ({ input }) => {
-      const response = await axios.post<LoginSuccessResponse | LoginErrorResponse>(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/mhrs/login`, input)
+      const response = await axios.post<LoginSuccessResponse | LoginErrorResponse>(`${env.NEXT_PUBLIC_APP_URL}/api/mhrs/login`, input)
       return response
     }),
 })

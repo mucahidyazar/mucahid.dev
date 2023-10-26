@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { headers } from "next/headers"
 
+import { configs } from "@/configs"
 import { ME_DESCRIPTION } from "@/constants"
 
 type TPrepareMetadata = Metadata & {
@@ -10,7 +11,7 @@ type TPrepareMetadata = Metadata & {
 }
 export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
   const host = headers().get('host')
-  const protocal = process?.env.NODE_ENV === 'development' ? 'http' : 'https'
+  const protocal = configs.isDevelopment ? 'http' : 'https'
   const domain = `${protocal}://${host}`
 
   const DEFAULT_TITLE = {

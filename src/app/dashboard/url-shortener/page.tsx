@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from '@/components/ui/tooltip'
+import {env} from '@/configs/env.mjs'
 import {useCreateUrlShortenerService} from '@/request/hooks/useCreateUrlShortenerService'
 import {useLinkPreviewService} from '@/request/hooks/useLinkPreviewService'
 import {useListUrlShortener} from '@/request/hooks/useListUrlShortener'
@@ -71,7 +72,7 @@ function UrlShortenerListItem({data}: any) {
                   className="inline-block w-4 h-4 text-white cursor-pointer"
                   onClick={() => {
                     navigator.clipboard.writeText(
-                      `${process.env.NEXT_PUBLIC_VERCEL_URL}/s/${data.short}`,
+                      `${env.NEXT_PUBLIC_APP_URL}/s/${data.short}`,
                     )
                     setHasCopied(true)
                     setTimeout(() => setHasCopied(false), 1000)

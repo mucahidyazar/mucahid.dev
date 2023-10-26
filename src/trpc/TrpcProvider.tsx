@@ -6,6 +6,8 @@ import {httpBatchLink, getFetch, loggerLink} from '@trpc/client'
 import {useState} from 'react'
 import superjson from 'superjson'
 
+import {env} from '@/configs/env.mjs'
+
 import {trpc} from './trpc'
 
 export const TrpcProvider: React.FC<{children: React.ReactNode}> = ({
@@ -18,8 +20,8 @@ export const TrpcProvider: React.FC<{children: React.ReactNode}> = ({
       }),
   )
 
-  const url = process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/trpc`
+  const url = env.NEXT_PUBLIC_APP_URL
+    ? `${env.NEXT_PUBLIC_APP_URL}/api/trpc`
     : 'http://localhost:3000/api/trpc'
 
   const [trpcClient] = useState(() =>

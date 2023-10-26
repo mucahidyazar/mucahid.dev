@@ -1,14 +1,7 @@
-import {cookies} from 'next/headers'
-
-import {env} from '@/configs'
-
 import {NavbarItem} from './NavbarItem'
 
 export function Navbar() {
-  const cookieStore = cookies()
-  const dashboardCookie = cookieStore.get('dashboard')?.value || ''
-  const dashboardEnv = String(env.DASHBOARD)
-  const isAdmin = dashboardCookie === dashboardEnv
+  const isAdmin = false
 
   const NAV_ITEMS = [
     {
