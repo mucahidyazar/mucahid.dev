@@ -64,6 +64,7 @@
     "eslint": "^8.28.0",
     "eslint-config-next": "^13.0.5",
     "feed": "^4.2.2",
+    "google-auth-library": "^9.2.0",
     "husky": "^8.0.2",
     "link-preview-js": "^3.0.5",
     "lucide-react": "^0.190.0",
