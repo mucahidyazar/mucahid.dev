@@ -2,12 +2,16 @@ import './global.css'
 
 import {Lora} from 'next/font/google'
 import {notFound} from 'next/navigation'
+import {getServerSession} from 'next-auth'
 import {NextIntlClientProvider} from 'next-intl'
 import {Suspense} from 'react'
 
 import Analytics from '@/components/Analytics'
 import {ThemeProvider} from '@/components/providers/ThemeProvider'
+import {authOptions} from '@/lib/auth'
 import {prepareMetadata} from '@/utils/prepareMetadata'
+
+import {SessionProvider} from './SessionProvider'
 
 const lora = Lora({subsets: ['latin']})
 
@@ -35,6 +39,7 @@ export default async function RootLayout({
   params: {locale},
 }: LayoutProps) {
   const messages = await getMessages(locale)
+  const session = await getServerSession(authOptions)
 
   return (
     <html lang={locale}>
@@ -42,16 +47,18 @@ export default async function RootLayout({
       <body
         className={`${lora.className} flex flex-col overflow-x-hidden bg-background`}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            themes={['dark', 'light', 'navy']}
-          >
-            {children}
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        <SessionProvider session={session} refetchOnWindowFocus>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              themes={['dark', 'light', 'navy']}
+            >
+              {children}
+            </ThemeProvider>
+          </NextIntlClientProvider>
+        </SessionProvider>
 
         <Suspense>
           <Analytics />
