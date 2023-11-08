@@ -3,7 +3,9 @@ import './global.css'
 import {Lora} from 'next/font/google'
 import {notFound} from 'next/navigation'
 import {NextIntlClientProvider} from 'next-intl'
+import {Suspense} from 'react'
 
+import Analytics from '@/components/Analytics'
 import {ThemeProvider} from '@/components/providers/ThemeProvider'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
@@ -50,6 +52,10 @@ export default async function RootLayout({
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
+
+        <Suspense>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   )
