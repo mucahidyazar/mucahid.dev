@@ -3,8 +3,10 @@ import './global.css'
 import {Inter} from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+import {Suspense} from 'react'
 
 import {HomeArticle, HomeSection} from '@/components'
+import Analytics from '@/components/molecules/Analytics'
 import {Navbar} from '@/components/Navbar'
 import {Badge} from '@/components/ui/badge'
 import {ME} from '@/constants'
@@ -113,6 +115,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             </ul>
           </div>
         </footer>
+
+        <Suspense>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   )
