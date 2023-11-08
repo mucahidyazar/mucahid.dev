@@ -90,8 +90,10 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@types/google-one-tap": "^1.2.5",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "autoprefixer": "^10.4.13",
+    "encoding": "^0.1.13",
     "eslint-plugin-sort-exports": "^0.8.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "postcss": "^8.4.19",
