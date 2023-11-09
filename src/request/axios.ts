@@ -1,6 +1,5 @@
 import axios, { RawAxiosRequestHeaders } from 'axios'
 
-import { env } from '@/configs/env.mjs'
 
 interface ICreateAxios {
   baseURL: string
@@ -13,8 +12,8 @@ function createAxios({ baseURL, headers }: ICreateAxios) {
   })
 }
 
-const API_URL = env.API_URL
-const VERSION = env.VERSION
+const API_URL = ''
+const VERSION = ''
 const API_VERSION = `${API_URL}/api/${VERSION}`
 
 const rootApi = createAxios({

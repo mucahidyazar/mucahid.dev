@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .section-min-height {
+    min-height: calc(100vh - 68px);
+  }
+
+  .toggle-btn {
+    @apply [&>div::after]:translate-y-0 [&>div::after]:rotate-45 [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div]:rotate-[720deg] [&>div]:bg-transparent;
+  }
+
+  .link {
+    @apply text-main cursor-pointer border-b border-solid border-gray-500 font-medium duration-200 hover:border-gray-400 hover:text-white;
+  }
+}
+
+@layer base {
+  :root {
+    --main: 48 96% 53%;
+
+    --primary-500: 3 73% 36%;
+    --primary-700: 4 66% 29%;
+    --primary-900: 7 75% 25%;
+
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --main: 48 96% 53%;
+
+    --primary-500: 14 53% 59%;
+    --primary-700: 13 47% 47%;
+    --primary-900: 12 53% 38%;
+
+    --background: 0 0% 7%;
+    --foreground: 0 0% 90%;
+
+    --muted: 0 0% 30%;
+    --muted-foreground: 0 0% 70%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 85%;
+
+    --popover: 0 0% 20%;
+    --popover-foreground: 0 0% 80%;
+
+    --input: 0 0% 25%;
+
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 40%;
+    --secondary-foreground: 0 0% 60%;
+
+    --accent: 0 100% 60%;
+    --accent-foreground: 0 0% 90%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --ring: 0 0% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .navy {
+    --main: 48 96% 53%;
+
+    --primary-500: 205 54% 50%;
+    --primary-700: 205 52% 34%;
+    --primary-900: 205 60% 25%;
+
+    --background: 210 100% 10%;
+    --foreground: 210 100% 90%;
+
+    --muted: 210 100% 30%;
+    --muted-foreground: 210 100% 70%;
+
+    --card: 210 100% 15%;
+    --card-foreground: 210 100% 85%;
+
+    --popover: 210 100% 20%;
+    --popover-foreground: 210 100% 80%;
+
+    --input: 210 100% 25%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 100% 100%;
+
+    --secondary: 210 100% 40%;
+    --secondary-foreground: 210 100% 60%;
+
+    --accent: 210 100% 60%;
+    --accent-foreground: 210 100% 90%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 100% 100%;
+
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+root {
+  --color-scrollbar: #f5f5f5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: 156%;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    Fira Sans,
+    Droid Sans,
+    Helvetica Neue,
+    sans-serif;
+  font-family: 'Rubik', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+div[data-nextjs-scroll-focus-boundary] {
+  height: 100%;
+}
+
+body {
+  background: rgb(70, 71, 122);
+  background: radial-gradient(
+    circle,
+    rgba(70, 71, 122, 1) 0%,
+    rgba(11, 17, 32, 1) 100%
+  );
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: 156%;
+  margin: 0;
+  padding: 0;
+}
+
+.react-images__view-image {
+  display: unset;
+}

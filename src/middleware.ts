@@ -1,24 +1,18 @@
-// middleware.ts
-import { NextResponse } from 'next/server'
+import createMiddleware from 'next-intl/middleware';
 
-import { API_VERSION } from './request/axios'
+import { LOCALE, LOCALES } from './constants/locales';
 
-import type { NextRequest } from 'next/server'
+export default createMiddleware({
+  // A list of all locales that are supported
+  locales: LOCALES,
+
+  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
+  defaultLocale: LOCALE.en,
+  localePrefix: 'as-needed'
+});
 
 export const config = {
-  matcher: '/s/:path*',
-}
-
-export async function middleware(request: NextRequest) {
-  const short = request.url.split('/')[4]
-  // add params to this fetch
-  const response = await fetch(
-    `${API_VERSION}/url-shortener/get/${short}?` +
-    new URLSearchParams({
-      increment: 'true',
-    }),
-  )
-  const data = await response.json()
-  const urlData = data.data
-  return NextResponse.redirect(urlData.full)
-}
+  // Skip all paths that should not be internationalized. This example skips
+  // certain folders and all pathnames with a dot (e.g. favicon.ico)
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
+};
