@@ -26,7 +26,7 @@ export function SheetTable({
 
   return (
     <div className="flex flex-col">
-      <h2 className="text-2xl text-white underline underline-offset-4 mb-4">
+      <h2 className="mb-4 text-2xl text-white underline underline-offset-4">
         {title}
       </h2>
       <Table className="text-xs">
@@ -37,7 +37,7 @@ export function SheetTable({
 
               return (
                 <TableHead key={index.toString()}>
-                  <p className="text-primary">{cell}</p>
+                  <p className="text-main">{cell}</p>
                 </TableHead>
               )
             })}
@@ -64,12 +64,12 @@ export function SheetTable({
                       className="!p-2 font-semibold"
                     >
                       <a
-                        className="hover:underline group-hover:text-primary"
+                        className="group-hover:text-main hover:underline"
                         href={link}
                         target="_blank"
                         rel="noreferrer"
                       >
-                        <p className="truncate max-w-[200px]">{cell}</p>
+                        <p className="max-w-[200px] truncate">{cell}</p>
                       </a>
                     </TableCell>
                   )
@@ -81,7 +81,7 @@ export function SheetTable({
                     title={cell}
                     className="!p-2"
                   >
-                    <p className="truncate max-w-[200px]">{cell}</p>
+                    <p className="max-w-[200px] truncate">{cell}</p>
                   </TableCell>
                 )
               })}

@@ -1,0 +1,153 @@
+# This workflow;
+# creates your docker image on github-actions,
+# push it to AWS ECR hub service
+# then after push to ECR, ECS detect the changes and creates a new EC2 instance
+# and by the Elastic IP prod catch the changes immediately
+name: 'Release on tag @bekten.art'
+on:
+  pull_request:
+    branches:
+      # I disabled this by writing a wrong name
+      - aws
+    types:
+      - closed
+
+env:
+  AWS_REGION: eu-central-1
+  ECR_REPOSITORY: bekten-art
+
+jobs:
+  vercel:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
+    steps:
+      # Checkout source code
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 100
+
+      - name: Extract version from branch name (for release branches)
+        if: startsWith(github.event.pull_request.head.ref, 'release/')
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          VERSION=${BRANCH_NAME#release/}
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Extract version from branch name (for hotfix branches)
+        if: startsWith(github.event.pull_request.head.ref, 'hotfix/')
+        run: |
+          BRANCH_NAME="${{ github.event.pull_request.head.ref }}"
+          VERSION=${BRANCH_NAME#hotfix/}
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+
+      # - name: Merge master into dev branch
+      #   uses: thomaseizinger/create-pull-request@1.0.0
+      #   env:
+      #     RELEASE_SECRET: ${{ secrets.RELEASE_SECRET }}
+      #   with:
+      #     head: master
+      #     base: dev
+      #     title: Merge master into dev branch
+      #     body: |
+      #       This PR merges the master branch back into dev.
+      #       This happens to ensure that the updates that happend on the release branch, i.e. CHANGELOG and manifest updates are also present on the dev branch.
+
+      # Cache dependencies for faster build time in future
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # Setup Node.js
+      - name: Setup Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # If there is changes then build
+      - name: Build
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
+          mkdir BUILD
+          cp -r public BUILD/public
+          cp -r package.json BUILD/package.json
+          cp -r pnpm-lock.yaml BUILD/pnpm-lock.yaml
+          mv .next BUILD/.next
+
+      # If there is changes then let the tests runs
+      - name: Run Tests Locally
+        run: yarn test:ci
+
+      # If there is changes then deploy to stagging on vercel
+      - name: Deploy to Staging
+        id: deploy-vercel-staging
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      # If there is changes then run the tests against vercel
+      - name: Run Tests Against Vercel
+        env:
+          VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
+        run: yarn test:ci
+
+      # Prepare release files from BUILD directory
+      - name: Prepare release files
+        run: |
+          cd BUILD && tar -zcf ../release-$GITHUB_REF_NAME.tar.gz . && cd .. && ls -la
+          echo ${{ env.RELEASE_VERSION }}
+
+      # then create a release
+      - uses: 'marvinpinto/action-automatic-releases@latest'
+        with:
+          repo_token: '${{ secrets.RELEASE_SECRET }}'
+          automatic_release_tag: 'v${{ env.RELEASE_VERSION }}'
+          prerelease: false
+          title: 'Production Build'
+          files: |
+            release-${{ github.ref_name }}.tar.gz
+
+      # finally deploy it to production
+      - name: Deploy to Production
+        uses: amondnet/vercel-action@v20
+        id: deploy-vercel-production
+        if: github.event_name == 'push'
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@13d241b293754004c80624b5567555c4a39ffbe3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRES_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # DOCKERIZE
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@aaf69d68aa3fb14c1d5a6be9ac61fe15b48453a2
+
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.prod .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f Dockerfile.prod .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest

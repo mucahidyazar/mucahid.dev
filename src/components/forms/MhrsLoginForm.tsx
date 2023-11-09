@@ -3,7 +3,6 @@
 import {zodResolver} from '@hookform/resolvers/zod'
 import {useMutation} from '@tanstack/react-query'
 import axios from 'axios'
-import Cookies from 'js-cookie'
 import {useForm} from 'react-hook-form'
 import {z} from 'zod'
 
@@ -31,7 +30,8 @@ export function MhrsLoginForm() {
     },
     {
       onSuccess: data => {
-        Cookies.set('mhrsToken', data.token)
+        // Cookies.set('mhrsToken', data.token)
+        console.log({data})
         window.location.reload()
       },
     },
@@ -50,7 +50,7 @@ export function MhrsLoginForm() {
 
   return (
     <form
-      className="flex flex-col gap-2 sm:w-full md:w-1/2 mx-auto"
+      className="mx-auto flex flex-col gap-2 sm:w-full md:w-1/2"
       onSubmit={handleSubmit(submit)}
     >
       <Input
@@ -68,7 +68,7 @@ export function MhrsLoginForm() {
         {...register('password')}
       />
       {Object.keys(formState.errors).length > 0 && (
-        <div className="bg-red-500 p-2 rounded text-xs">
+        <div className="rounded bg-red-500 p-2 text-xs">
           {Object.values(formState.errors).map(error => (
             <p key={error.message}>{error.message}</p>
           ))}

@@ -1,0 +1,15 @@
+{
+  "home": "Home",
+  "press": "Press",
+  "about": "About",
+  "gallery": "Gallery",
+  "contact": "Contact",
+  "social": "Social",
+  "address": "Studio",
+  "copyRight": "© {year} Bekten. All rights reserved. Designed by mucahid.dev",
+  "slogan": "CONTEMPORARY OIL-FOCUSED PAINTER",
+  "biography1": "Bekten Usubaliev is a Kyrgyz painter who believes that art reveals the dreams, feelings, and independent spirit hidden within man. Not only does his artwork speak volumes, so does Bekten as a lecturer at the Kyrgyz State Art College, where he has taught since 1990. Born in 1958, he graduated from the Kyrgyz State Art College in 1981 and later earned a degree from the Repin Institute of Architecture, Sculpture, and Painting in St. Petersburg, Russia in 1989. He joined the Artists` Union of the Kyrgyz Republic in 1991.",
+  "biography2": "Bekten has shown his works in numerous national and international exhibitions, including a group exhibition of young artists in Almaty, Kazakhstan (1995); the second international biennale exhibition `Dialogues` in St. Petersburg, Russia (1995); the 70th anniversary celebration for Ch. Aitmatov in Brussels, Belgium (1997); an international exhibition in Teheran, Iran (2000); and a solo show in Bishkek (2001).",
+  "biography3": "His works can be seen at the Kyrgyz State Museum of Fine Art and in private collections throughout the CIS, USA, Germany, Turkey, and Great Britain.",
+  "locale": "{locale, select, en {English} tr {Turkish} ru {Russian} kg {Kyrgyz} other {Unknown}}"
+}

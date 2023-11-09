@@ -16,11 +16,38 @@ module.exports = {
       },
     },
     extend: {
+      boxShadow: {
+        'soft-md': '0px 0px 20px 0px rgba(0,0,0,0.2)',
+        'soft-lg': '0px 0px 20px 0px rgba(176, 48, 11, 0.4)',
+      },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
       },
       colors: {
-        primary: '#facc15',
+        main: 'hsl(var(--main) / <alpha-value>)',
+
+        'primary-500': 'hsl(var(--primary-500) / <alpha-value>)',
+        'primary-700': 'hsl(var(--primary-700) / <alpha-value>)',
+        'primary-900': 'hsl(var(--primary-900) / <alpha-value>)',
+
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        muted: 'hsl(var(--muted))',
+        'muted-foreground': 'hsl(var(--muted-foreground))',
+        card: 'hsl(var(--card))',
+        'card-foreground': 'hsl(var(--card-foreground))',
+        popover: 'hsl(var(--popover))',
+        'popover-foreground': 'hsl(var(--popover-foreground))',
+        input: 'hsl(var(--input))',
+        primary: 'hsl(var(--primary))',
+        'primary-foreground': 'hsl(var(--primary-foreground))',
+        secondary: 'hsl(var(--secondary))',
+        'secondary-foreground': 'hsl(var(--secondary-foreground))',
+        accent: 'hsl(var(--accent))',
+        'accent-foreground': 'hsl(var(--accent-foreground))',
+        destructive: 'hsl(var(--destructive))',
+        'destructive-foreground': 'hsl(var(--destructive-foreground))',
+        ring: 'hsl(var(--ring))',
       },
       screens: {
         widescreen: {

@@ -38,11 +38,9 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
   const initialMetadata = {
     title,
     description,
-    viewport: 'width=device-width, initial-scale=1',
     authors: [{ name: ME.fullName, url: `${domain}` }],
     icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
     manifest: '/site.webmanifest',
-    themeColor: '#ffffff',
     alternates: {
       canonical: '/',
       languages: {

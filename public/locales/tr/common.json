@@ -1,0 +1,15 @@
+{
+  "home": "Ana Sayfa",
+  "press": "Haberler",
+  "about": "Hakkında",
+  "gallery": "Galeri",
+  "contact": "İletişim",
+  "social": "Sosyal Medya",
+  "address": "Stüdyo",
+  "copyRight": "© {year} Bekten. Tüm hakları saklıdır. mucahid.dev tarafından tasarlanmıştır.",
+  "slogan": "ÇAĞDAŞ YAĞLİBOYA ODAKLI RESSAM",
+  "biography1": "Bekten Usubaliev, sanatın insanın içindeki rüyaları, duyguları ve bağımsız ruhu ortaya çıkardığına inanan Kırgız bir ressamdır. Sadece eserleri değil, aynı zamanda 1990'dan beri Kırgız Devlet Sanat Koleji'nde öğretim görevlisi olarak görev yapan Bekten de büyük bir etkiye sahiptir. 1958 doğumlu olan Bekten, 1981'de Kırgız Devlet Sanat Koleji'nden mezun oldu ve 1989'da Rusya, St. Petersburg'daki Repin Mimarlık, Heykel ve Resim Enstitüsü'nden derece aldı. 1991'de Kırgız Cumhuriyeti Sanatçılar Birliği'ne katıldı.",
+  "biography2": "Bekten, eserlerini Almatı, Kazakistan'daki genç sanatçılar grup sergisinde (1995); Rusya, St. Petersburg'daki ikinci uluslararası bienal sergisi 'Diyaloglar'da (1995); Ch. Aitmatov'un 70. yıl dönümü kutlamasında Brüksel, Belçika'da (1997); Tahran, İran'daki uluslararası sergide (2000); ve Bişkek'teki solo sergide (2001) sergiledi.",
+  "biography3": "Eserleri Kırgız Devlet Güzel Sanatlar Müzesi'nde ve CIS, ABD, Almanya, Türkiye ve Büyük Britanya'daki özel koleksiyonlarda görülebilir.",
+  "locale": "{locale, select, en {İngilizce} tr {Türkçe} ru {Rusça} kg {Kırgızca} other {Bilinmeyen}}"
+}
