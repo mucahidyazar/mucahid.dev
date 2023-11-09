@@ -7,11 +7,10 @@ import {NextIntlClientProvider} from 'next-intl'
 import {Suspense} from 'react'
 
 import Analytics from '@/components/Analytics'
+import {SessionProvider} from '@/components/providers/SessionProvider'
 import {ThemeProvider} from '@/components/providers/ThemeProvider'
 import {authOptions} from '@/lib/auth'
 import {prepareMetadata} from '@/utils/prepareMetadata'
-
-import {SessionProvider} from './SessionProvider'
 
 const lora = Lora({subsets: ['latin']})
 
