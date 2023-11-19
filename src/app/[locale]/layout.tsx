@@ -7,6 +7,7 @@ import {NextIntlClientProvider} from 'next-intl'
 import {Suspense} from 'react'
 
 import Analytics from '@/components/Analytics'
+import {ProgressbarProvider} from '@/components/providers/ProgressbarProvider'
 import {SessionProvider} from '@/components/providers/SessionProvider'
 import {ThemeProvider} from '@/components/providers/ThemeProvider'
 import {authOptions} from '@/lib/auth'
@@ -59,6 +60,7 @@ export default async function RootLayout({
           </NextIntlClientProvider>
         </SessionProvider>
 
+        <ProgressbarProvider />
         <Suspense>
           <Analytics />
         </Suspense>

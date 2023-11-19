@@ -2,15 +2,16 @@
 import {headers} from 'next/headers'
 import {ImageResponse} from 'next/og'
 
-import {ME_DESCRIPTION} from '@/constants'
+import {configs} from '@/configs'
+import {ME} from '@/constants'
 
 export async function GET(request: Request) {
   const {searchParams} = new URL(request.url)
   const page = searchParams.get('page')
   const title = searchParams.get('title')
-  const description = searchParams.get('description') || ME_DESCRIPTION
+  const description = searchParams.get('description') || ME.descriptionFull
   const host = headers().get('host')
-  const protocal = process?.env.NODE_ENV === 'development' ? 'http' : 'https'
+  const protocal = configs.isDevelopment ? 'http' : 'https'
   const domain = `${protocal}://${host}`
 
   return new ImageResponse(
