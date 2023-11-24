@@ -1,10 +1,10 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { User } from "@prisma/client"
+import bcrypt from 'bcryptjs';
 import { NextAuthOptions } from "next-auth"
-import Providers from "next-auth/providers/credentials"
+import CredentialsProvider from "next-auth/providers/credentials"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
-
 // import { Client } from "postmark"
 
 import { env } from "@/configs/env.mjs"
@@ -35,7 +35,7 @@ export const authOptions: NextAuthOptions = {
       clientId: env.GOOGLE_CLIENT_ID,
       clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
-    Providers({ // this!
+    CredentialsProvider({ // this!
       id: "googleonetap", // We will use this id later to specify for what Provider we want to trigger the signIn method
       name: "google-one-tap",
 
@@ -46,6 +46,49 @@ export const authOptions: NextAuthOptions = {
       // This function will be called upon signIn
       authorize
     }),
+    CredentialsProvider({
+      id: "credentials",
+      // The name to display on the sign in form (e.g. "Sign in with...")
+      name: "Credentials",
+      // `credentials` is used to generate a form on the sign in page.
+      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+      // e.g. domain, username, password, 2FA token, etc.
+      // You can pass any HTML attribute to the <input> tag through the object.
+      credentials: {
+        email: { label: "Email", type: "text", placeholder: "example@gmail.com" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        // Add logic here to look up the user from the credentials supplied
+        // console.log('credentials')
+        // console.log(credentials)
+        // console.log('req')
+        // console.log(req)
+        if (!credentials?.email) {
+          return null
+        }
+
+        const user = await db.user.findUnique({
+          where: { email: credentials.email },
+        })
+
+        if (!user || (user && !user.password)) {
+          return null
+        }
+
+        const isPasswordValid = await bcrypt.compare(credentials.password, user.password as string)
+
+        if (isPasswordValid) {
+          // Any object returned will be saved in `user` property of the JWT
+          return user
+        } else {
+          // If you return null then an error will be displayed advising the user to check their details.
+          return null
+
+          // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
+        }
+      }
+    })
   ],
   pages: {
     signIn: '/sign-in'
