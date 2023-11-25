@@ -4,7 +4,7 @@ import Script from 'next/script'
 import {Feedbacks} from '@/components/molecules/Feedbacks'
 import {FeedbacksForm} from '@/components/molecules/FeedbacksForm'
 import {ME} from '@/constants'
-import {prisma} from '@/trpc/db'
+import {db} from '@/lib/db'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
 export function generateMetadata() {
@@ -22,7 +22,7 @@ export function generateMetadata() {
 export default async function Page() {
   const isAdmin = false
 
-  const feedbacks = await prisma.feedback.findMany({
+  const feedbacks = await db.feedback.findMany({
     where: isAdmin ? {} : {status: 'active'},
     orderBy: {createdAt: 'desc'},
   })
@@ -31,15 +31,15 @@ export default async function Page() {
     <div id="feedbacks">
       <section
         id="comments"
-        className="flex flex-col md:justify-between md:flex-row gap-5 w-full"
+        className="flex w-full flex-col gap-5 md:flex-row md:justify-between"
       >
         <aside className="w-full md:w-1/2">
           <h2 className="text-8xl font-black opacity-10 sm:-translate-x-10">
             Twitter
           </h2>
-          <div className="-translate-y-14 max-h-[600px] overflow-auto">
+          <div className="max-h-[600px] -translate-y-14 overflow-auto">
             <a
-              className="twitter-timeline w-80 max-h-96"
+              className="twitter-timeline max-h-96 w-80"
               data-lang="en"
               data-theme="light"
               href={`https://twitter.com/${ME.social.twitter}?ref_src=twsrc%5Etfw`}
@@ -56,17 +56,17 @@ export default async function Page() {
           {feedbacks?.length ? (
             <Feedbacks feedbacks={feedbacks} isAdmin={isAdmin} />
           ) : (
-            <div className="flex flex-col items-center justify-center h-80">
+            <div className="flex h-80 flex-col items-center justify-center">
               <p className="text-2xl font-semibold text-gray-400">
                 No feedbacks yet
               </p>
-              <p className="text-gray-400 text-sm">
+              <p className="text-sm text-gray-400">
                 Be the first one to leave a feedback
               </p>
             </div>
           )}
 
-          <div className="w-full h-[1px] bg-white opacity-10 -translate-y-7"></div>
+          <div className="h-[1px] w-full -translate-y-7 bg-white opacity-10"></div>
 
           <FeedbacksForm />
         </aside>

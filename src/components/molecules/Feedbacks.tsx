@@ -1,6 +1,5 @@
 'use client'
 
-import {trpc} from '@/trpc/trpc'
 import {cn} from '@/utils'
 
 const FEEDBACK = {
@@ -20,34 +19,36 @@ interface IFeedbacksProps {
   isAdmin?: boolean
 }
 export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
-  const updateFeedback = trpc.feedback.updateFeedback.useMutation({
-    onSuccess: () => {
-      window.location.reload()
-    },
-  })
-  const deleteFeedback = trpc.feedback.deleteFeedback.useMutation({
-    onSuccess: () => {
-      window.location.reload()
-    },
-  })
+  // const updateFeedback = trpc.feedback.updateFeedback.useMutation({
+  //   onSuccess: () => {
+  //     window.location.reload()
+  //   },
+  // })
+  // const deleteFeedback = trpc.feedback.deleteFeedback.useMutation({
+  //   onSuccess: () => {
+  //     window.location.reload()
+  //   },
+  // })
 
   const updateVisibility = (input: {
     id: string
     status: 'in_progress' | 'active'
   }) => {
-    updateFeedback.mutate(input)
+    // updateFeedback.mutate(input)
+    console.log('updateVisibility', input)
   }
 
   const deleteFeedbackHandler = ({id}: {id: string}) => {
-    deleteFeedback.mutate({id})
+    // deleteFeedback.mutate({id})
+    console.log('deleteFeedbackHandler', id)
   }
 
   return (
-    <ul className="flex flex-col gap-2 -translate-y-14">
+    <ul className="flex -translate-y-14 flex-col gap-2">
       {feedbacks.map(feedback => (
         <li
           key={feedback.id}
-          className="p-4 bg-gray-400 bg-opacity-20 rounded-md hover:bg-opacity-30"
+          className="rounded-md bg-gray-400 bg-opacity-20 p-4 hover:bg-opacity-30"
         >
           <div
             className={cn(
@@ -57,13 +58,13 @@ export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 min-w-[32px] min-h-[32px] bg-gray-300 rounded font-bold text-purple-500 grid place-content-center uppercase">
+                <div className="grid h-8 min-h-[32px] w-8 min-w-[32px] place-content-center rounded bg-gray-300 font-bold uppercase text-purple-500">
                   {/* {feedback.name[0]}{feedback.name[1]} */}
                   {feedback.name.slice(0, 2)}
                 </div>
                 <p className="font-semibold">{feedback.name}</p>
               </div>
-              <p className="text-gray-400 text-sm">
+              <p className="text-sm text-gray-400">
                 {feedback.createdAt.toLocaleString('en-us', {
                   year: 'numeric',
                   month: 'long',
@@ -73,11 +74,11 @@ export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-2"></div>
-              <p className="text-gray-400 text-sm">{feedback.message}</p>
+              <p className="text-sm text-gray-400">{feedback.message}</p>
             </div>
           </div>
           {isAdmin && (
-            <div className="text-xs flex justify-end items-center gap-4">
+            <div className="flex items-center justify-end gap-4 text-xs">
               <button
                 onClick={() => {
                   updateVisibility({

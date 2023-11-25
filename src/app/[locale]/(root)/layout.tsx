@@ -6,7 +6,6 @@ import {Navbar} from '@/components/Navbar'
 import {Badge} from '@/components/ui/badge'
 import {ME} from '@/constants'
 import {LINKS} from '@/mocks'
-import {TrpcProvider} from '@/trpc/TrpcProvider'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
 export function generateMetadata() {
@@ -36,7 +35,7 @@ export default async function RootLayout({children}: RootLayoutProps) {
             </a>
           ))}
           <div className="absolute top-0 w-fit translate-y-[35px] rounded-b bg-gray-500 p-1 opacity-40 hover:opacity-100">
-            <div className="from-main box-border flex cursor-pointer rounded-[9px] bg-gradient-to-br to-sky-500 p-[2px] antialiased">
+            <div className="box-border flex cursor-pointer rounded-[9px] bg-gradient-to-br from-main to-sky-500 p-[2px] antialiased">
               <span className="box-border flex w-full items-center justify-center overflow-hidden rounded-[8px] bg-white bg-opacity-[.96] text-sm font-light transition-colors duration-300 hover:bg-sky-100">
                 <Image src="/me.png" alt="logo" width={40} height={40} />
               </span>
@@ -81,7 +80,7 @@ export default async function RootLayout({children}: RootLayoutProps) {
           </HomeSection>
         </div>
         <div className="my-8 h-[1px] w-full bg-white opacity-10"></div>
-        <TrpcProvider>{children}</TrpcProvider>
+        {children}
       </main>
       <footer className="mx-auto w-full max-w-4xl px-4 py-8 lg:px-0">
         <div className="flex w-full items-center justify-between">
