@@ -62,6 +62,7 @@
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "axios": "^1.2.0",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.5.2",
     "cmdk": "^0.2.0",
 
@@ -85,6 +86,7 @@
     "next-auth": "^4.24.4",
     "next-intl": "3.0.0-rc.4",
     "next-themes": "^0.2.1",
+    "next13-progressbar": "^1.1.0",
     "prisma": "^5.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -99,6 +101,7 @@
   },
   "devDependencies": {
     "@types/react-syntax-highlighter": "^15.5.5",
+    "@types/bcryptjs": "^2.4.6",
     "@types/google-one-tap": "^1.2.5",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "autoprefixer": "^10.4.13",
