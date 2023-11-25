@@ -23,8 +23,8 @@ export async function signUpUser(body: SignUpUser) {
       },
     });
 
-    await revalidatePath(`/`);
-    await redirect('/');
+    await revalidatePath(`/sign-in`);
+    await redirect('/sign-in');
   } catch (error) {
     return {
       message: 'Database Error: Failed to Create Invoice.',
