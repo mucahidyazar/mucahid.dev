@@ -33,6 +33,13 @@
       "@/utils": ["./src/utils/index.ts"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.d.ts",
+    "./src/types/next-auth.d.ts"
+  ],
   "exclude": ["node_modules", "taxonomy"]
 }

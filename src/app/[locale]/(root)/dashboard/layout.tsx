@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-import {DashboardStatus} from '@/components/organisms'
 import {Tabs, TabsList, TabsTrigger} from '@/components/ui/tabs'
 
 const TABS = [
@@ -21,9 +20,8 @@ const TABS = [
 export default function Layout({children}: {children: React.ReactNode}) {
   return (
     <div>
-      <DashboardStatus />
-      <div className="h-[1px] w-1/2 bg-gray-400 bg-opacity-20 mx-auto my-4" />
-      <Tabs defaultValue="stock" className="w-[400px] mx-auto mb-4">
+      {/* <DashboardStatus /> */}
+      <Tabs defaultValue="stock" className="mx-auto mb-4 w-[400px]">
         <TabsList>
           {TABS.map(tab => {
             return (

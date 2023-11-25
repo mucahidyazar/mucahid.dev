@@ -18,7 +18,7 @@ export default async function Layout({children}: Props) {
   }
 
   return (
-    <section className="mx-auto mt-[20%] w-80">
+    <section className="mx-auto w-80">
       <Tabs
         tabs={[
           {value: 'sign-in', label: 'Sign in'},

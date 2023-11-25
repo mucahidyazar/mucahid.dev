@@ -25,7 +25,7 @@ export function Tabs({tabs}: TabsProps) {
             'flex-grow cursor-pointer rounded-sm px-3 py-1 text-center',
             pathname.includes(tab.value)
               ? 'bg-white text-slate-950 shadow-sm dark:bg-slate-950 dark:text-slate-50'
-              : 'text-slate-500 dark:text-slate-400',
+              : 'text-slate-700 dark:text-slate-700',
           )}
         >
           {tab.label}

@@ -1,7 +1,6 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { User } from "@prisma/client"
 import bcrypt from 'bcryptjs';
-import { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
@@ -10,13 +9,14 @@ import GoogleProvider from "next-auth/providers/google"
 import { env } from "@/configs/env.mjs"
 import { db } from "@/lib/db"
 
-
 import { authorize } from "./authorize"
+
+import type { NextAuthOptions } from "next-auth";
 
 // const postmarkClient = new Client(env.POSTMARK_API_TOKEN)
 export const adapter = PrismaAdapter(db);
 
-export const authOptions: NextAuthOptions = {
+export const authOptions = {
   // huh any! I know.
   // This is a temporary fix for prisma client.
   // @see https://github.com/prisma/prisma/issues/16117
@@ -97,9 +97,8 @@ export const authOptions: NextAuthOptions = {
     async session({ token, session }) {
 
       if (token) {
-        session.user = token.user as User
+        session.user = token.user as any
       }
-
 
       return session
     },
@@ -112,7 +111,7 @@ export const authOptions: NextAuthOptions = {
 
 
       if (user) {
-        token.user = user
+        token.user = user as User
       } else if (dbUser) {
         token.user = {
           id: dbUser.id,
@@ -127,4 +126,4 @@ export const authOptions: NextAuthOptions = {
     },
     async redirect({ baseUrl }) { return baseUrl },
   },
-}
+} satisfies NextAuthOptions

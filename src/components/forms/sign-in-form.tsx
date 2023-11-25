@@ -9,10 +9,8 @@ import {Button} from '@/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '@/components/ui/form'
 import {Input} from '@/components/ui/input'
@@ -37,17 +35,15 @@ export function SignInForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(submitHandler)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(submitHandler)} className="space-y-2">
         <FormField
           name="email"
           control={form.control}
           render={({field}) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input placeholder="example@gmail.com" {...field} />
               </FormControl>
-              <FormDescription>This is your email address.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -57,19 +53,17 @@ export function SignInForm() {
           control={form.control}
           render={({field}) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="12345678" type="password" {...field} />
+                <Input placeholder="Password" type="password" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your password between 8 and 32 characters.
-              </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button type="submit">Sign In</Button>
+        <Button type="submit" className="w-full" size="sm">
+          Sign In
+        </Button>
       </form>
     </Form>
   )

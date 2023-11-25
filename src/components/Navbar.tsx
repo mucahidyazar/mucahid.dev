@@ -1,7 +1,11 @@
+'use client'
+import {useSession} from 'next-auth/react'
+
 import {NavbarItem} from './NavbarItem'
 
 export function Navbar() {
-  const isAdmin = false
+  const session = useSession()
+  const isAdmin = session?.data?.user.role === 'ADMIN'
 
   const NAV_ITEMS = [
     {
@@ -25,7 +29,7 @@ export function Navbar() {
 
   return (
     <nav>
-      <ul className="flex items-center justify-center gap-4 text-lg sm:text-xl font-semibold font-sans">
+      <ul className="flex items-center justify-center gap-4 font-sans text-lg font-semibold sm:text-xl">
         {NAV_ITEMS.map(item => (
           <NavbarItem key={item.label} {...item} />
         ))}

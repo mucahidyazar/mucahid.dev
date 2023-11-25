@@ -3,7 +3,6 @@ import { type GetServerSidePropsContext } from "next";
 import {
   getServerSession,
   type NextAuthOptions,
-  type DefaultSession,
 } from "next-auth";
 // import DiscordProvider from "next-auth/providers/discord";
 
@@ -15,20 +14,6 @@ import { prisma } from "./db";
  *
  * @see https://next-auth.js.org/getting-started/typescript#module-augmentation
  */
-declare module "next-auth" {
-  interface Session extends DefaultSession {
-    user: {
-      id: string;
-      // ...other properties
-      // role: UserRole;
-    } & DefaultSession["user"];
-  }
-
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
-}
 
 /**
  * Options for NextAuth.js used to configure adapters, providers, callbacks, etc.

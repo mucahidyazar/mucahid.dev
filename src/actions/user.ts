@@ -1,8 +1,6 @@
 "use server"
 
 import bcrypt from 'bcryptjs';
-import { revalidatePath } from "next/cache"
-import { redirect } from "next/navigation"
 
 import { db } from "@/lib/db"
 
@@ -22,10 +20,9 @@ export async function signUpUser(body: SignUpUser) {
         password: await bcrypt.hash(body.password, 10),
       },
     });
-
-    await revalidatePath(`/sign-in`);
-    await redirect('/sign-in');
+    return { message: 'User created successfully.' };
   } catch (error) {
+    console.log(error)
     return {
       message: 'Database Error: Failed to Create Invoice.',
     };
