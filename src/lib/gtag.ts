@@ -7,7 +7,7 @@ type WindowWithDataLayer = Window & {
 
 declare const window: WindowWithDataLayer
 
-export const GTM_ID = env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID
+export const GTM_ID = env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID
 
 export const pageview = (url: string) => {
   if (typeof window.dataLayer !== 'undefined') {
