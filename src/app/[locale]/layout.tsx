@@ -10,6 +10,7 @@ import {GoogleTagManager} from '@/components/lib/google-tag-manager'
 import {ProgressbarProvider} from '@/components/providers/ProgressbarProvider'
 import {SessionProvider} from '@/components/providers/SessionProvider'
 import {ThemeProvider} from '@/components/providers/ThemeProvider'
+import {Toaster} from '@/components/ui/toaster'
 import {authOptions} from '@/lib/auth'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
@@ -61,6 +62,8 @@ export default async function RootLayout({
         </SessionProvider>
 
         <ProgressbarProvider />
+        <Toaster />
+
         <Suspense>
           <GoogleTagManager />
         </Suspense>
