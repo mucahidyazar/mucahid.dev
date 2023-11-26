@@ -50,10 +50,10 @@ export default function Page() {
                   <SectionLink key={pin.label} text={pin.label} />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <aside className="flex flex-col gap-1 w-96">
+                  <aside className="flex w-96 flex-col gap-1">
                     {Object.entries(pin.info).map(([key, value]) => (
                       <div className="flex flex-wrap items-start" key={key}>
-                        <h2 className="font-medium italic w-20">
+                        <h2 className="w-20 font-medium italic">
                           {/* if value is not array jsut print it */}
                           {key}
                         </h2>
@@ -194,7 +194,7 @@ export default function Page() {
                         Automated release process and version management. This
                         is a monorepo example: If PR is merged to main; (1 and 2
                         are working as parallel)
-                        <ul className="list-decimal list-inside">
+                        <ul className="list-inside list-decimal">
                           <li>
                             Create a changelog for apps which has any file
                             changes
@@ -268,10 +268,10 @@ export default function Page() {
                   />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <aside className="flex flex-col gap-1 w-96">
+                  <aside className="flex w-96 flex-col gap-1">
                     {Object.entries(experience.info).map(([key, value]) => (
                       <div className="flex flex-wrap items-start" key={key}>
-                        <h2 className="font-medium italic w-20">
+                        <h2 className="w-20 font-medium italic">
                           {/* if value is not array jsut print it */}
                           {key}
                         </h2>
@@ -307,10 +307,10 @@ export default function Page() {
                   <SectionLink key={project.label} text={project.label} />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <aside className="flex flex-col gap-1 w-96">
+                  <aside className="flex w-96 flex-col gap-1">
                     {Object.entries(project.info).map(([key, value]) => (
                       <div className="flex flex-wrap items-start" key={key}>
-                        <h2 className="font-medium italic w-20">
+                        <h2 className="w-20 font-medium italic">
                           {/* if value is not array jsut print it */}
                           {key}
                         </h2>
@@ -351,4 +351,4 @@ export default function Page() {
       </HomeSection> */}
     </div>
   )
-} 
+}
