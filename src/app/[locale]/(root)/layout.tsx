@@ -4,8 +4,8 @@ import Link from 'next/link'
 import {HomeArticle, HomeSection} from '@/components'
 import {Navbar} from '@/components/Navbar'
 import {Badge} from '@/components/ui/badge'
-import {ME} from '@/constants'
-import {LINKS} from '@/mocks'
+import {ME, SocialLinks} from '@/constants'
+import {getSocialLink} from '@/utils/getSocialLink'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
 export function generateMetadata() {
@@ -20,15 +20,15 @@ export default async function RootLayout({children}: RootLayoutProps) {
     <div>
       <nav className="fixed top-0 w-full">
         <ul className="relative mx-auto flex w-fit -translate-y-6 cursor-pointer items-center justify-center gap-2 gap-x-4 rounded-b-md bg-gray-500 bg-opacity-40 p-2 duration-150 hover:z-10 hover:-translate-y-0 hover:bg-opacity-20">
-          {LINKS.map(link => (
+          {Object.entries(ME.social).map(([platform, id]) => (
             <a
-              href={link.url}
-              key={link.url}
+              href={getSocialLink(platform as SocialLinks, id)}
+              key={platform}
               className="flex items-center justify-center opacity-30 duration-150 hover:scale-105 hover:opacity-100"
             >
               <Image
-                src={`/svg/socials/${link.icon}.svg`}
-                alt={link.label}
+                src={`/svg/socials/${platform}-icon.svg`}
+                alt={platform}
                 width={16}
                 height={16}
               />
@@ -61,8 +61,8 @@ export default async function RootLayout({children}: RootLayoutProps) {
             I create accessible, user-friendly web applications with the best
             efficient solutions and best practices of the frontend world for
             SAAS projects. I`m currently working{' '}
-            <a className="link" href="https://smartgift.com">
-              @smartgift
+            <a className="link" href={ME.company.url} target="_blank">
+              ${ME.company.name}
             </a>
           </p>
 
@@ -87,15 +87,15 @@ export default async function RootLayout({children}: RootLayoutProps) {
           <p className="text-xs opacity-40">Created in 2022 by {ME.fullName}</p>
 
           <ul className="flex gap-2">
-            {LINKS.map(link => (
+            {Object.entries(ME.social).map(([platform, id]) => (
               <a
-                href={link.url}
-                key={link.url}
+                href={getSocialLink(platform as SocialLinks, id)}
+                key={platform}
                 className="flex items-center justify-center opacity-40 duration-150 hover:scale-105 hover:opacity-60"
               >
                 <Image
-                  src={`/svg/socials/${link.icon}.svg`}
-                  alt={link.label}
+                  src={`/svg/socials/${platform}-icon.svg`}
+                  alt={platform}
                   width={16}
                   height={16}
                 />

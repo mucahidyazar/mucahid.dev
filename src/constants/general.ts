@@ -22,7 +22,6 @@ export const ME = {
     twitter: 'mucahidyazar',
     instagram: 'mucahidyazar',
     medium: 'mucahidyazar',
-    bmc: 'mucahidyazar',
     codepen: "mucahidyazar",
     steam: "mucahidyazar",
     discord: "mucahidyazar",

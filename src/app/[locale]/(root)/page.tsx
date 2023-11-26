@@ -8,8 +8,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
-import {ME} from '@/constants'
-import {EXPERIENCES, LINKS, PINS, PROJECTS} from '@/mocks'
+import {ME, SocialLinks} from '@/constants'
+import {EXPERIENCES, PINS, PROJECTS} from '@/mocks'
+import {getSocialLink} from '@/utils/getSocialLink'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
 interface ISectionLink {
@@ -28,7 +29,7 @@ const SectionLink = ({href = '#', text = '', logo, children}: ISectionLink) => {
 }
 
 export function generateMetadata() {
-  const title = `${ME.fullName} - ${ME.job} @${ME.company}`
+  const title = `${ME.fullName} - ${ME.job} @${ME.company.name}`
 
   return prepareMetadata({
     title,
@@ -241,12 +242,12 @@ export default function Page() {
         <HomeArticle
           id="find-me-on"
           title="Find me on"
-          content={LINKS.map(link => (
+          content={Object.entries(ME.social).map(([platform, id]) => (
             <SectionLink
-              key={link.label}
-              text={link.label}
-              href={link.url}
-              logo={`/svg/socials/${link.icon}.svg`}
+              key={platform}
+              text={platform}
+              href={getSocialLink(platform as SocialLinks, id)}
+              logo={`/svg/socials/${platform}-icon.svg`}
             />
           ))}
         />
