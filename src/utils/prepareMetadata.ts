@@ -16,7 +16,7 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
 
   const DEFAULT_TITLE = {
     default: ME.fullName,
-    template: `%s - ${ME.job} | ${domain}`,
+    template: `%s - ${ME.job} @${ME.company.name} | ${domain}`,
   }
   const title = metadata.title || DEFAULT_TITLE
   const description = metadata.description || ME.descriptionFull

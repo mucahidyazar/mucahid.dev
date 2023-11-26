@@ -29,7 +29,7 @@ const SectionLink = ({href = '#', text = '', logo, children}: ISectionLink) => {
 }
 
 export function generateMetadata() {
-  const title = `${ME.fullName} - ${ME.job} @${ME.company.name}`
+  const title = `${ME.fullName}`
 
   return prepareMetadata({
     title,
