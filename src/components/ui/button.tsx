@@ -4,6 +4,8 @@ import * as React from 'react'
 
 import {cn} from '@/utils'
 
+import {Icons} from './icons'
+
 const buttonVariants = cva(
   'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300',
   {
@@ -27,23 +29,46 @@ const buttonVariants = cva(
         lg: 'h-11 rounded-md px-8',
         icon: 'h-10 w-10',
       },
+      disabled: {
+        true: 'opacity-50 pointer-events-none cursor-not-allowed',
+      },
     },
     defaultVariants: {
       variant: 'default',
       size: 'default',
+      disabled: false,
     },
   },
 )
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({className, variant, size, asChild = false, ...props}, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      disabled: buttonDisabled,
+      isLoading,
+      children,
+      asChild = false,
+      ...props
+    },
+    ref,
+  ) => {
     const Comp = asChild ? Slot : 'button'
+
+    const disabled = isLoading || buttonDisabled
+
     return (
       <Comp
-        className={cn(buttonVariants({variant, size, className}))}
+        className={cn(buttonVariants({variant, size, className, disabled}))}
         ref={ref}
+        disabled={disabled}
         {...props}
-      />
+      >
+        {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
+        {children}
+      </Comp>
     )
   },
 )
@@ -54,5 +79,7 @@ export {Button, buttonVariants}
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  isLoading?: boolean
+  disabled?: boolean
   asChild?: boolean
 }
