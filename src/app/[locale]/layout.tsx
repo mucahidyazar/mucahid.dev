@@ -6,7 +6,6 @@ import {getServerSession} from 'next-auth'
 import {NextIntlClientProvider} from 'next-intl'
 import {Suspense} from 'react'
 
-import {GoogleAnalytics} from '@/components/lib/google-analytics'
 import {GoogleTagManager} from '@/components/lib/google-tag-manager'
 import {ProgressbarProvider} from '@/components/providers/ProgressbarProvider'
 import {SessionProvider} from '@/components/providers/SessionProvider'
@@ -64,7 +63,6 @@ export default async function RootLayout({
         <ProgressbarProvider />
         <Suspense>
           <GoogleTagManager />
-          <GoogleAnalytics />
         </Suspense>
       </body>
     </html>
