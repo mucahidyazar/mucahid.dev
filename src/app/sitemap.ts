@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             {
                   url: 'https://mucahid.dev',
                   lastModified: new Date(),
-                  changeFrequency: 'monthly',
+                  changeFrequency: 'weekly',
                   priority: 1,
             },
             {
