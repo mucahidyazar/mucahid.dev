@@ -37,8 +37,7 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
   const initialMetadata = {
     title,
     description,
-    authors: [{ name: 'Bekten Usubaliev', url: `${domain}` }],
-    icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
+    authors: [{ name: ME.fullName, url: `${domain}` }],
     manifest: '/site.webmanifest',
     alternates: {
       canonical: '/',
