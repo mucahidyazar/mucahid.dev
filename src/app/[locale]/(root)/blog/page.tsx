@@ -109,8 +109,13 @@ export default async function BlogPage({searchParams}: BlogPageProps) {
           />
         </div>
 
-        <CreateArticleButton />
+        {user?.role === 'ADMIN' && <CreateArticleButton />}
       </div>
+      {!articles.length && (
+        <div className="mb-8 rounded bg-gray-300 bg-opacity-30 p-6 text-center">
+          There is no article for this selection. Please try another one.
+        </div>
+      )}
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {articles.map(article => (
           <Article key={article.id} article={article} />
