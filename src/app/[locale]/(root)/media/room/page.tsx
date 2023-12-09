@@ -25,15 +25,6 @@ async function getData() {
     `https://sheets.googleapis.com/v4/spreadsheets/${WORKSPACE_SHEET_ID}/values/Sheet1!A1:K14?key=${env.GOOGLE_API_KEY}`,
   )
 
-  // The return value is *not* serialized
-  // You can return Date, Map, Set, etc.
-
-  // Recommendation: handle errors
-  if (!coffeeSetupRes.ok || !workspaceRes.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data')
-  }
-
   return {
     coffeeSetupData: await coffeeSetupRes.json(),
     workspaceData: await workspaceRes.json(),

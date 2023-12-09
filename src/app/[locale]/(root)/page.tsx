@@ -25,14 +25,7 @@ export default function Page() {
   return (
     <div id="home" className="flex flex-col gap-6">
       <div className="flex flex-col gap-4 sm:w-2/3">
-        <p>
-          I create accessible, user-friendly web applications with the best
-          efficient solutions and best practices of the frontend world for SAAS
-          projects. I`m currently working{' '}
-          <a className="link" href={ME.company.url} target="_blank">
-            ${ME.company.name}
-          </a>
-        </p>
+        <p>{ME.descriptionShort}</p>
 
         <HomeSection id="downloads">
           <HomeArticle
@@ -111,16 +104,7 @@ export default function Page() {
         title="About me"
         content={
           <div className="flex flex-col gap-2">
-            <p>
-              I am a highly experienced frontend developer with a passion for
-              building great companies and creating high-quality software. I
-              have been working in the field since 2017, and have a wealth of
-              experience in developing products, designing frontend
-              applications, and implementing software patterns and architecture.
-              I have worked on large zero-to-one SAAS projects at unicorn,
-              decacorn, and billion dollar companies, and have gained a wealth
-              of knowledge and best practices from my experiences.
-            </p>
+            <p>{ME.descriptionDetail}</p>
             <div className="flex flex-wrap gap-2">
               <TooltipProvider>
                 <Tooltip>

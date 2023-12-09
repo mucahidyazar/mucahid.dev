@@ -19,7 +19,7 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
     template: `%s - ${ME.job} @${ME.company.name} | ${domain}`,
   }
   const title = metadata.title || DEFAULT_TITLE
-  const description = metadata.description || ME.descriptionFull
+  const description = metadata.description || ME.descriptionShort
 
   const { authors, openGraph, twitter, ...rest } = metadata
 

@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   const {searchParams} = new URL(request.url)
   const page = searchParams.get('page')
   const title = searchParams.get('title')
-  const description = searchParams.get('description') || ME.descriptionFull
+  const description = searchParams.get('description') || ME.descriptionShort
   const host = headers().get('host')
   const protocal = configs.isDevelopment ? 'http' : 'https'
   const domain = `${protocal}://${host}`
