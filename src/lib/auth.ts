@@ -60,10 +60,6 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         // Add logic here to look up the user from the credentials supplied
-        // console.log('credentials')
-        // console.log(credentials)
-        // console.log('req')
-        // console.log(req)
         if (!credentials?.email) {
           return null
         }

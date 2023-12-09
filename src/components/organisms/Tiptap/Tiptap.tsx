@@ -206,10 +206,10 @@ export function Tiptap({
       //           .from('mucahid.dev')
       //           .remove([`blog/${filePath}`])
       //           .then(() => {
-      //             console.log('removed')
+      //             log('removed')
       //           })
       //           .catch((e: Error) => {
-      //             console.error(e)
+      //             log(e)
       //           })
       //       }
       //     })
