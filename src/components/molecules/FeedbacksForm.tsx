@@ -33,9 +33,8 @@ export function FeedbacksForm() {
     resolver: zodResolver(validationSchema),
   })
 
-  const submit = async (data: TValidationSchema) => {
+  const submit = async (_data: TValidationSchema) => {
     // createFeedback.mutate(data)
-    console.log('submit', data)
   }
 
   return (

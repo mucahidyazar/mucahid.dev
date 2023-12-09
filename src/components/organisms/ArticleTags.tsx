@@ -62,7 +62,6 @@ export function ArticleTags({params = {}, tags = []}: ArticleTagsProps) {
                         ])
                       }}
                       onBlur={() => {
-                        console.log('x')
                         let copiedTags = [...field.value]
                         copiedTags[tagIndex].isNew = false
 

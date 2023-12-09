@@ -64,7 +64,7 @@ function useOneTapSignin(
             prompt_parent_id: parentContainerId,
           })
 
-          // Here we just console.log some error situations and reason why the google one tap
+          // Here we just log some error situations and reason why the google one tap
           // is not displayed. You may want to handle it depending on yuor application
           google.accounts.id.prompt((notification: any) => {
             if (notification.isNotDisplayed()) {

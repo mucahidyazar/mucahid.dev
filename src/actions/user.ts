@@ -22,7 +22,6 @@ export async function signUpUser(body: SignUpUser) {
     });
     return { message: 'User created successfully.' };
   } catch (error) {
-    console.log(error)
     return {
       message: 'Database Error: Failed to Create Invoice.',
     };

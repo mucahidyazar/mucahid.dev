@@ -45,12 +45,12 @@ export function MhrsSearchForm() {
   })
 
   const submitHandler = async (data: TValidationSchema) => {
-    console.log({data})
+    return data
   }
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(submitHandler)}>
-      <div className="flex flex-col gap-2 sm:min-w-full md:min-w-[260px] mb-4">
+      <div className="mb-4 flex flex-col gap-2 sm:min-w-full md:min-w-[260px]">
         <Controller
           name="city"
           control={control}
@@ -87,14 +87,14 @@ export function MhrsSearchForm() {
         />
 
         {Object.keys(formState.errors).length > 0 && (
-          <div className="bg-red-500 p-2 rounded text-xs">
+          <div className="rounded bg-red-500 p-2 text-xs">
             {Object.values(formState.errors).map(error => (
               <p key={error.message}>{error.message}</p>
             ))}
           </div>
         )}
         <button
-          className="px-4 py-2 bg-blue-500 rounded-md uppercase font-semibold text-sm"
+          className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold uppercase"
           // onClick={createUrlShortenerHandler}
         >
           Search

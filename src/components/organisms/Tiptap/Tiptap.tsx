@@ -152,7 +152,6 @@ export function Tiptap({
         //             ),
         //           )
         //         } catch (e) {
-        //           console.error(e)
         //         }
         //       }
         //     })
@@ -206,10 +205,10 @@ export function Tiptap({
       //           .from('mucahid.dev')
       //           .remove([`blog/${filePath}`])
       //           .then(() => {
-      //             console.log('removed')
+      //             log('removed')
       //           })
       //           .catch((e: Error) => {
-      //             console.error(e)
+      //             error(e)
       //           })
       //       }
       //     })

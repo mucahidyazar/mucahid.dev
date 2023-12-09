@@ -43,8 +43,7 @@ async function getPost(postId: string) {
     })
     return data.data.post
   } catch (error) {
-    console.log(error)
-    console.log((error as any)?.response?.data)
+    return null
   }
 }
 
@@ -72,26 +71,26 @@ export default async function BlogDetail({params}: {params: {id: string}}) {
         remarkPlugins={[remarkGfm]}
         components={{
           h1: props => (
-            <h1 className="text-4xl font-bold mt-8 mb-4" {...props} />
+            <h1 className="mb-4 mt-8 text-4xl font-bold" {...props} />
           ),
           h2: props => (
-            <h2 className="text-3xl font-bold mt-6 mb-3" {...props} />
+            <h2 className="mb-3 mt-6 text-3xl font-bold" {...props} />
           ),
           h3: props => (
-            <h3 className="text-2xl font-bold mt-4 mb-2" {...props} />
+            <h3 className="mb-2 mt-4 text-2xl font-bold" {...props} />
           ),
           h4: props => (
-            <h4 className="text-xl font-bold mt-3 mb-1.5" {...props} />
+            <h4 className="mb-1.5 mt-3 text-xl font-bold" {...props} />
           ),
           h5: props => (
-            <h5 className="text-lg font-bold mt-2 mb-1" {...props} />
+            <h5 className="mb-1 mt-2 text-lg font-bold" {...props} />
           ),
           h6: props => (
-            <h6 className="text-base font-bold mt-1 mb-0.5" {...props} />
+            <h6 className="mb-0.5 mt-1 text-base font-bold" {...props} />
           ),
-          p: props => <p className="text-base leading-7 mb-4" {...props} />,
-          ul: props => <ul className="list-disc ml-8 mb-6" {...props} />,
-          ol: props => <ol className="list-decimal ml-8 mb-6" {...props} />,
+          p: props => <p className="mb-4 text-base leading-7" {...props} />,
+          ul: props => <ul className="mb-6 ml-8 list-disc" {...props} />,
+          ol: props => <ol className="mb-6 ml-8 list-decimal" {...props} />,
           li: props => <li className="mb-2" {...props} />,
           a: props => (
             <a
@@ -129,7 +128,7 @@ export default async function BlogDetail({params}: {params: {id: string}}) {
           pre: props => (
             <pre
               {...props}
-              className="bg-gray-900 rounded px-2 py-1 text-sm font-mono mb-6"
+              className="mb-6 rounded bg-gray-900 px-2 py-1 font-mono text-sm"
             />
           ),
           table: props => (

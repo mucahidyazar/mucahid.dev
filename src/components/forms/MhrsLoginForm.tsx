@@ -29,9 +29,8 @@ export function MhrsLoginForm() {
       return response.data
     },
     {
-      onSuccess: data => {
+      onSuccess: (/*data*/) => {
         // Cookies.set('mhrsToken', data.token)
-        console.log({data})
         window.location.reload()
       },
     },

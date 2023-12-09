@@ -30,17 +30,15 @@ export function Feedbacks({feedbacks, isAdmin}: IFeedbacksProps) {
   //   },
   // })
 
-  const updateVisibility = (input: {
+  const updateVisibility = (_input: {
     id: string
     status: 'in_progress' | 'active'
   }) => {
     // updateFeedback.mutate(input)
-    console.log('updateVisibility', input)
   }
 
-  const deleteFeedbackHandler = ({id}: {id: string}) => {
+  const deleteFeedbackHandler = ({id: _id}: {id: string}) => {
     // deleteFeedback.mutate({id})
-    console.log('deleteFeedbackHandler', id)
   }
 
   return (
