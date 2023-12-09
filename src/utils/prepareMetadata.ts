@@ -39,7 +39,6 @@ export function prepareMetadata(metadata: TPrepareMetadata = {}): Metadata {
     title,
     description,
     authors: [{ name: ME.fullName, url: `${domain}` }],
-    icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
     manifest: '/site.webmanifest',
     alternates: {
       canonical: '/',
