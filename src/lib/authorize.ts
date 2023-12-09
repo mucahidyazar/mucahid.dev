@@ -56,6 +56,7 @@ export const authorize = async (credentials: Record<"credential", string> | unde
   });
 
   if (!account && user) {
+    // log("creating and linking account");
     await adapter.linkAccount!({
       userId: user.id,
       provider: "google",

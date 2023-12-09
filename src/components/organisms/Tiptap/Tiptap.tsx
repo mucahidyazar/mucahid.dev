@@ -151,8 +151,7 @@ export function Tiptap({
         //               }),
         //             ),
         //           )
-        //         } catch (e) {
-        //         }
+        //         } catch (e) {}
         //       }
         //     })
         //   })
@@ -208,7 +207,7 @@ export function Tiptap({
       //             log('removed')
       //           })
       //           .catch((e: Error) => {
-      //             error(e)
+      //             log(e)
       //           })
       //       }
       //     })
