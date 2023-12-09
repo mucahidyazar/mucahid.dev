@@ -16,6 +16,10 @@ module.exports = {
       },
     },
     extend: {
+      // 0.87:1
+      aspectRatio: {
+        '87/100': '87 / 100',
+      },
       boxShadow: {
         'soft-md': '0px 0px 20px 0px rgba(0,0,0,0.2)',
         'soft-lg': '0px 0px 20px 0px rgba(176, 48, 11, 0.4)',
@@ -77,5 +81,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }
