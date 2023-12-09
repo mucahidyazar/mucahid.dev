@@ -9,7 +9,9 @@ const ME_DESCRIPTION = '👋🏼 Hi, it is Mucahid. I am a frontend developer an
 
 const ME_DESCRIPTION_FULL = ME_DESCRIPTION + ' @' + COMPANY_NAME
 
-export const ME = {
+const CREATOR_ROLES = ['ADMIN']
+
+const ME = {
   firstName: FIRST_NAME,
   lastName: LAST_NAME,
   fullName: FULL_NAME,
@@ -31,4 +33,9 @@ export const ME = {
     name: COMPANY_NAME,
     url: COMPANY_URL,
   }
+}
+
+export {
+  CREATOR_ROLES,
+  ME,
 }

@@ -1,6 +1,5 @@
-import Image from 'next/image'
-
 import {HomeArticle, HomeSection} from '@/components'
+import {SectionLink} from '@/components/molecules/SectionLink'
 import {Badge} from '@/components/ui/badge'
 import {
   Tooltip,
@@ -12,21 +11,6 @@ import {ME, SocialLinks} from '@/constants'
 import {EXPERIENCES, PINS, PROJECTS} from '@/mocks'
 import {getSocialLink} from '@/utils/getSocialLink'
 import {prepareMetadata} from '@/utils/prepareMetadata'
-
-interface ISectionLink {
-  href?: string
-  children?: React.ReactNode
-  logo?: string
-  text?: string
-}
-const SectionLink = ({href = '#', text = '', logo, children}: ISectionLink) => {
-  return (
-    <a href={href} className={`link flex items-center gap-2`}>
-      {logo && <Image src={logo} alt={text} width={20} height={20} />}
-      {text || children}
-    </a>
-  )
-}
 
 export function generateMetadata() {
   const title = `${ME.fullName}`
@@ -40,6 +24,31 @@ export function generateMetadata() {
 export default function Page() {
   return (
     <div id="home" className="flex flex-col gap-6">
+      <div className="flex flex-col gap-4 sm:w-2/3">
+        <p>
+          I create accessible, user-friendly web applications with the best
+          efficient solutions and best practices of the frontend world for SAAS
+          projects. I`m currently working{' '}
+          <a className="link" href={ME.company.url} target="_blank">
+            ${ME.company.name}
+          </a>
+        </p>
+
+        <HomeSection id="downloads">
+          <HomeArticle
+            title="Download"
+            content={
+              <Badge variant="secondary">
+                <a href="/resume.pdf" download>
+                  Resume
+                </a>
+              </Badge>
+            }
+          />
+        </HomeSection>
+      </div>
+      <div className="my-8 h-[1px] w-full bg-white opacity-10"></div>
+
       <HomeSection id="about">
         <HomeArticle
           id="creator-of"

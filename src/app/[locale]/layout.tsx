@@ -43,10 +43,11 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions)
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <head />
       <body
         className={`${inter.className} flex flex-col overflow-x-hidden bg-background`}
+        suppressHydrationWarning
       >
         <SessionProvider session={session} refetchOnWindowFocus>
           <NextIntlClientProvider locale={locale} messages={messages}>

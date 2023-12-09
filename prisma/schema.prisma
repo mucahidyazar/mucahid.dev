@@ -70,6 +70,7 @@ model User {
   stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
   stripePriceId          String?   @map(name: "stripe_price_id")
   stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
+  Article                Article[]
 
   @@map(name: "users")
 }
@@ -96,4 +97,21 @@ model Feedback {
   email     String?
   message   String
   status    Status   @default(in_progress)
+}
+
+model Article {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  title    String
+  content  String
+  tags     String[]
+  category String?
+  cover    String?
+
+  published Boolean @default(false)
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
 }
