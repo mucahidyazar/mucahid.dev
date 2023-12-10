@@ -6,8 +6,11 @@ export const env = createEnv({
     // This is optional because it's only used in development.
     // See https://next-auth.js.org/deployment.
     NEXTAUTH_URL: z.string().url().optional(),
+    NEXTAUTH_SECRET:
+      process.env.NODE_ENV === 'production'
+        ? z.string()
+        : z.string().optional(),
     GOOGLE_API_KEY: z.string().default(''),
-    NEXTAUTH_SECRET: z.string().min(1),
     GITHUB_CLIENT_ID: z.string().min(1),
     GITHUB_CLIENT_SECRET: z.string().min(1),
     GOOGLE_CLIENT_ID: z.string().min(1),
@@ -21,6 +24,9 @@ export const env = createEnv({
     // STRIPE_API_KEY: z.string().min(1),
     // STRIPE_WEBHOOK_SECRET: z.string().min(1),
     // STRIPE_PRO_MONTHLY_PLAN_ID: z.string().min(1),
+    NODE_ENV: z
+      .enum(['development', 'test', 'production'])
+      .default('development'),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -32,6 +38,7 @@ export const env = createEnv({
   runtimeEnv: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+    NODE_ENV: process.env.NODE_ENV,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,

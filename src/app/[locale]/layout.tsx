@@ -1,6 +1,7 @@
 import './global.css'
 
 import {Inter} from 'next/font/google'
+import {cookies} from 'next/headers'
 import {notFound} from 'next/navigation'
 import {getServerSession} from 'next-auth'
 import {NextIntlClientProvider} from 'next-intl'
@@ -13,6 +14,8 @@ import {ThemeProvider} from '@/components/providers/ThemeProvider'
 import {Toaster} from '@/components/ui/toaster'
 import {authOptions} from '@/lib/auth'
 import {prepareMetadata} from '@/utils/prepareMetadata'
+
+import {TRPCReactProvider} from '../../trpc/react'
 
 const inter = Inter({subsets: ['latin']})
 
@@ -49,25 +52,27 @@ export default async function RootLayout({
         className={`${inter.className} flex flex-col overflow-x-hidden bg-background`}
         suppressHydrationWarning
       >
-        <SessionProvider session={session} refetchOnWindowFocus>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              themes={['dark', 'light', 'navy']}
-            >
-              {children}
-            </ThemeProvider>
-          </NextIntlClientProvider>
-        </SessionProvider>
+        <TRPCReactProvider cookies={cookies().toString()}>
+          <SessionProvider session={session} refetchOnWindowFocus>
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                themes={['dark', 'light', 'navy']}
+              >
+                {children}
+              </ThemeProvider>
+            </NextIntlClientProvider>
+          </SessionProvider>
 
-        <ProgressbarProvider />
-        <Toaster />
+          <ProgressbarProvider />
+          <Toaster />
 
-        <Suspense>
-          <GoogleTagManager />
-        </Suspense>
+          <Suspense>
+            <GoogleTagManager />
+          </Suspense>
+        </TRPCReactProvider>
       </body>
     </html>
   )
