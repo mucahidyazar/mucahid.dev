@@ -13,8 +13,9 @@ function createAxios({ baseURL, headers }: ICreateAxios) {
 }
 
 const API_URL = ''
+const SERVICE_URL = 'http://localhost:8001/api/v1'
 const VERSION = ''
-const API_VERSION = `${API_URL}/api/${VERSION}`
+const API = `${API_URL}/api/${VERSION}`
 
 const rootApi = createAxios({
   baseURL: API_URL,
@@ -24,10 +25,17 @@ const rootApi = createAxios({
 })
 
 const api = createAxios({
-  baseURL: API_VERSION,
+  baseURL: API,
   headers: {
     'Content-Type': 'application/json',
   },
 })
 
-export { API_VERSION, api, createAxios, rootApi }
+const service = createAxios({
+  baseURL: SERVICE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+
+export { API, api, createAxios, rootApi, service }

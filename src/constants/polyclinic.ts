@@ -1,230 +1,59 @@
-export const polyclinic = {
-  'Aile Hekimliği': {
-    value: 106,
-    label: 'Aile Hekimliği',
-  },
-  'Anesteziyoloji ve Reanimasyon': {
-    value: 109,
-    label: 'Anesteziyoloji ve Reanimasyon',
-  },
-  'Beyin ve Sinir Cerrahisi': {
-    value: 112,
-    label: 'Beyin ve Sinir Cerrahisi',
-  },
-  'Çocuk Cerrahisi': {
-    value: 116,
-    label: 'Çocuk Cerrahisi',
-  },
-  'Çocuk Diş Hekimliği': {
-    value: 117,
-    label: 'Çocuk Diş Hekimliği',
-  },
-  'Çocuk Endokrinolojisi': {
-    value: 118,
-    label: 'Çocuk Endokrinolojisi',
-  },
-  'Çocuk Enfeksiyon Hastalıkları': {
-    value: 119,
-    label: 'Çocuk Enfeksiyon Hastalıkları',
-  },
-  'Çocuk Gastroenterolojisi': {
-    value: 120,
-    label: 'Çocuk Gastroenterolojisi',
-  },
-  'Çocuk Göğüs Hastalıkları': {
-    value: 199,
-    label: 'Çocuk Göğüs Hastalıkları',
-  },
-  'Çocuk Hematolojisi ve Onkolojisi': {
-    value: 123,
-    label: 'Çocuk Hematolojisi ve Onkolojisi',
-  },
-  'Çocuk İmmünolojisi ve Alerji Hastalıkları': {
-    value: 124,
-    label: 'Çocuk İmmünolojisi ve Alerji Hastalıkları',
-  },
-  'Çocuk Kardiyolojisi': {
-    value: 126,
-    label: 'Çocuk Kardiyolojisi',
-  },
-  'Çocuk Nefrolojisi': {
-    value: 128,
-    label: 'Çocuk Nefrolojisi',
-  },
-  'Çocuk Nörolojisi': {
-    value: 129,
-    label: 'Çocuk Nörolojisi',
-  },
-  'Çocuk Romatolojisi': {
-    value: 131,
-    label: 'Çocuk Romatolojisi',
-  },
-  'Çocuk Sağlığı ve Hastalıkları': {
-    value: 132,
-    label: 'Çocuk Sağlığı ve Hastalıkları',
-  },
-  'Çocuk Ürolojisi': {
-    value: 133,
-    label: 'Çocuk Ürolojisi',
-  },
-  'Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları': {
-    value: 134,
-    label: 'Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları',
-  },
-  'Deri ve Zührevi Hastalıkları (Cildiye)': {
-    value: 136,
-    label: 'Deri ve Zührevi Hastalıkları (Cildiye)',
-  },
-  'Diş Hekimliği (Genel Diş)': {
-    value: 198,
-    label: 'Diş Hekimliği (Genel Diş)',
-  },
-  Endodonti: {
-    value: 138,
-    label: 'Endodonti',
-  },
-  'Endokrinoloji ve Metabolizma Hastalıkları': {
-    value: 139,
-    label: 'Endokrinoloji ve Metabolizma Hastalıkları',
-  },
-  'Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji': {
-    value: 140,
-    label: 'Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji',
-  },
-  'Fiziksel Tıp ve Rehabilitasyon': {
-    value: 142,
-    label: 'Fiziksel Tıp ve Rehabilitasyon',
-  },
-  Gastroenteroloji: {
-    value: 144,
-    label: 'Gastroenteroloji',
-  },
-  'Genel Cerrahi': {
-    value: 147,
-    label: 'Genel Cerrahi',
-  },
-  Geriatri: {
-    value: 148,
-    label: 'Geriatri',
-  },
-  'Göğüs Cerrahisi': {
-    value: 149,
-    label: 'Göğüs Cerrahisi',
-  },
-  'Göğüs Hastalıkları': {
-    value: 150,
-    label: 'Göğüs Hastalıkları',
-  },
-  Glokom: {
-    value: 9000001,
-    label: 'Glokom',
-  },
-  Hematoloji: {
-    value: 155,
-    label: 'Hematoloji',
-  },
-  'İç Hastalıkları (Dahiliye)': {
-    value: 157,
-    label: 'İç Hastalıkları (Dahiliye)',
-  },
-  'İmmünoloji ve Alerji Hastalıkları': {
-    value: 158,
-    label: 'İmmünoloji ve Alerji Hastalıkları',
-  },
-  'Kadın Hastalıkları ve Doğum': {
-    value: 161,
-    label: 'Kadın Hastalıkları ve Doğum',
-  },
-  'Kalp ve Damar Cerrahisi': {
-    value: 162,
-    label: 'Kalp ve Damar Cerrahisi',
-  },
-  Kardiyoloji: {
-    value: 163,
-    label: 'Kardiyoloji',
-  },
-  'Kulak Burun Boğaz Hastalıkları': {
-    value: 165,
-    label: 'Kulak Burun Boğaz Hastalıkları',
-  },
-  Nefroloji: {
-    value: 166,
-    label: 'Nefroloji',
-  },
-  Nöroloji: {
-    value: 168,
-    label: 'Nöroloji',
-  },
-  Ortodonti: {
-    value: 170,
-    label: 'Ortodonti',
-  },
-  'Ortopedi ve Travmatoloji': {
-    value: 171,
-    label: 'Ortopedi ve Travmatoloji',
-  },
-  Periodontoloji: {
-    value: 174,
-    label: 'Periodontoloji',
-  },
-  'Plastik, Rekonstrüktif ve Estetik Cerrahi': {
-    value: 175,
-    label: 'Plastik, Rekonstrüktif ve Estetik Cerrahi',
-  },
-  'Protetik Diş Tedavisi': {
-    value: 176,
-    label: 'Protetik Diş Tedavisi',
-  },
-  'Radyasyon Onkolojisi': {
-    value: 177,
-    label: 'Radyasyon Onkolojisi',
-  },
-  'Restoratif Diş Tedavisi': {
-    value: 179,
-    label: 'Restoratif Diş Tedavisi',
-  },
-  Romatoloji: {
-    value: 180,
-    label: 'Romatoloji',
-  },
-  'Ruh Sağlığı ve Hastalıkları (Psikiyatri)': {
-    value: 181,
-    label: 'Ruh Sağlığı ve Hastalıkları (Psikiyatri)',
-  },
-  'Sağlık Kurulu': {
-    value: 210,
-    label: 'Sağlık Kurulu',
-  },
-  'Sağlık Kurulu ÇÖZGER (Çocuk Özel Gereksinim Raporu)': {
-    value: 211,
-    label: 'Sağlık Kurulu ÇÖZGER (Çocuk Özel Gereksinim Raporu)',
-  },
-  'Sigarayı Bıraktırma Kliniği': {
-    value: 150001,
-    label: 'Sigarayı Bıraktırma Kliniği',
-  },
-  'Tıbbi Genetik': {
-    value: 189,
-    label: 'Tıbbi Genetik',
-  },
-  'Tıbbi Onkoloji': {
-    value: 192,
-    label: 'Tıbbi Onkoloji',
-  },
-  'Uyku Polikliniği': {
-    value: 168001,
-    label: 'Uyku Polikliniği',
-  },
-  Üroloji: {
-    value: 196,
-    label: 'Üroloji',
-  },
-  'Ağız, Diş ve Çene Cerrahisi': {
-    value: 103,
-    label: 'Ağız, Diş ve Çene Cerrahisi',
-  },
-  'Ağız, Diş ve Çene Radyolojisi': {
-    value: 104,
-    label: 'Ağız, Diş ve Çene Radyolojisi',
-  },
-}
+export const POLYCLINIC = {
+  106: 'Aile Hekimliği',
+  109: 'Anesteziyoloji ve Reanimasyon',
+  112: 'Beyin ve Sinir Cerrahisi',
+  116: 'Çocuk Cerrahisi',
+  117: 'Çocuk Diş Hekimliği',
+  118: 'Çocuk Endokrinolojisi',
+  119: 'Çocuk Enfeksiyon Hastalıkları',
+  120: 'Çocuk Gastroenterolojisi',
+  199: 'Çocuk Göğüs Hastalıkları',
+  123: 'Çocuk Hematolojisi ve Onkolojisi',
+  124: 'Çocuk İmmünolojisi ve Alerji Hastalıkları',
+  126: 'Çocuk Kardiyolojisi',
+  128: 'Çocuk Nefrolojisi',
+  129: 'Çocuk Nörolojisi',
+  131: 'Çocuk Romatolojisi',
+  132: 'Çocuk Sağlığı ve Hastalıkları',
+  133: 'Çocuk Ürolojisi',
+  134: 'Çocuk ve Ergen Ruh Sağlığı ve Hastalıkları',
+  136: 'Deri ve Zührevi Hastalıkları (Cildiye)',
+  198: 'Diş Hekimliği (Genel Diş)',
+  138: 'Endodonti',
+  139: 'Endokrinoloji ve Metabolizma Hastalıkları',
+  140: 'Enfeksiyon Hastalıkları ve Klinik Mikrobiyoloji',
+  142: 'Fiziksel Tıp ve Rehabilitasyon',
+  144: 'Gastroenteroloji',
+  147: 'Genel Cerrahi',
+  148: 'Geriatri',
+  149: 'Göğüs Cerrahisi',
+  150: 'Göğüs Hastalıkları',
+  9000001: 'Glokom',
+  155: 'Hematoloji',
+  157: 'İç Hastalıkları (Dahiliye)',
+  158: 'İmmünoloji ve Alerji Hastalıkları',
+  161: 'Kadın Hastalıkları ve Doğum',
+  162: 'Kalp ve Damar Cerrahisi',
+  163: 'Kardiyoloji',
+  165: 'Kulak Burun Boğaz Hastalıkları',
+  166: 'Nefroloji',
+  168: 'Nöroloji',
+  170: 'Ortodonti',
+  171: 'Ortopedi ve Travmatoloji',
+  174: 'Periodontoloji',
+  175: 'Plastik, Rekonstrüktif ve Estetik Cerrahi',
+  176: 'Protetik Diş Tedavisi',
+  177: 'Radyasyon Onkolojisi',
+  179: 'Restoratif Diş Tedavisi',
+  180: 'Romatoloji',
+  181: 'Ruh Sağlığı ve Hastalıkları (Psikiyatri)',
+  210: 'Sağlık Kurulu',
+  211: 'Sağlık Kurulu ÇÖZGER (Çocuk Özel Gereksinim Raporu)',
+  150001: 'Sigarayı Bıraktırma Kliniği',
+  189: 'Tıbbi Genetik',
+  192: 'Tıbbi Onkoloji',
+  168001: 'Uyku Polikliniği',
+  196: 'Üroloji',
+  103: 'Ağız, Diş ve Çene Cerrahisi',
+  104: 'Ağız, Diş ve Çene Radyolojisi',
+} as Record<string, string>

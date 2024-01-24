@@ -4,6 +4,7 @@ import {usePathname, useSearchParams} from 'next/navigation'
 import Script from 'next/script'
 import {useEffect} from 'react'
 
+import {configs} from '@/configs'
 import {GTM_ID, pageview} from '@/lib/gtag'
 
 export default function Analytics() {
@@ -16,7 +17,7 @@ export default function Analytics() {
     }
   }, [pathname, searchParams])
 
-  if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
+  if (!configs.isProduction) {
     return null
   }
 

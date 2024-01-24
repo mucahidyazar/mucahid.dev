@@ -1,15 +1,58 @@
-import {cookies} from 'next/headers'
+import {redirect} from 'next/navigation'
 
-import {MhrsLoginForm} from '@/components/forms/MhrsLoginForm'
 import {MhrsTemplate} from '@/components/templates/MhrsTemplate'
+import {db} from '@/lib/db'
+import {getCurrentUser} from '@/lib/session'
 
-export default function Page() {
-  const cookieStore = cookies()
-  const mhrsToken = cookieStore.get('mhrsToken')?.value || ''
+type PageProps = {
+  searchParams: Record<string, string> & {
+    appointmentId?: string
+  }
+}
+export default async function Page({searchParams}: PageProps) {
+  const user = await getCurrentUser()
+  const mhrsAccount = await db.mhrsAccount.findUnique({
+    where: {userId: user.id},
+  })
 
-  if (!mhrsToken) {
-    return <MhrsLoginForm />
+  if (!mhrsAccount) {
+    return redirect(`/profile/${user.id}`)
   }
 
-  return <MhrsTemplate mhrsToken={mhrsToken} />
+  const appointments = await db.appointment.findMany({
+    where: {userId: user.id},
+  })
+
+  const appointmentId = searchParams.appointmentId as string
+  // if there is an appointmentId in the url then find the appointment
+
+  const appointmentHistories = await db.appointmentHistory.findMany({
+    where: {userId: user.id, appoinmentId: appointmentId},
+    orderBy: {createdAt: 'desc'},
+  })
+
+  if (appointmentId) {
+    const appointment = await db.appointment.findUnique({
+      where: {id: appointmentId},
+    })
+
+    if (appointment) {
+      return (
+        <MhrsTemplate
+          appointments={appointments}
+          appointment={appointment}
+          appointmentHistories={appointmentHistories}
+          user={user}
+        />
+      )
+    }
+  }
+
+  return (
+    <MhrsTemplate
+      appointments={appointments}
+      appointmentHistories={appointmentHistories}
+      user={user}
+    />
+  )
 }

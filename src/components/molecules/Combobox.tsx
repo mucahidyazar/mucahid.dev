@@ -38,17 +38,18 @@ export function Combobox({data, value, onChange, label}: IComboboxProps) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="justify-between"
+          className="justify-between text-black"
+          size="sm"
         >
           {value ? selectedCity?.label : `Select ${label}...`}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0">
-        <Command className="bg-black bg-opacity-50">
+        <Command>
           <CommandInput placeholder={`Search ${label}...`} />
           <CommandEmpty>No {label} found.</CommandEmpty>
-          <CommandGroup className="overflow-y-scroll max-h-[200px]">
+          <CommandGroup className="max-h-[200px] overflow-y-scroll">
             {data.map(item => (
               <CommandItem
                 key={item.value}

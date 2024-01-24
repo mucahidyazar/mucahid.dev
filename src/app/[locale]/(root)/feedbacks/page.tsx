@@ -5,6 +5,7 @@ import {Feedbacks} from '@/components/molecules/Feedbacks'
 import {FeedbacksForm} from '@/components/molecules/FeedbacksForm'
 import {ME} from '@/constants'
 import {db} from '@/lib/db'
+import {getCurrentUser} from '@/lib/session'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
 export function generateMetadata() {
@@ -20,7 +21,8 @@ export function generateMetadata() {
 }
 
 export default async function Page() {
-  const isAdmin = false
+  const user = await getCurrentUser()
+  const isAdmin = user?.role === 'ADMIN'
 
   const feedbacks = await db.feedback.findMany({
     where: isAdmin ? {} : {status: 'active'},

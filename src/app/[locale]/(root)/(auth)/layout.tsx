@@ -2,7 +2,7 @@
 import {redirect} from 'next/navigation'
 
 import {Tabs} from '@/components/molecules/tabs'
-import {getCurrentUser} from '@/lib/session'
+import {getCurrentSession} from '@/lib/session'
 
 type Props = {
   children: React.ReactNode
@@ -11,10 +11,10 @@ type Props = {
 // Since we have a `not-found.tsx` page on the root, a layout file
 // is required, even if it's just passing children through.
 export default async function Layout({children}: Props) {
-  const user = await getCurrentUser()
+  const session = await getCurrentSession()
 
-  if (user) {
-    redirect(`/profile/${user.id}`)
+  if (session?.user) {
+    redirect(`/profile/${session.user.id}`)
   }
 
   return (

@@ -1,7 +1,9 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import {Header} from '@/components/molecules/Header'
 import {ME, SocialLinks} from '@/constants'
+import {getCurrentSession} from '@/lib/session'
 import {getSocialLink} from '@/utils/getSocialLink'
 import {prepareMetadata} from '@/utils/prepareMetadata'
 
@@ -13,6 +15,8 @@ type RootLayoutProps = {
   children: React.ReactNode
 }
 export default async function RootLayout({children}: RootLayoutProps) {
+  const session = await getCurrentSession()
+
   return (
     <div className="flex h-full w-full flex-col">
       <nav className="fixed top-0 w-full">
@@ -31,7 +35,10 @@ export default async function RootLayout({children}: RootLayoutProps) {
               />
             </a>
           ))}
-          <div className="absolute top-0 h-12 w-12 translate-y-[35px] rounded bg-gray-500 p-1 opacity-40 hover:opacity-100">
+          <Link
+            className="absolute top-0 h-12 w-12 translate-y-[35px] rounded bg-gray-500 p-1 opacity-40 hover:opacity-100"
+            href={`/profile/${session?.user?.id}`}
+          >
             <Image
               src="/me.png"
               alt="logo"
@@ -39,7 +46,7 @@ export default async function RootLayout({children}: RootLayoutProps) {
               height={40}
               className="min-w-full rounded object-cover"
             />
-          </div>
+          </Link>
         </ul>
       </nav>
       <Header />

@@ -1,10 +1,21 @@
+import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
 import { mhrsApi } from '@/configs/api';
 
 export async function POST(request: Request) {
   const { username, password } = await request.json();
-  let response = NextResponse.next();
+
+  let mhrsToken = cookies().get('mhrsToken')?.value;
+  if (mhrsToken) {
+    return NextResponse.json(
+      {
+        message: 'You have already logged in.',
+        token: mhrsToken,
+      },
+      { status: 200 }
+    )
+  }
 
   const { data: loginResponse } = await mhrsApi.post('/vatandas/login', {
     kullaniciAdi: username,
@@ -14,8 +25,7 @@ export async function POST(request: Request) {
   })
 
   if (loginResponse.data) {
-    const mhrsToken = loginResponse.data.jwt
-    await response.cookies.set('mhrsToken', mhrsToken);
+    mhrsToken = loginResponse.data.jwt as string
     return NextResponse.json(
       {
         message: 'You have successfully logged in.',

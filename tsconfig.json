@@ -21,6 +21,7 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@/common": ["./src/common.ts"],
       "@/components": ["./src/components/index.ts"],
       "@/components/*": ["./src/components/*"],
       "@/templates": ["./src/components/templates/index.ts"],

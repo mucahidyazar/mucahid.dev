@@ -1,9 +1,12 @@
 'use client'
 
 import {zodResolver} from '@hookform/resolvers/zod'
+import {Appointment} from '@prisma/client'
+import {useEffect} from 'react'
 import {Controller, useForm} from 'react-hook-form'
 import {z} from 'zod'
 
+import {createAppointment} from '@/actions/appointment'
 import {Combobox} from '@/components/molecules/Combobox'
 import {
   Accordion,
@@ -12,76 +15,109 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import {Label} from '@/components/ui/label'
-import {RadioGroup, RadioGroupItem} from '@/components/ui/radio-group'
 import {Switch} from '@/components/ui/switch'
-import {
-  city as cities,
-  district as districts,
-  polyclinic as polyclinics,
-} from '@/constants'
+import {CITY, DISTRICT, POLYCLINIC} from '@/constants'
+import {useServerAction} from '@/hooks'
+
+import {Button} from '../ui/button'
+import {Tabs, TabsList, TabsTrigger} from '../ui/tabs'
 
 const validationSchema = z.object({
-  city: z.string().nonempty('Please select a city'),
-  district: z.string().nonempty('Please select a district'),
-  polyclinic: z.string().nonempty('Please select a polyclinic'),
-  localHospitals: z.boolean().optional(),
-  firstExamination: z.boolean().optional(),
-  sex: z.string().optional(),
+  cityId: z.number().min(1, 'City is required'),
+  districtId: z.number().min(1, 'District is required'),
+  polyclinicId: z.number().min(1, 'Polyclinic is required'),
+  localHospitals: z.boolean(),
+  firstExamination: z.boolean(),
+  sex: z.enum(['B', 'E', 'K']),
 })
 
 type TValidationSchema = z.infer<typeof validationSchema>
 
-export function MhrsSearchForm() {
-  const {handleSubmit, formState, control} = useForm<TValidationSchema>({
-    defaultValues: {
-      city: '',
-      district: '',
-      polyclinic: '',
-      localHospitals: true,
-      firstExamination: false,
-      sex: 'both',
-    },
+type MhrsSearchFormProps = {
+  appointment?: Appointment
+}
+export function MhrsSearchForm({appointment}: MhrsSearchFormProps) {
+  const [createAppointmentAction, createAppointmentIsPending] =
+    useServerAction(createAppointment)
+
+  const defaultValues = {
+    cityId: 0,
+    districtId: 0,
+    polyclinicId: 0,
+    localHospitals: true,
+    firstExamination: false,
+    sex: 'B',
+  } as TValidationSchema
+  const {handleSubmit, formState, control, reset} = useForm<TValidationSchema>({
+    defaultValues,
     resolver: zodResolver(validationSchema),
   })
 
+  useEffect(() => {
+    reset(appointment || defaultValues)
+  }, [appointment])
+
   const submitHandler = async (data: TValidationSchema) => {
-    return data
+    createAppointmentAction(data)
   }
 
   return (
     <form className="flex flex-col" onSubmit={handleSubmit(submitHandler)}>
-      <div className="mb-4 flex flex-col gap-2 sm:min-w-full md:min-w-[260px]">
+      <h2 className="mb-4 font-semibold">Appointment Informations</h2>
+      <div className="mb-2 flex flex-col gap-2 sm:min-w-full md:min-w-[260px]">
         <Controller
-          name="city"
-          control={control}
-          rules={{required: true}}
-          render={({field}) => (
-            <Combobox label="city" data={Object.values(cities)} {...field} />
-          )}
-        />
-
-        <Controller
-          name="district"
+          name="cityId"
           control={control}
           rules={{required: true}}
           render={({field}) => (
             <Combobox
-              label="district"
-              data={Object.values(districts)}
+              label="City id"
+              data={Object.entries(CITY).map(([key, label]) => ({
+                value: key,
+                label,
+              }))}
               {...field}
+              onChange={value => {
+                field.onChange(Number(value))
+              }}
             />
           )}
         />
 
         <Controller
-          name="polyclinic"
+          name="districtId"
           control={control}
           rules={{required: true}}
           render={({field}) => (
             <Combobox
-              label="polyclinic"
-              data={Object.values(polyclinics)}
+              label="District id"
+              data={Object.entries(DISTRICT).map(([key, label]) => ({
+                value: key,
+                label,
+              }))}
               {...field}
+              onChange={value => {
+                field.onChange(Number(value))
+              }}
+            />
+          )}
+        />
+
+        <Controller
+          name="polyclinicId"
+          control={control}
+          rules={{required: true}}
+          render={({field}) => (
+            <Combobox
+              label="Polyclinic id"
+              data={Object.entries(POLYCLINIC).map(([key, label]) => ({
+                value: key,
+                label,
+              }))}
+              {...field}
+              onChange={value => {
+                field.onChange(Number(value))
+              }}
             />
           )}
         />
@@ -93,18 +129,47 @@ export function MhrsSearchForm() {
             ))}
           </div>
         )}
-        <button
-          className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold uppercase"
-          // onClick={createUrlShortenerHandler}
+        <Button
+          type="submit"
+          isLoading={createAppointmentIsPending}
+          disabled={createAppointmentIsPending}
+          variant="destructive"
+          size="sm"
         >
-          Search
-        </button>
+          {appointment ? 'Update' : 'Search'}
+        </Button>
       </div>
+
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1" className="border-none">
-          <AccordionTrigger>Advanced Filters</AccordionTrigger>
+          <AccordionTrigger className="p-0 pb-2 text-sm">
+            Advanced Filters
+          </AccordionTrigger>
           <AccordionContent>
             <div className="flex flex-col gap-4">
+              <Controller
+                name="sex"
+                control={control}
+                render={({field: {value, onChange}}) => (
+                  <Tabs defaultValue={value} className="mx-auto w-full">
+                    <TabsList className="h-8 w-full rounded-sm">
+                      {sexOptions.map(sex => {
+                        return (
+                          <TabsTrigger
+                            value={sex.value}
+                            key={sex.value}
+                            onClick={() => onChange(sex.value)}
+                            className="h-6"
+                          >
+                            {sex.label}
+                          </TabsTrigger>
+                        )
+                      })}
+                    </TabsList>
+                  </Tabs>
+                )}
+              />
+
               <div className="flex items-center space-x-2">
                 <Controller
                   name="localHospitals"
@@ -137,36 +202,6 @@ export function MhrsSearchForm() {
                 />
                 <Label htmlFor="first-examination">Ilk Muayene</Label>
               </div>
-
-              <Controller
-                name="sex"
-                control={control}
-                render={({field: {value, onChange}}) => (
-                  <RadioGroup defaultValue={value}>
-                    <div
-                      className="flex items-center space-x-2"
-                      onClick={() => onChange('both')}
-                    >
-                      <RadioGroupItem value="both" id="r1" />
-                      <Label htmlFor="r1">Both</Label>
-                    </div>
-                    <div
-                      className="flex items-center space-x-2"
-                      onClick={() => onChange('E')}
-                    >
-                      <RadioGroupItem value="man" id="r2" />
-                      <Label htmlFor="r2">Sadece Erkek Doktorlar</Label>
-                    </div>
-                    <div
-                      className="flex items-center space-x-2"
-                      onClick={() => onChange('F')}
-                    >
-                      <RadioGroupItem value="woman" id="r3" />
-                      <Label htmlFor="r3">Sadece Kadin Doktorlar</Label>
-                    </div>
-                  </RadioGroup>
-                )}
-              />
             </div>
           </AccordionContent>
         </AccordionItem>
@@ -174,3 +209,9 @@ export function MhrsSearchForm() {
     </form>
   )
 }
+
+const sexOptions = [
+  {value: 'B', label: 'Both'},
+  {value: 'E', label: 'Erkek'},
+  {value: 'K', label: 'Kadin'},
+]
