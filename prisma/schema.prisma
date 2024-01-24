@@ -1,0 +1,278 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//! ENUMS - START
+enum Role {
+  USER
+  ADMIN
+  ARTIST
+}
+
+enum Status {
+  in_progress
+  active
+}
+
+enum CheckStatus {
+  active
+  inactive
+  archived
+}
+
+enum CheckFrequency {
+  fiveMinutes
+  daily
+  hourly
+  weekly
+}
+
+enum Sex {
+  E // Erkek
+  K // Kadin
+  B // Both
+}
+
+//! ENUMS - END
+
+//! MODELS - START
+model MhrsAccount {
+  id       String @unique
+  password String
+
+  user        User          @relation(fields: [userId], references: [id])
+  userId      String        @unique
+  Appointment Appointment[]
+
+  @@map(name: "mhrs_accounts")
+}
+
+model Account {
+  id                String   @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+  createdAt         DateTime @default(now()) @map(name: "created_at")
+  updatedAt         DateTime @default(now()) @map(name: "updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map(name: "accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map(name: "sessions")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  password      String?
+  image         String?
+  profession    String?
+  description   String?
+  location      String?
+  role          Role      @default(USER)
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
+
+  accounts Account[]
+  sessions Session[]
+
+  shareData     Boolean @default(false)
+  shareSomeData Boolean @default(false)
+  receiveEmails Boolean @default(false)
+
+  stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
+  stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
+  stripePriceId          String?   @map(name: "stripe_price_id")
+  stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
+
+  articles             Article[]
+  feedbacks            Feedback[]
+  mhrsAccount          MhrsAccount?
+  wishList             WishList[]
+  appointments         Appointment[]
+  mhrsToken            Cookie?
+  stockHistories       StockHistory[]
+  appointmentHistories AppointmentHistory[]
+
+  @@map(name: "users")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map(name: "verification_tokens")
+}
+
+model Feedback {
+  id String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name    String
+  email   String?
+  message String
+
+  status Status @default(in_progress)
+
+  createdBy   User   @relation(fields: [createdById], references: [id])
+  createdById String
+
+  @@map(name: "feedbacks")
+}
+
+model Article {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  title    String
+  content  String
+  tags     String[]
+  category String?
+  cover    String?
+
+  published Boolean @default(false)
+
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId String
+
+  @@map(name: "articles")
+}
+
+model StockHistory {
+  id String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  wishListId   String
+  wishList     WishList @relation(fields: [wishListId], references: [id])
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  inStock      Boolean
+  productPrice String?
+  productName  String?
+  productImage String?
+  productUrl   String
+
+  @@map(name: "stock_histories")
+}
+
+model WishList {
+  id String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId         String
+  user           User           @relation(fields: [userId], references: [id])
+  isPublic       Boolean        @default(false)
+  productName    String?
+  productImage   String?
+  productPrice   String?
+  productUrl     String
+  checkFrequency CheckFrequency @default(daily)
+  inStock        Boolean        @default(false)
+  minPrice       Float?
+  maxPrice       Float?
+  stockHistories StockHistory[]
+  status         CheckStatus    @default(active)
+
+  @@map(name: "wish_lists")
+}
+
+model Cookie {
+  id String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId       String      @unique
+  user         User        @relation(fields: [userId], references: [id])
+  appoinmentId String      @unique
+  appoinment   Appointment @relation(fields: [appoinmentId], references: [id])
+
+  key       String
+  value     String
+  expiresAt DateTime
+
+  @@map(name: "cookies")
+}
+
+model AppointmentHistory {
+  id String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId       String
+  user         User        @relation(fields: [userId], references: [id])
+  appoinmentId String
+  appoinment   Appointment @relation(fields: [appoinmentId], references: [id])
+
+  message String
+
+  @@map(name: "appointment_histories")
+}
+
+model Appointment {
+  id String @id @default(cuid())
+
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  reservedAt DateTime?
+
+  userId         String
+  user           User           @relation(fields: [userId], references: [id])
+  mhrsAccountId  String
+  mhrsAccount    MhrsAccount    @relation(fields: [mhrsAccountId], references: [id])
+  checkFrequency CheckFrequency @default(daily)
+  status         CheckStatus    @default(active)
+
+  cityId       Int
+  districtId   Int
+  polyclinicId Int
+  doctorId     Int?
+
+  localHospitals   Boolean @default(true)
+  firstExamination Boolean @default(false)
+  sex              Sex     @default(B)
+  anyDoctor        Boolean @default(true)
+  anyTime          Boolean @default(true)
+
+  checkCount Int @default(0)
+
+  token                Cookie?
+  appointmentHistories AppointmentHistory[]
+
+  @@map(name: "appointments")
+}
