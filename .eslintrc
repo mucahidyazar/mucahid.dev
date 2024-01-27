@@ -1,6 +1,11 @@
 {
   "extends": "next/core-web-vitals",
-  "plugins": ["@typescript-eslint", "unused-imports", "sort-exports"],
+  "plugins": [
+    "@typescript-eslint",
+    "unused-imports",
+    "sort-exports",
+    "jsx-a11y"
+  ],
   "rules": {
     "react-hooks/exhaustive-deps": 0,
     "no-console": 0,
