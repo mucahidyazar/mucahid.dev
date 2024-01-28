@@ -12,7 +12,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        'mx-auto mt-10 flex w-full flex-col justify-center gap-6 p-4 pb-0 md:mx-0 md:mt-0 md:justify-start md:gap-12',
+        'mx-auto mt-10 flex w-full flex-col justify-center gap-6 p-4 pb-0 md:mx-0 md:mt-0 md:justify-start md:gap-12 xl:px-0',
       )}
     >
       <div className="flex justify-between">
