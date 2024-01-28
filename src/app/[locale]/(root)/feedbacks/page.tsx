@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-sync-scripts */
 import Script from 'next/script'
 
+import {EmptyContent} from '@/components/molecules/EmptyContent'
 import {Feedbacks} from '@/components/molecules/Feedbacks'
 import {FeedbacksForm} from '@/components/molecules/FeedbacksForm'
 import {ME} from '@/constants'
@@ -58,17 +59,13 @@ export default async function Page() {
           {feedbacks?.length ? (
             <Feedbacks feedbacks={feedbacks} isAdmin={isAdmin} />
           ) : (
-            <div className="flex h-80 flex-col items-center justify-center">
-              <p className="text-2xl font-semibold text-gray-400">
-                No feedbacks yet
-              </p>
-              <p className="text-sm text-gray-400">
-                Be the first one to leave a feedback
-              </p>
-            </div>
+            <EmptyContent
+              title="No feedbacks yet"
+              description="Be the first one to leave a feedback"
+            />
           )}
 
-          <div className="h-[1px] w-full -translate-y-7 bg-white opacity-10"></div>
+          <div className="my-4 h-[1px] w-full bg-foreground bg-opacity-10"></div>
 
           <FeedbacksForm />
         </aside>

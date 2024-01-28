@@ -56,23 +56,23 @@ export function MoviesTemplate() {
           with you with my personal rating between 1 and 10.
         </blockquote>
 
-        <DialogContent className="w-fit p-0 border-none">
+        <DialogContent className="w-fit border-none p-0">
           <Image
             src={image}
             alt="Movie poster"
             width={1000}
             height={1000}
-            className="w-auto h-full object-contain origin-center rounded-md"
+            className="h-full w-auto origin-center rounded-md object-contain"
           />
         </DialogContent>
         {Object.entries(moviesByYears)
           .sort(() => -1)
           .map(([year, movies]) => (
             <div key={year}>
-              <h2 className="text-2xl text-white underline underline-offset-4 mb-4">
+              <h2 className="mb-4 text-2xl text-primary-500 underline underline-offset-4">
                 {year}
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+              <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
                 {movies.map(movie => (
                   <DialogTrigger key={movie.name + movie.ry}>
                     <MediaCard

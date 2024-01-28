@@ -28,22 +28,22 @@ export default function LinkPreviewPage() {
     } as any).then(() => myUrlShortenerMutate())
 
   return (
-    <div className="flex flex-col gap-4 items-center">
+    <div className="flex flex-col items-center gap-4">
       <div className="flex gap-2">
         <input
           type="text"
-          className="border border-solid border-indigo-500 border-opacity-30 w-full rounded-md h-10 px-4"
+          className="h-10 w-full rounded-md border border-solid border-indigo-500 border-opacity-30 px-4"
           value={link}
           onChange={e => setLink(e.target.value)}
         />
         <button
-          className="px-4 py-2 bg-blue-500 rounded-md uppercase font-semibold text-sm"
+          className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold uppercase"
           onClick={createUrlShortenerHandler}
         >
           Convert
         </button>
       </div>
-      <ul className="border border-solid border-indigo-500 border-opacity-30 w-full rounded-md h-60 bg-indigo-500 bg-opacity-10 overflow-y-auto p-1 flex flex-col gap-1">
+      <ul className="flex h-60 w-full flex-col gap-1 overflow-y-auto rounded-md border border-solid border-indigo-500 border-opacity-30 bg-indigo-500 bg-opacity-10 p-1">
         {urlShortenerData?.data.map((data: any) => (
           <UrlShortenerListItem key={data._id} data={data} />
         ))}
@@ -61,14 +61,14 @@ function UrlShortenerListItem({data}: any) {
   }) as any
 
   return (
-    <li className="border-b border-solid border-indigo-200 border-opacity-20 bg-indigo-500 bg-opacity-20 rounded">
+    <li className="rounded border-b border-solid border-indigo-200 border-opacity-20 bg-indigo-500 bg-opacity-20">
       <div className="flex flex-col gap-1 p-2">
         <div className="flex items-center gap-2">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>
                 <DocumentDuplicateIcon
-                  className="inline-block w-4 h-4 text-white cursor-pointer"
+                  className="inline-block h-4 w-4 cursor-pointer"
                   onClick={() => {
                     navigator.clipboard.writeText(
                       `${env.NEXT_PUBLIC_APP_URL}/s/${data.short}`,
@@ -85,7 +85,7 @@ function UrlShortenerListItem({data}: any) {
             <Tooltip>
               <TooltipTrigger>
                 <EyeIcon
-                  className="inline-block w-4 h-4 text-white cursor-pointer"
+                  className="inline-block h-4 w-4 cursor-pointer"
                   onMouseEnter={() => setIsPreviewing(true)}
                   onMouseLeave={() => setIsPreviewing(false)}
                 />{' '}
@@ -104,21 +104,21 @@ function UrlShortenerListItem({data}: any) {
             href={`${window.origin}/s/${data.short}`}
             target="_blank"
             rel="noreferrer"
-            className="text-blue-500 font-bold"
+            className="font-bold text-blue-500"
           >
             {`${window.origin}/s/${data.short}`}
           </a>
         </div>
         <div className="text-xs text-gray-400">
-          <span className="font-semibold inline-block w-10">Clicks</span>
+          <span className="inline-block w-10 font-semibold">Clicks</span>
           {data.clicks}
         </div>
         <div className="text-xs text-gray-400">
-          <span className="font-semibold inline-block w-10">Link</span>
+          <span className="inline-block w-10 font-semibold">Link</span>
           {data.full}
         </div>
         <div className="text-xs text-gray-400">
-          <span className="font-semibold inline-block w-10">Date</span>
+          <span className="inline-block w-10 font-semibold">Date</span>
           {new Date(data.createdAt).toLocaleTimeString('en', {
             day: 'numeric',
             month: 'numeric',

@@ -4,8 +4,8 @@ import {bookByYears} from '@/mocks'
 
 function EmptySection() {
   return (
-    <div className="bg-gray-500 px-4 py-2 rounded bg-opacity-60">
-      <blockquote className="text-sm italic text-right">
+    <div className="rounded bg-gray-500 bg-opacity-60 px-4 py-2">
+      <blockquote className="text-right text-sm italic">
         There is no note for this book.
       </blockquote>
     </div>
@@ -23,16 +23,16 @@ export function BookTemplate({slug}: {slug: string}) {
         suggest to others with the year I read them.
       </blockquote>
       {book && (
-        <div className="flex gap-8 flex-col md:flex-row">
+        <div className="flex flex-col gap-8 md:flex-row">
           <Image
             src={book?.src}
             alt="Book cover"
             width={1000}
             height={1000}
-            className="md:min-w-[360px] h-full object-contain origin-center rounded-md max-w-[200px] md:max-w[auto] mx-auto"
+            className="md:max-w[auto] mx-auto h-full max-w-[200px] origin-center rounded-md object-contain md:min-w-[360px]"
           />
           <div className="flex flex-col gap-2">
-            <h2 className="text-2xl text-white underline underline-offset-4">
+            <h2 className="text-2xl underline underline-offset-4">
               {book.name}
             </h2>
             <div className="text-xs">
@@ -41,27 +41,21 @@ export function BookTemplate({slug}: {slug: string}) {
               <p>Slug: {book.slug}</p>
             </div>
             <div>
-              <p className="text-white text-sm">{book.comment}</p>
+              <p className="text-sm">{book.comment}</p>
             </div>
 
             <div>
-              <h3 className="text-white underline underline-offset-4 mb-2">
-                Notes
-              </h3>
+              <h3 className="mb-2 underline underline-offset-4">Notes</h3>
               <EmptySection />
             </div>
 
             <div>
-              <h3 className="text-white underline underline-offset-4 mb-2">
-                Quotes
-              </h3>
+              <h3 className="mb-2 underline underline-offset-4">Quotes</h3>
               <EmptySection />
             </div>
 
             <div>
-              <h3 className="text-white underline underline-offset-4 mb-2">
-                Images
-              </h3>
+              <h3 className="mb-2 underline underline-offset-4">Images</h3>
               <EmptySection />
             </div>
           </div>

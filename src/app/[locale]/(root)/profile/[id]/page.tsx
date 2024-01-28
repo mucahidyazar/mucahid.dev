@@ -1,3 +1,4 @@
+import {User} from '@prisma/client'
 import Image from 'next/image'
 
 import ProfileForm from '@/components/forms/ProfileForm'
@@ -5,7 +6,7 @@ import {db} from '@/lib/db'
 import {getCurrentUser} from '@/lib/session'
 
 export default async function Page() {
-  const user = await getCurrentUser()
+  const user = (await getCurrentUser()) as User
   const mhrsAccount = await db.mhrsAccount.findUnique({
     where: {userId: user.id},
   })

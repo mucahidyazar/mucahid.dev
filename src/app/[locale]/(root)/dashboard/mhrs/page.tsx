@@ -1,3 +1,4 @@
+import {User} from '@prisma/client'
 import {redirect} from 'next/navigation'
 
 import {MhrsTemplate} from '@/components/templates/MhrsTemplate'
@@ -10,7 +11,7 @@ type PageProps = {
   }
 }
 export default async function Page({searchParams}: PageProps) {
-  const user = await getCurrentUser()
+  const user = (await getCurrentUser()) as User
   const mhrsAccount = await db.mhrsAccount.findUnique({
     where: {userId: user.id},
   })

@@ -1,11 +1,13 @@
 export const revalidate = 10
 
+import {User} from '@prisma/client'
+
 import StockTemplate from '@/components/templates/StockTemplate'
 import {db} from '@/lib/db'
 import {getCurrentUser} from '@/lib/session'
 
 export default async function AdminPage() {
-  const user = await getCurrentUser()
+  const user = (await getCurrentUser()) as User
 
   const wishList = await db.wishList.findMany({
     where: {userId: user.id},

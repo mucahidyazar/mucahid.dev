@@ -34,8 +34,9 @@ module.exports = {
         'primary-700': 'hsl(var(--primary-700) / <alpha-value>)',
         'primary-900': 'hsl(var(--primary-900) / <alpha-value>)',
 
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        background: 'hsl(var(--background) / <alpha-value>)',
+        foreground: 'hsl(var(--foreground) / <alpha-value>)',
+        link: 'hsl(var(--link) / <alpha-value>)',
         muted: 'hsl(var(--muted))',
         'muted-foreground': 'hsl(var(--muted-foreground))',
         card: 'hsl(var(--card))',

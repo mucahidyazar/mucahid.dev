@@ -38,7 +38,7 @@ export function Combobox({data, value, onChange, label}: IComboboxProps) {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="justify-between text-black"
+          className="justify-between"
           size="sm"
         >
           {value ? selectedCity?.label : `Select ${label}...`}

@@ -41,20 +41,20 @@ export function FeedbacksForm() {
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(submit)}>
       <div className="flex items-center gap-2">
         <input
-          className="w-full rounded border border-solid border-white border-opacity-10 bg-transparent bg-opacity-20 p-2 text-gray-300 placeholder-white placeholder-opacity-20 focus:border-none"
+          className="w-full rounded border border-solid border-foreground border-opacity-40 bg-transparent bg-opacity-20 p-2 text-foreground placeholder-foreground placeholder-opacity-40 focus:border-none"
           type="text"
           placeholder="Your name"
           {...register('name')}
         />
         <input
-          className="w-full rounded border border-solid border-white border-opacity-10 bg-transparent bg-opacity-20 p-2 text-gray-300 placeholder-white placeholder-opacity-20 focus:border-none"
+          className="w-full rounded border border-solid border-foreground border-opacity-40 bg-transparent bg-opacity-20 p-2 text-foreground placeholder-foreground placeholder-opacity-40 focus:border-none"
           type="text"
           placeholder="Email (Optional)"
           {...register('email')}
         />
       </div>
       <textarea
-        className="min-h-[120px] w-full rounded border border-solid border-white border-opacity-10 bg-transparent bg-opacity-20 p-2 text-gray-300 placeholder-white placeholder-opacity-20 focus:border-none"
+        className="min-h-[120px] w-full rounded border border-solid border-foreground border-opacity-40 bg-transparent bg-opacity-20 p-2 text-foreground placeholder-foreground placeholder-opacity-40 focus:border-none"
         placeholder="Your message"
         {...register('message')}
       />
@@ -66,7 +66,7 @@ export function FeedbacksForm() {
         </div>
       )}
       <button
-        className="ml-auto w-full rounded bg-purple-500 p-2 text-white"
+        className="ml-auto w-full rounded bg-primary-500 p-2 text-background"
         type="submit"
       >
         Send

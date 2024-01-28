@@ -31,7 +31,7 @@ export default function Page() {
           <HomeArticle
             title="Download"
             content={
-              <Badge variant="secondary">
+              <Badge variant="default">
                 <a href="/resume.pdf" download>
                   Resume
                 </a>
@@ -40,7 +40,6 @@ export default function Page() {
           />
         </HomeSection>
       </div>
-      <div className="my-8 h-[1px] w-full bg-white opacity-10"></div>
 
       <HomeSection id="about">
         <HomeArticle
@@ -109,7 +108,7 @@ export default function Page() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="secondary">Motivation</Badge>
+                    <Badge variant="default">Motivation</Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <div className="w-96">
@@ -132,7 +131,7 @@ export default function Page() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="secondary">Offer</Badge>
+                    <Badge variant="default">Offer</Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <div className="w-96">
@@ -155,7 +154,7 @@ export default function Page() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="secondary">Challenges</Badge>
+                    <Badge variant="default">Challenges</Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <ul className="w-96 list-disc pl-2">
@@ -210,7 +209,7 @@ export default function Page() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="secondary">Expectation</Badge>
+                    <Badge variant="default">Expectation</Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <ul className="w-96 list-disc pl-2">
@@ -240,7 +239,7 @@ export default function Page() {
               key={platform}
               text={platform}
               href={getSocialLink(platform as SocialLinks, id)}
-              logo={`/svg/socials/${platform}-icon.svg`}
+              icon={platform}
             />
           ))}
         />

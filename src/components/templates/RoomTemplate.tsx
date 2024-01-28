@@ -53,13 +53,13 @@ export function RoomTemplate({sheetData}: RoomTemplateProps) {
     <div className="flex flex-col gap-8">
       <Dialog>
         {image && (
-          <DialogContent className="w-fit p-0 border-none">
+          <DialogContent className="w-fit border-none p-0">
             <Image
               src={image}
               alt="Room Image"
               width={1000}
               height={1000}
-              className="w-auto h-full object-contain origin-center rounded-md"
+              className="h-full w-auto origin-center rounded-md object-contain"
             />
           </DialogContent>
         )}
@@ -67,10 +67,10 @@ export function RoomTemplate({sheetData}: RoomTemplateProps) {
           .sort(() => -1)
           .map(([year, rooms]) => (
             <div key={year}>
-              <h2 className="text-2xl text-white underline underline-offset-4 mb-4">
+              <h2 className="mb-4 text-2xl text-primary-500 underline underline-offset-4">
                 {year}
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+              <div className="grid grid-cols-2 gap-1 sm:grid-cols-3">
                 {rooms.map(room => (
                   <DialogTrigger key={room.name + room.ry}>
                     <MediaCard

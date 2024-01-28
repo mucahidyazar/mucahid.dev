@@ -47,7 +47,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <head />
       <body
-        className={`${inter.className} flex flex-col overflow-x-hidden bg-background`}
+        className={`${inter.className} flex flex-col overflow-x-hidden`}
         suppressHydrationWarning
       >
         <TanstackProvider>

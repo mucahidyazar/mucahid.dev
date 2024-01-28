@@ -26,7 +26,7 @@ export function SheetTable({
 
   return (
     <div className="flex flex-col">
-      <h2 className="mb-4 text-2xl text-white underline underline-offset-4">
+      <h2 className="mb-4 text-2xl text-primary-500 underline underline-offset-4">
         {title}
       </h2>
       <Table className="text-xs">
@@ -64,7 +64,7 @@ export function SheetTable({
                       className="!p-2 font-semibold"
                     >
                       <a
-                        className="group-hover:text-main hover:underline"
+                        className="hover:underline group-hover:text-main"
                         href={link}
                         target="_blank"
                         rel="noreferrer"

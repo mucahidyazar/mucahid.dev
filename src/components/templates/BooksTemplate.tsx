@@ -16,10 +16,10 @@ export function BooksTemplate() {
         .sort(() => -1)
         .map(([year, books]) => (
           <div key={year}>
-            <h2 className="text-2xl text-white underline underline-offset-4 mb-4">
+            <h2 className="mb-4 text-2xl text-primary-500 underline underline-offset-4">
               {year}
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
               {books.map(book => (
                 <Link href={`/media/books/${book.slug}`} key={book.slug}>
                   <MediaCard media={book} />

@@ -29,7 +29,7 @@ export function Navbar() {
 
   return (
     <nav>
-      <ul className="flex items-center justify-center gap-4 font-sans text-lg font-semibold sm:text-xl">
+      <ul className="mx-auto flex items-center justify-center gap-4 font-sans text-lg font-semibold sm:text-xl">
         {NAV_ITEMS.map(item => (
           <NavbarItem key={item.label} {...item} />
         ))}

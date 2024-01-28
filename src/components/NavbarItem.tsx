@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 
+import {cn} from '@/utils'
+
 interface INavbarItemProps {
   label: string
   path: string
@@ -20,9 +22,10 @@ export function NavbarItem(item: INavbarItemProps) {
   return (
     <li
       key={item.label}
-      className={
-        isActive() ? 'text-white' : 'opacity-20 hover:opacity-50 duration-200'
-      }
+      className={cn(
+        'text-link duration-200 hover:opacity-60',
+        isActive() ? 'opacity-100' : 'opacity-40',
+      )}
     >
       <Link href={item.path}>{item.label}</Link>
     </li>

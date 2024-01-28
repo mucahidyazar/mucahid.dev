@@ -19,35 +19,38 @@ export function MediaTabs() {
   }
 
   return (
-    <div className="flex w-fit mb-8 gap-4">
+    <div className="mb-8 flex w-fit gap-4">
       <Link
         href="/media/room"
         className={cn(
-          'border border-gray-500 text-white px-4 py-2 rounded uppercase text-xs font-semibold hover:bg-gray-500 duration-200 flex gap-2 items-center',
-          isActive('/media/room') && 'bg-gray-500',
+          'flex items-center gap-2 rounded border border-primary-500 bg-primary-500 bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
+          isActive('/media/room') &&
+            'border-primary-700 bg-primary-700 bg-opacity-100',
         )}
       >
-        <BriefcaseIcon className="w-4 h-4" />
+        <BriefcaseIcon className="h-4 w-4" />
         Room
       </Link>
       <Link
         href="/media/books"
         className={cn(
-          'border border-gray-500 text-white px-4 py-2 rounded uppercase text-xs font-semibold hover:bg-gray-500 duration-200 flex gap-2 items-center',
-          isActive('/media/books') && 'bg-gray-500',
+          'flex items-center gap-2 rounded border border-primary-500 bg-primary-500 bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
+          isActive('/media/books') &&
+            'border-primary-700 bg-primary-700 bg-opacity-100',
         )}
       >
-        <BookOpenIcon className="w-4 h-4" />
+        <BookOpenIcon className="h-4 w-4" />
         Books
       </Link>
       <Link
         href="/media/movies"
         className={cn(
-          'border border-gray-500 text-white px-4 py-2 rounded uppercase text-xs font-semibold hover:bg-gray-500 duration-200 flex gap-2 items-center',
-          isActive('/media/movies') && 'bg-gray-500',
+          'flex items-center gap-2 rounded border border-primary-500 bg-primary-500 bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
+          isActive('/media/movies') &&
+            'border-primary-700 bg-primary-700 bg-opacity-100',
         )}
       >
-        <FilmIcon className="w-4 h-4" />
+        <FilmIcon className="h-4 w-4" />
         Movies
       </Link>
     </div>

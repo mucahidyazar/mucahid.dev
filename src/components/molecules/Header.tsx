@@ -1,41 +1,40 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
-import {usePathname} from 'next/navigation'
 
 import {cn} from '@/utils'
 
+import {AppTools} from '../atoms/AppTools'
+import {Icon} from '../atoms/icon/icon'
 import {Navbar} from '../Navbar'
 
 export function Header() {
-  const pathname = usePathname()
-  const isHomePage = pathname === '/'
-
   return (
     <header
       className={cn(
-        'mx-auto mb-8 mt-28 flex w-fit flex-col justify-center p-4 xl:p-0',
-        !isHomePage &&
-          'mt-8 w-full max-w-full items-center justify-between md:flex-row lg:max-w-6xl',
+        'mx-auto mt-10 flex w-full flex-col justify-center gap-6 p-4 pb-0 md:mx-0 md:mt-0 md:justify-start md:gap-12',
       )}
     >
-      <Link
-        href="/"
-        className={cn(
-          'mb-2 flex items-center justify-center',
-          !isHomePage && 'md:mb-0 md:block',
-        )}
-      >
-        <Image
-          src="/svg/full-logo.svg"
-          alt="logo"
-          width={400}
-          height={80}
-          className="cursor-pointer"
-        />
-      </Link>
+      <div className="flex justify-between">
+        <Link
+          href="/"
+          className={cn(
+            'flex w-28 cursor-pointer items-center justify-center md:w-48',
+          )}
+        >
+          <Icon
+            name="full-logo"
+            className="cursor-pointer"
+            fillOne="hsl(var(--foreground))"
+            fillTwo="hsl(var(--primary-500))"
+            viewBox="0 0 59 11"
+          />
+        </Link>
+        <AppTools className="static" />
+      </div>
+
       <Navbar />
+      <div className="absolute -bottom-16 left-0 right-0 h-16 w-full bg-gradient-to-b from-background to-transparent" />
     </header>
   )
 }

@@ -11,18 +11,25 @@ export async function getCurrentSession() {
   return session
 }
 
-export async function getCurrentUser() {
+type GetCurrentUserArgs = {
+  isRedirect?: boolean
+}
+export async function getCurrentUser(args?: GetCurrentUserArgs) {
   const session = await getServerSession(authOptions)
 
-  if (!session?.user) redirect("/")
+  if (!session?.user && args?.isRedirect !== false) redirect("/")
 
-  const user = await db.user.findUnique({
-    where: {
-      id: session.user.id,
-    },
-  })
+  if (session?.user) {
+    const user = await db.user.findUnique({
+      where: {
+        id: session?.user.id,
+      },
+    })
 
-  if (!user) redirect("/en")
+    if (!user || args?.isRedirect === true) redirect("/")
 
-  return user
+    return user
+  }
+
+  return null
 }

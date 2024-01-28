@@ -1,5 +1,6 @@
 import {HomeArticle} from '@/components'
 import {Article} from '@/components/molecules/Article'
+import {EmptyContent} from '@/components/molecules/EmptyContent'
 import {SectionLink} from '@/components/molecules/SectionLink'
 import {db} from '@/lib/db'
 import {getCurrentUser} from '@/lib/session'
@@ -29,7 +30,7 @@ type BlogPageProps = {
   }
 }
 export default async function BlogPage({searchParams}: BlogPageProps) {
-  const user = await getCurrentUser()
+  const user = await getCurrentUser({isRedirect: false})
 
   const where = {
     ...(searchParams.year && {
@@ -51,13 +52,16 @@ export default async function BlogPage({searchParams}: BlogPageProps) {
     where: {
       ...(user?.role !== 'ADMIN' && {published: true}),
       ...where,
+      author: {email: 'mucahidyazar@gmail.com'},
     },
     include: {author: true},
   })
 
+  const hasFilter = !!Object.values(searchParams).length
+
   return (
     <div id="blog">
-      <div className="my-8 flex justify-between">
+      <div className="mb-8 flex justify-between">
         <div className="flex flex-col gap-2">
           <HomeArticle
             id="years"
@@ -112,9 +116,14 @@ export default async function BlogPage({searchParams}: BlogPageProps) {
         {user?.role === 'ADMIN' && <CreateArticleButton />}
       </div>
       {!articles.length && (
-        <div className="mb-8 rounded bg-gray-300 bg-opacity-30 p-6 text-center">
-          There is no article for this selection. Please try another one.
-        </div>
+        <EmptyContent
+          title={!hasFilter ? 'No article' : 'No article found'}
+          description={
+            !hasFilter
+              ? 'There is no article now. Please come back later.'
+              : 'Please try different filters.'
+          }
+        />
       )}
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {articles.map(article => (

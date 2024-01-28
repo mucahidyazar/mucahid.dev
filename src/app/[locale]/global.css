@@ -3,16 +3,8 @@
 @tailwind utilities;
 
 @layer utilities {
-  .section-min-height {
-    min-height: calc(100vh - 68px);
-  }
-
-  .toggle-btn {
-    @apply [&>div::after]:translate-y-0 [&>div::after]:rotate-45 [&>div::before]:translate-y-0 [&>div::before]:rotate-45 [&>div]:rotate-[720deg] [&>div]:bg-transparent;
-  }
-
   .link {
-    @apply cursor-pointer border-b border-solid border-gray-500 font-medium text-main duration-200 hover:border-gray-400 hover:text-white;
+    @apply cursor-pointer border-b border-solid border-primary-500 font-medium text-primary-500 duration-200 hover:border-primary-900 hover:text-primary-900;
   }
 }
 
@@ -24,8 +16,15 @@
     --primary-700: 4 66% 29%;
     --primary-900: 7 75% 25%;
 
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --background: 240 7% 97%;
+    --foreground: 221 39% 11%;
+    --gradient: radial-gradient(
+      circle,
+      hsl(var(--background)) 0%,
+      hsl(var(--background)) 100%
+    );
+
+    --link: 221 39% 11%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -65,6 +64,8 @@
     --background: 0 0% 7%;
     --foreground: 0 0% 90%;
 
+    --link: 14 53% 59%;
+
     --muted: 0 0% 30%;
     --muted-foreground: 0 0% 70%;
 
@@ -102,6 +103,8 @@
 
     --background: 210 100% 10%;
     --foreground: 210 100% 90%;
+
+    --link: 205 54% 50%;
 
     --muted: 210 100% 30%;
     --muted-foreground: 210 100% 70%;
@@ -408,12 +411,8 @@ div[data-nextjs-scroll-focus-boundary] {
 }
 
 body {
-  background: rgb(70, 71, 122);
-  background: radial-gradient(
-    circle,
-    rgba(70, 71, 122, 1) 0%,
-    rgba(11, 17, 32, 1) 100%
-  );
+  background: var(--gradient);
+  color: hsl(var(--foreground));
 }
 
 html {
