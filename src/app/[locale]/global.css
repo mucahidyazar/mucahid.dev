@@ -367,6 +367,14 @@
       font-weight: 700;
     }
   }
+
+  #patternId {
+    background-image: radial-gradient(
+      circle,
+      hsl(var(--background) / 0) 0%,
+      hsl(var(--background) / 1) 100%
+    );
+  }
 }
 
 root {
