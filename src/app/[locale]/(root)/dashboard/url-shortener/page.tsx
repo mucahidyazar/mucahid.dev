@@ -5,6 +5,7 @@ import {useState} from 'react'
 
 import {LinkPreviewCard} from '@/components/cards'
 import {EmptyContent} from '@/components/molecules/EmptyContent'
+import Search from '@/components/molecules/Search'
 import {
   Tooltip,
   TooltipProvider,
@@ -17,33 +18,21 @@ import {useLinkPreviewService} from '@/request/hooks/useLinkPreviewService'
 import {useListUrlShortener} from '@/request/hooks/useListUrlShortener'
 
 export default function LinkPreviewPage() {
-  const [link, setLink] = useState(env.NEXT_PUBLIC_APP_URL)
-
   const {data: urlShortenerData, mutate: myUrlShortenerMutate} =
     useListUrlShortener() as any
   const {trigger: createTrigger} = useCreateUrlShortenerService()
 
-  const createUrlShortenerHandler = () =>
-    createTrigger({
-      url: link,
-    } as any).then(() => myUrlShortenerMutate())
-
   return (
     <div className="flex flex-col items-center gap-4">
-      <div className="flex gap-2">
-        <input
-          type="text"
-          className="h-10 w-full rounded-md border border-solid border-indigo-500 border-opacity-30 px-4"
-          value={link}
-          onChange={e => setLink(e.target.value)}
-        />
-        <button
-          className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold uppercase"
-          onClick={createUrlShortenerHandler}
-        >
-          Convert
-        </button>
-      </div>
+      <Search
+        onSubmit={async url => {
+          createTrigger({
+            url,
+          } as any).then(() => myUrlShortenerMutate())
+        }}
+        placeholder="The link you want to shorten"
+      />
+
       {!!urlShortenerData?.data.length ? (
         <ul className="flex h-60 w-full flex-col gap-1 overflow-y-auto rounded-md border border-foreground border-opacity-10 bg-foreground bg-opacity-5 p-1">
           {urlShortenerData.data.map((data: any) => (

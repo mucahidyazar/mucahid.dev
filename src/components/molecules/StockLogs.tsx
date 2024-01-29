@@ -9,7 +9,7 @@ type StockLogsProps = {
 }
 export function StockLogs({logs = []}: StockLogsProps) {
   return (
-    <div className="col-span-1 h-full overflow-hidden overflow-y-auto rounded bg-indigo-500 bg-opacity-10 text-xs">
+    <div className="col-span-1 h-full overflow-hidden overflow-y-auto rounded  border border-foreground border-opacity-10 bg-foreground bg-opacity-5 p-2 text-xs">
       {logs?.map(log => {
         const formatedTime = moment(log.createdAt).fromNow()
 
@@ -17,7 +17,7 @@ export function StockLogs({logs = []}: StockLogsProps) {
           <div
             key={log.id}
             className={cn(
-              'flex gap-2 bg-opacity-40 p-1 hover:bg-opacity-30',
+              'flex cursor-pointer gap-2 bg-opacity-5 p-1 hover:bg-opacity-10',
               log.inStock ? 'bg-green-500' : 'bg-red-500',
               log.isNew ? 'bg-yellow-500' : '',
             )}

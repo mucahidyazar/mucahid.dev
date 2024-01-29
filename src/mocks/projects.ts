@@ -214,18 +214,6 @@ export const PROJECTS: TProject[] = [
       company: 'granobra',
     },
   },
-  {
-    label: 'biletsepeti',
-    href: '',
-    logo: '',
-    info: {
-      main: 'next.js',
-      packages: ['react', 'next.js', 'redux', 'scss', 'react-hook-forms'],
-      deploy: 'local-server',
-      ci: 'gitlab actions',
-      company: 'granobra',
-    },
-  },
 ]
 
 export type TProject = {

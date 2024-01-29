@@ -7,7 +7,7 @@ import {usePathname, useRouter} from 'next/navigation'
 import {useSession} from 'next-auth/react'
 import {useLocale, useTranslations} from 'next-intl'
 import {useTheme} from 'next-themes'
-import {useTransition} from 'react'
+import {useEffect, useState, useTransition} from 'react'
 
 import {
   DropdownMenu,
@@ -49,6 +49,15 @@ export function AppTools({className}: AppToolsProps) {
     navy: <BoltIcon className="w-3" />,
     system: <LaptopIcon className="w-3" />,
   } as {[key: string]: React.ReactNode}
+
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   return (
     <section

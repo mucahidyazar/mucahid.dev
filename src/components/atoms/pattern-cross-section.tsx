@@ -18,7 +18,7 @@ export function PatternCrossSection({className, ...props}: PatternProps) {
         >
           <path
             d="M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z"
-            stroke-width="0.1"
+            strokeWidth="0.1"
             stroke="hsla(var(--primary-500) / 0.15)"
             fill="none"
           />

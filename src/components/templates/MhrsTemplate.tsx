@@ -82,7 +82,7 @@ export function MhrsTemplate({
       <div className="flex h-[40rem] w-96 flex-col">
         <MhrsSearchForm appointment={appointment} />
 
-        <div className="col-span-1 h-full overflow-hidden overflow-y-auto rounded bg-indigo-500 bg-opacity-10 text-xs">
+        <div className="col-span-1 h-full overflow-hidden overflow-y-auto rounded border border-foreground border-opacity-10 bg-foreground bg-opacity-5 text-xs">
           <h2 className="p-2 text-center text-base font-semibold">
             LOGS ({historyList.length + appointmentHistories.length})
           </h2>
@@ -91,7 +91,7 @@ export function MhrsTemplate({
           <AppointmentLogs logs={appointmentHistories} />
         </div>
       </div>
-      <ul className="flex h-[40rem] w-full flex-col gap-2 overflow-y-auto rounded-md border border-solid border-indigo-500 border-opacity-30 bg-indigo-500 bg-opacity-10 p-3">
+      <ul className="flex h-[40rem] w-full flex-col gap-2 overflow-y-auto rounded-md border border-solid border-foreground border-opacity-10 bg-foreground bg-opacity-5 p-3">
         {/* active, archived, inactive */}
         <div className="ml-auto flex items-center gap-4 text-xs">
           <div className="flex items-center gap-1">
@@ -117,7 +117,7 @@ export function MhrsTemplate({
               router.push(`/dashboard/mhrs?appointmentId=${appointment.id}`)
             }
             className={cn(
-              'flex h-fit cursor-pointer rounded bg-indigo-500 bg-opacity-80 p-2 text-foreground hover:shadow-soft-md hover:shadow-purple-800',
+              'flex h-fit cursor-pointer rounded border border-foreground border-opacity-10 bg-foreground bg-opacity-50 p-2 text-foreground hover:shadow-soft-md',
               appointment.status === 'active' && 'border-b-4 border-green-500',
               appointment.status === 'inactive' &&
                 'border-b-4 border-yellow-500',

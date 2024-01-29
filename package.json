@@ -81,7 +81,7 @@
     "js-cookie": "^3.0.5",
     "link-preview-js": "^3.0.5",
     "lowlight": "^3.1.0",
-    "lucide-react": "^0.190.0",
+    "lucide-react": "^0.316.0",
     "moment": "^2.29.4",
     "next": "14.1.0",
     "next-auth": "^4.24.4",

@@ -70,7 +70,7 @@ export function RoomTemplate({sheetData}: RoomTemplateProps) {
               <h2 className="mb-4 text-2xl text-primary-500 underline underline-offset-4">
                 {year}
               </h2>
-              <div className="grid grid-cols-2 gap-1 sm:grid-cols-3">
+              <div className="grid grid-cols-2 gap-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 {rooms.map(room => (
                   <DialogTrigger key={room.name + room.ry}>
                     <MediaCard
