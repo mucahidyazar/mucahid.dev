@@ -4,6 +4,7 @@ import {DocumentDuplicateIcon, EyeIcon} from '@heroicons/react/24/outline'
 import {useState} from 'react'
 
 import {LinkPreviewCard} from '@/components/cards'
+import {EmptyContent} from '@/components/molecules/EmptyContent'
 import {
   Tooltip,
   TooltipProvider,
@@ -43,11 +44,19 @@ export default function LinkPreviewPage() {
           Convert
         </button>
       </div>
-      <ul className="flex h-60 w-full flex-col gap-1 overflow-y-auto rounded-md border border-solid border-indigo-500 border-opacity-30 bg-indigo-500 bg-opacity-10 p-1">
-        {urlShortenerData?.data.map((data: any) => (
-          <UrlShortenerListItem key={data._id} data={data} />
-        ))}
-      </ul>
+      {!!urlShortenerData?.data.length ? (
+        <ul className="flex h-60 w-full flex-col gap-1 overflow-y-auto rounded-md border border-foreground border-opacity-10 bg-foreground bg-opacity-5 p-1">
+          {urlShortenerData.data.map((data: any) => (
+            <UrlShortenerListItem key={data._id} data={data} />
+          ))}
+        </ul>
+      ) : (
+        <EmptyContent
+          title="Empty list"
+          description="There is no sortener link"
+          className="w-full"
+        />
+      )}
     </div>
   )
 }

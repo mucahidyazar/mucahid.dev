@@ -57,7 +57,7 @@ export default function StockTemplate({
     <div className="flex flex-col items-center gap-4">
       <StockSearch />
       <div className="grid h-[30rem] w-full grid-cols-3  gap-2">
-        <div className="col-span-2 w-full overflow-y-auto rounded-md border border-solid border-indigo-500 border-opacity-30 bg-indigo-500 bg-opacity-10">
+        <div className="col-span-2 w-full overflow-y-auto rounded-md border border-foreground border-opacity-10 bg-foreground bg-opacity-5">
           <div className="flex flex-wrap gap-2 p-2">
             {wishList?.map((data: any) => (
               <div
