@@ -23,9 +23,8 @@ export function MediaTabs() {
       <Link
         href="/media/room"
         className={cn(
-          'flex items-center gap-2 rounded border border-primary-500 bg-primary-500 bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
-          isActive('/media/room') &&
-            'border-primary-700 bg-primary-700 bg-opacity-100',
+          'flex items-center gap-2 rounded border border-primary bg-primary bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
+          isActive('/media/room') && 'border-primary bg-primary bg-opacity-100',
         )}
       >
         <BriefcaseIcon className="h-4 w-4" />
@@ -34,9 +33,9 @@ export function MediaTabs() {
       <Link
         href="/media/books"
         className={cn(
-          'flex items-center gap-2 rounded border border-primary-500 bg-primary-500 bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
+          'flex items-center gap-2 rounded border border-primary bg-primary bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
           isActive('/media/books') &&
-            'border-primary-700 bg-primary-700 bg-opacity-100',
+            'border-primary bg-primary bg-opacity-100',
         )}
       >
         <BookOpenIcon className="h-4 w-4" />
@@ -45,9 +44,9 @@ export function MediaTabs() {
       <Link
         href="/media/movies"
         className={cn(
-          'flex items-center gap-2 rounded border border-primary-500 bg-primary-500 bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
+          'flex items-center gap-2 rounded border border-primary bg-primary bg-opacity-80 px-4 py-2 text-xs font-semibold uppercase text-background duration-200 hover:bg-opacity-90',
           isActive('/media/movies') &&
-            'border-primary-700 bg-primary-700 bg-opacity-100',
+            'border-primary bg-primary bg-opacity-100',
         )}
       >
         <FilmIcon className="h-4 w-4" />

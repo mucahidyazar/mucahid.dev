@@ -70,7 +70,7 @@ export function AppTools({className}: AppToolsProps) {
       <DropdownMenu>
         <DropdownMenuTrigger
           className={cn(
-            'relative z-50 flex h-9 w-9 items-center justify-center rounded border border-primary-500 border-opacity-10 bg-primary-500 bg-opacity-5 text-xs uppercase text-primary-500 shadow-soft-md hover:shadow-soft-lg',
+            'relative z-50 flex h-9 w-9 items-center justify-center rounded border border-secondary border-opacity-10 text-xs uppercase text-secondary shadow-soft-md hover:shadow-soft-lg',
           )}
         >
           {isPending ? '...' : locale}
@@ -80,7 +80,7 @@ export function AppTools({className}: AppToolsProps) {
             <DropdownMenuLabel
               key={cur}
               onClick={() => onSelectChange(cur)}
-              className="cursor-pointer text-center text-xs font-thin uppercase text-primary-500 hover:bg-primary-500 hover:bg-opacity-5"
+              className="cursor-pointer text-center text-xs font-thin uppercase text-secondary hover:bg-secondary hover:bg-opacity-5"
             >
               {t('locale', {locale: cur})}
             </DropdownMenuLabel>
@@ -90,7 +90,7 @@ export function AppTools({className}: AppToolsProps) {
 
       <button
         className={cn(
-          'relative z-50 flex h-9 w-9 items-center justify-center rounded border border-primary-500 border-opacity-10 bg-primary-500 bg-opacity-5 text-primary-500 shadow-soft-md hover:shadow-soft-lg',
+          'relative z-50 flex h-9 w-9 items-center justify-center rounded border border-secondary border-opacity-10 text-secondary shadow-soft-md hover:shadow-soft-lg',
         )}
         onClick={() => {
           let selectedTheme
@@ -111,7 +111,7 @@ export function AppTools({className}: AppToolsProps) {
       {session.data?.user ? (
         <Link
           className={cn(
-            'relative z-50 flex h-9 w-9 items-center justify-center overflow-hidden rounded border border-primary-500 border-opacity-10 bg-primary-500 bg-opacity-5 text-primary-500 shadow-soft-md hover:shadow-soft-lg',
+            'relative z-50 flex h-9 w-9 items-center justify-center overflow-hidden overflow-hidden rounded border border-secondary border-opacity-10 text-secondary shadow-soft-md hover:shadow-soft-lg',
           )}
           href={`/profile/${session.data.user.id}`}
         >
@@ -120,13 +120,13 @@ export function AppTools({className}: AppToolsProps) {
             width={24}
             height={24}
             alt="user avatar"
-            className="h-full w-full rounded border border-primary-500 object-cover"
+            className="h-full w-full object-cover"
           />
         </Link>
       ) : (
         <Link
           className={cn(
-            'relative z-50 flex h-9 w-9 items-center justify-center overflow-hidden rounded border border-primary-500 border-opacity-10 bg-primary-500 bg-opacity-5 text-primary-500 shadow-soft-md hover:shadow-soft-lg',
+            'relative z-50 flex h-9 w-9 items-center justify-center overflow-hidden rounded border border-secondary border-opacity-10 text-secondary shadow-soft-md hover:shadow-soft-lg',
           )}
           href="/sign-in"
         >

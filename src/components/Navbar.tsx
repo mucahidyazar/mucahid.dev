@@ -1,11 +1,15 @@
 'use client'
 import {useSession} from 'next-auth/react'
+import {useEffect, useMemo, useState} from 'react'
 
 import {NavbarItem} from './NavbarItem'
 
 export function Navbar() {
   const session = useSession()
   const isAdmin = session?.data?.user.role === 'ADMIN'
+
+  const [navRef, setNavRef] = useState<HTMLUListElement | null>(null)
+  const [cardBgRef, setCardBgRef] = useState<HTMLUListElement | null>(null)
 
   const NAV_ITEMS = [
     {
@@ -27,13 +31,70 @@ export function Navbar() {
     ...(isAdmin ? [{label: 'Dashboard', path: '/dashboard'}] : []),
   ]
 
+  const [cardId, setCardId] = useState<string>()
+
+  function setCardVariables(card: Element) {
+    console.log('x1')
+    if (navRef && cardBgRef) {
+      console.log('x2')
+      const cardRect = card.getBoundingClientRect()
+      const containerRect = navRef.getBoundingClientRect()
+
+      const top = cardRect.top - containerRect.top + 'px'
+      const left = cardRect.left - containerRect.left + 'px'
+      const width = cardRect.width + 'px'
+      const height = cardRect.height + 'px'
+
+      cardBgRef.style.top = top
+      cardBgRef.style.left = `calc(${left} - 0.5rem)`
+      cardBgRef.style.width = `calc(${width} + 1rem)`
+      cardBgRef.style.height = `calc(${height} + 0.25rem)`
+      cardBgRef.style.backgroundColor = 'hsl(var(--primary))'
+      cardBgRef.style.color = 'hsl(var(--background))'
+    }
+  }
+
+  const element = useMemo(() => {
+    return document.querySelector(`[data-card="${cardId}"]`)
+  }, [cardId])
+
+  useEffect(() => {
+    if (element) setCardVariables(element)
+  }, [element])
+
+  useEffect(() => {
+    const cardInitial = document.querySelector('[data-card-initial]')
+    const element = document.querySelector('.card:hover') || cardInitial
+    if (element) {
+      window.addEventListener('resize', () => {
+        setCardVariables(element)
+      })
+    }
+  }, [])
+
   return (
-    <nav>
-      <ul className="mx-auto flex items-center justify-center gap-4 font-sans text-lg font-semibold sm:text-xl">
-        {NAV_ITEMS.map(item => (
-          <NavbarItem key={item.label} {...item} />
-        ))}
-      </ul>
+    <nav
+      ref={setNavRef as any}
+      className="relative mx-auto flex items-center justify-center gap-4 py-1 font-sans text-lg font-semibold sm:text-xl"
+    >
+      <div id="card-bg" className="-rotate-3" ref={setCardBgRef as any}></div>
+      {NAV_ITEMS.map(item => (
+        <NavbarItem
+          key={item.label}
+          {...item}
+          data-card={item.label}
+          onMouseOver={() => {
+            setCardId(item.label)
+          }}
+          onMouseOut={() => {
+            setCardId(undefined)
+          }}
+        />
+      ))}
     </nav>
   )
 }
+
+// const cardContainer = document.querySelector('.cards-container');
+// const cardBg = document.querySelector(".card-bg");
+// const cards = document.querySelectorAll(".card");

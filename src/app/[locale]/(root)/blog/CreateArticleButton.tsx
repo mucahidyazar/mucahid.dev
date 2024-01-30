@@ -6,7 +6,7 @@ import {Button} from '@/components/ui/button'
 export function CreateArticleButton() {
   return (
     <Button
-      className="text-background"
+      className="cursor-pointer !bg-primary text-background"
       onClick={() => {
         createArticle()
       }}

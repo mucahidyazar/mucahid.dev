@@ -16,7 +16,7 @@ export default async function RootLayout({children}: RootLayoutProps) {
     <div className="background-pattern flex h-full w-full flex-col">
       <Nav />
 
-      <main className="mx-auto w-full max-w-full flex-grow px-4 pt-44 lg:max-w-6xl xl:px-0">
+      <main className="mx-auto w-full max-w-full flex-grow px-4 pt-52 lg:max-w-6xl xl:px-0">
         {children}
       </main>
 

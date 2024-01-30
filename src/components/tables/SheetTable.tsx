@@ -26,7 +26,7 @@ export function SheetTable({
 
   return (
     <div className="flex flex-col">
-      <h2 className="mb-4 text-2xl text-primary-500 underline underline-offset-4">
+      <h2 className="mb-4 text-2xl text-primary underline underline-offset-4">
         {title}
       </h2>
       <Table className="text-xs">
@@ -37,7 +37,7 @@ export function SheetTable({
 
               return (
                 <TableHead key={index.toString()}>
-                  <p className="text-main">{cell}</p>
+                  <p className="text-primary">{cell}</p>
                 </TableHead>
               )
             })}

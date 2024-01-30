@@ -137,7 +137,7 @@ export function MhrsTemplate({
                   {DISTRICT[appointment.districtId]} /{CITY[appointment.cityId]}
                 </span>
               </p>
-              <div className="flex items-center gap-2 text-[10px] text-yellow-300">
+              <div className="flex items-center gap-2 text-[10px] text-foreground">
                 <p className="flex items-center gap-1">
                   <Calculator size={10} />
                   <span>Checked: {appointment.checkCount}</span>
@@ -164,9 +164,9 @@ export function MhrsTemplate({
 
             <div className="flex items-center gap-2">
               <Button
+                className="bg-opacity-20 text-background"
                 size="sm"
                 variant="outline"
-                className="w-full text-red-500 hover:bg-red-500 hover:bg-opacity-10 hover:text-red-600"
                 disabled={removeAppointmentIsPending}
                 isLoading={removeAppointmentIsPending}
                 onClick={() => {
@@ -176,9 +176,9 @@ export function MhrsTemplate({
                 <TrashIcon size={16} />
               </Button>
               <Button
+                className="bg-opacity-20 text-background"
                 size="sm"
                 variant="outline"
-                className="w-full text-indigo-500 hover:bg-indigo-500 hover:bg-opacity-10 hover:text-indigo-600"
                 disabled={updateAppointmentIsPending}
                 isLoading={updateAppointmentIsPending}
                 onClick={() => {
@@ -191,9 +191,9 @@ export function MhrsTemplate({
                 <Archive size={16} />
               </Button>
               <Button
+                className="bg-opacity-20 text-background"
                 size="sm"
                 variant="outline"
-                className="w-full text-foreground"
                 disabled={updateAppointmentIsPending}
                 isLoading={updateAppointmentIsPending}
                 onClick={e => {

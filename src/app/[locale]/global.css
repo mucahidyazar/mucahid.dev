@@ -4,7 +4,7 @@
 
 @layer utilities {
   .link {
-    @apply cursor-pointer border-b border-solid border-primary-500 font-medium text-primary-500 duration-200 hover:border-primary-900 hover:text-primary-900;
+    @apply cursor-pointer border-b border-solid border-primary font-medium text-primary duration-200 hover:border-opacity-80 hover:text-opacity-80;
   }
 }
 
@@ -12,11 +12,7 @@
   :root {
     --main: 48 96% 53%;
 
-    --primary-500: 3 73% 36%;
-    --primary-700: 4 66% 29%;
-    --primary-900: 7 75% 25%;
-
-    --background: 240 7% 97%;
+    --background: 26 30% 95%;
     --foreground: 221 39% 11%;
     --gradient: radial-gradient(
       circle,
@@ -37,10 +33,11 @@
 
     --input: 214.3 31.8% 91.4%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 105 34% 20%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    /* hsl(38, 98%, 63%) */
+    --secondary: 202 70% 16%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --accent: 210 40% 96.1%;
@@ -56,10 +53,6 @@
 
   .dark {
     --main: 48 96% 53%;
-
-    --primary-500: 14 53% 59%;
-    --primary-700: 13 47% 47%;
-    --primary-900: 12 53% 38%;
 
     --background: 0 0% 7%;
     --foreground: 0 0% 90%;
@@ -77,10 +70,10 @@
 
     --input: 0 0% 25%;
 
-    --primary: 0 100% 50%;
+    --primary: 110 88% 93%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 40%;
+    --secondary: 45 73% 58%;
     --secondary-foreground: 0 0% 60%;
 
     --accent: 0 100% 60%;
@@ -96,10 +89,6 @@
 
   .navy {
     --main: 48 96% 53%;
-
-    --primary-500: 205 54% 50%;
-    --primary-700: 205 52% 34%;
-    --primary-900: 205 60% 25%;
 
     --background: 210 100% 10%;
     --foreground: 210 100% 90%;
@@ -117,10 +106,10 @@
 
     --input: 210 100% 25%;
 
-    --primary: 210 100% 50%;
+    --primary: 110 88% 93%;
     --primary-foreground: 210 100% 100%;
 
-    --secondary: 210 100% 40%;
+    --secondary: 45 73% 58%;
     --secondary-foreground: 210 100% 60%;
 
     --accent: 210 100% 60%;
@@ -210,7 +199,7 @@
     }
 
     .tiptap-link {
-      color: hsl(var(--primary-500));
+      color: hsl(var(--primary));
       text-decoration: underline;
     }
 
@@ -443,4 +432,12 @@ html {
 
 .react-images__view-image {
   display: unset;
+}
+
+#card-bg {
+  position: absolute;
+  background-color: var(--card-bg-color);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  opacity: 0.5;
 }

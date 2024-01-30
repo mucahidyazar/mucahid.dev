@@ -26,8 +26,8 @@ export function SectionLink({
     <Link
       href={href}
       className={cn(
-        'flex items-center gap-2 border-b border-solid border-foreground',
-        active && '!text-green-500',
+        'flex items-center gap-1 gap-y-2',
+        active && '!text-primary',
         logo && '!border-none',
       )}
     >

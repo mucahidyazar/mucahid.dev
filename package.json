@@ -85,7 +85,7 @@
     "moment": "^2.29.4",
     "next": "14.1.0",
     "next-auth": "^4.24.4",
-    "next-intl": "3.1.0",
+    "next-intl": "3.5.3",
     "next-themes": "^0.2.1",
     "next13-progressbar": "^1.1.0",
     "node-schedule": "^2.1.1",

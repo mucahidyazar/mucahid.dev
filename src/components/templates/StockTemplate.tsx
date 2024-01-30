@@ -61,7 +61,7 @@ export default function StockTemplate({
           <div className="flex flex-wrap gap-2 p-2">
             {wishList?.map((data: any) => (
               <div
-                className="min-w-[12rem] max-w-[calc(100%/3-6px)] bg-white"
+                className="min-w-[12rem] max-w-[calc(100%/3-6px)] bg-foreground bg-opacity-40"
                 key={data.id}
               >
                 <Image
@@ -76,7 +76,7 @@ export default function StockTemplate({
                   <a
                     href={data.productUrl}
                     target="_blank"
-                    className="line-clamp-1 italic text-primary-500 hover:underline"
+                    className="line-clamp-1 italic hover:underline"
                   >
                     {data.productUrl}
                   </a>

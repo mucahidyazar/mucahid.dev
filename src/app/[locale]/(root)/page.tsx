@@ -31,7 +31,7 @@ export default function Page() {
           <HomeArticle
             title="Download"
             content={
-              <Badge variant="default">
+              <Badge variant="default" className="bg-primary text-background">
                 <a href="/resume.pdf" download>
                   Resume
                 </a>
@@ -84,12 +84,15 @@ export default function Page() {
           title="Writer at"
           content={
             <p>
-              <a className="link" href="https://javascript.plainenglish.io">
+              <a
+                className="text-secondary"
+                href="https://javascript.plainenglish.io"
+              >
                 Javascript Plainenglish
               </a>{' '}
               on{' '}
               <a
-                className="link"
+                className="text-secondary"
                 href={`https://medium.com/@${ME.social.medium}`}
               >
                 Medium
@@ -108,7 +111,12 @@ export default function Page() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="default">Motivation</Badge>
+                    <Badge
+                      variant="default"
+                      className="bg-primary text-background"
+                    >
+                      Motivation
+                    </Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <div className="w-96">
@@ -131,7 +139,12 @@ export default function Page() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="default">Offer</Badge>
+                    <Badge
+                      variant="default"
+                      className="bg-primary text-background"
+                    >
+                      Offer
+                    </Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <div className="w-96">
@@ -154,7 +167,12 @@ export default function Page() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="default">Challenges</Badge>
+                    <Badge
+                      variant="default"
+                      className="bg-primary text-background"
+                    >
+                      Challenges
+                    </Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <ul className="w-96 list-disc pl-2">
@@ -209,7 +227,12 @@ export default function Page() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
-                    <Badge variant="default">Expectation</Badge>
+                    <Badge
+                      variant="default"
+                      className="bg-primary text-background"
+                    >
+                      Expectation
+                    </Badge>
                   </TooltipTrigger>
                   <TooltipContent>
                     <ul className="w-96 list-disc pl-2">

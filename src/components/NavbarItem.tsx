@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
+import {useLocale} from 'next-intl'
 
 import {cn} from '@/utils'
 
@@ -9,25 +10,35 @@ interface INavbarItemProps {
   label: string
   path: string
 }
-export function NavbarItem(item: INavbarItemProps) {
+export function NavbarItem(
+  item: INavbarItemProps & React.HTMLProps<HTMLLIElement>,
+) {
   const pathname = usePathname()
+  const locale = useLocale()
 
   const isActive = () => {
-    if (item.path === '/' && pathname === '/') return true
-    if (item.path === '/' && pathname !== '/') return false
+    if (item.path === '/' && (pathname === '/' || pathname === `/${locale}`))
+      return true
+    if (item.path === '/' && (pathname !== '/' || pathname === `/${locale}`))
+      return false
 
     return pathname.includes(item.path)
   }
 
   return (
-    <li
+    <Link
+      href={item.path}
       key={item.label}
       className={cn(
-        'text-link duration-200 hover:opacity-60',
-        isActive() ? 'opacity-100' : 'opacity-40',
+        'font-normal text-primary duration-200 hover:text-opacity-80',
+        isActive()
+          ? 'rotate-[3deg] bg-primary px-4 py-0.5 text-background'
+          : '',
       )}
+      {...(isActive() ? {'data-card-initial': ''} : {})}
+      {...(item as any)}
     >
-      <Link href={item.path}>{item.label}</Link>
-    </li>
+      {item.label}
+    </Link>
   )
 }

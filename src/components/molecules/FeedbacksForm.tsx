@@ -66,7 +66,7 @@ export function FeedbacksForm() {
         </div>
       )}
       <button
-        className="ml-auto w-full rounded bg-primary-500 p-2 text-background"
+        className="ml-auto w-full rounded bg-primary p-2 text-background"
         type="submit"
       >
         Send

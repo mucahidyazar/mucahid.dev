@@ -30,10 +30,6 @@ module.exports = {
       colors: {
         main: 'hsl(var(--main) / <alpha-value>)',
 
-        'primary-500': 'hsl(var(--primary-500) / <alpha-value>)',
-        'primary-700': 'hsl(var(--primary-700) / <alpha-value>)',
-        'primary-900': 'hsl(var(--primary-900) / <alpha-value>)',
-
         background: 'hsl(var(--background) / <alpha-value>)',
         foreground: 'hsl(var(--foreground) / <alpha-value>)',
         link: 'hsl(var(--link) / <alpha-value>)',
