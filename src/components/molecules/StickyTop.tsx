@@ -8,7 +8,7 @@ import {Icon} from '../atoms/icon/icon'
 
 export function StickyTop() {
   return (
-    <div className="absolute inset-0 mx-auto flex h-fit w-fit flex-col justify-center">
+    <div className="absolute inset-0 mx-auto hidden h-fit w-fit flex-col justify-center sm:flex">
       <ul className="mx-auto flex w-full cursor-pointer items-center justify-center gap-2 gap-x-4 rounded-b-md bg-secondary p-2 text-background duration-150 hover:z-10 md:w-fit">
         {Object.entries(ME.social).map(([platform, id]) => (
           <a
@@ -21,7 +21,7 @@ export function StickyTop() {
         ))}
       </ul>
       <Link
-        className="mx-auto inline-block rounded-b bg-secondary p-1"
+        className="mx-auto inline-block bg-secondary p-1 sm:rounded-b"
         href="/"
       >
         <Image

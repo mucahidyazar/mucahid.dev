@@ -1,4 +1,5 @@
 import {Header} from '../molecules/Header'
+import {MobileMenu} from '../molecules/mobile-menu'
 import {StickyTop} from '../molecules/StickyTop'
 
 export function Nav() {
@@ -8,6 +9,8 @@ export function Nav() {
         <StickyTop />
 
         <Header />
+
+        <MobileMenu />
       </div>
     </nav>
   )

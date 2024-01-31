@@ -34,9 +34,7 @@ export function Navbar() {
   const [cardId, setCardId] = useState<string>()
 
   function setCardVariables(card: Element) {
-    console.log('x1')
     if (navRef && cardBgRef) {
-      console.log('x2')
       const cardRect = card.getBoundingClientRect()
       const containerRect = navRef.getBoundingClientRect()
 
@@ -55,7 +53,8 @@ export function Navbar() {
   }
 
   const element = useMemo(() => {
-    return document.querySelector(`[data-card="${cardId}"]`)
+    if (typeof window === 'undefined') return
+      return window.document.querySelector(`[data-card="${cardId}"]`)
   }, [cardId])
 
   useEffect(() => {
@@ -63,19 +62,21 @@ export function Navbar() {
   }, [element])
 
   useEffect(() => {
-    const cardInitial = document.querySelector('[data-card-initial]')
-    const element = document.querySelector('.card:hover') || cardInitial
-    if (element) {
-      window.addEventListener('resize', () => {
-        setCardVariables(element)
-      })
-    }
+    if (typeof window === 'undefined') return
+      const cardInitial = window.document.querySelector('[data-card-initial]')
+      const element =
+        window.document.querySelector('.card:hover') || cardInitial
+      if (element) {
+        window.addEventListener('resize', () => {
+          setCardVariables(element)
+        })
+      }
   }, [])
 
   return (
     <nav
       ref={setNavRef as any}
-      className="relative mx-auto flex items-center justify-center gap-4 py-1 font-sans text-lg font-semibold sm:text-xl"
+      className="relative mx-auto hidden items-center justify-center gap-4 py-1 font-sans text-lg font-semibold sm:flex sm:text-xl"
     >
       <div id="card-bg" className="-rotate-3" ref={setCardBgRef as any}></div>
       {NAV_ITEMS.map(item => (
@@ -95,6 +96,6 @@ export function Navbar() {
   )
 }
 
-// const cardContainer = document.querySelector('.cards-container');
-// const cardBg = document.querySelector(".card-bg");
-// const cards = document.querySelectorAll(".card");
+// const cardContainer = document?.querySelector('.cards-container');
+// const cardBg = document?.querySelector(".card-bg");
+// const cards = document?.querySelectorAll(".card");
