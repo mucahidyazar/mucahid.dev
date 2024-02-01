@@ -22,7 +22,7 @@ export function generateMetadata() {
 }
 
 export default async function Page() {
-  const user = await getCurrentUser()
+  const user = await getCurrentUser({isRedirect: false})
   const isAdmin = user?.role === 'ADMIN'
 
   const feedbacks = await db.feedback.findMany({
