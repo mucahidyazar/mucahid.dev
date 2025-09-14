@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.mucahid.dev"
+        }
+      ],
+      "destination": "https://mucahid.dev/$1",
+      "permanent": true
+    }
+  ]
+}
