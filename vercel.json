@@ -10,6 +10,18 @@
       ],
       "destination": "https://mucahid.dev/$1",
       "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-forwarded-proto",
+          "value": "http"
+        }
+      ],
+      "destination": "https://mucahid.dev/$1",
+      "permanent": true
     }
   ]
 }

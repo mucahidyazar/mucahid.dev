@@ -8,7 +8,10 @@ export default createMiddleware({
 
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
   defaultLocale: LOCALE.en,
-  localePrefix: 'as-needed'
+
+  // Use 'never' to avoid unnecessary redirects for default locale
+  // This reduces redirect chains and improves SEO
+  localePrefix: 'never'
 });
 
 export const config = {
